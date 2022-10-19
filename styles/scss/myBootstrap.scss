@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+// colors
+$primaryColor: #00e87c;
+$lightGreenColor: #f2feff;
+$green: #4fe3b6;
+$accentColor: #ff0080;
+$accentHoverColor: #ff00c8;
+$white: #ffffff;
+$grey: #7a7a7a;
+$black: #121d2a;
+
+@mixin widthPadding {
+    padding: 0 12%;
+}
+
+// font sizes
+@mixin primaryFont {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: $black;
+}
+@mixin secondaryFont {
+  font-size: .9rem;
+  font-weight: 300;
+}
+
+@mixin tertiaryFont {
+  font-size: 2rem;
+  font-weight: 600;
+  color: $black;
+}
+
+@mixin tinyFont {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $grey;
+}
+
+@mixin accentColorBtn {
+    background-color: $accentColor;
+    &:hover {
+        background-color: $accentHoverColor;
+    }
+}
+
+// buttons
+@mixin greenBtn {
+  border-radius: 4px;
+  padding: 9px 12px;
+  @include primaryFont;
+  background-color: $primaryColor;
+  &:hover {
+    background-color: $green;
+  }
+}
+
+@mixin primaryBtn {
+  font-size: 0.9rem;
+  font-weight: 400;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+// links
+@mixin navLinkHover {
+  &:hover {
+    color: $black;
+    border-bottom: 2px solid $black;
+  }
+}
+
+@mixin activeLink {
+  a {
+    font-weight: 600;
+    color: $black;
+  }
+  &:hover {
+    border-bottom: 2px solid $black;
+  }
+}
+
+@mixin focusInput {
+  outline: 1px solid $primaryColor;
+}
+
+  // placeholder
+  @mixin placeholder {
+    ::placeholder {
+      @include primaryFont;
+      color: $grey;
+    }
+  }

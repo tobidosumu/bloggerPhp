@@ -1,0 +1,263 @@
+@import "./reset";
+@import "./myBootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+body {
+    font-family: "Poppins", sans-serif;
+
+    .mainContainer {
+        max-width: 100%;
+        background-color: $white;
+
+        .hero { // hero
+            height: 300px;
+            @include widthPadding; // provides left and right padding for hero
+            background-color: $lightGreenColor;
+
+            header {
+                height: 20%;
+                .logoContainer {
+                    img {
+                        width: 60%;
+                    }
+                }
+
+                nav { // main navigation
+                    width: 49%;
+
+                    ul {
+
+                        li {
+                            display: flex;
+                            justify-content: space-between;
+
+                            a {
+                                display: flex;
+                                padding: 8px 12px;
+                                justify-content: space-between;
+                                @include primaryFont;
+                                @include navLinkHover;
+                            }
+
+                            &:last-child {
+                                @include greenBtn;
+
+                                &:hover {
+                                    border-bottom: none !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .caption {  // hero caption
+                height: 80%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+
+                div {
+                    width: 45%;
+                    text-align: center;
+                    text-transform: capitalize;
+
+                    tertiaryFont {
+                        @include tertiaryFont;
+                    }
+
+                    p {
+                        @include primaryFont;
+                        color: $grey;
+                        line-height: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        .blogContents {
+            // blog contents container start here
+            padding-top: 6%;
+            @include widthPadding;
+            width: 100%;
+
+            .blogContentContainer {
+
+                nav:first-child {
+                    border-bottom: 1px solid $grey;
+
+                    ul {
+                        width: 55%;
+                        padding: 4px 0;
+                        color: $grey;
+
+                        li {
+                            a {
+                                @include primaryFont;
+                                padding: 5px 14px;
+                                color: $grey;
+
+                                &:hover {
+                                    @include activeLink;
+                                }
+                            }
+
+                            &:first-child {
+                                @include activeLink;
+                                border: none !important;
+                            }
+                        }
+                    }
+                }
+
+                .blogPostContainer {
+                    padding-top: 35px; // border:  1px solid red;
+
+                    .postCard { // blog post card starts here
+                        width: 31%;
+
+                        .postCategory {
+                            @include tinyFont;
+                            background-color: $lightGreenColor;
+                            // border:  1px solid red;
+
+                            p:first-child {
+                                letter-spacing: 2px;
+                                text-transform: uppercase;
+                                font-size: 0.7rem;
+                                font-weight: 600;
+                            }
+                        }
+
+                        .postTitle {
+                            h2 {
+                                color: $black;
+                            }
+                        }
+
+                        .postParagraph {
+                            @include primaryFont;
+                            color: $grey;
+                        }
+
+                        .readPostBtn {
+                            a {
+                                @include greenBtn;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .dropUsAmessage {
+                // this block styles the div before the footer
+                position: relative;
+                top: 110px;
+                background-color: $lightGreenColor;
+                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+
+                .textBlockContainer {
+                    p {
+                        width: 60%;
+                        @include primaryFont;
+                        color: $grey;
+                    }
+
+                    a {
+                        @include greenBtn;
+                    }
+                }
+            }
+        }
+
+        // blog post modal starts here
+        .modalContainer {
+            label {
+                @include tinyFont;
+            }
+
+            .modal-footer {
+                button:last-child {
+                    color: $black;
+                    background-color: $primaryColor;
+                    border: none !important;
+                }
+            }
+        }
+    }
+
+    footer { // footer starts here
+        height: 350px;
+        background-color: $black;
+        @include widthPadding;
+
+        div {
+            width: 25%;
+            display: flex;
+            margin-top: 100px;
+
+            ul {
+                p {
+                    color: $white;
+                    margin-bottom: 16px;
+                    @include secondaryFont;
+                }
+
+                li {
+                    a {
+                        @include tinyFont;
+                        color: $grey;
+
+                        &:hover {
+                            color: $green;
+                        }
+                    }
+                }
+            }
+        }
+
+        div:last-child {
+            ul {
+                li {
+                    ul {
+                        width: 150px;
+                        display: flex;
+                        justify-content: space-between;
+                        li {
+                            a {
+                                width: 20px;
+                                img {
+                                    width: 18px;                   
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .logoList {
+                    a {
+                        img {
+                            width: 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .postBtn {
+        position: fixed;
+        bottom: 70px;
+        right: 50px;
+        width: 70px;
+        height: 70px;
+        border-radius: 50px;
+        font-size: 30px;
+        color: $white;
+        box-shadow: 0px 0px 30px #00c75a;
+        @include accentColorBtn;
+    }
+ 
+}

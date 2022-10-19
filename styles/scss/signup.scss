@@ -1,0 +1,86 @@
+@import './myBootstrap';
+@import './reset';
+
+body {
+    section {
+        aside {
+            width: 50%;
+            height: 100vh;
+        }
+        #leftAside {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background: $primaryColor url(../../assets/icons/Mobile_login-pana.svg) no-repeat 50% 50%;
+            background-size: 70% 70%;
+            h2 {
+                @include tertiaryFont;
+                color: $white;
+                margin-bottom: 40px;
+            }
+        }
+        #rightAside {
+            padding: 7%;
+            padding-top: 2%;
+            .header {
+                a:first-child {
+                    @include tinyFont;
+                    color: $primaryColor;
+                    padding-right: 20px;
+                }
+                a:last-child {
+                    color: $white;
+                    @include tinyFont;
+                    background-color: $primaryColor;
+                    &:hover {
+                        background-color:  $accentHoverColor;
+                    }
+                }
+            }
+            .formWrapper {
+                .formContents {
+                    // margin-top: 0px;
+                    h2 {
+                        @include tertiaryFont;
+                    }
+                    form {
+                        width: 80%;
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            padding-bottom: 10px;
+                            label {
+                                color: $black;
+                                padding-bottom: 10px;
+                                @include primaryFont;
+                            }
+                            input {
+                                height: 40px;
+                                border: none;
+                                border-radius: 4px;
+                                padding-left: 12px;
+                                box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.151);
+                                &::placeholder {
+                                    color: $grey;
+                                    @include tinyFont;
+                                }
+                                &:focus {
+                                    @include focusInput;
+                                }
+                            }
+                        }
+                        .createAcctBtn {
+                            input {
+                                color: $white;
+                                background-color: $primaryColor;
+                                &:hover {
+                                    background-color: $accentHoverColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

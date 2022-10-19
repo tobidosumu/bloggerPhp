@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, input {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.form-select:focus {
+  box-shadow: none !important;
+}
+
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+
+body section aside {
+  width: 50%;
+  height: 100vh;
+}
+body section #leftAside {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: #00e87c url(../../assets/icons/Mobile_login-pana.svg) no-repeat 50% 50%;
+  background-size: 70% 70%;
+}
+body section #leftAside h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #121d2a;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+body section #rightAside {
+  padding: 7%;
+  padding-top: 2%;
+}
+body section #rightAside .header a:first-child {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+  color: #00e87c;
+  padding-right: 20px;
+}
+body section #rightAside .header a:last-child {
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+  background-color: #00e87c;
+}
+body section #rightAside .header a:last-child:hover {
+  background-color: #ff00c8;
+}
+body section #rightAside .formWrapper .formContents h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #121d2a;
+}
+body section #rightAside .formWrapper .formContents form {
+  width: 80%;
+}
+body section #rightAside .formWrapper .formContents form div {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+body section #rightAside .formWrapper .formContents form div label {
+  color: #121d2a;
+  padding-bottom: 10px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #121d2a;
+}
+body section #rightAside .formWrapper .formContents form div input {
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  padding-left: 12px;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.151);
+}
+body section #rightAside .formWrapper .formContents form div input::placeholder {
+  color: #7a7a7a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+}
+body section #rightAside .formWrapper .formContents form div input:focus {
+  outline: 1px solid #00e87c;
+}
+body section #rightAside .formWrapper .formContents form .createAcctBtn input {
+  color: #ffffff;
+  background-color: #00e87c;
+}
+body section #rightAside .formWrapper .formContents form .createAcctBtn input:hover {
+  background-color: #ff00c8;
+}
+
+/*# sourceMappingURL=signup.css.map */
