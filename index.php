@@ -1,4 +1,8 @@
-<?php include './header/indexHeader.php'?>
+<?php 
+    include './header/indexHeader.php';
+    require_once './classes/post.validator.php';
+?>
+
 
 <body>
     <div class="mainContainer">
@@ -42,6 +46,15 @@
 
                 <section class="blogPostContainer d-flex justify-content-between">
 
+                    <?php
+                        // $blogPostInputs = BlogPostValiator::getBlogPosts();
+                        // echo var_dump($blogPostInputs);
+
+                        // foreach ($blogPostInputs as $blogPostInput)
+                        // {
+                        //     // echo $blogPostInput->validateBlogTitle();
+                        // }
+                    ?>
                     <div class="postCard">
                         <!-- blog post card starts here -->
                         <div class="postPhoto">
@@ -196,57 +209,64 @@
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
 
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Create a Blog Post</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+                        <form action="./classes/post.controller.php" method="post" enctype="multipart/form-data"> <!-- form starts here -->
 
-                        <div class="modal-body px-4 my-2"> <!-- modal body starts here -->
-
-                            <label for="title">Blog title</label> <!-- Blog title starts here -->
-                            <div class="input-group mt-2 mb-3"> 
-                                <span class="input-group-text" id="addon-wrapping">
-                                    <i class="bi bi-card-heading"></i>
-                                </span>
-                                <input type="text" class="form-control py-2" name="blogTitle" placeholder="Add blog title" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Create a Blog Post</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
 
-                            <label for="title">Blog category</label> <!-- Blog category starts here -->
-                            <div class="input-group mt-2 mb-3">
-                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                    <i class="bi bi-list"></i>
-                                </span>
-                                <select class="form-select" name="blogCategory" id="floatingSelect" aria-label="Floating label select example">
-                                    <option selected>Choose blog category</option>
-                                    <option value="gardening">Gardening</option>
-                                    <option value="travel">Travel</option>
-                                    <option value="fitness">Fitness</option>
-                                </select>
+                            <div class="modal-body px-4 my-2"> <!-- modal body starts here -->
+                                    
+                                <label for="title">Blog title<span class="ms-1 text-danger">*</span></label> <!-- Blog title starts here -->
+                                <div class="input-group mt-2 mb-3"> 
+                                    <span class="input-group-text" id="addon-wrapping">
+                                        <i class="bi bi-card-heading"></i>
+                                    </span>
+                                    <input type="text" class="form-control py-2" name="title" placeholder="Add blog title" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                </div>
+
+                                <label for="title">Blog category<span class="ms-1 text-danger">*</span></label> <!-- Blog category starts here -->
+                                <div class="input-group mt-2 mb-3">
+                                    <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
+                                        <i class="bi bi-list"></i>
+                                    </span>
+                                    <select class="form-select" name="category" id="floatingSelect" aria-label="Floating label select example">
+                                        <option value="">Select a category</option>
+                                        <option value="gardening">Gardening</option>
+                                        <option value="travel">Travel</option>
+                                        <option value="fitness">Fitness</option>
+                                    </select>
+                                </div>
+
+                                <label for="title">Blog description<span class="ms-1 text-danger">*</span></label> <!-- blog description starts here-->
+                                <div class="input-group mt-2 mb-3"> <!-- comment field -->
+                                    <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </span>
+                                    <textarea class="form-control rounded-0 rounded-end" name="description" placeholder="Add blog description" id="floatingTextarea2" style="height: 100px"></textarea>
+                                </div>
+
+                                <label for="title">Blog photo<span class="ms-1 text-danger">*</span></label> <!-- upload blog photo starts here-->
+                                <div class="input-group mt-2 mb-3">
+                                    <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
+                                        <i class="bi bi-card-image"></i>
+                                    </span>
+                                    <input type="file" name="photo" class="form-control" id="inputGroupSelect01" aria-describedby="inputGroupFileAddon01" aria-label="Upload">
+                                </div>
+
+
+                            </div> <!-- modal body ends here -->
+                                
+                            <div class="modal-footer"> <!-- modal footer -->
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" name="savePostData" class="btn btn-primary">Save changes</button>
                             </div>
 
-                            <label for="title">Blog description</label> <!-- blog description starts here-->
-                            <div class="input-group mt-2 mb-3"> <!-- comment field -->
-                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                    <i class="bi bi-pencil-square"></i>
-                                </span>
-                                <textarea class="form-control rounded-0 rounded-end" name="blogDescription" placeholder="Add blog description" id="floatingTextarea2" style="height: 100px"></textarea>
-                            </div>
+                        </form> <!-- form ends here -->
 
-                            <label for="title">Blog photo</label> <!-- upload blog photo starts here-->
-                            <div class="input-group mt-2 mb-3">
-                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                    <i class="bi bi-card-image"></i>
-                                </span>
-                                <input type="file" name="blogPhoto" class="form-control" id="inputGroupSelect01" aria-describedby="inputGroupFileAddon01" aria-label="Upload">
-                            </div>
-
-                        </div> <!-- modal body ends here -->
-                            
-                        <div class="modal-footer"> <!-- modal footer -->
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
