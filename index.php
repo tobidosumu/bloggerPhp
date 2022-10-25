@@ -3,7 +3,6 @@
     require_once './classes/post.validator.php';
 ?>
 
-
 <body>
     <div class="mainContainer">
         <!-- contains all the page contents -->
@@ -161,7 +160,7 @@
                 </ul>
             </div>
 
-            <div class="links">
+            <div class="links justify-content-center">
                 <ul class="d-flex flex-column">
                     <p>Links</p>
                     <li><a href="#">About</a></li>
@@ -170,7 +169,7 @@
                 </ul>
             </div>
 
-            <div class="products">
+            <div class="products justify-content-center">
                 <ul class="d-flex flex-column">
                     <p>Products</p>
                     <li><a href="#">Blogger Social</a></li>
@@ -179,8 +178,8 @@
                 </ul>
             </div>
 
-            <div class="followUs">
-                <ul class="d-flex flex-column">
+            <div class="followUs justify-content-end">
+                <ul class="d-flex flex-column align-items-start">
                     <p>Follow us</p>
                     <li>
                         <ul>

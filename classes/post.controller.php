@@ -19,24 +19,8 @@
         $validatePhoto = $postValidator->validatePhoto($fileName, $fileError, $fileSize, $fileTmpName);
     }
 
-    if (!$validateTitle['status'])
-    {
-        print_r($validateTitle['message']);
-    }
-    elseif (!$validateCategory['status'])
-    {
-        print_r($validateCategory['message']);
-    }
-    elseif (!$validateDescription['status'])
-    {
-        print_r($validateDescription['message']);
-    }
-    elseif (!$validatePhoto['status'])
-    {
-        print_r($validatePhoto['message']);
-    }
-    else {
-        $postValidator->insertBlogData();
-    }
+    $validateAllPostData = $postValidator->validateAllPostData($validateTitle, $validateCategory, $validateDescription, $validatePhoto, $postValidator);
+    $postValidator->InsertBlogData();
+
 
 ?>

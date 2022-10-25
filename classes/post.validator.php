@@ -22,7 +22,7 @@
             $this->dbConn = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME,DB_USER,DB_PWD,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
         }
 
-        public function setTitle($title)
+        public function setTitle($title) // set title
         {
             $this->title = $title;
         }
@@ -32,7 +32,7 @@
             return $this->title;
         }
 
-        public function setCategory($category) // setBlogCategory
+        public function setCategory($category) // set category
         {
             $this->category = $category;
         }
@@ -42,7 +42,7 @@
             return $this->category;
         }
 
-        public function setDescription($description) // setBlogDescription
+        public function setDescription($description) // set description
         {
             $this->description = $description;
         }
@@ -180,7 +180,7 @@
             {
                 return [
                     "status" => false,
-                    "message" => "Image si too Large! Image size must not be more than 1MB."
+                    "message" => "Image is too Large! Image size must not be more than 1MB."
                 ];
             } 
             else {
@@ -189,6 +189,29 @@
                     "status" => true,
                     "message" => "Photo uploaded successfully!"
                 ];
+            }
+        }
+
+        public function validateAllPostData($validateTitle, $validateCategory, $validateDescription, $validatePhoto, $postValidator)
+        {
+            if (!$validateTitle['status'])
+            {
+                print_r($validateTitle['message']);
+            }
+            elseif (!$validateCategory['status'])
+            {
+                print_r($validateCategory['message']);
+            }
+            elseif (!$validateDescription['status'])
+            {
+                print_r($validateDescription['message']);
+            }
+            elseif (!$validatePhoto['status'])
+            {
+                print_r($validatePhoto['message']);
+            }
+            else {
+                return;
             }
         }
         
