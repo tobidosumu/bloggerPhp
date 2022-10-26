@@ -1,6 +1,9 @@
 <?php 
     include './header/indexHeader.php';
     require_once './classes/post.validator.php';
+
+    $postValidator = new PostValidator(); 
+    $allPostData = $postValidator->fetchAll();
 ?>
 
 <body>
@@ -43,77 +46,36 @@
                     </ul>
                 </nav>
 
-                <section class="blogPostContainer d-flex justify-content-between">
+                <section class="blogPostContainer d-flex flex-wrap justify-content-between align-items-end">
 
                     <?php
-                        // $blogPostInputs = BlogPostValiator::getBlogPosts();
-                        // echo var_dump($blogPostInputs);
 
-                        // foreach ($blogPostInputs as $blogPostInput)
-                        // {
-                        //     // echo $blogPostInput->validateBlogTitle();
-                        // }
+                        foreach ($allPostData as $key => $val)
+                        {
+                            // var_dump($val['photo']);
+                            // die('hello');
+                            ?>
+                                <div class="postCard">
+                                    <!-- blog post card starts here -->
+                                    <div class="postPhoto">
+                                        <img class="img-fluid rounded-2" src=""> <!-- fetches photo from db -->
+                                        <img class="img-fluid rounded-2" src="./uploads/6357e5c6b0f690.29024356.jpg" alt="green leaf plant"> <!-- fetches photo from db -->
+                                    </div>
+                                    <div class="postCategory rounded-1 d-flex justify-content-between p-2 px-3 my-2">
+                                        <p><?=$val['category'] ?></p> <!-- fetches category from db -->
+                                        <p>5 min Read</p>
+                                    </div>
+                                    <div class="postTitle">
+                                        <p class="h6"><?=$val['title']?></p> <!-- fetches title from db -->
+                                    </div>
+                                    <div class="postParagraph">
+                                        <p><?=$val['description']?></p> <!-- fetches description from db -->
+                                    </div>
+                                    <div class="readPostBtn pt-3"><a class="btn" href="http:#">Read full article</a></div>
+                                </div>
+                            <?php    
+                        }
                     ?>
-                    <div class="postCard">
-                        <!-- blog post card starts here -->
-                        <div class="postPhoto">
-                            <img class="img-fluid rounded-2" src="./assets/images/greenLeafPlant.jpg" alt="green leaf plant">
-                        </div>
-                        <div class="postCategory rounded-1 d-flex justify-content-between p-2 px-3 my-2">
-                            <p>gardening</p>
-                            <p>5 min Read</p>
-                        </div>
-                        <div class="postTitle">
-                            <p class="h6">Lorem ipsum dolor, Temporibus sit amet adipisicing elit...</p>
-                        </div>
-                        <div class="postParagraph">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laboriosam fugiat quisquam
-                                sequi quasi voluptas, officia minima molestias?
-                            </p>
-                        </div>
-                        <div class="readPostBtn pt-3"><a class="btn" href="http:#">Read full article</a></div>
-                    </div>
-
-                    <div class="postCard">
-                        <!-- blog post card starts here -->
-                        <div class="postPhoto">
-                            <img class="img-fluid rounded-2" src="./assets/images/greenLeafPlant.jpg" alt="green leaf plant">
-                        </div>
-                        <div class="postCategory rounded-1 d-flex justify-content-between p-2 px-3 my-2">
-                            <p>gardening</p>
-                            <p>5 min Read</p>
-                        </div>
-                        <div class="postTitle">
-                            <p class="h6">Lorem ipsum dolor, Temporibus sit amet adipisicing elit...</p>
-                        </div>
-                        <div class="postParagraph">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laboriosam fugiat quisquam
-                                sequi quasi voluptas, officia minima molestias?
-                            </p>
-                        </div>
-                        <div class="readPostBtn pt-3"><a class="btn" href="http:#">Read full article</a></div>
-                    </div>
-
-                    <div class="postCard">
-                        <!-- blog post card starts here -->
-                        <div class="postPhoto">
-                            <img class="img-fluid rounded-2" src="./assets/images/greenLeafPlant.jpg" alt="green leaf plant">
-                        </div>
-                        <div class="postCategory rounded-1 d-flex justify-content-between p-2 px-3 my-2">
-                            <p>gardening</p>
-                            <p>5 min Read</p>
-                        </div>
-                        <div class="postTitle">
-                            <p class="h6">Lorem ipsum dolor, Temporibus sit amet adipisicing elit...</p>
-                        </div>
-                        <div class="postParagraph">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laboriosam fugiat quisquam
-                                sequi quasi voluptas, officia minima molestias?
-                            </p>
-                        </div>
-                        <div class="readPostBtn pt-3"><a class="btn" href="http:#">Read full article</a></div>
-                    </div>
-
                 </section>
 
                 <nav aria-label="..." class="d-flex justify-content-center mt-5 pt-5 border-top">
@@ -217,6 +179,9 @@
 
                             <div class="modal-body px-4 my-2"> <!-- modal body starts here -->
                                     
+                            <?php
+                            
+                            ?>
                                 <label for="title">Blog title<span class="ms-1 text-danger">*</span></label> <!-- Blog title starts here -->
                                 <div class="input-group mt-2 mb-3"> 
                                     <span class="input-group-text" id="addon-wrapping">
@@ -235,6 +200,8 @@
                                         <option value="gardening">Gardening</option>
                                         <option value="travel">Travel</option>
                                         <option value="fitness">Fitness</option>
+                                        <option value="stories">Stories</option>
+                                        <option value="stories">Discoveries</option>
                                     </select>
                                 </div>
 
@@ -253,7 +220,6 @@
                                     </span>
                                     <input type="file" name="photo" class="form-control" id="inputGroupSelect01" aria-describedby="inputGroupFileAddon01" aria-label="Upload">
                                 </div>
-
 
                             </div> <!-- modal body ends here -->
                                 

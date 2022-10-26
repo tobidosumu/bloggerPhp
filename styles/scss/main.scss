@@ -113,10 +113,14 @@ body {
                 }
 
                 .blogPostContainer {
-                    padding-top: 35px; // border:  1px solid red;
+                    padding-top: 15px; 
+                    // border:  1px solid red;
 
                     .postCard { // blog post card starts here
-                        width: 31%;
+                        flex: 0 0 23%;
+                        // margin: 12px;
+                        margin-bottom: 30px;
+                        // border:  1px solid red;
 
                         .postCategory {
                             @include tinyFont;

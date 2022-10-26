@@ -191,32 +191,9 @@
                 ];
             }
         }
-
-        public function validateAllPostData($validateTitle, $validateCategory, $validateDescription, $validatePhoto, $postValidator)
-        {
-            if (!$validateTitle['status'])
-            {
-                print_r($validateTitle['message']);
-            }
-            elseif (!$validateCategory['status'])
-            {
-                print_r($validateCategory['message']);
-            }
-            elseif (!$validateDescription['status'])
-            {
-                print_r($validateDescription['message']);
-            }
-            elseif (!$validatePhoto['status'])
-            {
-                print_r($validatePhoto['message']);
-            }
-            else {
-                return;
-            }
-        }
         
         // to be moved to post.model.php class 
-        public function InsertBlogData() // Insert blog data
+        public function InsertPostData() // Insert blog data
         {
             try {
                 $stmt = $this->dbConn->prepare("INSERT INTO blog_post(title, category, description, photo)
@@ -225,10 +202,20 @@
                 if($stmt->execute([$this->title, $this->category, $this->description, $this->newfile_name]))
                 {
                     echo "Post uploaded successfully!";
-                    header("Location:../index.php");
                 }
             } catch (Exception $e) {
                 echo "failed";
+                return $e->getMessage();
+            }
+        }
+
+        public function fetchAll() // fetch all data from blog_post table
+        {
+            try {
+                $stmt = $this->dbConn->prepare("SELECT * FROM blog_post");
+                $stmt->execute();
+                return $stmt->fetchAll();
+            } catch (Exception $e) {
                 return $e->getMessage();
             }
         }

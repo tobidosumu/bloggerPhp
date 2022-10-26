@@ -1,9 +1,7 @@
 <?php 
-    require_once './post.validator.php';
-    require_once './post.model.php';
+    require './post.validator.php';
     //TODO validate my data
     //TODO insert my data
-
     $postValidator = new PostValidator($_POST['title'], $_POST['category'], $_POST['description'], $_FILES['photo']);
 
     if (isset($_POST['savePostData'])) 
@@ -17,10 +15,33 @@
         $validateCategory = $postValidator->validateCategory();
         $validateDescription = $postValidator->validateDescription();
         $validatePhoto = $postValidator->validatePhoto($fileName, $fileError, $fileSize, $fileTmpName);
+
+        if (!$validateTitle['status'])
+        {
+            print_r($validateTitle['message']);
+        }
+        elseif (!$validateCategory['status'])
+        {
+            print_r($validateCategory['message']);
+        }
+        elseif (!$validateDescription['status'])
+        {
+            print_r($validateDescription['message']);
+        }
+        elseif (!$validatePhoto['status'])
+        {
+            print_r($validatePhoto['message']);
+        } 
+        else {
+            $postValidator->InsertPostData();
+            header("Location:../index.php");
+        }
+
     }
 
-    $validateAllPostData = $postValidator->validateAllPostData($validateTitle, $validateCategory, $validateDescription, $validatePhoto, $postValidator);
-    $postValidator->InsertBlogData();
 
+    // print_r($validateAllPostData);
+    // die('hello man');
+    // header("Location:../index.php");
 
 ?>

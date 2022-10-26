@@ -137,10 +137,11 @@ body .mainContainer .blogContents .blogContentContainer nav:first-child ul li:fi
   border-bottom: 2px solid #121d2a;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer {
-  padding-top: 35px;
+  padding-top: 15px;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard {
-  width: 31%;
+  flex: 0 0 23%;
+  margin-bottom: 30px;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard .postCategory {
   font-size: 0.8rem;
