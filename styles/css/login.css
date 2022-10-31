@@ -39,7 +39,7 @@ body section #leftAside {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background: #00e87c url(../../assets/svg/signupBgIcon.svg) no-repeat 50% 50%;
+  background: #00e87c url(../../assets/svg/loginAnime.svg) no-repeat 50% 50%;
   background-size: 70% 70%;
   padding-bottom: 50px;
 }
@@ -121,5 +121,14 @@ body section #rightAside .formWrapper .formContents form .createAcctBtn input {
 body section #rightAside .formWrapper .formContents form .createAcctBtn input:hover {
   background-color: #eb253f;
 }
+body section #rightAside .formWrapper .formContents form .createAcctBtn a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+  color: #00e87c;
+}
+body section #rightAside .formWrapper .formContents form .createAcctBtn a:hover {
+  color: #eb253f;
+}
 
-/*# sourceMappingURL=signup.css.map */
+/*# sourceMappingURL=login.css.map */

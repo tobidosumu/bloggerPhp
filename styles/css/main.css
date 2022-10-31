@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 *, img, a, ul, li, p, tertiaryFont, h2, h3, h4, input {
   margin: 0;
   padding: 0;
@@ -24,8 +29,18 @@ input[type=search]::-webkit-search-results-decoration {
   display: none;
 }
 
-body {
-  font-family: "Poppins", sans-serif;
+body .myAlert {
+  margin-top: 95px !important;
+  color: #121d2a;
+  background-color: #00e87c;
+}
+body .myAlert div {
+  display: flex;
+  align-items: center;
+}
+body .myAlert div i {
+  font-size: 25px;
+  margin-right: 10px;
 }
 body .mainContainer {
   max-width: 100%;
@@ -204,6 +219,9 @@ body .mainContainer .modalContainer label {
   font-weight: 500;
   color: #7a7a7a;
 }
+body .mainContainer .modalContainer textarea.decriptionField::placeholder {
+  padding-top: 30px;
+}
 body .mainContainer .modalContainer .modal-footer button:last-child {
   color: #121d2a;
   background-color: #00e87c;
@@ -257,11 +275,11 @@ body .postBtn {
   border-radius: 50px;
   font-size: 30px;
   color: #ffffff;
-  box-shadow: 0px 0px 30px #00c75a;
-  background-color: #ff0080;
+  box-shadow: 0px 0px 30px #c70021;
+  background-color: #6025eb;
 }
 body .postBtn:hover {
-  background-color: #ff00c8;
+  background-color: #121d2a;
 }
 
 /*# sourceMappingURL=main.css.map */

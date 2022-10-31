@@ -1,223 +1,154 @@
 <?php 
-    require_once 'dbConnect.php';
-
     class PostValidator
     {
-        // properties
-        private $title;
-        private $category;
-        private $description;
-        private $photo;
+        private $data;
+        private $errors = [];
+        private static $fields = ['title', 'category', 'description', 'photo'];
 
-        private $newfile_name;
-        protected $dbConn;
+        // image properties
+        private $fileName;
+        private $fileSize;
+        private $fileError;
+        private $fileTmpName;
 
-        public function __construct($title="", $category="", $description="", $photo="",)
+        public function __construct($postData)
         {
-            $this->title = $title;
-            $this->category = $category;
-            $this->description = $description;
-            $this->photo = $photo;
+            $this->data = $postData;
 
-            $this->dbConn = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME,DB_USER,DB_PWD,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+            $this->fileName = $_FILES['photo']['name'];
+            $this->fileSize = $_FILES['photo']['size'];
+            $this->fileError = $_FILES['photo']['error'];
+            $this->fileTmpName = $_FILES['photo']['tmp_name'];
         }
 
-        public function setTitle($title) // set title
+        public function validatePostData()
         {
-            $this->title = $title;
+            // foreach (self::$fields as $field) 
+            // {
+            //     if (!array_key_exists($field, $this->data))
+            //     {
+            //         trigger_error("$field does not exists!");
+            //         return;
+            //     }
+            // }
+            $this->validateTitle();
+            $this->validateCategory();
+            $this->validateDescription();
+            $this->validatePostPhoto();
+            return $this->errors;
         }
 
-        public function getTitle()
+        private function validateTitle()
         {
-            return $this->title;
-        }
+            $val = trim($this->data['title']);
 
-        public function setCategory($category) // set category
-        {
-            $this->category = $category;
-        }
+            $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
+            $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);
 
-        public function getCategory()
-        {
-            return $this->category;
-        }
-
-        public function setDescription($description) // set description
-        {
-            $this->description = $description;
-        }
-
-        public function getDescription() 
-        {
-            return $this->description; 
-        }
-
-        public function setPhoto($photo) // setBlogPhoto
-        {
-            return $this->photo = $photo;
-    
-        }
-            
-        public function getPhoto()
-        {
-            return $this->photo;
-        }
-
-        public function validateTitle() // title validation
-        {
-            if (empty($this->title))
+            if (empty($val))
             {
-                return [
-                    "status" => false,
-                    "message" => "Blog title cannot be empty"
-                ];
+                $this->addError('title', 'Please enter a title.');
             }
-            elseif (strlen($this->title) < 10)
+            elseif (strlen($val) < 50)
             {
-                return [
-                    "status" => false,
-                    "message" => "Blog title must be at least 10 chars long!"
-                ];
+                $this->addError('title', 'Title must be at least 20 chars long.');
+            }
+            elseif (preg_replace('/\\D/', '', $val))
+            {
+                $this->addError('title', 'Title cannot be numbers only.');
+            }
+            elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
+            {
+                $this->addError('description', 'Description cannot be mostly special chars.');
+            }
+        }
+
+        private function validateCategory()
+        {
+            $val = trim($this->data['category']);
+
+            $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
+            $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);
+
+            if (empty($val))
+            {
+                $this->addError('category', 'Please select a category.');
+            }
+            elseif (strlen($val) < 2)
+            {
+                $this->addError('category', 'Category must be at least 2 chars long.');
+            }
+            elseif (preg_replace('/\\D/', '', $val))
+            {
+                $this->addError('category', 'Category cannot be numbers only.');
+            }
+            elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
+            {
+                $this->addError('description', 'Description cannot be mostly special chars.');
+            }
+        }
+
+        private function validateDescription()
+        {
+            $val = trim($this->data['description']);
+
+            $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
+            $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);
+
+            if (empty($val))
+            {
+                $this->addError('description', 'Please enter a description.');
+            }
+            elseif (strlen($val) < 50)
+            {
+                $this->addError('description', 'Description must be at least 50 chars long.');
+            }
+            elseif (preg_replace('/\\D/', '', $val))
+            {
+                $this->addError('description', 'Description cannot be numbers only.');
             } 
-            elseif (is_numeric($this->title))
+            elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
             {
-                return [
-                    "status" => false,
-                    "message" => "Blog title cannot be numbers only!"
-                ];
+                $this->addError('description', 'Description cannot be mostly special chars.');
+            }
+        }
+
+        private function validatePostPhoto()
+        {
+            $validImageExtension = ['jpeg', 'jpg', 'png', 'gif'];
+            $imageExtension = explode('.', $this->fileName);
+            $imageExtension = strtolower(end($imageExtension));
+
+            if (empty($this->fileName))
+            {
+                $this->addError('photo', 'Please upload a photo.');
+            }
+            elseif ($this->fileError === 1)
+            {
+                $this->addError('photo', 'An error occurred. Please try again.');
+            }
+            elseif (!in_array($imageExtension, $validImageExtension))
+            {
+                $this->addError('photo', 'Please upload a valid image type e.g. jpeg, jpg, png or gif.');
+            }
+            elseif ($this->fileSize > 1000000)
+            {
+                $this->addError('photo', 'Photo is larger than 2MB.');
             }
             else
             {
-                return [
-                    "status" => true,
-                    "message" => "Data validated"
-                ];
+                $newImageName = uniqid();
+                $newImageName .= '.' . $imageExtension;
+                $imageDestination = 'http://localhost/mrEnitan/projects/blog/uploads/';
+
+                move_uploaded_file($newImageName, $imageDestination);
             }
         }
 
-        public function validateCategory() // category validation
+        private function addError($key, $val)
         {
-            if (empty($this->category))
-            {
-                return [
-                    "status" => false,
-                    "message" => "Please select a category."
-                ];
-            }
-            else 
-            {
-                return [
-                    "status" => true,
-                    "message" => "Good"
-                ];
-            }
+            $this->errors[$key] = $val;
         }
 
-        public function validateDescription() // description validation
-        {
-            if (empty($this->description))
-            {
-                return [
-                    "status" => false,
-                    "message" => "Description cannot be empty!"
-                ];
-            } 
-            elseif (strlen($this->description) < 10)
-            {
-                return [
-                    "status" => false,
-                    "message" => "Blog description must be at least 10 chars long!"
-                ];
-            }
-            elseif (is_numeric($this->description))
-            {
-                return [
-                    "status" => false,
-                    "message" => "Blog description cannot be numbers only!"
-                ];
-            }
-            else 
-            {
-                return [
-                    "status" => true,
-                    "message" => "Description is valid!"
-                ];
-            }
-        }
-
-        public function validatePhoto($fileName, $fileError, $fileSize, $fileTmpName) // photo validation
-        {
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-
-            $filesAllowed = array('jpg', 'jpeg', 'png');
-            $fileNameNew = uniqid('', true).".".$fileActualExt;
-            $fileDestination = '../uploads/'.$fileNameNew;
-            $this->newfile_name = $fileDestination;
-
-            if (empty($fileName))
-            {
-                return [
-                    "status" => false,
-                    "message" => "Please upload a photo."
-                ];
-            }
-            elseif ($fileError)
-            {
-                return [
-                    "status" => false,
-                    "message" => "An error occurred while uploading image! Please, try again."
-                ];
-            }
-            elseif (!in_array($fileActualExt, $filesAllowed))
-            {
-                return [
-                    "status" => false,
-                    "message" => "Image type not supported! Please, upload a JPG, JPEG or PNG."
-                ];
-            } 
-            elseif ($fileSize > 1000000)
-            {
-                return [
-                    "status" => false,
-                    "message" => "Image is too Large! Image size must not be more than 1MB."
-                ];
-            } 
-            else {
-                move_uploaded_file($fileTmpName, $fileDestination);
-                return [
-                    "status" => true,
-                    "message" => "Photo uploaded successfully!"
-                ];
-            }
-        }
-        
-        // to be moved to post.model.php class 
-        public function InsertPostData() // Insert blog data
-        {
-            try {
-                $stmt = $this->dbConn->prepare("INSERT INTO blog_post(title, category, description, photo)
-                VALUES(?, ?, ?, ?)");
-                
-                if($stmt->execute([$this->title, $this->category, $this->description, $this->newfile_name]))
-                {
-                    echo "Post uploaded successfully!";
-                }
-            } catch (Exception $e) {
-                echo "failed";
-                return $e->getMessage();
-            }
-        }
-
-        public function fetchAll() // fetch all data from blog_post table
-        {
-            try {
-                $stmt = $this->dbConn->prepare("SELECT * FROM blog_post");
-                $stmt->execute();
-                return $stmt->fetchAll();
-            } catch (Exception $e) {
-                return $e->getMessage();
-            }
-        }
     }
 ?>

@@ -1,14 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 
 // colors
 $primaryColor: #00e87c;
 $lightGreenColor: #f2feff;
 $green: #4fe3b6;
-$accentColor: #ff0080;
-$accentHoverColor: #ff00c8;
+$accentColor: #6025eb;
+$accentHoverColor: #eb253f;
 $white: #ffffff;
 $grey: #7a7a7a;
 $black: #121d2a;
+// $green: #00df64;
+// $red: rgb(255, 0, 55);
 
 @mixin widthPadding {
     padding: 0 12%;
@@ -23,6 +26,12 @@ $black: #121d2a;
 @mixin secondaryFont {
   font-size: .9rem;
   font-weight: 300;
+}
+
+@mixin semiTertiaryFont {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: $black;
 }
 
 @mixin tertiaryFont {
@@ -40,7 +49,7 @@ $black: #121d2a;
 @mixin accentColorBtn {
     background-color: $accentColor;
     &:hover {
-        background-color: $accentHoverColor;
+        background-color: $black;
     }
 }
 
@@ -86,6 +95,8 @@ $black: #121d2a;
   // placeholder
   @mixin placeholder {
     ::placeholder {
+      display: flex;
+      align-items: center;
       @include primaryFont;
       color: $grey;
     }
