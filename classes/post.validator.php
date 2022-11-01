@@ -42,6 +42,7 @@
         private function validateTitle()
         {
             $val = trim($this->data['title']);
+            $val = strip_tags($val);
 
             $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
             $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);
@@ -63,6 +64,10 @@
         private function validateCategory()
         {
             $val = trim($this->data['category']);
+            $val = strip_tags($val);
+
+            // print_r($val);
+            // die;
 
             $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
             $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);

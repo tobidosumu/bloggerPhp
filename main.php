@@ -68,6 +68,7 @@
                         <li><a href="#">Gardening</a></li>
                         <li><a href="#">Sports</a></li>
                         <li><a href="#">Fitness</a></li>
+                        <li><a href="#">Programming</a></li>
                     </ul>
                 </nav>
 
@@ -88,7 +89,16 @@
                                         </div>
                                         <div class="postCategory d-flex justify-content-between py-2 px-2">
                                             <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
-                                            <p>5 min Read</p>
+
+                                            <p><?php
+                                                $totalNumWords = str_word_count($postData['description'], 0);
+                                                // print_r($totalNumWords);
+                                                $wpm = 200; // where "wps" is number of words per minute.  
+                                                $readPerMinute = floor($totalNumWords / $wpm); 
+                                                // $readPerSecond = floor($totalNumWords % $wpm / ($wpm / 60));
+                                                print_r($readPerMinute);
+                                            ?> Min Read</p>
+
                                         </div>
                                         <div class="postTitle px-2 mt-2">
                                             <h6><?=substr_replace($postData['title'],  "...", 55)?></h6> <!-- fetches title from db -->
@@ -229,6 +239,7 @@
                                         <option value="<?=$_POST['stories'] ?? ''?>stories">Stories</option>
                                         <option value="<?=$_POST['discoveries'] ?? ''?>discoveries">Discoveries</option>
                                         <option value="<?=$_POST['sports'] ?? ''?>sports">Sports</option>
+                                        <option value="<?=$_POST['programming'] ?? ''?>programming">Programming</option>
                                     </select>
                                 </div>
 
