@@ -28,7 +28,7 @@
                 $stmt->execute([$this->data['title'], $this->data['category'], $this->data['description'], $imageDestination]);
                 
                 print_r(
-                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-success d-flex align-items-center" role="alert">
+                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
                         <div>
                             <i class="bi bi-emoji-smile"></i>
                             Post created successfully!

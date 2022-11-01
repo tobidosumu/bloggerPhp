@@ -22,7 +22,7 @@
                 if ($stmt->execute([$this->data['firstName'], $this->data['lastName'], $this->data['email'], $hashedPassword, $hashedPassword]))
                 {
                     print_r(
-                        '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-success d-flex align-items-center" role="alert">
+                        '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
                             <div>
                                 <i class="bi bi-hand-thumbs-up-fill"></i>
                                 Congratulations! Account created successfully!

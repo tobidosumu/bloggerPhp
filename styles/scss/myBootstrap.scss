@@ -3,15 +3,13 @@
 
 // colors
 $primaryColor: #00e87c;
-$lightGreenColor: #f2feff;
+$lightGreenColor: rgb(242, 254, 255);
 $green: #4fe3b6;
 $accentColor: #6025eb;
 $accentHoverColor: #eb253f;
 $white: #ffffff;
 $grey: #7a7a7a;
 $black: #121d2a;
-// $green: #00df64;
-// $red: rgb(255, 0, 55);
 
 @mixin widthPadding {
     padding: 0 12%;
@@ -47,7 +45,7 @@ $black: #121d2a;
 }
 
 @mixin accentColorBtn {
-    background-color: $accentColor;
+    background-color: $accentHoverColor;
     &:hover {
         background-color: $black;
     }
@@ -59,9 +57,6 @@ $black: #121d2a;
   padding: 9px 12px;
   @include primaryFont;
   background-color: $primaryColor;
-  &:hover {
-    background-color: $green;
-  }
 }
 
 @mixin primaryBtn {
@@ -74,6 +69,7 @@ $black: #121d2a;
 @mixin navLinkHover {
   &:hover {
     color: $black;
+    font-weight: 500;
     border-bottom: 2px solid $black;
   }
 }

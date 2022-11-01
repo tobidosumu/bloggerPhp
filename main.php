@@ -33,19 +33,19 @@
 <body>
     <div class="mainContainer">
         <!-- contains all the page contents -->
+        <header class="d-flex justify-content-between align-items-center sticky-top">
+            <div class="logoContainer"><a href="http:#"><img src="./assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
+            <nav class="headerMenuContainer">
+                <ul class="d-flex justify-content-between wrap">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#" class="p-0 border-0">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
         <section class="hero pt-2">
-            <header class="d-flex justify-content-between align-items-center">
-                <div class="logoContainer"><a href="http:#"><img src="./assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
-                <nav class="headerMenuContainer align-item-end">
-                    <ul class="d-flex justify-content-between">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Pricing</a></li>
-                        <li><a href="#">Resources</a></li>
-                        <li><a href="#">Products</a></li>
-                        <li><a href="#" class="btn p-0 border-0">Contact Us</a></li>
-                    </ul>
-                </nav>
-            </header>
             <section class="caption">
                 <div>
                     <tertiaryFont class="mb-3">Blog about anything.</tertiaryFont>
@@ -84,7 +84,7 @@
                                 <div class="postCard border rounded-top rounded-3 pb-1">
                                     <a href="#">
                                         <!-- blog post card starts here -->
-                                        <div class="postPhoto">
+                                        <div class="postPhoto rounded-top">
                                             <img class="img-fluid rounded-top" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
                                         </div>
                                         <div class="postCategory d-flex justify-content-between py-2 px-2">
@@ -106,7 +106,6 @@
                                         <div class="postParagraph px-2">
                                             <p><?=substr_replace($postData['description'], "...", 70)?></p> <!-- fetches description from db -->
                                         </div>
-                                        <!-- <div class="readPostBtn pt-3">Read full article</a></div> -->
                                     </a>
                                 </div>
                             <?php    

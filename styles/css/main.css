@@ -46,49 +46,53 @@ body .mainContainer {
   max-width: 100%;
   background-color: #ffffff;
 }
-body .mainContainer .hero {
-  height: 300px;
+body .mainContainer header {
   padding: 0 12%;
-  background-color: #f2feff;
+  height: 70px;
+  background-color: rgb(242, 254, 255);
 }
-body .mainContainer .hero header {
-  height: 20%;
-}
-body .mainContainer .hero header .logoContainer img {
+body .mainContainer header .logoContainer img {
   width: 60%;
 }
-body .mainContainer .hero header nav {
-  width: 49%;
+body .mainContainer header nav {
+  width: 58%;
 }
-body .mainContainer .hero header nav ul li {
+body .mainContainer header nav ul li {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
-body .mainContainer .hero header nav ul li a {
-  display: flex;
-  padding: 8px 12px;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #121d2a;
-}
-body .mainContainer .hero header nav ul li a:hover {
-  color: #121d2a;
-  border-bottom: 2px solid #121d2a;
-}
-body .mainContainer .hero header nav ul li:last-child {
+body .mainContainer header nav ul li:last-child {
   border-radius: 4px;
   padding: 9px 12px;
   font-size: 0.9rem;
   font-weight: 400;
   color: #121d2a;
   background-color: #00e87c;
+  width: 120px;
+  height: 40px;
+  padding: 10px 8px;
 }
-body .mainContainer .hero header nav ul li:last-child:hover {
-  background-color: #4fe3b6;
+body .mainContainer header nav ul li:last-child:hover {
+  color: #ffffff !important;
+  background-color: #6025eb;
 }
-body .mainContainer .hero header nav ul li:last-child:hover {
-  border-bottom: none !important;
+body .mainContainer header nav ul li a {
+  width: 100px;
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #121d2a;
+}
+body .mainContainer header nav ul li a:hover {
+  color: #121d2a;
+  font-weight: 500;
+  border-bottom: 2px solid #121d2a;
+}
+body .mainContainer .hero {
+  height: 240px;
+  padding: 0 12%;
+  background-color: rgb(242, 254, 255);
 }
 body .mainContainer .hero .caption {
   height: 80%;
@@ -160,21 +164,28 @@ body .mainContainer .blogContents .blogContentContainer .blogPostContainer {
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard {
   width: 240px;
   margin-bottom: 24px;
-  transition: translate 0.1s ease-in-out;
+  transition: translate 0.5s ease;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard:hover {
   translate: 0 -2%;
   box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.123);
 }
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto {
+  overflow: hidden;
+}
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto img {
   width: 100%;
   height: 200px;
+  transition: transform 0.5s ease;
+}
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto img:hover {
+  transform: scale(1.4);
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postCategory {
   font-size: 0.8rem;
   font-weight: 500;
   color: #7a7a7a;
-  background-color: #f2feff;
+  background-color: rgb(242, 254, 255);
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postCategory p:first-child {
   letter-spacing: 2px;
@@ -194,7 +205,7 @@ body .mainContainer .blogContents .blogContentContainer .blogPostContainer .post
 body .mainContainer .blogContents .dropUsAmessage {
   position: relative;
   top: 110px;
-  background-color: #f2feff;
+  background-color: rgb(242, 254, 255);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer p {
@@ -212,9 +223,6 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
   color: #121d2a;
   background-color: #00e87c;
 }
-body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a:hover {
-  background-color: #4fe3b6;
-}
 body .mainContainer .modalContainer label {
   font-size: 0.8rem;
   font-weight: 500;
@@ -227,6 +235,10 @@ body .mainContainer .modalContainer .modal-footer button:last-child {
   color: #121d2a;
   background-color: #00e87c;
   border: none !important;
+}
+body .mainContainer .modalContainer .modal-footer button:last-child:hover {
+  color: #ffffff;
+  background-color: #121d2a;
 }
 body footer {
   height: 350px;
@@ -270,14 +282,14 @@ body footer div:last-child ul .logoList a img {
 body .postBtn {
   position: fixed;
   bottom: 70px;
-  right: 50px;
+  right: 45px;
   width: 70px;
   height: 70px;
   border-radius: 50px;
   font-size: 30px;
   color: #ffffff;
   box-shadow: 0px 0px 30px #c70021;
-  background-color: #6025eb;
+  background-color: #eb253f;
 }
 body .postBtn:hover {
   background-color: #121d2a;
