@@ -3,8 +3,8 @@
 
 body {
     .myAlert {
-        color: $accentHoverColor;
-        background-color: $white;
+        color: $white;
+        // background-color: $white;
     }
 
     section {
@@ -39,7 +39,7 @@ body {
                     color: $primaryColor;
                     padding-right: 20px;
                     &:hover {
-                        color: $accentHoverColor;
+                        color: $accentColor;
                     }
                 }
                 a:last-child {
@@ -47,7 +47,7 @@ body {
                     @include tinyFont;
                     background-color: $primaryColor;
                     &:hover {
-                        background-color:  $accentHoverColor;
+                        background-color:  $accentColor;
                     }
                 }
             }
@@ -90,7 +90,7 @@ body {
                                 color: $white;
                                 background-color: $primaryColor;
                                 &:hover {
-                                    background-color: $accentHoverColor;
+                                    background-color: $accentColor;
                                 }
                             }
                         }

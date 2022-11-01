@@ -10,8 +10,6 @@
         $validatePostData = new PostValidator($_POST);
         $errors = $validatePostData->validatePostData();
 
-        // print_r($errors);
-        // die('ERRORS HERE!');
         if (!$errors)
         {
             $dbQuery = new PostQueryDb($_POST);
@@ -59,45 +57,47 @@
         </section>
 
         <section class="blogContents mt-5">
-            <!-- blog contents container starts here -->
-            <section class="blogContentContainer">
+            
+            <section class="blogContentContainer"> <!-- blog contents container starts here -->
                 <nav>
                     <ul class="d-flex justify-content-between">
                         <li><a href="#">All</a></li>
-                        <li><a href="#">Design</a></li>
-                        <li><a href="#">Branding</a></li>
-                        <li><a href="#">Illustrations</a></li>
-                        <li><a href="#">svg</a></li>
-                        <li><a href="#">Themes</a></li>
+                        <li><a href="#">Discoveries</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Stories</a></li>
+                        <li><a href="#">Gardening</a></li>
+                        <li><a href="#">Sports</a></li>
+                        <li><a href="#">Fitness</a></li>
                     </ul>
                 </nav>
 
-                <section class="blogPostContainer mt-2 d-flex flex-wrap justify-content-between align-items-end">
+                <section class="blogPostContainer">
 
                     <?php
                         $dbQuery = new PostQueryDb($_POST);
                         $allPostData = $dbQuery->fetchAll();
+
                         foreach ($allPostData as $postData)
                         {
-                            // print_r($postData);
-                            // die('image!!!');
                             ?>
-                                <div class="postCard">
-                                    <!-- blog post card starts here -->
-                                    <div class="postPhoto">
-                                        <img class="img-fluid rounded-2 w-100" style="height: 200px;" src="http://localhost/mrEnitan/projects/blog/uploads/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
-                                    </div>
-                                    <div class="postCategory rounded-1 d-flex justify-content-between p-2 px-3 my-2">
-                                        <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
-                                        <p>5 min Read</p>
-                                    </div>
-                                    <div class="postTitle">
-                                        <p class="h6"><?=$postData['title']?></p> <!-- fetches title from db -->
-                                    </div>
-                                    <div class="postParagraph">
-                                        <p><?=$postData['description']?></p> <!-- fetches description from db -->
-                                    </div>
-                                    <div class="readPostBtn pt-3"><a class="btn" href="http:#">Read full article</a></div>
+                                <div class="postCard border rounded-top rounded-3 pb-1">
+                                    <a href="#">
+                                        <!-- blog post card starts here -->
+                                        <div class="postPhoto">
+                                            <img class="img-fluid rounded-top" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
+                                        </div>
+                                        <div class="postCategory d-flex justify-content-between py-2 px-2">
+                                            <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
+                                            <p>5 min Read</p>
+                                        </div>
+                                        <div class="postTitle px-2 mt-2">
+                                            <h6><?=substr_replace($postData['title'],  "...", 55)?></h6> <!-- fetches title from db -->
+                                        </div>
+                                        <div class="postParagraph px-2">
+                                            <p><?=substr_replace($postData['description'], "...", 70)?></p> <!-- fetches description from db -->
+                                        </div>
+                                        <!-- <div class="readPostBtn pt-3">Read full article</a></div> -->
+                                    </a>
                                 </div>
                             <?php    
                         }
@@ -228,6 +228,7 @@
                                         <option value="<?=$_POST['fitness'] ?? ''?>fitness">Fitness</option>
                                         <option value="<?=$_POST['stories'] ?? ''?>stories">Stories</option>
                                         <option value="<?=$_POST['discoveries'] ?? ''?>discoveries">Discoveries</option>
+                                        <option value="<?=$_POST['sports'] ?? ''?>sports">Sports</option>
                                     </select>
                                 </div>
 

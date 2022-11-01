@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     class PostValidator
     {
         private $data;
@@ -49,13 +50,9 @@
             {
                 $this->addError('title', 'Please enter a title.');
             }
-            elseif (strlen($val) < 50)
+            elseif (strlen($val) < 10)
             {
                 $this->addError('title', 'Title must be at least 20 chars long.');
-            }
-            elseif (preg_replace('/\\D/', '', $val))
-            {
-                $this->addError('title', 'Title cannot be numbers only.');
             }
             elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
             {
@@ -78,7 +75,7 @@
             {
                 $this->addError('category', 'Category must be at least 2 chars long.');
             }
-            elseif (preg_replace('/\\D/', '', $val))
+            elseif (is_numeric($val))
             {
                 $this->addError('category', 'Category cannot be numbers only.');
             }
@@ -103,10 +100,6 @@
             {
                 $this->addError('description', 'Description must be at least 50 chars long.');
             }
-            elseif (preg_replace('/\\D/', '', $val))
-            {
-                $this->addError('description', 'Description cannot be numbers only.');
-            } 
             elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
             {
                 $this->addError('description', 'Description cannot be mostly special chars.');
@@ -115,9 +108,9 @@
 
         private function validatePostPhoto()
         {
-            $validImageExtension = ['jpeg', 'jpg', 'png', 'gif'];
+            $validImageExtension = ['jpeg', 'jpg', 'png', 'gif', 'jfif'];
             $imageExtension = explode('.', $this->fileName);
-            $imageExtension = strtolower(end($imageExtension));
+            $imageActualExtension = strtolower(end($imageExtension));
 
             if (empty($this->fileName))
             {
@@ -127,21 +120,13 @@
             {
                 $this->addError('photo', 'An error occurred. Please try again.');
             }
-            elseif (!in_array($imageExtension, $validImageExtension))
+            elseif (!in_array($imageActualExtension, $validImageExtension))
             {
-                $this->addError('photo', 'Please upload a valid image type e.g. jpeg, jpg, png or gif.');
+                $this->addError('photo', 'Please upload a valid image type e.g. jpeg, jpg, png, jfif or gif.');
             }
             elseif ($this->fileSize > 1000000)
             {
                 $this->addError('photo', 'Photo is larger than 2MB.');
-            }
-            else
-            {
-                $newImageName = uniqid();
-                $newImageName .= '.' . $imageExtension;
-                $imageDestination = 'http://localhost/mrEnitan/projects/blog/uploads/';
-
-                move_uploaded_file($newImageName, $imageDestination);
             }
         }
 

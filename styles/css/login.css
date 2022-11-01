@@ -27,10 +27,6 @@ input[type=search]::-webkit-search-results-decoration {
   display: none;
 }
 
-body .myAlert {
-  color: #eb253f;
-  background-color: #ffffff;
-}
 body section aside {
   width: 50%;
   height: 100vh;
@@ -128,7 +124,7 @@ body section #rightAside .formWrapper .formContents form .createAcctBtn a {
   color: #00e87c;
 }
 body section #rightAside .formWrapper .formContents form .createAcctBtn a:hover {
-  color: #eb253f;
+  color: #6025eb;
 }
 
 /*# sourceMappingURL=login.css.map */

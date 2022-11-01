@@ -28,8 +28,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 
 body .myAlert {
-  color: #eb253f;
-  background-color: #ffffff;
+  color: #ffffff;
 }
 body section aside {
   width: 50%;
@@ -64,7 +63,7 @@ body section #rightAside .header a:first-child {
   padding-right: 20px;
 }
 body section #rightAside .header a:first-child:hover {
-  color: #eb253f;
+  color: #6025eb;
 }
 body section #rightAside .header a:last-child {
   color: #ffffff !important;
@@ -74,7 +73,7 @@ body section #rightAside .header a:last-child {
   background-color: #00e87c;
 }
 body section #rightAside .header a:last-child:hover {
-  background-color: #eb253f;
+  background-color: #6025eb;
 }
 body section #rightAside .formWrapper .formContents h2 {
   font-size: 2rem;
@@ -119,7 +118,7 @@ body section #rightAside .formWrapper .formContents form .createAcctBtn input {
   background-color: #00e87c;
 }
 body section #rightAside .formWrapper .formContents form .createAcctBtn input:hover {
-  background-color: #eb253f;
+  background-color: #6025eb;
 }
 
 /*# sourceMappingURL=signup.css.map */

@@ -2,10 +2,10 @@
 @import './reset';
 
 body {
-    .myAlert {
-        color: $accentHoverColor;
-        background-color: $white;
-    }
+    // .myAlert {
+    //     color: $accentHoverColor;
+    //     background-color: $white;
+    // }
 
     section {
         aside {
@@ -97,7 +97,7 @@ body {
                                 @include tinyFont;
                                 color: $primaryColor;
                                 &:hover {
-                                    color: $accentHoverColor;
+                                    color: $accentColor;
                                 }
                             }
                         }
