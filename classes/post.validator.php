@@ -2,8 +2,11 @@
     class PostValidator
     {
         private $data;
+        
+        private $title;
+        private $category;
+        private $description;
         private $errors = [];
-        private static $fields = ['title', 'category', 'description', 'photo'];
 
         // image properties
         private $fileName;
@@ -11,9 +14,9 @@
         private $fileError;
         private $fileTmpName;
 
-        public function __construct($postData)
+        public function __construct()
         {
-            $this->data = $postData;
+            // $this->data = $postData;
 
             $this->fileName = $_FILES['photo']['name'];
             $this->fileSize = $_FILES['photo']['size'];
@@ -21,16 +24,23 @@
             $this->fileTmpName = $_FILES['photo']['tmp_name'];
         }
 
+        public function setTitle($title)
+        {
+            $this->title = $title;
+        }
+
+        public function setCategory($category)
+        {
+            $this->category = $category;
+        }
+
+        public function setDescription($description)
+        {
+            $this->description = $description;
+        }
+
         public function validatePostData()
         {
-            // foreach (self::$fields as $field) 
-            // {
-            //     if (!array_key_exists($field, $this->data))
-            //     {
-            //         trigger_error("$field does not exists!");
-            //         return;
-            //     }
-            // }
             $this->validateTitle();
             $this->validateCategory();
             $this->validateDescription();
@@ -40,7 +50,7 @@
 
         private function validateTitle()
         {
-            $val = trim($this->data['title']);
+            $val = trim($this->title);
             $val = strip_tags($val);
 
             $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
@@ -62,11 +72,8 @@
 
         private function validateCategory()
         {
-            $val = trim($this->data['category']);
+            $val = trim($this->category);
             $val = strip_tags($val);
-
-            // print_r($val);
-            // die;
 
             $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
             $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);
@@ -91,7 +98,7 @@
 
         private function validateDescription()
         {
-            $val = trim($this->data['description']);
+            $val = trim($this->description);
 
             $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
             $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);
@@ -138,6 +145,14 @@
         {
             $this->errors[$key] = $val;
         }
+
+        // public function getValues()
+        // {
+        //     //TODO if no errors
+        //     return [
+
+        //     ];
+        // }
 
     }
 ?>

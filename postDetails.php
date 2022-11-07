@@ -34,7 +34,7 @@
 
                     <?php
 
-                        $dbQuery = new PostQueryDb($_POST);
+                        $dbQuery = new PostQueryDb();
                         $postDetail = $dbQuery->fetchOne($_GET['id']);
                         ?>
                             <div class="innerContainer pe-5 wrap"> <!-- photo and title container -->

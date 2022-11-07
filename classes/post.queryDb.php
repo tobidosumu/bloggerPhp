@@ -4,11 +4,9 @@
     {
         private $data;
         private $id;
-
-        public function __construct($postData)
-        {
-            $this->data = $postData;
-        }
+        private $title;
+        private $category;
+        private $description;
 
         public function setId($id)
         {
@@ -18,6 +16,21 @@
         public function getId()
         {
             return $this->id;
+        }
+
+        public function setTitle($title)
+        {
+            $this->title = $title;
+        }
+
+        public function setCategory($category)
+        {
+            $this->category = $category;
+        }
+
+        public function setDescription($description)
+        {
+            $this->description = $description;
         }
 
         public function savePostData() // Insert blog data
@@ -36,7 +49,7 @@
             try {
                 $stmt = $this->connect()->prepare("INSERT INTO blog_post(title, category, description, photo)
                 VALUES(?, ?, ?, ?)");
-                $stmt->execute([$this->data['title'], $this->data['category'], $this->data['description'], $imageDestination]);
+                $stmt->execute([$this->title, $this->category, $this->description, $imageDestination]);
                 
                 print_r(
                     '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
@@ -47,7 +60,7 @@
                     </div>'
                 );
 
-                header('Refresh:5; url=main.php');
+                // header('Refresh:5; url=main.php');
             } 
             catch (Exception $e) 
             {

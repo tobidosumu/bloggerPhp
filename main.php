@@ -5,12 +5,22 @@
 
     if (isset($_POST['savePostData'])) 
     {
-        $validatePostData = new PostValidator($_POST);
+        $validatePostData = new PostValidator();
+        // $data = ["title" => $_POST['title']];
+        $validatePostData->setTitle($_POST['title']);
+        $validatePostData->setCategory($_POST['category']);
+        $validatePostData->setDescription($_POST['description']);
+
+        // $data = $validatePostData->getValues();
         $errors = $validatePostData->validatePostData();
 
         if (!$errors)
         {
-            $dbQuery = new PostQueryDb($_POST);
+            $dbQuery = new PostQueryDb();
+            // $data = ["title" => $_POST['title']];
+            $dbQuery->setTitle($_POST['title']);
+            $dbQuery->setCategory($_POST['category']);
+            $dbQuery->setDescription($_POST['description']);
             $savedPostData = $dbQuery->savePostData();
         }
         else
@@ -63,7 +73,7 @@
                 <section class="blogPostContainer">
 
                     <?php
-                        $dbQuery = new PostQueryDb($_POST);
+                        $dbQuery = new PostQueryDb();
                         $allPostData = $dbQuery->fetchAll();
 
                         foreach ($allPostData as $postData)
