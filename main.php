@@ -1,6 +1,4 @@
 <?php 
-    include './header/indexHeader.php';
-
     require './classes/dbConnect.php'; // DbConnect
     require './classes/post.queryDb.php'; // PostDbConnector
     require './classes/post.validator.php'; // PostValidator
@@ -31,20 +29,10 @@
 ?>
 
 <body>
-    <div class="mainContainer">
-        <!-- contains all the page contents -->
-        <header class="d-flex justify-content-between align-items-center sticky-top">
-            <div class="logoContainer"><a href="http:#"><img src="./assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
-            <nav class="headerMenuContainer">
-                <ul class="d-flex justify-content-between wrap">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Resources</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#" class="p-0 border-0">Contact Us</a></li>
-                </ul>
-            </nav>
-        </header>
+    <div class="mainContainer"> <!-- contains all the page contents -->
+        
+        <?php include './header/mainHeader.php'?> <!-- header goes here -->
+
         <section class="hero pt-2">
             <section class="caption">
                 <div>
@@ -82,7 +70,7 @@
                         {
                             ?>
                                 <div class="postCard border rounded-top rounded-3 pb-1">
-                                    <a href="#">
+                                    <a href="./postDetails.php?id=<?=$postData['id']?>">
                                         <!-- blog post card starts here -->
                                         <div class="postPhoto rounded-top">
                                             <img class="img-fluid rounded-top" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
@@ -197,7 +185,8 @@
 
             <!-- Button trigger modal -->
             <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="bi bi-pencil-square"></i>
+                <!-- <i class="bi bi-pencil-square"></i> -->
+                <img src="./assets/svg/feather.svg" alt="Click to post">
             </button>
 
             <!-- Modal -->

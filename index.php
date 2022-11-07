@@ -1,6 +1,4 @@
 <?php 
-    session_start();
-
     include './header/signupHeader.php';
     require './classes/user.signupValidator.php';
     require_once './classes/user.dbQuery.php';

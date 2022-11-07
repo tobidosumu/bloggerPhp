@@ -3,10 +3,21 @@
     class PostQueryDb extends DbConnect
     {
         private $data;
+        private $id;
 
         public function __construct($postData)
         {
             $this->data = $postData;
+        }
+
+        public function setId($id)
+        {
+            $this->id = $id;
+        }
+
+        public function getId()
+        {
+            return $this->id;
         }
 
         public function savePostData() // Insert blog data
@@ -44,11 +55,25 @@
             }
         }
 
+        public function fetchOne($id)
+        {
+            try 
+            {
+                $stmt = $this->connect()->prepare("SELECT * FROM blog_post WHERE id=? LIMIT 1");
+                $stmt->execute([$id]);
+                return $stmt->fetch();
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
+        }
+
         public function fetchAll() // fetch all data from blog_post table
         {
             try 
             {
-                $stmt = $this->connect()->prepare("SELECT * FROM blog_post");
+                $stmt = $this->connect()->prepare("SELECT * FROM blog_post ORDER BY id DESC");
                 $stmt->execute();
                 return $stmt->fetchAll();
             } 
