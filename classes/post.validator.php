@@ -1,40 +1,50 @@
 <?php 
     class PostValidator
     {
-        
         private $title;
         private $category;
         private $description;
-        private $dateTime;
+        private $timeAgo;
         private $errors = [];
+
 
         // image properties
         private $fileName;
         private $fileSize;
         private $fileError;
-        private $fileTmpName;
 
-        public function __construct()
+
+        // image element array setter and getter methods
+        ###################################################################################################
+        public function setFileName($fileName)
         {
-            $this->fileName = $_FILES['photo']['name'];
-            $this->fileSize = $_FILES['photo']['size'];
-            $this->fileError = $_FILES['photo']['error'];
-            $this->fileTmpName = $_FILES['photo']['tmp_name'];
+            $this->fileName = $fileName;
         }
+
+        public function setFileSize($fileSize)
+        {
+            $this->fileSize = $fileSize;
+        }
+
+        public function setFileError($fileError)
+        {
+            $this->fileError = $fileError;
+        }
+
 
         ###################################################################################################
         // setter and getter methods start here
 
-        public function setDateTime($dateTime)
+        public function setTimeAgo($timeAgo)
         {
-            $this->dateTime = $dateTime;
-            print_r($this->dateTime);
-            die;
+            $str = '2013-08-21 20:26:12';
+            echo date('d M ', strtotime($str));
+            $this->timeAgo = $timeAgo;
         }
 
-        public function getDateTime()
+        public function getTimeAgo()
         {
-            // date_timestamp_get()
+            return $this->timeAgo;
         }
 
         public function setTitle($title)

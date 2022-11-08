@@ -9,8 +9,12 @@
         $validatePostData->setTitle($_POST['title']);
         $validatePostData->setCategory($_POST['category']);
         $validatePostData->setDescription($_POST['description']);
+        $validatePostData->setFileName($_FILES['photo']['name']);
+        $validatePostData->setFileSize($_FILES['photo']['size']);
+        $validatePostData->setFileError($_FILES['photo']['error']);
 
         $errors = $validatePostData->validatePostData();
+
 
         if (!$errors)
         {
@@ -18,7 +22,11 @@
             $dbQuery->setTitle($_POST['title']);
             $dbQuery->setCategory($_POST['category']);
             $dbQuery->setDescription($_POST['description']);
+            
             $savedPostData = $dbQuery->savePostData();
+
+            // print_r($savedPostData);
+            // die;
         }
         else
         {
@@ -74,6 +82,8 @@
                         $dbQuery = new PostQueryDb();
                         $allPostData = $dbQuery->fetchAll();
 
+                        $validatePostData = new PostQueryDb();
+
                         foreach ($allPostData as $postData)
                         {
                             ?>
@@ -82,18 +92,22 @@
                                         <!-- blog post card starts here -->
                                         <div class="postPhoto rounded-top">
                                             <img class="img-fluid rounded-top" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
+                                            <div class="timeAgo position-absolute top-0 start-0 p-2 m-2 rounded-5">
+                                                <h4><i class="bi bi-clock"></i> 2 secs ago</h4>
+                                            </div>
                                         </div>
                                         <div class="postCategory d-flex justify-content-between py-2 px-2">
                                             <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
 
-                                            <p><?php
-                                                $totalNumWords = str_word_count($postData['description'], 0);
-                                                // print_r($totalNumWords);
-                                                $wpm = 200; // where "wps" is number of words per minute.  
-                                                $readPerMinute = floor($totalNumWords / $wpm); 
-                                                // $readPerSecond = floor($totalNumWords % $wpm / ($wpm / 60));
-                                                print_r($readPerMinute);
-                                            ?> Min Read</p>
+                                            <p>
+                                                <?php
+                                                    $totalNumWords = str_word_count($postData['description'], 0);
+                                                    $wpm = 200; // where "wpm" is number of words per minute.  
+                                                    $readPerMinute = floor($totalNumWords / $wpm); 
+                                                    $readTime = $readPerMinute. ' Min read'; 
+                                                    print_r($readTime);
+                                                ?>
+                                            </p>
 
                                         </div>
                                         <div class="postTitle px-2 mt-2">

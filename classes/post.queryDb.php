@@ -2,7 +2,7 @@
 
     class PostQueryDb extends DbConnect
     {
-        private $data;
+        // private $data;
         private $id;
         private $title;
         private $category;
@@ -60,7 +60,7 @@
                     </div>'
                 );
 
-                header('Refresh:3; url=main.php');
+                // header('Refresh:4; url=main.php');
             } 
             catch (Exception $e) 
             {
