@@ -60,7 +60,7 @@
                     </div>'
                 );
 
-                // header('Refresh:5; url=main.php');
+                header('Refresh:3; url=main.php');
             } 
             catch (Exception $e) 
             {

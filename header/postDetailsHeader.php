@@ -17,7 +17,7 @@
     <nav class="headerMenuContainer">
         <ul class="d-flex justify-content-between align-items-center wrap">
             <li><a href="./main.php">Home</a></li>
-            <li><a href="#">Post</a></li>
+            <li><a href="#">Posts</a></li>
             <li><a href="#">My Cart</a></li>
             <li class="d-flex justify-content-between align-items-center"><a href="#"><i class="bi bi-caret-down-fill"></i><img src="./assets/images/moji.png" alt="user account"></a></li>
             <li class="d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>

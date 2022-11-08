@@ -2,22 +2,6 @@
     require './classes/dbConnect.php'; // DbConnect
     require './classes/post.queryDb.php'; // PostDbConnector
     require './classes/post.validator.php'; // PostValidator
-
-    if (isset($_GET['id'])) 
-    {
-        $id = $_GET['id'];
-    }
-    else
-    {
-        print_r(
-            '<div class="myAlert position-absolute mt-5 start-50 translate-middle alert bg-danger text-light d-flex align-items-center" role="alert">
-                <div>
-                    <i class="bi bi-emoji-frown"></i>
-                    Stop wasting your time.
-                </div>
-            </div>'
-        );
-    }
 ?>
 
 <body>
@@ -30,40 +14,55 @@
             <section class="d-flex justify-content-between">
 
                 <section class="mainContentContainer pt-5 border-end"> <!-- blog contents container starts here -->
-                    <!-- main contents -->
 
                     <?php
 
-                        $dbQuery = new PostQueryDb();
-                        $postDetail = $dbQuery->fetchOne($_GET['id']);
-                        ?>
-                            <div class="innerContainer pe-5 wrap"> <!-- photo and title container -->
-                                <div class="postImage"> <!-- image div -->
-                                    <img class="img-fluid w-100" src="http://localhost/mrEnitan/projects/blog/<?=$postDetail['photo']?>"> <!-- fetches photo from blog_post table -->   
-                                </div>
-                                <div class="categoryTitleContainer"> <!-- title, category container -->
-                                    <div class="categoryReadTimeContainer d-flex justify-content-between p-2 pb-0"> <!-- category and read time div -->
-                                        <h5><?=$postDetail['category']?></h5> 
-                                        <h6>
-                                            <?php
-                                                $totalNumWords = str_word_count($postDetail['description'], 0);
-                                                $wpm = 200; // where "wpm" is number of words per minute.  
-                                                $readPerMinute = floor($totalNumWords / $wpm); 
-                                                print_r("$readPerMinute Min Read");
-                                            ?> 
-                                        </h6>
-                                    </div>
-                                    <div class="titleContainer"> <!-- title div -->
-                                        <h4 class="p-2 pt-0"><?=$postDetail['title']?></h4>
-                                    </div> 
-                                </div>
+                        if (isset($_GET['id'])) 
+                        {
+                            $id = $_GET['id'];
 
-                                <div class="postDescription">
-                                    <p><?=$postDetail['description']?></p>
+                            $dbQuery = new PostQueryDb();
+                            $postDetail = $dbQuery->fetchOne($id);
+                            ?>
+                                <div class="innerContainer pe-5 wrap"> <!-- photo and title container -->
+                                    <div class="postImage"> <!-- image div -->
+                                        <img class="img-fluid w-100" src="http://localhost/mrEnitan/projects/blog/<?=$postDetail['photo']?>"> <!-- fetches photo from blog_post table -->   
+                                    </div>
+                                    <div class="categoryTitleContainer"> <!-- title, category container -->
+                                        <div class="categoryReadTimeContainer d-flex justify-content-between p-2 pb-0"> <!-- category and read time div -->
+                                            <h5><?=$postDetail['category']?></h5> 
+                                            <h6>
+                                                <?php
+                                                    $totalNumWords = str_word_count($postDetail['description'], 0);
+                                                    $wpm = 200; // where "wpm" is number of words per minute.  
+                                                    $readPerMinute = floor($totalNumWords / $wpm); 
+                                                    print_r("$readPerMinute Min Read");
+                                                ?> 
+                                            </h6>
+                                        </div>
+                                        <div class="titleContainer"> <!-- title div -->
+                                            <h4 class="p-2 pt-0"><?=$postDetail['title']?></h4>
+                                        </div> 
+                                    </div>
+
+                                    <div class="postDescription">
+                                        <p><?=$postDetail['description']?></p>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                        <?php
+                                
+                            <?php
+                        }
+                        else
+                        {
+                            print_r(
+                                '<div class="myAlert position-absolute mt-5 start-50 translate-middle alert bg-danger text-light d-flex align-items-center" role="alert">
+                                    <div>
+                                        <i class="bi bi-emoji-frown"></i>
+                                        Stop wasting your time.
+                                    </div>
+                                </div>'
+                            );
+                        }
                     ?>
 
                 </section>

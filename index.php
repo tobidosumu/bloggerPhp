@@ -5,12 +5,22 @@
     
     if(isset($_POST['addNewUser']))
     {
-        $signupValidation = new UserSignupValidator($_POST);
+        $signupValidation = new UserSignupValidator();
+        $signupValidation->setFirstName($_POST['firstName']);
+        $signupValidation->setLastName($_POST['lastName']);
+        $signupValidation->setEmail($_POST['email']);
+        $signupValidation->setPassword($_POST['password']);
+        $signupValidation->setConfirmPassword($_POST['confirmPassword']);
         $errors = $signupValidation->validateUserSignup();
 
         if (!$errors)
         {
-            $saveVerifiedData = new UserDbQuery($_POST);
+            $saveVerifiedData = new UserDbQuery();
+            $saveVerifiedData->setFirstName($_POST['firstName']);
+            $saveVerifiedData->setLastName($_POST['lastName']);
+            $saveVerifiedData->setEmail($_POST['email']);
+            $saveVerifiedData->setPassword($_POST['password']);
+            $saveVerifiedData->setConfirmPassword($_POST['confirmPassword']);
             $validData = $saveVerifiedData->insertUserData();
         }
     }

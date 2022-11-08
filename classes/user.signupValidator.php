@@ -4,25 +4,41 @@
 
     class UserSignupValidator extends UserDbQuery 
     {
-        private $data;
+        private $firstName;
+        private $lastName;
+        private $email;
+        private $password;
+        private $confirmPassword;
         private $errors = [];
         private static $fields = ['firstName', 'lastName', 'email', 'password', 'confirmPassword'];
 
-        public function __construct($postData)
+        public function setFirstName($firstName)
         {
-            $this->data = $postData;
+            $this->firstName = $firstName;
+        }
+
+        public function setLastName($lastName)
+        {
+            $this->lastName = $lastName;
+        }
+
+        public function setEmail($email)
+        {
+            $this->email = $email;
+        }
+
+        public function setPassword($password)
+        {
+            $this->password = $password;
+        }
+
+        public function setConfirmPassword($confirmPassword)
+        {
+            $this->confirmPassword = $confirmPassword;
         }
 
         public function validateUserSignup()
         {
-            foreach (self::$fields as $field)
-            {
-                if (!array_key_exists($field, $this->data))
-                {
-                    trigger_error("$field does not exist.");
-                    return;
-                }
-            }
             $this->validateFirstName();
             $this->validateLastName();
             $this->validateEmail();
@@ -33,7 +49,7 @@
 
         private function validateFirstName() // validates firstName
         {
-            $val = trim($this->data['firstName']);
+            $val = trim($this->firstName);
             
             $onlyDigits = preg_replace('/\\D/', '', $val);
             $numLength = strlen($onlyDigits);
@@ -62,7 +78,7 @@
 
         private function validateLastName() // validates lastName
         {
-            $val = trim($this->data['lastName']);
+            $val = trim($this->lastName);
             
             $onlyDigits = preg_replace('/\\D/', '', $val);
             $numLength = strlen($onlyDigits);
@@ -91,7 +107,7 @@
 
         private function validateEmail() // validates email
         {
-            $val = trim($this->data['email']);
+            $val = trim($this->email);
 
             if (empty($val))
             {
@@ -108,7 +124,7 @@
 
         private function validatePassword() // validates password
         {
-            $val = trim($this->data['password']);
+            $val = trim($this->password);
 
             if (empty($val))
             {
@@ -138,8 +154,8 @@
 
         private function validateConfirmPassword() // validates confirmPassword
         {
-            $password = $this->data['password'];
-            $confirmPassword = $this->data['confirmPassword'];
+            $password = $this->password;
+            $confirmPassword = $this->confirmPassword;
             
             if (empty($confirmPassword))
             {

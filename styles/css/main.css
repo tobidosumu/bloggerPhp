@@ -155,7 +155,6 @@ body .mainContainer .hero .caption div p {
   line-height: 1.5rem;
 }
 body .mainContainer .blogContents {
-  padding-top: 6%;
   padding: 0 12%;
   width: 100%;
 }
@@ -199,6 +198,8 @@ body .mainContainer .blogContents .blogContentContainer .blogPostContainer {
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard {
   width: 240px;
+  word-break: break-all;
+  hyphens: auto;
   margin-bottom: 24px;
   transition: translate 0.5s ease;
 }
@@ -230,7 +231,12 @@ body .mainContainer .blogContents .blogContentContainer .blogPostContainer .post
   font-weight: 600;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postTitle h6 {
+  font-size: 0.9rem;
+  font-weight: 400;
   color: #121d2a;
+  color: #121d2a;
+  font-weight: 500;
+  margin-top: -10px;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postParagraph {
   font-size: 0.9rem;

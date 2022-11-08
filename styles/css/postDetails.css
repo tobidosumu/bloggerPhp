@@ -185,35 +185,6 @@ body .mainContainer .blogContents section .mainContentContainer .postDescription
 body .mainContainer .blogContents section .rightSideContentContainer {
   width: 30%;
 }
-body .mainContainer .blogContents nav:first-child ul {
-  width: 55%;
-  padding: 4px 0;
-  color: #7a7a7a;
-}
-body .mainContainer .blogContents nav:first-child ul li a {
-  font-size: 0.9rem;
-  font-weight: 400;
-  color: #121d2a;
-  padding: 5px 14px;
-  color: #7a7a7a;
-}
-body .mainContainer .blogContents nav:first-child ul li a:hover a {
-  font-weight: 600;
-  color: #121d2a;
-}
-body .mainContainer .blogContents nav:first-child ul li a:hover:hover {
-  border-bottom: 2px solid #121d2a;
-}
-body .mainContainer .blogContents nav:first-child ul li:first-child {
-  border: none !important;
-}
-body .mainContainer .blogContents nav:first-child ul li:first-child a {
-  font-weight: 600;
-  color: #121d2a;
-}
-body .mainContainer .blogContents nav:first-child ul li:first-child:hover {
-  border-bottom: 2px solid #121d2a;
-}
 body .mainContainer .blogContents .dropUsAmessage {
   position: relative;
   top: 110px;
@@ -234,24 +205,6 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a:hover {
   background-color: #6025eb;
-}
-body .mainContainer .modalContainer label {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #7a7a7a;
-  font-weight: 400;
-}
-body .mainContainer .modalContainer textarea.decriptionField::placeholder {
-  padding-top: 30px;
-}
-body .mainContainer .modalContainer .modal-footer button:last-child {
-  color: #121d2a;
-  background-color: #00e87c;
-  border: none !important;
-}
-body .mainContainer .modalContainer .modal-footer button:last-child:hover {
-  color: #ffffff;
-  background-color: #121d2a;
 }
 body footer {
   height: 350px;

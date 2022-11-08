@@ -1,11 +1,11 @@
 <?php 
     class PostValidator
     {
-        private $data;
         
         private $title;
         private $category;
         private $description;
+        private $dateTime;
         private $errors = [];
 
         // image properties
@@ -16,12 +16,25 @@
 
         public function __construct()
         {
-            // $this->data = $postData;
-
             $this->fileName = $_FILES['photo']['name'];
             $this->fileSize = $_FILES['photo']['size'];
             $this->fileError = $_FILES['photo']['error'];
             $this->fileTmpName = $_FILES['photo']['tmp_name'];
+        }
+
+        ###################################################################################################
+        // setter and getter methods start here
+
+        public function setDateTime($dateTime)
+        {
+            $this->dateTime = $dateTime;
+            print_r($this->dateTime);
+            die;
+        }
+
+        public function getDateTime()
+        {
+            // date_timestamp_get()
         }
 
         public function setTitle($title)
@@ -38,6 +51,10 @@
         {
             $this->description = $description;
         }
+
+
+        #####################################################################################################
+        // validation methods start here
 
         public function validatePostData()
         {
