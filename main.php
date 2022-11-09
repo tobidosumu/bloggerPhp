@@ -52,9 +52,8 @@
         <section class="hero pt-2">
             <section class="caption">
                 <div>
-                    <tertiaryFont class="mb-3">Blog about anything.</tertiaryFont>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-                        minus sapiente reiciendis, expedita nulla?
+                    <tertiaryFont class="mb-3">Mojisola Badmus Posts.</tertiaryFont>
+                    <p>Welcome to Mojisola Badmus' Posts.
                     </p>
                 </div>
             </section>
@@ -110,7 +109,7 @@
                                             </p>
 
                                         </div>
-                                        <div class="postTitle px-2 mt-2">
+                                        <div class="postTitle px-2 mt-4">
                                             <h6><?=substr_replace($postData['title'],  "...", 55)?></h6> <!-- fetches title from db -->
                                         </div>
                                         <div class="postParagraph px-2">

@@ -9,11 +9,11 @@
 
         <?php include './header/postDetailsHeader.php'?> <!-- header goes here -->
 
-        <section class="blogContents">
+        <section class="blogContents"> 
             
             <section class="d-flex justify-content-between">
 
-                <section class="mainContentContainer pt-5 border-end"> <!-- blog contents container starts here -->
+                <section class="mainContentContainer border-end"> <!-- blog contents container starts here -->
 
                     <?php
 
@@ -24,7 +24,7 @@
                             $dbQuery = new PostQueryDb();
                             $postDetail = $dbQuery->fetchOne($id);
                             ?>
-                                <div class="innerContainer pe-5 wrap"> <!-- photo and title container -->
+                                <div class="innerContainer wrap"> <!-- photo and title container -->
                                     <div class="postImage"> <!-- image div -->
                                         <img class="img-fluid w-100" src="http://localhost/mrEnitan/projects/blog/<?=$postDetail['photo']?>"> <!-- fetches photo from blog_post table -->   
                                     </div>
@@ -67,8 +67,23 @@
 
                 </section>
 
-                <aside class="rightSideContentContainer mt-5">
-                        right side contents
+                <aside class="rightSideContentContainer mt-4 ps-2"> <!-- products section start here -->
+                    <a href="#">
+                        <div class="captionCard d-flex align-items-center justify-content-between px-2 border">
+
+                            <i class="bi bi-shop-window p-1 rounded-1"></i>
+                            <h4>Unusual Merch Store</h4>
+                            <i class="bi bi-arrow-up-right-square"></i>
+                        </div>
+                    </a>           
+                    
+                    <a href="#">
+                        <div class="productCard mt-3 border">
+                            <div class="productImage">
+                                <img class="img-fluid" src="./assets/images/addidas.webp" alt="">
+                            </div>
+                        </div>
+                    </a>
                 </aside>
 
             </section>
