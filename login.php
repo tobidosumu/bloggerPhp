@@ -7,17 +7,17 @@
     
     if(isset($_POST['loginUser']))
     {
-        $loginValidation = new UserLoginValidator($_POST);
+        $loginValidation = new UserLoginValidator();
+        $loginValidation->setEmail($_POST['email']);
+        $loginValidation->setPassword($_POST['password']);
         $errors = $loginValidation->validateUserLogin();
 
-        if (!$errors)
-        {
-            $loginValidation = new UserDbQuery($_POST);
-            $checkEmail = $loginValidation->checkEmailPasswordExist();
-        }
-    }
+        $verifiedLoginData = new UserDbQuery();
+        $verifiedLoginData->setEmail($_POST['email']);
+        $verifiedLoginData->setPassword($_POST['password']);
+        $verifiedLoginData->checkEmailPasswordExist();
 
-    // print_r($_SESSION['hashedConfirmPassword']);
+    }
 
 ?>
 

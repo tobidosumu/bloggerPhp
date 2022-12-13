@@ -10,7 +10,6 @@
         private $password;
         private $confirmPassword;
         private $errors = [];
-        private static $fields = ['firstName', 'lastName', 'email', 'password', 'confirmPassword'];
 
         public function setFirstName($firstName)
         {
@@ -107,7 +106,11 @@
 
         private function validateEmail() // validates email
         {
-            $val = trim($this->email);
+            $val = trim($this->email);  
+            $val = strtolower($val);
+            
+            // print_r($val);
+            // die('STOP!');
 
             if (empty($val))
             {

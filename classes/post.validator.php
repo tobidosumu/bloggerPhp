@@ -1,4 +1,5 @@
 <?php 
+
     class PostValidator
     {
         private $title;
@@ -7,12 +8,10 @@
         private $timeAgo;
         private $errors = [];
 
-
         // image properties
         private $fileName;
         private $fileSize;
         private $fileError;
-
 
         // image element array setter and getter methods
         ###################################################################################################

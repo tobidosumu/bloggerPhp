@@ -2,9 +2,10 @@
 @import './reset';
 
 body {
-    .myAlert {
-        color: $accentHoverColor;
-        background-color: $white;
+    .loginAlert {
+        color: $black;
+        background-color: $veryLightGreenColor;
+        box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
     }
 
     section {

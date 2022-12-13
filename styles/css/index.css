@@ -28,7 +28,14 @@ input[type=search]::-webkit-search-results-decoration {
 }
 
 body .myAlert {
+  color: #121d2a;
+  background-color: rgb(215, 252, 246);
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
+}
+body .failAlert {
   color: #ffffff;
+  background-color: rgba(235, 37, 63, 0.6784313725);
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
 }
 body section aside {
   width: 50%;

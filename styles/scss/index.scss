@@ -3,8 +3,15 @@
 
 body {
     .myAlert {
+        color: $black;
+        background-color: $veryLightGreenColor;
+        box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
+    }
+
+    .failAlert {
         color: $white;
-        // background-color: $white;
+        background-color: $veryLightRedColor;
+        box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
     }
 
     section {

@@ -68,22 +68,27 @@
                 </section>
 
                 <aside class="rightSideContentContainer mt-4 ps-2"> <!-- products section start here -->
-                    <a href="#">
-                        <div class="captionCard d-flex align-items-center justify-content-between px-2 border">
-
-                            <i class="bi bi-shop-window p-1 rounded-1"></i>
-                            <h4>Unusual Merch Store</h4>
-                            <i class="bi bi-arrow-up-right-square"></i>
-                        </div>
+                    <a href="#" class="captionCard d-flex align-items-center justify-content-between px-2 border"><!-- captionCard link -->
+                        <i class="bi bi-shop-window p-1 rounded-1"></i>
+                        <h4>Unusual Merch Store</h4>
+                        <i class="bi bi-arrow-up-right-square"></i>
                     </a>           
-                    
-                    <a href="#">
-                        <div class="productCard mt-3 border">
-                            <div class="productImage">
+
+                    <div class="productCard mt-3 border">
+                        <a href="#" class="d-flex align-items-center p-2"> <!-- product image link -->
+                            <div class="productImage me-2">
                                 <img class="img-fluid" src="./assets/images/addidas.webp" alt="">
+                            </div> 
+                            <div class="productContent">
+                                <h2>ADIDAS VS PACE LIFESTYLE</h2>
+                                <h2>₦ 29,978</h2>
+                                <div class="addToCart">
+                                    <button class="rounded-1" type="submit"><i class="bi bi-bag-plus"></i> Add to cart</button>
+                                </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+
                 </aside>
 
             </section>
