@@ -108,21 +108,12 @@
         {
             $val = trim($this->email);  
             $val = strtolower($val);
-            
-            // print_r($val);
-            // die('STOP!');
 
-            if (empty($val))
-            {
-                $this->addError('email', 'Email cannot be empty.');
-            }
-            else 
-            {
-                if (!filter_var($val, FILTER_VALIDATE_EMAIL))
-                {
-                    $this->addError('email', 'Email is not valid.');
-                }
-            }
+            // if (empty($val)) $this->addError('email', 'Email cannot be empty.');
+
+            if (!filter_var($val, FILTER_VALIDATE_EMAIL)) $this->addError('email', 'Email is not valid or cannot be empty.');
+
+            if ($this->checkEmailExist()) $this->addError('email', 'This email already exists.');
         }
 
         private function validatePassword() // validates password
@@ -173,6 +164,41 @@
         private function addError($key, $val) // receives errors in key(field) and value(error message) pair
         {
             $this->errors[$key] = $val;
+        }
+
+        public function checkEmailExist() // checks if user exists via user's email
+        {
+            $stmt = $this->connect()->prepare("SELECT COUNT(*) AS count FROM `user` WHERE email=?");
+            $stmt->execute(array($this->email));
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $emailCount = $row["count"];
+
+            return $emailCount > 0;
+            
+            // if ($emailCount > 0) 
+            // {
+            //     print_r(
+            //         '<div class="loginAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
+            //             <div>
+            //                 <i class="bi bi-hand-thumbs-up-fill"></i>
+            //                 Congratulations! Account created successfully!
+            //             </div>
+            //         </div>'
+            //     );
+            //     header('Refresh:3; url=./login.php');
+            // }
+            // else 
+            // {
+            //     print_r(
+            //         '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
+            //             <div>
+            //                 <i class="bi bi-emoji-frown-fill"></i>
+            //                 Sign up Failed!
+            //             </div>
+            //         </div>'
+            //     );
+            //     // header('Refresh:3; url=./index.php');
+            // }
         }
     }
 

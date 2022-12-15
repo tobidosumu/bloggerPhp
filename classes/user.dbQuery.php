@@ -58,44 +58,6 @@
             }
         }
 
-        public function checkEmailExist() // checks if user exists via user's email
-        {
-            $stmt = $this->connect()->prepare("SELECT COUNT(*) AS count FROM `user` WHERE email=?");
-            $stmt->execute(array($this->email));
-
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
-            {
-                $email_count = $row["count"];
-            }
-
-            if ($email_count > 0) {
-
-                print_r( 
-                    '<div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-emoji-frown-fill"></i>
-                            Email already exists!
-                        </div>
-                    </div>'
-                ); 
-                
-                // header('Refresh:3; url=./index.php');
-            }
-            else 
-            {
-                print_r(
-                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-hand-thumbs-up-fill"></i>
-                            Congratulations. Account created successfully!
-                        </div>
-                    </div>'
-                );
-            
-                // header('Refresh:3; url=./login.php');
-            }
-        }
-
         public function checkEmailPasswordExist()
         {
             $stmt = $this->connect()->prepare("SELECT * FROM user WHERE email = ?");
@@ -112,7 +74,7 @@
                         </div>
                     </div>'
                 );
-                header('Refresh:3; url=./main.php');
+                header('Refresh:3; url=./home.php');
             }
             else 
             {
@@ -124,7 +86,7 @@
                         </div>
                     </div>'
                 );
-                // header('Refresh:3; url=./login.php');
+                header('Refresh:3; url=./login.php');
             }
         }
     }
