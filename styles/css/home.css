@@ -44,7 +44,7 @@ body .myAlert div i {
 }
 body .mainContainer {
   max-width: 100%;
-  background-color: #ffffff;
+  background-color: #f4f4f5;
 }
 body .mainContainer header {
   padding: 0 12%;
@@ -57,7 +57,7 @@ body .mainContainer header .logoContainer img {
 body .mainContainer header nav {
   width: 50%;
 }
-body .mainContainer header nav ul li:nth-child(2) {
+body .mainContainer header nav ul li:nth-child(1) {
   color: #121d2a;
   font-weight: 500;
   padding: 22px 0;
@@ -131,69 +131,168 @@ body .mainContainer .blogContents {
   padding: 0 12%;
 }
 body .mainContainer .blogContents section .mainContentContainer {
-  width: 70%;
-  padding-top: 44px;
+  width: 64.5%;
+  padding-top: 30px;
 }
-body .mainContainer .blogContents section .mainContentContainer .innerContainer {
-  margin-right: 43px;
+body .mainContainer .blogContents section .mainContentContainer .postCard {
+  width: 87%;
+  word-break: break-all;
+  hyphens: auto;
+  margin-bottom: 30px;
+  transition: translate 0.5s ease;
+  background-color: #ffffff;
 }
-body .mainContainer .blogContents section .mainContentContainer .innerContainer .postImage {
+body .mainContainer .blogContents section .mainContentContainer .postCard:hover {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.123);
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader {
   width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px 0 10px;
+  justify-content: space-between;
 }
-body .mainContainer .blogContents section .mainContentContainer .innerContainer .postImage img {
-  height: 60vh;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .userAvater {
+  display: flex;
+  align-items: center;
 }
-body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer {
-  width: 80%;
-  position: relative;
-  bottom: 30px;
-  background: #ffffff;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .userAvater img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50px;
+  border: 1px solid #f4f4f5;
 }
-body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer {
-  width: 40%;
-  position: relative;
-  bottom: 30px;
-  background: rgba(255, 255, 255, 0.678);
-}
-body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer h5 {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .userAvater p:first-child {
   font-size: 0.8rem;
   font-weight: 500;
   color: #7a7a7a;
-  color: #121d2a;
   font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  text-transform: lowercase;
+  color: rgba(0, 0, 0, 0.7176470588);
 }
-body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer h6 {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .userAvater p:last-child {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  color: #7a7a7a;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo {
+  display: flex;
+  align-items: center;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+  color: #7a7a7a;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo i {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #121d2a;
+  color: #121d2a;
+  padding: 10px;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo i:hover {
+  border-radius: 50%;
+  background-color: #f4f4f5;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postPhoto {
+  overflow: hidden;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postPhoto img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postPhoto img:hover {
+  transform: scale(1.01);
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postPhoto .timeAgo {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postPhoto .timeAgo h4 {
   font-size: 0.8rem;
   font-weight: 500;
   color: #7a7a7a;
 }
-body .mainContainer .blogContents section .mainContentContainer .innerContainer .titleContainer h4 {
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postCategory {
+  position: relative;
+  margin-top: -45px;
+  background-color: rgba(255, 255, 255, 0.678);
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postCategory i {
   font-size: 1.3rem;
   font-weight: 600;
   color: #121d2a;
+  border-radius: 50%;
+  padding: 8px;
+  color: #121d2a;
 }
-body .mainContainer .blogContents section .mainContentContainer .postDescription {
-  width: 100%;
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postCategory i:hover {
+  background-color: #ffffff;
 }
-body .mainContainer .blogContents section .mainContentContainer .postDescription h4 {
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postCategory .leftIconsDiv {
+  width: 30%;
+  padding: 5px 0;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postCategory .leftIconsDiv i {
   font-size: 1.3rem;
   font-weight: 600;
   color: #121d2a;
+  border-radius: 50%;
+  padding: 8px;
+  color: #121d2a;
 }
-body .mainContainer .blogContents section .mainContentContainer .postDescription h4::first-letter {
-  font-weight: 700;
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postCategory .leftIconsDiv i:hover {
+  background-color: #ffffff;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .likesCount {
+  padding: 10px 0 0 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+  font-weight: 500;
+  color: black;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postTitle h6 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #121d2a;
+  font-weight: 500;
+  padding: 10px 0 0 20px;
+  text-transform: capitalize;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postParagraph {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #121d2a;
+  padding: 3px 20px;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard a .postParagraph span {
+  color: #7a7a7a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+  font-weight: 400;
 }
 body .mainContainer .blogContents section .rightSideContentContainer {
-  width: 30%;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 100px;
+  width: 35.5%;
   height: 100vh;
+  top: 100px;
+  position: sticky;
+  position: -webkit-sticky;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard {
-  width: 100%;
+  width: 90%;
   height: 50px;
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard i:first-child {
@@ -333,4 +432,4 @@ body .postBtn:hover {
   background-color: #121d2a;
 }
 
-/*# sourceMappingURL=postDetails.css.map */
+/*# sourceMappingURL=home.css.map */

@@ -16,7 +16,7 @@
     <div class="logoContainer"><a href="main.php"><img src="./assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
     <nav class="headerMenuContainer">
         <ul class="d-flex justify-content-between align-items-center wrap">
-            <li><a href="./main.php">Home</a></li>
+            <li><a href="./home.php">Home</a></li>
             <li><a href="#">Posts</a></li>
             <li><a href="#">My Cart</a></li>
             <li class="d-flex justify-content-between align-items-center"><a href="#"><i class="bi bi-caret-down-fill"></i><img src="./assets/images/moji.png" alt="user account"></a></li>

@@ -111,7 +111,6 @@ body .mainContainer header nav ul li a {
   font-size: 0.9rem;
   font-weight: 400;
   color: #121d2a;
-  color: #121d2a;
   letter-spacing: 0.5px;
   font-weight: 600;
 }
@@ -150,7 +149,6 @@ body .mainContainer .hero .caption div tertiaryFont {
 body .mainContainer .hero .caption div p {
   font-size: 0.9rem;
   font-weight: 400;
-  color: #121d2a;
   color: #7a7a7a;
   line-height: 1.5rem;
 }
@@ -169,7 +167,6 @@ body .mainContainer .blogContents .blogContentContainer nav:first-child ul {
 body .mainContainer .blogContents .blogContentContainer nav:first-child ul li a {
   font-size: 0.9rem;
   font-weight: 400;
-  color: #121d2a;
   padding: 5px 14px;
   color: #7a7a7a;
 }
@@ -242,14 +239,12 @@ body .mainContainer .blogContents .blogContentContainer .blogPostContainer .post
   font-size: 0.9rem;
   font-weight: 400;
   color: #121d2a;
-  color: #121d2a;
   font-weight: 500;
   margin-top: -10px;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postParagraph {
   font-size: 0.9rem;
   font-weight: 400;
-  color: #121d2a;
   color: #7a7a7a;
 }
 body .mainContainer .blogContents .dropUsAmessage {
@@ -262,7 +257,6 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer p {
   width: 60%;
   font-size: 0.9rem;
   font-weight: 400;
-  color: #121d2a;
   color: #7a7a7a;
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
@@ -270,7 +264,6 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
   padding: 9px 12px;
   font-size: 0.9rem;
   font-weight: 400;
-  color: #121d2a;
   background-color: #00e87c;
 }
 body .mainContainer .modalContainer label {

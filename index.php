@@ -21,9 +21,7 @@
             $emailValidator->setEmail($_POST['email']);
             $emailValidator->setPassword($_POST['password']);
             
-            $emailValidator->checkEmailExist();
-            // var_dump($emailValidator);
-            // exit;
+            $emailValidator->insertUserData();
         }
     }
 

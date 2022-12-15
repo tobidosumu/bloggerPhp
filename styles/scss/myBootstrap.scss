@@ -12,26 +12,39 @@ $accentHoverColor: #eb253f;
 $veryLightRedColor: #eb253fad;
 $white: #ffffff;
 $grey: #7a7a7a;
-$lightGrey: #ECEFF1;
+$lightGrey: #f4f4f5;
 $black: #121d2a;
+$lightBlack: #000000b7;
 
 @mixin widthPadding {
-    padding: 0 12%;
+  padding: 0 12%;
 }
 
 // font sizes
+@mixin tinyFont {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: $grey;
+}
+
 @mixin primaryFont {
   font-size: 0.9rem;
   font-weight: 400;
+}
+
+@mixin semiPrimaryFont {
+  font-size: 1.05rem;
+  font-weight: 400;
   color: $black;
 }
+
 @mixin secondaryFont {
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 300;
 }
 
 @mixin semiTertiaryFont {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: $black;
 }
@@ -42,17 +55,12 @@ $black: #121d2a;
   color: $black;
 }
 
-@mixin tinyFont {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: $grey;
-}
 
 @mixin accentColorBtn {
-    background-color: $accentHoverColor;
-    &:hover {
-        background-color: $black;
-    }
+  background-color: $accentHoverColor;
+  &:hover {
+    background-color: $black;
+  }
 }
 
 // buttons
@@ -92,12 +100,73 @@ $black: #121d2a;
   outline: 1px solid $primaryColor;
 }
 
-  // placeholder
-  @mixin placeholder {
-    ::placeholder {
-      display: flex;
-      align-items: center;
-      @include primaryFont;
-      color: $grey;
+// placeholder
+@mixin placeholder {
+  ::placeholder {
+    display: flex;
+    align-items: center;
+    @include primaryFont;
+    color: $grey;
+  }
+}
+
+@mixin productCard {
+  width: 90%;
+  a {
+    // width: 100%;
+    div:nth-child(1) {
+      width: 100%;
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        // border: 1px solid red;
+      }
+    }
+
+    div:nth-child(2) {
+      width: 100%;
+      // border: 1px solid red;
+      h2:nth-child(1) {
+        @include primaryFont;
+        font-weight: 600;
+        color: $lightBlack;
+        text-transform: capitalize;
+      }
+
+      h2:nth-child(2) {
+        // font-size: 1.1rem;
+        @include semiPrimaryFont();
+        font-weight: 700;
+        color: $black;
+      }
+
+      .addToCart {
+        button {
+          width: 100%;
+          height: 35px;
+          border: none;
+          // color: $white;
+          @include primaryFont;
+          background-color: $veryLightRedColor;
+          transition: all 0.3s ease;
+          // border: 1px solid red;
+          &:hover {
+            color: $white;
+            background-color: $accentHoverColor;
+          }
+        }
+      }
     }
   }
+}
+
+@mixin postIcon {
+  @include semiTertiaryFont;
+  border-radius: 50%;
+  padding: 8px;
+  color: $black;
+  &:hover {
+    background-color: $white;
+  }
+}

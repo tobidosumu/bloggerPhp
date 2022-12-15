@@ -50,7 +50,7 @@ body section #leftAside {
   padding-bottom: 50px;
 }
 body section #leftAside div h2 {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: #121d2a;
   color: #ffffff;
@@ -99,7 +99,6 @@ body section #rightAside .formWrapper .formContents form div label {
   padding: 14px 0 4px 12px;
   font-size: 0.9rem;
   font-weight: 400;
-  color: #121d2a;
 }
 body section #rightAside .formWrapper .formContents form div input {
   height: 40px;

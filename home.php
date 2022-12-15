@@ -7,64 +7,67 @@
 <body>
     <div class="mainContainer"> <!-- contains all the page contents -->
 
-        <?php include './header/postDetailsHeader.php'?> <!-- header goes here -->
+        <?php include './header/homeHeader.php'?> <!-- header goes here -->
 
         <section class="blogContents"> 
             
             <section class="d-flex justify-content-between">
 
                 <section class="mainContentContainer"> <!-- blog contents container starts here -->
-
+                        
                     <?php
+                        $dbQuery = new PostQueryDb();
+                        $allPostData = $dbQuery->fetchAll();
 
-                        if (isset($_GET['id'])) 
+                        $validatePostData = new PostQueryDb();
+
+                        foreach ($allPostData as $postData)
                         {
-                            $id = $_GET['id'];
-
-                            $dbQuery = new PostQueryDb();
-                            $postDetail = $dbQuery->fetchOne($id);
                             ?>
-                                <div class="innerContainer wrap"> <!-- photo and title container -->
-                                    <div class="postImage"> <!-- image div -->
-                                        <img class="img-fluid w-100" src="http://localhost/mrEnitan/projects/blog/<?=$postDetail['photo']?>"> <!-- fetches photo from blog_post table -->   
-                                    </div>
-                                    <div class="categoryTitleContainer"> <!-- title, category container -->
-                                        <div class="categoryReadTimeContainer d-flex justify-content-between p-2 pb-0"> <!-- category and read time div -->
-                                            <h5><?=$postDetail['category']?></h5> 
-                                            <h6>
-                                                <?php
-                                                    $totalNumWords = str_word_count($postDetail['description'], 0);
-                                                    $wpm = 200; // where "wpm" is number of words per minute.  
-                                                    $readPerMinute = floor($totalNumWords / $wpm); 
-                                                    print_r("$readPerMinute Min Read");
-                                                ?> 
-                                            </h6>
+                                <div class="postCard border rounded-top rounded-2 pb-1">
+                                    <a href="./postDetails.php?id=<?=$postData['id']?>">
+                                        <!-- blog post card starts here -->
+                                        <div class="postHeader">
+                                            <div class="userAvater">
+                                                <img src="./assets/images/moji.png" alt="">
+                                                <div class="avaterDetails mt-2 ms-3">
+                                                    <p>Mojisola Badmus</p>
+                                                    <p><?=$postData['category'] ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="postInfo">
+                                                <p>2 sec ago</p>
+                                                <i class="bi bi-three-dots ms-3"></i>
+                                            </div>
                                         </div>
-                                        <div class="titleContainer"> <!-- title div -->
-                                            <h4 class="p-2 pt-0"><?=$postDetail['title']?></h4>
-                                        </div> 
-                                    </div>
+                                        <div class="postPhoto">
+                                            <img class="img-fluid" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
+                                          
+                                            <div class="postCategory d-flex justify-content-between align-items-center px-3">
+                                                <div class="leftIconsDiv d-flex justify-content-between">
+                                                    <i class="bi bi-heart"></i>
+                                                    <i class="bi bi-chat-square"></i>
+                                                    <i class="bi bi-send"></i>
+                                                </div>
+                                                <i class="bi bi-bookmark"></i>
+                                            </div>
 
-                                    <div class="postDescription">
-                                        <p><?=$postDetail['description']?></p>
-                                    </div>
+                                            <p class="likesCount">16,474 likes</p>
+                                        </div>
+
+
+                                        <div class="postTitle">
+                                            <h6><?=substr_replace($postData['title'],  "...", 100)?></h6> <!-- fetches title from db -->
+                                        </div>
+                                        <div class="postParagraph pb-3">
+                                            <p><?=substr_replace($postData['description'], "... <span>more</span>", 60)?></p> <!-- fetches description from db -->
+                                        </div>
+                                    </a>
                                 </div>
-                                
-                            <?php
-                        }
-                        else
-                        {
-                            print_r(
-                                '<div class="myAlert position-absolute mt-5 start-50 translate-middle alert bg-danger text-light d-flex align-items-center" role="alert">
-                                    <div>
-                                        <i class="bi bi-emoji-frown"></i>
-                                        Stop wasting your time.
-                                    </div>
-                                </div>'
-                            );
+                            <?php    
                         }
                     ?>
-
+                
                 </section>
 
                 <aside class="rightSideContentContainer mt-4 ps-2"> <!-- products section start here -->
@@ -80,7 +83,7 @@
                                 <img class="img-fluid" src="./assets/images/addidas.webp" alt="">
                             </div> 
                             <div class="productContent">
-                                <h2 class="py-2">ADIDAS VS PACE LIFESTYLE</h2>
+                                <h2 class="py-2">Adidas vs pace lifestyle</h2>
                                 <h2 class="pb-2">₦ 29,978</h2>
                                 <div class="addToCart">
                                     <button class="rounded-1" type="submit"><i class="bi bi-bag-plus"></i> Add to cart</button>
