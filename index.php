@@ -15,45 +15,15 @@
 
         if (!$errors) 
         {
-            $saveVerifiedData = new UserDbQuery();
-            $saveVerifiedData->setFirstName($_POST['firstName']);
-            $saveVerifiedData->setLastName($_POST['lastName']);
-            $saveVerifiedData->setEmail($_POST['email']);
-            $saveVerifiedData->setPassword($_POST['password']);
-
-            $emailExist = $saveVerifiedData->checkEmailExist();
-
-        //    var_dump($emailExist);
-        //    exit;
-
-            if ($emailExist = 0)
-            {
-                $saveVerifiedData->insertUserData();
-
-                print_r(
-                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-hand-thumbs-up-fill"></i>
-                            Congratulations. Account created successfully!
-                        </div>
-                    </div>'
-                );
+            $emailValidator = new UserDbQuery();
+            $emailValidator->setFirstName($_POST['firstName']);
+            $emailValidator->setLastName($_POST['lastName']);
+            $emailValidator->setEmail($_POST['email']);
+            $emailValidator->setPassword($_POST['password']);
             
-                header('Refresh:3; url=./login.php');
-            }
-            else 
-            {
-                print_r( 
-                    '<div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-emoji-frown-fill"></i>
-                            Email already exists!
-                        </div>
-                    </div>'
-                ); 
-    
-                // header('Refresh:3; url=./index.php');
-            }
+            $emailValidator->checkEmailExist();
+            // var_dump($emailValidator);
+            // exit;
         }
     }
 
