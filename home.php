@@ -25,78 +25,74 @@
                         {
                             ?>
                                 <div class="postCard border rounded-top rounded-2">
-                                    <!-- <a href="./postDetails.php?id=<?=$postData['id']?>"> -->
-                                        <!-- blog post card starts here -->
-                                        <div class="postHeader">
-                                            <div class="userAvater">
-                                                <img src="./assets/images/moji.png" alt="">
-                                                <div class="avaterDetails ms-3">
-                                                    <p>Mojisola Badmus</p>
+                                    <!-- blog post card starts here -->
+                                    <div class="postHeader">
+                                        <div class="userAvater">
+                                            <img src="./assets/images/moji.png" alt="">
+                                            <div class="avaterDetails ms-3">
+                                                <p>Mojisola Badmus</p>
+                                            </div>
+                                        </div>
+                                        <div class="postInfo">
+                                            <p>2 sec ago</p>
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </div>
+                                    </div>
+
+                                    <div class="postPhoto">
+                                        <a href="./postDetails.php?id=<?=$postData['id']?>">
+                                            <img class="img-fluid" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
+                                        </a>
+                                        <div class="postCategory d-flex justify-content-end">
+                                            <div class="rightIconsDiv d-flex flex-column justify-content-between align-items-center">
+                                                <div class="likes">
+                                                    <i class="bi bi-heart"></i>
+                                                    <p>221.9k</p>
+                                                </div>
+                                                <div class="comments">
+                                                    <i class="bi bi-chat-square"></i>
+                                                    <p>1907</p>
+                                                </div>
+                                                <div class="shares">
+                                                    <i class="bi bi-send"></i>
+                                                    <p>1805</p>
                                                 </div>
                                             </div>
-                                            <div class="postInfo">
-                                                <p>2 sec ago</p>
-                                                <i class="bi bi-three-dots-vertical"></i>
-                                            </div>
+                                        </div>  
+                                    </div>
+                                    
+                                    <div class="postTextWrapper">
+                                        <!-- <p class="likesCount">16,474 likes</p> -->
+                                        <div class="postTitle">
+                                            <p><?=$postData['category'] ?></p>
+                                        </div>
+                                        <div class="postParagraph">
+                                            <p><?=substr_replace($postData['description'], "... <span>more</span>", 60)?></p> <!-- fetches description from db -->
                                         </div>
 
-                                        <div class="postPhoto">
-                                            <a href="./postDetails.php?id=<?=$postData['id']?>">
-                                                <img class="img-fluid" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
-                                            </a>
-                                            <div class="postCategory d-flex justify-content-end">
-                                                <div class="rightIconsDiv d-flex flex-column justify-content-between align-items-end">
-                                                    <div class="likes">
-                                                        <i class="bi bi-heart"></i>
-                                                        <p>221.9k</p>
-                                                    </div>
-                                                    <div class="comments">
-                                                        <i class="bi bi-chat-square"></i>
-                                                        <p>1907</p>
-                                                    </div>
-                                                    <div class="shares">
-                                                        <i class="bi bi-share"></i>
-                                                        <p>1805</p>
-                                                    </div>
-                                                </div>
-                                            </div>  
+                                        <p class="commentsCount">View all 142 comments</p>
+                                    </div>
+                                    
+                                    <div class="postCommentWrapper d-flex align-items-center align-items-center">
+                                        <div class="emojiWrapper">
+                                            <i class="bi bi-emoji-smile"></i>
                                         </div>
-                                        
-                                        <div class="postTextWrapper">
-                                            <!-- <p class="likesCount">16,474 likes</p> -->
-                                            <div class="postTitle">
-                                                <p><?=$postData['category'] ?></p>
-                                            </div>
-                                            <div class="postParagraph">
-                                                <p><?=substr_replace($postData['description'], "... <span>more</span>", 60)?></p> <!-- fetches description from db -->
-                                            </div>
-    
-                                            <p class="commentsCount">View all 142 comments</p>
-                                        </div>
-                                        
-                                        <div class="postCommentWrapper d-flex align-items-center align-items-center">
-                                            <div class="emojiWrapper">
-                                                <i class="bi bi-emoji-smile"></i>
-                                            </div>
 
-                                            <div class="commentWrapper">
-                                                <textarea name="comment" placeholder="Add a comment..."></textarea>
-                                            </div>
-
-                                            <div class="postBtnWrapper d-flex justify-content-end">
-                                                <button type="submit">Post</button>
-                                            </div>
+                                        <div class="commentWrapper">
+                                            <textarea name="comment" id="expandable-textarea" placeholder="Add a comment..."></textarea>
                                         </div>
-                                        
-                                    <!-- </a> -->
+
+                                        <div class="postBtnWrapper d-flex justify-content-end">
+                                            <button id="postBtnWrapper" type="submit">Post</button>
+                                        </div>
+                                    </div>
                                 </div>
                             <?php    
                         }
                     ?>
-                
                 </section>
 
-                <aside class="rightSideContentContainer mt-4 ps-2"> <!-- products section start here -->
+                <aside class="rightSideContentContainer mt-4"> <!-- products section start here -->
                     <a href="#" class="captionCard d-flex align-items-center justify-content-between px-2 border"><!-- captionCard link -->
                         <i class="bi bi-shop-window p-1 rounded-1"></i>
                         <h4>Unusual Merch Store</h4>

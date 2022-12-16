@@ -16,11 +16,23 @@
     <div class="logoContainer"><a href="home.php"><img src="./assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
     <nav class="headerMenuContainer">
         <ul class="d-flex justify-content-between align-items-center wrap">
-            <li><a href="./main.php">Home</a></li>
-            <li><a href="./postDetails.php">Posts</a></li>
-            <li><a href="#">Inbox</a></li>
-            <!-- <li class="d-flex justify-content-between align-items-center"><a href="#"><i class="bi bi-caret-down-fill"></i><img src="./assets/images/moji.png" alt="user account"></a></li> -->
-            <li class="d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
+            <li class="home"><a href="./main.php">Home</a></li>
+            <li class="inbox"><a href="#">Inbox</a></li>
+            <li onclick="revealDropdown()" class="profile d-flex justify-content-between align-items-center">
+                <a href="#">
+                    <i class="bi bi-caret-down-fill"></i>
+                    <img src="./assets/images/moji.png" alt="user account">
+                </a>
+
+                <div class="profileDropdown">
+                    <ul class="d-flex flex-column">
+                        <a href="#"><i class="bi bi-send"></i>Posts</a>
+                        <a href="#"><i class="bi bi-envelope"></i>Mails</a>
+                        <a href="#"><i class="bi bi-activity"></i>TimeLine</a>
+                    </ul>
+                </div>
+            </li>
+            <li class="search d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
         </ul>
     </nav>
 </header>

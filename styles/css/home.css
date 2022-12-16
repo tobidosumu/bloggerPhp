@@ -57,41 +57,78 @@ body .mainContainer header .logoContainer img {
 body .mainContainer header nav {
   width: 50%;
 }
-body .mainContainer header nav ul li:nth-child(1) {
-  color: #121d2a;
+body .mainContainer header nav ul li a {
+  color: black;
+  font-size: 0.9rem;
   font-weight: 500;
+}
+body .mainContainer header nav ul .home a {
   padding: 22px 0;
   border-bottom: 2px solid #121d2a;
 }
-body .mainContainer header nav ul li:nth-child(4) a {
-  width: 75px;
+body .mainContainer header nav ul .profile a {
+  width: 66px;
   padding: 4px;
   margin-left: 10px;
 }
-body .mainContainer header nav ul li:nth-child(4) a i {
+body .mainContainer header nav ul .profile a i {
   position: relative;
   top: 2px;
   right: 10px;
-  color: #7a7a7a;
+  color: #9D9D9D;
+  font-size: 0.7rem;
+  font-weight: 500;
 }
-body .mainContainer header nav ul li:nth-child(4) a img {
-  width: 50px;
+body .mainContainer header nav ul .profile a img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50px;
+  border: 1px solid #ffffff;
 }
-body .mainContainer header nav ul li:nth-child(4) a img:hover {
-  border: 1px solid #121d2a;
-}
-body .mainContainer header nav ul li:nth-child(4) a:hover {
+body .mainContainer header nav ul .profile a:hover {
   border: none;
 }
-body .mainContainer header nav ul li:nth-child(4):hover {
+body .mainContainer header nav ul .profile:hover {
   border-radius: 50px;
   background-color: rgb(215, 252, 246);
 }
-body .mainContainer header nav ul li:nth-child(4):hover i {
+body .mainContainer header nav ul .profile:hover i {
   color: #121d2a;
 }
-body .mainContainer header nav ul li:last-child i {
+body .mainContainer header nav ul .profile .profileDropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 20%;
+  width: 10%;
+  padding-left: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.089);
+  transition: all 1s ease;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a {
+  width: 100%;
+  display: flex;
+  margin: 7px 0;
+  padding: 5px 20px;
+  color: #121d2a;
+  font-size: 0.9rem;
+  border-left: 2px solid #ffffff;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a i {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #121d2a;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a:hover {
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-left: 2px solid #121d2a;
+}
+body .mainContainer header nav ul .search i {
   color: #ffffff;
   font-size: 13px;
   text-align: center;
@@ -100,27 +137,26 @@ body .mainContainer header nav ul li:last-child i {
   -webkit-text-stroke: 0.5px;
   border-radius: 4px;
 }
-body .mainContainer header nav ul li:last-child i:hover {
+body .mainContainer header nav ul .search i:hover {
   color: #121d2a;
   background-color: #00e87c;
   transition: all 0.3s ease-in-out;
 }
-body .mainContainer header nav ul li a {
+body .mainContainer header nav ul a {
   width: 100px;
   text-align: center;
   padding: 23px 8px;
   font-size: 0.9rem;
-  font-weight: 400;
   color: #121d2a;
   letter-spacing: 0.5px;
   font-weight: 600;
 }
-body .mainContainer header nav ul li a:hover {
+body .mainContainer header nav ul a:hover {
   color: #121d2a;
   font-weight: 500;
   border-bottom: 2px solid #121d2a;
 }
-body .mainContainer header nav ul li a:hover {
+body .mainContainer header nav ul a:hover {
   color: #121d2a;
   font-weight: 600;
   transition: all 0.1s ease;
@@ -147,7 +183,7 @@ body .mainContainer .blogContents section .mainContentContainer .postCard:hover 
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader {
   width: 100%;
-  height: 50px;
+  height: 55px;
   display: flex;
   align-items: center;
   padding: 0 10px;
@@ -210,26 +246,26 @@ body .mainContainer .blogContents section .mainContentContainer .postCard .postP
   font-weight: 500;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv {
-  height: 25vh;
+  height: 28vh;
   position: relative;
   bottom: 0px;
-  margin: -190px 20px 0 0;
+  margin: -210px 20px 0 0;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div {
   display: flex;
-  flex-direction: row-reverse;
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 7px;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div i {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #121d2a;
+  color: black;
   border-radius: 50%;
-  padding: 10px 8px 6px 8px;
-  background-color: rgb(242, 254, 255);
+  padding: 8px 6px 4px 6px;
+  background-color: rgba(255, 255, 255, 0.527);
   transition: all 0.4s;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
   transition: all 0.4s;
   z-index: 2;
 }
@@ -239,21 +275,17 @@ body .mainContainer .blogContents section .mainContentContainer .postCard .postC
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div p {
   font-size: 0.7rem;
   font-weight: 500;
-  position: relative;
-  left: 4px;
+  font-weight: 600;
   color: #121d2a;
-  background-color: rgba(255, 255, 255, 0.678);
-  padding: 0 10px 0 6px;
-  border-radius: 20px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  z-index: 0;
+  background-color: rgba(255, 255, 255, 0.527);
+  padding: 0 7px;
+  border-radius: 3px;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div:hover i {
-  background-color: rgb(215, 252, 246);
+  background-color: #ffffff;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div:hover p {
-  background-color: rgb(215, 252, 246);
+  background-color: #ffffff;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postTextWrapper {
   padding: 10px 15px;
@@ -285,7 +317,7 @@ body .mainContainer .blogContents section .mainContentContainer .postCard .postT
   color: #9D9D9D;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper {
-  padding: 10px 15px;
+  padding: 12px 15px;
   border-top: 1px solid #f4f4f5;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .emojiWrapper {
@@ -298,30 +330,38 @@ body .mainContainer .blogContents section .mainContentContainer .postCard .postC
   color: #121d2a;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .commentWrapper {
-  width: 87%;
+  width: 84%;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .commentWrapper textarea {
   width: 100%;
   height: 20px;
   border: none;
   resize: none;
-  overflow-y: hidden;
+  padding-right: 4.4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #121d2a;
+  line-height: 1rem;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .commentWrapper textarea::placeholder {
   font-size: 0.8rem;
   font-weight: 500;
   color: #9D9D9D;
 }
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .commentWrapper textarea:focus {
+  outline: none;
+}
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .postBtnWrapper {
-  width: 7%;
+  width: 10%;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .postBtnWrapper button {
+  width: 100%;
   border: none;
   background: none;
   font-size: 0.9rem;
   font-weight: 500;
-  font-weight: 400;
-  color: #4fe3b6;
+  font-weight: 500;
+  color: rgba(79, 227, 183, 0.768627451);
 }
 body .mainContainer .blogContents section .rightSideContentContainer {
   width: 35.5%;
@@ -344,12 +384,10 @@ body .mainContainer .blogContents section .rightSideContentContainer .captionCar
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard i:last-child {
   font-size: 0.9rem;
-  font-weight: 400;
   color: #121d2a;
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard h4 {
   font-size: 0.9rem;
-  font-weight: 400;
   letter-spacing: 2px;
   font-weight: 500;
   text-transform: uppercase;
@@ -374,7 +412,6 @@ body .mainContainer .blogContents section .rightSideContentContainer .productCar
 }
 body .mainContainer .blogContents section .rightSideContentContainer .productCard a div:nth-child(2) h2:nth-child(1) {
   font-size: 0.9rem;
-  font-weight: 400;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.7176470588);
   text-transform: capitalize;
@@ -390,7 +427,6 @@ body .mainContainer .blogContents section .rightSideContentContainer .productCar
   height: 35px;
   border: none;
   font-size: 0.9rem;
-  font-weight: 400;
   background-color: rgba(235, 37, 63, 0.6784313725);
   transition: all 0.3s ease;
 }
@@ -407,7 +443,6 @@ body .mainContainer .blogContents .dropUsAmessage {
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer p {
   width: 60%;
   font-size: 0.9rem;
-  font-weight: 400;
   color: #7a7a7a;
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
@@ -440,7 +475,7 @@ body footer div ul li a {
   color: #7a7a7a;
 }
 body footer div ul li a:hover {
-  color: #4fe3b6;
+  color: #00835c;
 }
 body footer div:last-child ul li ul {
   width: 150px;

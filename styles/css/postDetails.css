@@ -110,7 +110,6 @@ body .mainContainer header nav ul li a {
   text-align: center;
   padding: 23px 8px;
   font-size: 0.9rem;
-  font-weight: 400;
   color: #121d2a;
   letter-spacing: 0.5px;
   font-weight: 600;
@@ -199,12 +198,10 @@ body .mainContainer .blogContents section .rightSideContentContainer .captionCar
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard i:last-child {
   font-size: 0.9rem;
-  font-weight: 400;
   color: #121d2a;
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard h4 {
   font-size: 0.9rem;
-  font-weight: 400;
   letter-spacing: 2px;
   font-weight: 500;
   text-transform: uppercase;
@@ -229,7 +226,6 @@ body .mainContainer .blogContents section .rightSideContentContainer .productCar
 }
 body .mainContainer .blogContents section .rightSideContentContainer .productCard a div:nth-child(2) h2:nth-child(1) {
   font-size: 0.9rem;
-  font-weight: 400;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.7176470588);
   text-transform: capitalize;
@@ -245,7 +241,6 @@ body .mainContainer .blogContents section .rightSideContentContainer .productCar
   height: 35px;
   border: none;
   font-size: 0.9rem;
-  font-weight: 400;
   background-color: rgba(235, 37, 63, 0.6784313725);
   transition: all 0.3s ease;
 }
@@ -262,7 +257,6 @@ body .mainContainer .blogContents .dropUsAmessage {
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer p {
   width: 60%;
   font-size: 0.9rem;
-  font-weight: 400;
   color: #7a7a7a;
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
@@ -295,7 +289,7 @@ body footer div ul li a {
   color: #7a7a7a;
 }
 body footer div ul li a:hover {
-  color: #4fe3b6;
+  color: #00835c;
 }
 body footer div:last-child ul li ul {
   width: 150px;
