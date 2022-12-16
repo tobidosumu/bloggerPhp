@@ -6,7 +6,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, input {
+*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, h5, h6, input {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -158,7 +158,6 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer h5 {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
   color: #121d2a;
   font-weight: 600;
   letter-spacing: 1.5px;
@@ -167,12 +166,10 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer h6 {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
 }
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .titleContainer h4 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #121d2a;
 }
 body .mainContainer .blogContents section .mainContentContainer .postDescription {
   width: 100%;
@@ -180,7 +177,6 @@ body .mainContainer .blogContents section .mainContentContainer .postDescription
 body .mainContainer .blogContents section .mainContentContainer .postDescription h4 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #121d2a;
 }
 body .mainContainer .blogContents section .mainContentContainer .postDescription h4::first-letter {
   font-weight: 700;
@@ -241,7 +237,6 @@ body .mainContainer .blogContents section .rightSideContentContainer .productCar
 body .mainContainer .blogContents section .rightSideContentContainer .productCard a div:nth-child(2) h2:nth-child(2) {
   font-size: 1.05rem;
   font-weight: 400;
-  color: #121d2a;
   font-weight: 700;
   color: #121d2a;
 }
@@ -297,7 +292,6 @@ body footer div ul p {
 body footer div ul li a {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
   color: #7a7a7a;
 }
 body footer div ul li a:hover {

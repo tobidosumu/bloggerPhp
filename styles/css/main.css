@@ -6,7 +6,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, input {
+*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, h5, h6, input {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -144,7 +144,6 @@ body .mainContainer .hero .caption div {
 body .mainContainer .hero .caption div tertiaryFont {
   font-size: 2rem;
   font-weight: 600;
-  color: #121d2a;
 }
 body .mainContainer .hero .caption div p {
   font-size: 0.9rem;
@@ -221,12 +220,10 @@ body .mainContainer .blogContents .blogContentContainer .blogPostContainer .post
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .timeAgo h4 {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postCategory {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
   background-color: rgb(242, 254, 255);
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postCategory p:first-child {
@@ -269,7 +266,6 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
 body .mainContainer .modalContainer label {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
 }
 body .mainContainer .modalContainer textarea.decriptionField::placeholder {
   padding-top: 30px;
@@ -302,7 +298,6 @@ body footer div ul p {
 body footer div ul li a {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
   color: #7a7a7a;
 }
 body footer div ul li a:hover {

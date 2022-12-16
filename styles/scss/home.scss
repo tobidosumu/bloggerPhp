@@ -136,10 +136,10 @@ body {
 
                         .postHeader {
                             width: 100%;
-                            height: 60px;
+                            height: 50px;
                             display: flex;
                             align-items: center;
-                            padding: 0 20px 0 10px;
+                            padding: 0 10px;
                             justify-content: space-between;
 
                             .userAvater {
@@ -151,29 +151,34 @@ body {
                                     border-radius: 50px;
                                     border: 1px solid $lightGrey;
                                 }
-                                p:first-child {
-                                    @include tinyFont;
-                                    font-weight: 600;
-                                    text-transform: lowercase;
-                                    color: $lightBlack;
-                                }                                
-                                
-                                p:last-child {
-                                    @include tinyFont;
-                                    font-weight: 400;
-                                    text-transform: capitalize;
-                                    letter-spacing: 1px;
-                                    color: $grey;
+
+                                .avaterDetails {
+                                    p {
+                                        @include tinyFont;
+                                        font-weight: 600;
+                                        text-transform: lowercase;
+                                        color: $black;
+                                    }                                
                                 }
+                                
+                                // p:last-child {
+                                //     @include tinyFont;
+                                //     font-weight: 400;
+                                //     text-transform: capitalize;
+                                //     letter-spacing: 1px;
+                                //     color: $grey;
+                                // }
                             }
 
                             .postInfo {
                                 display: flex;
                                 align-items: center;
                                 p {
-                                    @include tinyFont;
-                                    color: $grey;
+                                    @include veryLittleFont;
+                                    margin-right: 5px;
+                                    color: $veryLightGrey;
                                 }
+
                                 i {
                                     @include semiPrimaryFont;
                                     color: $black;
@@ -186,12 +191,12 @@ body {
                             }
                         }
 
-                        a {
+                        // a {
                             .postPhoto {
                                 overflow: hidden;
                                 img {
                                     width: 100%;
-                                    height: 340px;
+                                    height: 330px;
                                     object-fit: cover;
                                     transition: transform .5s ease-in-out;
                                     &:hover {
@@ -205,59 +210,129 @@ body {
                                         @include tinyFont;
                                     }
                                 }
-
                             }
 
                             .postCategory {
-                                // width: 100%;
-                                position: relative;
-                                margin-top: -45px;
-                                background-color: $transparentWhite;
-                                i {
-                                    @include postIcon;
-                                }
+                                .rightIconsDiv {
+                                    height: 25vh;
+                                    position: relative;
+                                    bottom: 0px;
+                                    margin: -190px 20px 0 0;
+                                    div {
+                                        display: flex;
+                                        flex-direction: row-reverse;
+                                        align-items: center;
+                                        margin-bottom: 7px;
+
+                                        i {
+                                            @include postIcon;
+                                            margin-bottom: 5px;
+                                            transition: all .4s;
+                                            z-index: 2;
+                                        }
     
-                                .leftIconsDiv {
-                                    width: 30%;
-                                    padding: 5px 0;
-                                    // border: 1px solid $grey;
-                                    i {
-                                        @include postIcon;
+                                        p {
+                                            @include veryLittleFont;
+                                            position: relative;
+                                            left: 4px;
+                                            color: $black;
+                                            background-color: $transparentWhite;
+                                            padding: 0 10px 0 6px; 
+                                            border-radius: 20px;
+                                            border-top-right-radius: 0;
+                                            border-bottom-right-radius: 0;
+                                            z-index: 0;
+                                        }
+
+                                        &:hover {
+                                            i {
+                                                background-color: $veryLightGreenColor;
+                                            }
+                                        }
+                                        &:hover {
+                                            p {
+                                                background-color: $veryLightGreenColor;
+                                            }
+                                        }
                                     }
-
                                 }
-
                             }
                             
-                            .likesCount {
-                                padding: 10px 0 0 20px;
-                                @include tinyFont;
-                                font-weight: 500;
-                                color: black;
-                            }
-
-                            .postTitle {
-                                h6 {
-                                    @include primaryFont;
-                                    color: $black;
-                                    font-weight: 500;
-                                    padding: 10px 0 0 20px;
-                                    text-transform: capitalize;
-                                }
-                            }
+                            .postTextWrapper {
+                                padding: 10px 15px;
     
-                            .postParagraph {
-                                @include primaryFont;
-                                color: $black;
-                                padding: 3px 20px;
-
-                                span {
-                                    color: $grey;
+                                .postTitle {
+                                    p {
+                                        @include tinyFont;
+                                        color: $black;
+                                        font-weight: 500;
+                                        letter-spacing: 1px;
+                                        margin-bottom: 8px;
+                                        text-transform: capitalize;   
+                                    }
+                                }
+        
+                                .postParagraph {
                                     @include tinyFont;
-                                    font-weight: 400;
+                                    padding-bottom: 10px;
+                                    color: $lightBlack;
+    
+                                    span {
+                                        color: $grey;
+                                        @include tinyFont;
+                                        font-weight: 400;
+                                    }
+                                }
+                                
+                                .commentsCount {
+                                    @include tinyFont;
+                                    color: $veryLightGrey;
                                 }
                             }
-                        }
+
+                            .postCommentWrapper {
+                                padding: 10px 15px;
+                                border-top: 1px solid $lightGrey;
+                                .emojiWrapper {
+                                    width: 6%;
+                                    i {
+                                        font-weight: 700;
+                                        @include semiTertiaryFont;
+                                        color: $black;
+                                    }
+                                }
+
+                                .commentWrapper {
+                                    width: 87%;
+                                    textarea {
+                                        width: 100%;
+                                        height: 20px;
+                                        border: none;
+                                        resize: none;
+                                        overflow-y: hidden;
+                                        // border: 1px solid red;
+                                        &::placeholder {
+                                            @include tinyFont;
+                                            color: $veryLightGrey;
+                                        }
+                                    }
+                                }
+
+                                .postBtnWrapper {
+                                    width: 7%;
+                                    // border: 1px solid red;
+
+                                    button {
+                                        border: none;
+                                        background: none;
+                                        @include semiTinyFont;
+                                        font-weight: 400;
+                                        color: $green;
+                                    }
+                                }
+                            }
+
+                        // }
                     }
                 }
 

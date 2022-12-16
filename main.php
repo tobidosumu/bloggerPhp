@@ -15,7 +15,6 @@
 
         $errors = $validatePostData->validatePostData();
 
-
         if (!$errors)
         {
             $dbQuery = new PostQueryDb();
@@ -25,8 +24,6 @@
             
             $savedPostData = $dbQuery->savePostData();
 
-            // print_r($savedPostData);
-            // die;
         }
         else
         {

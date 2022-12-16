@@ -4,7 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, input {
+*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, h5, h6, input {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -52,7 +52,6 @@ body section #leftAside {
 body section #leftAside div h2 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #121d2a;
   color: #ffffff;
 }
 body section #leftAside div img {
@@ -65,7 +64,6 @@ body section #rightAside {
 body section #rightAside .header a:first-child {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
   color: #00e87c;
   padding-right: 20px;
 }
@@ -76,7 +74,6 @@ body section #rightAside .header a:last-child {
   color: #ffffff !important;
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
   background-color: #00e87c;
 }
 body section #rightAside .header a:last-child:hover {
@@ -85,7 +82,6 @@ body section #rightAside .header a:last-child:hover {
 body section #rightAside .formWrapper .formContents h2 {
   font-size: 2rem;
   font-weight: 600;
-  color: #121d2a;
 }
 body section #rightAside .formWrapper .formContents form {
   width: 80%;
@@ -113,7 +109,6 @@ body section #rightAside .formWrapper .formContents form div input::placeholder 
   color: #7a7a7a;
   font-size: 0.8rem;
   font-weight: 500;
-  color: #7a7a7a;
 }
 body section #rightAside .formWrapper .formContents form div input:focus {
   outline: 1px solid #00e87c;
