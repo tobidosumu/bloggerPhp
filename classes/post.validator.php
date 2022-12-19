@@ -61,7 +61,6 @@
             $this->description = $description;
         }
 
-
         #####################################################################################################
         // validation methods start here
 
@@ -89,6 +88,10 @@
             elseif (strlen($val) < 10)
             {
                 $this->addError('title', 'Title must be at least 20 chars long.');
+            }
+            elseif (strlen($val) > 140)
+            {
+                $this->addError('title', 'Title cannot be more than 140 chars long.');
             }
             elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
             {
