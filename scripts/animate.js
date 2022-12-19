@@ -53,3 +53,46 @@ document.addEventListener("click", function(event) {
     dropdown.style.display = "none";
   }
 });
+
+// Get the slider container and the images
+const slider = document.querySelector('.topBloggersSlider');
+const images = Array.from(topBloggersSlider.children);
+
+// Set the starting index to 0 (first image)
+let currentIndex = 0;
+
+// Add a click event listener to the left arrow button
+document.querySelector('#left-arrow').addEventListener('click', function() {
+  // Decrement the current index
+  currentIndex--;
+
+  // If the current index is negative, set it to the last image
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  }
+
+  // Slide the images to the left
+  slideImages();
+});
+
+// Add a click event listener to the right arrow button
+document.querySelector('#right-arrow').addEventListener('click', function() {
+  // Increment the current index
+  currentIndex++;
+
+  // If the current index is greater than the number of images, set it to the first image
+  if (currentIndex > images.length - 1) {
+    currentIndex = 0;
+  }
+
+  // Slide the images to the right
+  slideImages();
+});
+
+function slideImages() {
+  // Set the left position of the images based on the current index
+  images.forEach((image, index) => {
+    image.style.left = `${index - currentIndex}00%`;
+  });
+}
+

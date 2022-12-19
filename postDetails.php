@@ -7,14 +7,21 @@
 <body>
     <div class="mainContainer"> <!-- contains all the page contents -->
 
-        <?php include './header/postDetailsHeader.php'?> <!-- header goes here -->
+        <?php include './headers/postDetailsHeader.php'?> <!-- header goes here -->
 
-        <section class="blogContents"> 
+        <section class="blogContents">
             
             <section class="d-flex justify-content-between">
 
-                <section class="mainContentContainer"> <!-- blog contents container starts here -->
-
+                <section class="mainContentContainer border-end"> <!-- blog contents container starts here -->
+                    <nav class="my-3">
+                        <ul class="d-flex">
+                            <li><a href="./posts.php">Posts</a></li>
+                            <li class="mx-2"><i class="bi bi-chevron-right"></i></li>
+                            <li><a href="./postDetails.php">Post Details</a></li>
+                        </ul>
+                    </nav>
+                    
                     <?php
 
                         if (isset($_GET['id'])) 
@@ -29,7 +36,7 @@
                                         <img class="img-fluid w-100" src="http://localhost/mrEnitan/projects/blog/<?=$postDetail['photo']?>"> <!-- fetches photo from blog_post table -->   
                                     </div>
                                     <div class="categoryTitleContainer"> <!-- title, category container -->
-                                        <div class="categoryReadTimeContainer d-flex justify-content-between p-2 pb-0"> <!-- category and read time div -->
+                                        <div class="categoryReadTimeContainer d-flex justify-content-between p-2"> <!-- category and read time div -->
                                             <h5><?=$postDetail['category']?></h5> 
                                             <h6>
                                                 <?php
@@ -67,7 +74,7 @@
 
                 </section>
 
-                <aside class="rightSideContentContainer mt-4 ps-2"> <!-- products section start here -->
+                <aside class="rightSideContentContainer d-flex flex-column align-items-center pt-4 ps-2"> <!-- products section start here -->
                     <a href="#" class="captionCard d-flex align-items-center justify-content-between px-2 border"><!-- captionCard link -->
                         <i class="bi bi-shop-window p-1 rounded-1"></i>
                         <h4>Unusual Merch Store</h4>
@@ -83,7 +90,7 @@
                                 <h2 class="py-2">ADIDAS VS PACE LIFESTYLE</h2>
                                 <h2 class="pb-2">₦ 29,978</h2>
                                 <div class="addToCart">
-                                    <button class="rounded-1" type="submit"><i class="bi bi-bag-plus"></i> Add to cart</button>
+                                    <button class="rounded-1" type="submit"><i class="bi bi-bag-plus me-1"></i> Add to cart</button>
                                 </div>
                             </div>
                         </a>

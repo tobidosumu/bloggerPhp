@@ -2,12 +2,49 @@
     require './classes/dbConnect.php'; // DbConnect
     require './classes/post.queryDb.php'; // PostDbConnector
     require './classes/post.validator.php'; // PostValidator
+
+    if (isset($_POST['savePostData'])) 
+    {
+        $validatePostData = new PostValidator();
+        $validatePostData->setTitle($_POST['title']);
+        $validatePostData->setCategory($_POST['category']);
+        $validatePostData->setDescription($_POST['description']);
+        $validatePostData->setFileName($_FILES['photo']['name']);
+        $validatePostData->setFileSize($_FILES['photo']['size']);
+        $validatePostData->setFileError($_FILES['photo']['error']);
+
+        $errors = $validatePostData->validatePostData();
+
+        if (!$errors)
+        {
+            $dbQuery = new PostQueryDb();
+            $dbQuery->setTitle($_POST['title']);
+            $dbQuery->setCategory($_POST['category']);
+            $dbQuery->setDescription($_POST['description']);
+            
+            $savedPostData = $dbQuery->savePostData();
+
+        }
+        else
+        {
+            print_r(
+                '<div class="failAlert position-absolute mt-5 start-50 translate-middle alert text-light d-flex align-items-center" role="alert">
+                    <div>
+                        <p><i class="bi bi-emoji-frown"></i> Uh-no! Please check the form and try again.</p>
+                    </div>
+                </div>'
+            );
+            // header('Refresh:3; url=home.php');
+        }
+    }
+
 ?>
 
 <body>
+    
     <div class="mainContainer"> <!-- contains all the page contents -->
 
-        <?php include './header/homeHeader.php'?> <!-- header goes here -->
+    <?php include './headers/homeHeader.php'?> <!-- header goes here -->
 
         <section class="blogContents"> 
             
@@ -54,7 +91,7 @@
                                                     <p>1907</p>
                                                 </div>
                                                 <div class="shares">
-                                                    <i class="bi bi-send"></i>
+                                                    <i class="bi bi-reply"></i>
                                                     <p>1805</p>
                                                 </div>
                                             </div>
@@ -67,7 +104,39 @@
                                             <p><?=$postData['category'] ?></p>
                                         </div>
                                         <div class="postParagraph">
-                                            <p><?=substr_replace($postData['description'], "... <span>more</span>", 60)?></p> <!-- fetches description from db -->
+
+                                            <?php
+                                                // Get the value of the description
+                                                $description = $postData['description'];
+
+                                                // Truncate the description to the first 60 characters
+                                                $truncatedDescription = substr($description, 0, 60);
+
+                                                // Check if the user has clicked the read more link
+                                                if (isset($_POST['readMore'])) {
+                                                    // If the read more link has been clicked, toggle between showing the full description and the truncated version
+                                                    if ($_POST['readMore'] == '... more') {
+                                                    $descriptionToShow = $description;
+                                                    $readMoreText = '... less';
+                                                    } else {
+                                                    $descriptionToShow = $truncatedDescription;
+                                                    $readMoreText = '... more';
+                                                    }
+                                                } else {
+                                                    // If the read more link has not been clicked, show the truncated description
+                                                    $descriptionToShow = $truncatedDescription;
+                                                    $readMoreText = '... more</span>';
+                                                }
+                                            ?>
+
+                                            <!-- Display the description -->
+                                            <div id="text-container"><?php echo $descriptionToShow; ?></div>
+
+                                            <!-- Add the read more link -->
+                                            <form method="post">
+                                                <button type="submit" name="readMore" value="<?php echo $readMoreText; ?>"><?php echo $readMoreText; ?></button>
+                                            </form>
+
                                         </div>
 
                                         <p class="commentsCount">View all 142 comments</p>
@@ -91,30 +160,71 @@
                         }
                     ?>
                 </section>
-
-                <aside class="rightSideContentContainer mt-4"> <!-- products section start here -->
-                    <a href="#" class="captionCard d-flex align-items-center justify-content-between px-2 border"><!-- captionCard link -->
-                        <i class="bi bi-shop-window p-1 rounded-1"></i>
-                        <h4>Unusual Merch Store</h4>
-                        <i class="bi bi-arrow-up-right-square"></i>
-                    </a>           
-
-                    <div class="productCard mt-3 border">
-                        <a href="#" class="d-flex flex-column align-items-center p-2"> <!-- product image link -->
-                            <div class="productImage">
-                                <img class="img-fluid" src="./assets/images/addidas.webp" alt="">
-                            </div> 
-                            <div class="productContent">
-                                <h2 class="py-2">Adidas vs pace lifestyle</h2>
-                                <h2 class="pb-2">₦ 29,978</h2>
-                                <div class="addToCart">
-                                    <button class="rounded-1" type="submit"><i class="bi bi-bag-plus"></i> Add to cart</button>
-                                </div>
-                            </div>
-                        </a>
+                
+                <aside class="rightSideContentContainer border-start"> <!-- products section start here -->
+                    
+                <!-- <div class="searchHeader">
+                        <div class="search">
+                            <i id="search-icon" class="bi bi-search"></i>
+                            <input id="search-input" type="search" placeholder="Search Blogger">
+                        </div>
                     </div>
 
-                </aside>
+                    <div class="trends mt-3">
+                        <h6>Top bloggers of the day</h6>
+                    </div>
+
+                    <div class="topBloggersSlider">
+                        <div class="leftArrow">
+                            <img src="./assets/svg/chevronLeft.svg">
+                        </div>
+                        <a href="#" class="ms-0">
+                            <img src="./assets/images/lady2.jpg" alt="">
+                            <p>Oyin</p>
+                        </a>
+                        <a href="#">
+                            <img src="./assets/images/lady3.webp" alt="">
+                            <p>Victoria</p>
+                        </a>
+                        <a href="#">
+                            <img src="./assets/images/lady4.webp" alt="">
+                            <p>Bola</p>
+                        </a>
+                        <a href="#">
+                            <img src="./assets/images/lady5.webp" alt="">
+                            <p>Moyo</p>
+                        </a>
+                        <a href="#">
+                            <img src="./assets/images/lady6.jpg" alt="">
+                            <p>Busayo</p>
+                        </a>
+                        <a href="#">
+                            <img src="./assets/images/lady3.webp" alt="">
+                            <p>Moyin</p>
+                        </a>                       
+                        <a href="#">
+                            <img src="./assets/images/lady2.jpg" alt="">
+                            <p>Moyin</p>
+                        </a>
+                        <div class="rightArrow">
+                            <img src="./assets/svg/chevronRight.svg">
+                        </div>
+                    </div>
+
+                    <div class="trends mt-3">
+                        <h6>Trending around you</h6>
+
+                        <div>
+                            <div class="d-flex justify-content-between border">
+                                <p>Trending in <span>Unilag</span></p>
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </div>
+                            <h5>Protest</h5>
+                            <p>1.4m Louds</p>
+                        </div>
+                    </div>
+
+                </aside> -->
 
             </section>
 
@@ -176,6 +286,88 @@
             </div>
 
         </footer>
+
+        <!-- blog post modal container starts here ###################################################################-->
+
+        <!-- Button trigger modal -->
+        <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="./assets/svg/feather.svg" alt="Click to post">
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modalContent">
+
+                    <form action="" method="post" enctype="multipart/form-data"> <!-- form starts here -->
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Create Blog Post</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body px-4 my-2"> <!-- modal body starts here -->
+                                
+                        <?php
+                        
+                        ?>
+                            <label for="title">Blog title<b class="text-danger"> * </b><span class="text-danger"><?=$errors['title'] ?? ''?></span></label> <!-- Blog title starts here -->
+                            <div class="input-group mt-2 mb-3"> 
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <i class="bi bi-card-heading"></i>
+                                </span>
+                                <input type="text" class="form-control py-2" name="title" value="<?=$_POST['title'] ?? ''?>" placeholder="Add blog title" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </div>
+
+                            <label for="title">Blog category<b class="text-danger"> * </b><span class="text-danger"><?=$errors['category'] ?? ''?></span></label> <!-- Blog category starts here -->
+                            <div class="input-group mt-2 mb-3">
+                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
+                                    <i class="bi bi-list"></i>
+                                </span>
+                                <select class="form-select" name="category" id="floatingSelect" aria-label="Floating label select example">
+                                    <option class="selectPlaceholder">Select a category</option>
+                                    <option value="<?=$_POST['gardening'] ?? ''?>gardening">Gardening</option>
+                                    <option value="<?=$_POST['travel'] ?? ''?>travel">Travel</option>
+                                    <option value="<?=$_POST['fitness'] ?? ''?>fitness">Fitness</option>
+                                    <option value="<?=$_POST['stories'] ?? ''?>stories">Stories</option>
+                                    <option value="<?=$_POST['discoveries'] ?? ''?>discoveries">Discoveries</option>
+                                    <option value="<?=$_POST['sports'] ?? ''?>sports">Sports</option>
+                                    <option value="<?=$_POST['programming'] ?? ''?>programming">Programming</option>
+                                </select>
+                            </div>
+
+                            <label for="title">Blog description<b class="text-danger"> * </b><span class="text-danger"><?=$errors['description'] ?? ''?></span></label> <!-- blog description starts here-->
+                            <div class="input-group mt-2 mb-3"> <!-- description field input -->
+                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
+                                    <i class="bi bi-pencil-square"></i>
+                                </span>
+                                <textarea class="form-control rounded-0 rounded-end decriptionField" name="description" value="<?=$_POST['description'] ?? ''?>" placeholder="Add blog description" id="floatingTextarea2" style="height: 100px"></textarea>
+                            </div>
+
+                            <label for="title">Blog photo<b class="text-danger"> * </b><span class="text-danger"><?=$errors['photo'] ?? ''?></span></label> <!-- upload blog photo starts here-->
+                            <div class="input-group mt-2 mb-3">
+                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
+                                    <i class="bi bi-card-image"></i>
+                                </span>
+                                <input type="file" name="photo" value="<?=$_POST['photo'] ?? ''?>" class="form-control" id="inputGroupSelect01" aria-describedby="inputGroupFileAddon01" aria-label="Upload">
+                            </div>
+
+                        </div> <!-- modal body ends here -->
+                            
+                        <div class="modal-footer"> <!-- modal footer -->
+                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                            <button type="submit" name="savePostData" class="sendPostBtn btn btn-primary">Post <i class="bi bi-send"></i></button>
+                        </div>
+
+                    </form> <!-- form ends here -->
+
+                </div>
+                
+            </div>
+        </div>
+
+</div>
+
 
     </div>
 </body>

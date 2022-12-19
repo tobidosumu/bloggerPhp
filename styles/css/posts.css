@@ -6,7 +6,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, h5, h6, input {
+*, img, a, ul, li, p, h2, h3, h4, h5, h6, input {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -49,7 +49,7 @@ body .mainContainer {
 body .mainContainer header {
   padding: 0 12%;
   height: 70px;
-  background-color: rgb(242, 254, 255);
+  background-color: #ffffff;
 }
 body .mainContainer header .logoContainer img {
   width: 60%;
@@ -57,40 +57,98 @@ body .mainContainer header .logoContainer img {
 body .mainContainer header nav {
   width: 50%;
 }
-body .mainContainer header nav ul li:nth-child(2) {
-  color: #121d2a;
+body .mainContainer header nav ul li a {
+  color: black;
+  font-size: 0.9rem;
   font-weight: 500;
-  padding: 22px 0;
 }
-body .mainContainer header nav ul li:nth-child(4) a {
-  width: 75px;
+body .mainContainer header nav ul .home a {
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+body .mainContainer header nav ul .posts a {
+  border-bottom: 2px solid #121d2a;
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+body .mainContainer header nav ul .profile a {
+  width: 66px;
   padding: 4px;
   margin-left: 10px;
 }
-body .mainContainer header nav ul li:nth-child(4) a i {
+body .mainContainer header nav ul .profile a i {
   position: relative;
   top: 2px;
   right: 10px;
-  color: #7a7a7a;
+  color: #9D9D9D;
+  font-size: 0.7rem;
+  font-weight: 500;
 }
-body .mainContainer header nav ul li:nth-child(4) a img {
-  width: 50px;
+body .mainContainer header nav ul .profile a img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
   border-radius: 50px;
+  border: 1px solid #ffffff;
 }
-body .mainContainer header nav ul li:nth-child(4) a img:hover {
-  border: 1px solid #121d2a;
-}
-body .mainContainer header nav ul li:nth-child(4) a:hover {
+body .mainContainer header nav ul .profile a:hover {
   border: none;
 }
-body .mainContainer header nav ul li:nth-child(4):hover {
+body .mainContainer header nav ul .profile:hover {
   border-radius: 50px;
   background-color: rgb(215, 252, 246);
 }
-body .mainContainer header nav ul li:nth-child(4):hover i {
+body .mainContainer header nav ul .profile:hover i {
   color: #121d2a;
 }
-body .mainContainer header nav ul li:last-child i {
+body .mainContainer header nav ul .profile .profileDropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 21%;
+  width: 10%;
+  padding-left: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.089);
+  transition: all 1s ease;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a {
+  width: 100%;
+  display: flex;
+  margin: 7px 0;
+  margin-bottom: 0;
+  padding: 7px 20px 0 20px;
+  color: #121d2a;
+  font-size: 0.9rem;
+  border-left: 2px solid #ffffff;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a i {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #121d2a;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a:hover {
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-left: 2px solid #121d2a;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul .logout {
+  background-color: rgba(235, 37, 63, 0.2666666667);
+  border: none !important;
+  padding: 8px 20px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul .logout:hover {
+  color: #ffffff;
+  background-color: #eb253f;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul .logout:hover i {
+  color: #ffffff;
+}
+body .mainContainer header nav ul .search i {
   color: #ffffff;
   font-size: 13px;
   text-align: center;
@@ -99,12 +157,12 @@ body .mainContainer header nav ul li:last-child i {
   -webkit-text-stroke: 0.5px;
   border-radius: 4px;
 }
-body .mainContainer header nav ul li:last-child i:hover {
+body .mainContainer header nav ul .search i:hover {
   color: #121d2a;
   background-color: #00e87c;
   transition: all 0.3s ease-in-out;
 }
-body .mainContainer header nav ul li a {
+body .mainContainer header nav ul a {
   width: 100px;
   text-align: center;
   padding: 23px 8px;
@@ -113,22 +171,27 @@ body .mainContainer header nav ul li a {
   letter-spacing: 0.5px;
   font-weight: 600;
 }
-body .mainContainer header nav ul li a:hover {
+body .mainContainer header nav ul a:hover {
   color: #121d2a;
   font-weight: 500;
   border-bottom: 2px solid #121d2a;
 }
-body .mainContainer header nav ul li a:hover {
+body .mainContainer header nav ul a:hover {
   color: #121d2a;
   font-weight: 600;
   transition: all 0.1s ease;
 }
 body .mainContainer .hero {
-  height: 240px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 0 12%;
   background-color: rgb(242, 254, 255);
 }
 body .mainContainer .hero .caption {
+  width: 100%;
   height: 80%;
   display: flex;
   align-items: center;
@@ -141,7 +204,7 @@ body .mainContainer .hero .caption div {
   text-transform: capitalize;
 }
 body .mainContainer .hero .caption div tertiaryFont {
-  font-size: 2rem;
+  font-size: 1.3rem;
   font-weight: 600;
 }
 body .mainContainer .hero .caption div p {
@@ -152,42 +215,13 @@ body .mainContainer .hero .caption div p {
 body .mainContainer .blogContents {
   padding: 0 12%;
   width: 100%;
-}
-body .mainContainer .blogContents .blogContentContainer nav:first-child {
-  border-bottom: 1px solid #7a7a7a;
-}
-body .mainContainer .blogContents .blogContentContainer nav:first-child ul {
-  width: 55%;
-  padding: 4px 0;
-  color: #7a7a7a;
-}
-body .mainContainer .blogContents .blogContentContainer nav:first-child ul li a {
-  font-size: 0.9rem;
-  padding: 5px 14px;
-  color: #7a7a7a;
-}
-body .mainContainer .blogContents .blogContentContainer nav:first-child ul li a:hover a {
-  font-weight: 600;
-  color: #121d2a;
-}
-body .mainContainer .blogContents .blogContentContainer nav:first-child ul li a:hover:hover {
-  border-bottom: 2px solid #121d2a;
-}
-body .mainContainer .blogContents .blogContentContainer nav:first-child ul li:first-child {
-  border: none !important;
-}
-body .mainContainer .blogContents .blogContentContainer nav:first-child ul li:first-child a {
-  font-weight: 600;
-  color: #121d2a;
-}
-body .mainContainer .blogContents .blogContentContainer nav:first-child ul li:first-child:hover {
-  border-bottom: 2px solid #121d2a;
+  background-color: #ffffff;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding-top: 25px;
+  padding-top: 2px;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard {
   width: 240px;
@@ -195,6 +229,7 @@ body .mainContainer .blogContents .blogContentContainer .blogPostContainer .post
   hyphens: auto;
   margin-bottom: 24px;
   transition: translate 0.5s ease;
+  background-color: #ffffff;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard:hover {
   translate: 0 -2%;
@@ -206,38 +241,85 @@ body .mainContainer .blogContents .blogContentContainer .blogPostContainer .post
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto img {
   width: 100%;
   height: 200px;
+  object-fit: cover;
   transition: transform 0.5s ease-in-out;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto img:hover {
   transform: scale(1.4);
 }
-body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .timeAgo {
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .upperInfo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgba(0, 0, 0, 0.7176470588);
+}
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .upperInfo .postTime {
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 50px;
+  padding: 3px 8px;
   background-color: rgba(255, 255, 255, 0.678);
 }
-body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .timeAgo h4 {
-  font-size: 0.8rem;
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .upperInfo .moreInfo {
+  font-size: 0.9rem;
   font-weight: 500;
+  border-radius: 50px;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.678);
+}
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .upperInfo .moreInfo:hover {
+  background-color: #ffffff;
+}
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .lowerInfo {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  color: rgba(0, 0, 0, 0.7176470588);
+}
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .lowerInfo div {
+  font-size: 1.05rem;
+  font-weight: 400;
+  border-radius: 50px;
+  padding: 9px 8px 6px 8px;
+  background-color: rgba(255, 255, 255, 0.678);
+}
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postPhoto .lowerInfo div:hover {
+  background-color: #ffffff;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postCategory {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 500;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7176470588);
   background-color: rgb(242, 254, 255);
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postCategory p:first-child {
+  font-size: 0.7rem;
+  font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
-  font-size: 0.7rem;
   font-weight: 600;
 }
-body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postTitle h6 {
-  font-size: 0.9rem;
-  color: #121d2a;
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postCategory p:last-child {
+  color: #9D9D9D;
+  font-size: 0.7rem;
   font-weight: 500;
-  margin-top: -10px;
+}
+body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postTitle h6 {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #121d2a;
+  font-weight: 600;
+  margin-top: -12px;
+  margin-bottom: 4px;
 }
 body .mainContainer .blogContents .blogContentContainer .blogPostContainer .postCard a .postParagraph {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 400;
+  line-height: 1rem;
   color: #7a7a7a;
+  margin-bottom: 4px;
 }
 body .mainContainer .blogContents .dropUsAmessage {
   position: relative;
@@ -310,23 +392,5 @@ body footer div:last-child ul li ul li a img {
 body footer div:last-child ul .logoList a img {
   width: 100px;
 }
-body .postBtn {
-  position: fixed;
-  bottom: 70px;
-  right: 45px;
-  width: 70px;
-  height: 70px;
-  border-radius: 50px;
-  font-size: 30px;
-  color: #ffffff;
-  box-shadow: 0px 0px 30px #c70021;
-  background-color: #eb253f;
-}
-body .postBtn:hover {
-  background-color: #121d2a;
-}
-body .postBtn:hover {
-  transition: all 0.4s ease;
-}
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=posts.css.map */

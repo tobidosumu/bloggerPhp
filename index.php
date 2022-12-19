@@ -1,5 +1,5 @@
 <?php 
-    include './header/signupHeader.php';
+    include './headers/signupHeader.php';
     require './classes/user.signupValidator.php';
     require_once './classes/user.dbQuery.php';
     

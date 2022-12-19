@@ -44,33 +44,21 @@
 <body>
     <div class="mainContainer"> <!-- contains all the page contents -->
         
-        <?php include './header/mainHeader.php'?> <!-- header goes here -->
+        <?php include './headers/postsHeader.php'?> <!-- header goes here -->
 
-        <section class="hero pt-2">
+        <section class="hero border-bottom">
             <section class="caption">
                 <div>
-                    <tertiaryFont class="mb-3">Mojisola Badmus Posts.</tertiaryFont>
-                    <p>Welcome to Mojisola Badmus' Posts.
+                    <tertiaryFont class="mb-3">View All Your Posts <i class="bi bi-send"></i></tertiaryFont>
+                    <p>Hello Mojisola Badmus
                     </p>
                 </div>
             </section>
         </section>
 
-        <section class="blogContents mt-5">
+        <section class="blogContents pt-5">
             
             <section class="blogContentContainer"> <!-- blog contents container starts here -->
-                <nav>
-                    <ul class="d-flex justify-content-between">
-                        <li><a href="#">All</a></li>
-                        <li><a href="#">Discoveries</a></li>
-                        <li><a href="#">Travel</a></li>
-                        <li><a href="#">Stories</a></li>
-                        <li><a href="#">Gardening</a></li>
-                        <li><a href="#">Sports</a></li>
-                        <li><a href="#">Fitness</a></li>
-                        <li><a href="#">Programming</a></li>
-                    </ul>
-                </nav>
 
                 <section class="blogPostContainer">
 
@@ -88,8 +76,14 @@
                                         <!-- blog post card starts here -->
                                         <div class="postPhoto rounded-top">
                                             <img class="img-fluid rounded-top" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
-                                            <div class="timeAgo position-absolute top-0 start-0 p-2 m-2 rounded-5">
-                                                <h4><i class="bi bi-clock"></i> 2 secs ago</h4>
+                                            <div class="upperInfo d-flex pt-2 pe-2">
+                                                <h5 class="postTime m-auto">2 sec ago</h5>
+                                                <div class="moreInfo ms-3"><i class="bi bi-three-dots-vertical"></i></div> 
+                                            </div>
+
+                                            <div class="lowerInfo d-flex flex-column align-items-end pt-2 pe-2 mb-5">
+                                                <div class="mb-2"><i class="bi bi-heart"></i></div>    
+                                                <div><i class="bi bi-chat-square"></i></div>    
                                             </div>
                                         </div>
                                         <div class="postCategory d-flex justify-content-between py-2 px-2">
@@ -197,88 +191,6 @@
             </div>
 
         </footer>
-
-        <!-- blog post modal container starts here ###################################################################-->
-        <div class="modalContainer">
-
-            <!-- Button trigger modal -->
-            <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <!-- <i class="bi bi-pencil-square"></i> -->
-                <img src="./assets/svg/feather.svg" alt="Click to post">
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-
-                        <form action="" method="post" enctype="multipart/form-data"> <!-- form starts here -->
-
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Create a Blog Post</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-
-                            <div class="modal-body px-4 my-2"> <!-- modal body starts here -->
-                                    
-                            <?php
-                            
-                            ?>
-                                <label for="title">Blog title<b class="text-danger"> * </b><span class="text-danger"><?=$errors['title'] ?? ''?></span></label> <!-- Blog title starts here -->
-                                <div class="input-group mt-2 mb-3"> 
-                                    <span class="input-group-text" id="addon-wrapping">
-                                        <i class="bi bi-card-heading"></i>
-                                    </span>
-                                    <input type="text" class="form-control py-2" name="title" value="<?=$_POST['title'] ?? ''?>" placeholder="Add blog title" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                </div>
-
-                                <label for="title">Blog category<b class="text-danger"> * </b><span class="text-danger"><?=$errors['category'] ?? ''?></span></label> <!-- Blog category starts here -->
-                                <div class="input-group mt-2 mb-3">
-                                    <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                        <i class="bi bi-list"></i>
-                                    </span>
-                                    <select class="form-select" name="category" id="floatingSelect" aria-label="Floating label select example">
-                                        <option value="">Select a category</option>
-                                        <option value="<?=$_POST['gardening'] ?? ''?>gardening">Gardening</option>
-                                        <option value="<?=$_POST['travel'] ?? ''?>travel">Travel</option>
-                                        <option value="<?=$_POST['fitness'] ?? ''?>fitness">Fitness</option>
-                                        <option value="<?=$_POST['stories'] ?? ''?>stories">Stories</option>
-                                        <option value="<?=$_POST['discoveries'] ?? ''?>discoveries">Discoveries</option>
-                                        <option value="<?=$_POST['sports'] ?? ''?>sports">Sports</option>
-                                        <option value="<?=$_POST['programming'] ?? ''?>programming">Programming</option>
-                                    </select>
-                                </div>
-
-                                <label for="title">Blog description<b class="text-danger"> * </b><span class="text-danger"><?=$errors['description'] ?? ''?></span></label> <!-- blog description starts here-->
-                                <div class="input-group mt-2 mb-3"> <!-- description field input -->
-                                    <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                        <i class="bi bi-pencil-square"></i>
-                                    </span>
-                                    <textarea class="form-control rounded-0 rounded-end decriptionField" name="description" value="<?=$_POST['description'] ?? ''?>" placeholder="Add blog description" id="floatingTextarea2" style="height: 100px"></textarea>
-                                </div>
-
-                                <label for="title">Blog photo<b class="text-danger"> * </b><span class="text-danger"><?=$errors['photo'] ?? ''?></span></label> <!-- upload blog photo starts here-->
-                                <div class="input-group mt-2 mb-3">
-                                    <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                        <i class="bi bi-card-image"></i>
-                                    </span>
-                                    <input type="file" name="photo" value="<?=$_POST['photo'] ?? ''?>" class="form-control" id="inputGroupSelect01" aria-describedby="inputGroupFileAddon01" aria-label="Upload">
-                                </div>
-
-                            </div> <!-- modal body ends here -->
-                                
-                            <div class="modal-footer"> <!-- modal footer -->
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" name="savePostData" class="btn btn-primary">Save changes</button>
-                            </div>
-
-                        </form> <!-- form ends here -->
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
 
     </div>
 </body>

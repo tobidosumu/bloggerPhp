@@ -9,9 +9,13 @@ body {
     }
 
     .failAlert {
-        color: $white;
-        background-color: $veryLightRedColor;
+        border: none;
+        background-color: $lightRedColor;
         box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
+        p {
+            color: $white;
+            @include primaryFont;
+        }
     }
 
     section {

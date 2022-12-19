@@ -1,7 +1,7 @@
 <?php 
     session_start();
 
-    include './header/loginHeader.php';
+    include './headers/loginHeader.php';
     require './classes/user.loginValidator.php';
     require_once './classes/user.dbQuery.php';
     

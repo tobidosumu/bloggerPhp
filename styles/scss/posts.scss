@@ -44,6 +44,7 @@ body {
                     }
                     .home {
                         a {
+                            // padding: 23px 0;
                             padding-top: 23px;
                             padding-bottom: 23px;
                         }
@@ -51,9 +52,9 @@ body {
 
                     .posts {
                         a {
+                            border-bottom: 2px solid $black;
                             padding-top: 23px;
                             padding-bottom: 23px;
-                            border-bottom: 2px solid $black;
                         }
                     }
 
@@ -179,142 +180,166 @@ body {
             }
         }
 
-        .blogContents { // (section) blog contents container start here
-            width: 100%;
-            // padding-top: 6%;
+        .hero { // hero
+            height: 270px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            @include widthPadding; // provides left and right padding for hero
+            background-color: $lightGreenColor;
+            // border: 1px solid $veryLightGrey;
+
+            .caption {  // hero caption
+                width: 100%;
+                height: 80%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+
+                div {
+                    width: 45%;
+                    text-align: center;
+                    text-transform: capitalize;
+
+                    tertiaryFont {
+                        @include semiTertiaryFont;
+                    }
+
+                    p {
+                        @include primaryFont;
+                        color: $grey;
+                        line-height: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        .blogContents { // blog contents container start here
             @include widthPadding;
+            width: 100%;
+            background-color: $white;
 
-            nav {
-                ul {
-                    li {
-                        i {
-                            @include veryLittleFont;
-                            color: $lightBlack;
-                        }
-                        a {
-                            @include primaryFont;
-                            color: $primaryColor;
-                            &:hover {
-                                color: $green;
-                            }
-                        }
-                    }
-                    // margin-top: 40px;
-                }
-            }
-            
-            section {
-                .mainContentContainer {
-                    width: 67%;
-                    position: sticky;
-                    padding-bottom: 100px;
-                    // border: 1px solid red;
+            .blogContentContainer {
+                .blogPostContainer {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    padding-top: 2px; 
+                    // border: 10px solid red;
 
-                    .innerContainer { // photo, title, category div
-                        margin-right: 43px;
-                        .postImage {
-                            img {
-                                height: 60vh;
-                                object-fit: cover;
-                            }
-                        }
-
-                        .categoryTitleContainer { // title, category container
-                            width: 85%;
-                            position: relative;
-                            bottom: 40px;
-                            background: $white;
-                            // border: 1px solid red;
-
-                            .categoryReadTimeContainer { // category and read time div
-                                width: 40%;
-                                position: relative;
-                                bottom: 32px;
-                                background: $transparentWhite;
-                                // border: 1px solid red;
-
-                                h5 { 
-                                    @include tinyFont;
-                                    color: $lightBlack;
-                                    font-weight: 600;
-                                    letter-spacing: 1.5px;
-                                    text-transform: uppercase;
-                                }
-
-                                h6 {
-                                    @include veryLittleFont;
-                                    color: $lightBlack;
-                                }
-                            }
-                           
-                        }
-                        .titleContainer { // title div 
-                            h4 {
-                                @include semiTertiaryFont;
-                                color: $lightBlack;
-                                margin-top: -10px;
-                            }
-                        }
-                    }
-                    .postDescription { // description div 
-                        width: 100%;
-                        margin-top: -12px;
-                        // border: 1px solid red;
-
-                        h4 {
-                            @include semiTertiaryFont;
-                            &::first-letter {
-                                font-weight: 700;
-                            }
-                            // background: aqua;
-                        }
-                    }
-                }
-
-                .rightSideContentContainer { // (aside) aside starts here
-                    width: 30%;
-                    height: 100vh;
-                    top: 100px;
-                    position: sticky;
-                    // border: 1px solid red;
-                    .captionCard { // captionCard link
-                        width: 100%;
-                        height: 50px;
-                        i:first-child {
-                            font-size: 30px;
-                            color: $veryLightGrey;
-                            background-color: $lightGreenColor
-                        } 
-                        i:last-child {
-                            @include primaryFont;
-                            color: $veryLightGrey;
-                        }
-                        h4 {
-                            @include primaryFont;
-                            letter-spacing: 2px;
-                            font-weight: 500;
-                            text-transform: uppercase;
-                            color: $veryLightGrey;
-                        }
+                    .postCard { // blog post card starts here
+                        width: 240px;
+                        word-break: break-all;
+                        hyphens: auto;
+                        margin-bottom: 24px;
+                        transition: translate 0.5s ease;
+                        background-color: $white;
                         &:hover {
-                            h4 {
-                                color: $black;
-                            }
-                            background-color: $veryLightGreenColor;
+                            translate: 0 -2%;
+                            box-shadow: 0px 1px 30px rgba(0, 0, 0, 0.123)
                         }
-                    }       
-                    
-                    .productCard {
-                        @include productCard;
-                        // border: 1px solid red;
+
+                        a {
+                            .postPhoto {
+                                overflow: hidden;
+                                img {
+                                    width: 100%;
+                                    height: 200px;
+                                    object-fit: cover;
+                                    transition: transform .5s ease-in-out;
+                                    &:hover {
+                                        transform: scale(1.4);
+                                        // transform: scale(2) rotate(25deg);
+                                    }
+                                }
+                                .upperInfo {
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    color: $lightBlack;
+                                    .postTime {
+                                        @include tinyFont;
+                                        border-radius: 50px;
+                                        padding: 3px 8px;
+                                        background-color: $transparentWhite;
+                                    }
+
+                                    .moreInfo {
+                                        @include semiTinyFont;
+                                        border-radius: 50px;
+                                        padding: 8px;
+                                        background-color: $transparentWhite;
+                                        &:hover {
+                                            background-color: $white
+                                        }
+                                    }
+                                }
+
+                                .lowerInfo {
+                                    position: absolute;
+                                    top: 80px;
+                                    // margin-top: -140px;
+                                    right: 0;
+                                    color: $lightBlack;
+                                    div {
+                                        @include semiPrimaryFont;
+                                        border-radius: 50px;
+                                        padding: 9px 8px 6px 8px;
+                                        background-color: $transparentWhite;
+                                        &:hover {
+                                            background-color: $white
+                                        }
+                                    }
+                                }
+                            }
+
+                            .postCategory {
+                                @include veryLittleFont;
+                                font-weight: 500;
+                                color: $lightBlack;
+                                background-color: $lightGreenColor;
+    
+                                p:first-child {
+                                    @include veryLittleFont;
+                                    letter-spacing: 2px;
+                                    text-transform: uppercase;
+                                    font-weight: 600;
+                                }
+
+                                p:last-child {
+                                    color: $veryLightGrey;
+                                    @include veryLittleFont;
+                                }
+                            }
+    
+                            .postTitle {
+                                h6 {
+                                    @include tinyFont;
+                                    color: $black;
+                                    font-weight: 600;
+                                    margin-top: -12px;
+                                    margin-bottom: 4px;
+                                }
+                            }
+    
+                            .postParagraph {
+                                @include tinyFont;
+                                font-weight: 400;
+                                line-height: 1rem;
+                                color: $grey;
+                                margin-bottom: 4px;
+                            }
+                        }
                     }
                 }
             }
 
-            .dropUsAmessage { // this block styles the div before the footer
+            .dropUsAmessage {
+                // this block styles the div before the footer
                 position: relative;
                 top: 110px;
-                margin-top: -120px;
                 background-color: $lightGreenColor;
                 box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 
@@ -326,10 +351,32 @@ body {
                     }
 
                     a {
-                        @include primaryBtn;
-                        &:hover {
-                            background-color: $accentColor;
-                        }
+                        @include greenBtn;
+                    }
+                }
+            }
+        }
+
+        // blog post modal starts here
+        .modalContainer {
+            label {
+                @include tinyFont;
+            }
+
+            textarea.decriptionField {
+                &::placeholder {
+                    padding-top: 30px;
+                }
+            }
+
+            .modal-footer {
+                button:last-child {
+                    color: $black;
+                    background-color: $primaryColor;
+                    border: none !important;
+                    &:hover {
+                        color: $white;
+                        background-color: $black;
                     }
                 }
             }
@@ -393,19 +440,6 @@ body {
                 }
             }
         }
-    }
-
-    .postBtn {
-        position: fixed;
-        bottom: 70px;
-        right: 45px;
-        width: 70px;
-        height: 70px;
-        border-radius: 50px;
-        font-size: 30px;
-        color: $white;
-        box-shadow: 0px 0px 30px #c70021;
-        @include accentColorBtn;
     }
  
 }

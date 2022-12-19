@@ -4,7 +4,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-*, img, a, ul, li, p, tertiaryFont, h2, h3, h4, h5, h6, input {
+*, img, a, ul, li, p, h2, h3, h4, h5, h6, input {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -33,9 +33,13 @@ body .myAlert {
   box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
 }
 body .failAlert {
-  color: #ffffff;
-  background-color: rgba(235, 37, 63, 0.6784313725);
+  border: none;
+  background-color: rgba(235, 37, 63, 0.5764705882);
   box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
+}
+body .failAlert p {
+  color: #ffffff;
+  font-size: 0.9rem;
 }
 body section aside {
   width: 50%;
@@ -68,7 +72,7 @@ body section #rightAside .header a:first-child {
   padding-right: 20px;
 }
 body section #rightAside .header a:first-child:hover {
-  color: #6025eb;
+  color: #6025EB;
 }
 body section #rightAside .header a:last-child {
   color: #ffffff !important;
@@ -77,7 +81,7 @@ body section #rightAside .header a:last-child {
   background-color: #00e87c;
 }
 body section #rightAside .header a:last-child:hover {
-  background-color: #6025eb;
+  background-color: #6025EB;
 }
 body section #rightAside .formWrapper .formContents h2 {
   font-size: 2rem;
@@ -118,7 +122,7 @@ body section #rightAside .formWrapper .formContents form .createAcctBtn input {
   background-color: #00e87c;
 }
 body section #rightAside .formWrapper .formContents form .createAcctBtn input:hover {
-  background-color: #6025eb;
+  background-color: #6025EB;
 }
 
 /*# sourceMappingURL=index.css.map */
