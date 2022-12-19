@@ -173,32 +173,29 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $emailCount = $row["count"];
 
-            return $emailCount > 0;
+            // return $emailCount > 0;
             
-            // if ($emailCount > 0) 
-            // {
-            //     print_r(
-            //         '<div class="loginAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-            //             <div>
-            //                 <i class="bi bi-hand-thumbs-up-fill"></i>
-            //                 Congratulations! Account created successfully!
-            //             </div>
-            //         </div>'
-            //     );
-            //     header('Refresh:3; url=./login.php');
-            // }
-            // else 
-            // {
-            //     print_r(
-            //         '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
-            //             <div>
-            //                 <i class="bi bi-emoji-frown-fill"></i>
-            //                 Sign up Failed!
-            //             </div>
-            //         </div>'
-            //     );
-            //     // header('Refresh:3; url=./index.php');
-            // }
+            if ($emailCount > 0) 
+            {
+                print_r(
+                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
+                        <div>
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
+                            Account created successfully!
+                        </div>
+                    </div>'
+                );
+                header('Refresh:3; url=./login.php');
+            }
+            else 
+            {
+                print_r(
+                    '<div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
+                            <p><i class="bi bi-emoji-frown me-1"></i> Sign up Failed!</p>
+                    </div>'
+                );
+                // header('Refresh:3; url=./index.php');
+            }
         }
     }
 

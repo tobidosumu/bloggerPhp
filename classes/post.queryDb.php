@@ -52,7 +52,7 @@
                 $stmt->execute([$this->title, $this->category, $this->description, $imageDestination]);
                 
                 print_r(
-                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
+                    '<div class="successAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
                         <div>
                             <i class="bi bi-emoji-smile"></i>
                             Post created successfully!
@@ -60,7 +60,7 @@
                     </div>'
                 );
 
-                // header('Refresh:4; url=main.php');
+                header('Refresh:3; url=home.php');
             } 
             catch (Exception $e) 
             {
