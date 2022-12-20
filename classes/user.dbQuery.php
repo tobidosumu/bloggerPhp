@@ -51,6 +51,7 @@
                 VALUES(?, ?, ?, ?)");
                 $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
                 $stmt->execute([$this->firstName, $this->lastName, $this->email, $hashedPassword]);
+                return "Successful";
             } 
             catch (Exception $e) 
             {

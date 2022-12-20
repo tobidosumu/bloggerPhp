@@ -61,14 +61,14 @@
             {
                 $this->addError('firstName', 'First name must include letters.');
             }
-            elseif (strlen($val) < 3)
-            {
-                $this->addError('firstName', 'must be at least 3 characters in length.');
-            }
-            elseif ($numLength > 1)
-            {
-                $this->addError('firstName', 'cannot include more than 1 number.');
-            }
+            // elseif (strlen($val) < 3)
+            // {
+            //     $this->addError('firstName', 'must be at least 3 characters in length.');
+            // }
+            // elseif ($numLength > 1)
+            // {
+            //     $this->addError('firstName', 'cannot include more than 1 number.');
+            // }
             elseif ($numLength > 2 || strlen($val) < 3)
             {
                 $this->addError('firstName', 'First name must be at least 3  letters long.');
@@ -173,29 +173,7 @@
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $emailCount = $row["count"];
 
-            // return $emailCount > 0;
-            
-            if ($emailCount > 0) 
-            {
-                print_r(
-                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-hand-thumbs-up-fill"></i>
-                            Account created successfully!
-                        </div>
-                    </div>'
-                );
-                header('Refresh:3; url=./login.php');
-            }
-            else 
-            {
-                print_r(
-                    '<div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
-                            <p><i class="bi bi-emoji-frown me-1"></i> Sign up Failed!</p>
-                    </div>'
-                );
-                // header('Refresh:3; url=./index.php');
-            }
+            return $emailCount > 0;
         }
     }
 
