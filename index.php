@@ -50,7 +50,7 @@
 <body>
     <section class="d-flex">
         <aside id="leftAside">
-            <div class="d-flex align-items-start"><h2>Welcome to </h2><img class="img-fluid" src="./assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>
+            <div class="d-flex align-items-start"><h2>Welcome to </h2><img class="img-fluid" src="assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>
         </aside>
 
         <aside id="rightAside">

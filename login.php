@@ -11,12 +11,42 @@
         $loginValidation->setEmail($_POST['email']);
         $loginValidation->setPassword($_POST['password']);
         $errors = $loginValidation->validateUserLogin();
+        var_dump($errors);
+        // die;
 
-        $verifiedLoginData = new UserDbQuery();
-        $verifiedLoginData->setEmail($_POST['email']);
-        $verifiedLoginData->setPassword($_POST['password']);
-        $verifiedLoginData->checkEmailPasswordExist();
-
+        if (!$errors) 
+        {
+            $verifiedLoginData = new UserDbQuery();
+            $verifiedLoginData->setEmail($_POST['email']);
+            $verifiedLoginData->setPassword($_POST['password']);
+            $returnValue = $verifiedLoginData->checkEmailPasswordExist($_POST['email'], $_POST['password']);
+            // var_dump($returnValue);
+            // die;
+            if ($returnValue === true)
+            {
+                print_r(
+                    '<div class="loginAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
+                        <div>
+                            <i class="bi bi-hand-thumbs-up-fill"></i>
+                            Login successful!
+                        </div>
+                    </div>'
+                );
+                header('Refresh:3; url=./home.php');
+            } 
+            else 
+            {
+                print_r(
+                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
+                        <div>
+                            <i class="bi bi-emoji-frown-fill"></i>
+                            Login Failed!
+                        </div>
+                    </div>'
+                );
+                header('Refresh:3; url=./login.php');
+            }
+        }
     }
 
 ?>
@@ -24,7 +54,7 @@
 <body>
     <section class="d-flex">
         <aside id="leftAside">
-            <div class="d-flex align-items-start"><h2>Login to </h2><img class="img-fluid" src="./assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>
+            <div class="d-flex align-items-start"><h2>Login to </h2><img class="img-fluid" src="assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>
         </aside>
 
         <aside id="rightAside">

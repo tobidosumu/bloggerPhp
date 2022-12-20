@@ -65,7 +65,7 @@
                                     <!-- blog post card starts here -->
                                     <div class="postHeader">
                                         <div class="userAvater">
-                                            <img src="./assets/images/moji.png" alt="">
+                                            <img src="assets/images/moji.png" alt="">
                                             <div class="avaterDetails ms-3">
                                                 <p>Mojisola Badmus</p>
                                             </div>
@@ -176,38 +176,38 @@
 
                     <div class="topBloggersSlider">
                         <div class="leftArrow">
-                            <img src="./assets/svg/chevronLeft.svg">
+                            <img src="assets/svg/chevronLeft.svg">
                         </div>
                         <a href="#" class="ms-0">
-                            <img src="./assets/images/lady2.jpg" alt="">
+                            <img src="assets/images/lady2.jpg" alt="">
                             <p>Oyin</p>
                         </a>
                         <a href="#">
-                            <img src="./assets/images/lady3.webp" alt="">
+                            <img src="assets/images/lady3.webp" alt="">
                             <p>Victoria</p>
                         </a>
                         <a href="#">
-                            <img src="./assets/images/lady4.webp" alt="">
+                            <img src="assets/images/lady4.webp" alt="">
                             <p>Bola</p>
                         </a>
                         <a href="#">
-                            <img src="./assets/images/lady5.webp" alt="">
+                            <img src="assets/images/lady5.webp" alt="">
                             <p>Moyo</p>
                         </a>
                         <a href="#">
-                            <img src="./assets/images/lady6.jpg" alt="">
+                            <img src="assets/images/lady6.jpg" alt="">
                             <p>Busayo</p>
                         </a>
                         <a href="#">
-                            <img src="./assets/images/lady3.webp" alt="">
+                            <img src="assets/images/lady3.webp" alt="">
                             <p>Moyin</p>
                         </a>                       
                         <a href="#">
-                            <img src="./assets/images/lady2.jpg" alt="">
+                            <img src="assets/images/lady2.jpg" alt="">
                             <p>Moyin</p>
                         </a>
                         <div class="rightArrow">
-                            <img src="./assets/svg/chevronRight.svg">
+                            <img src="assets/svg/chevronRight.svg">
                         </div>
                     </div>
 
@@ -275,13 +275,13 @@
                     <p>Follow us</p>
                     <li>
                         <ul>
-                            <li><a href="#"><img src="./assets/svg/pinterestIcon.svg" alt="follow us on Facebook"></a></li>
-                            <li><a href="#"><img src="./assets/svg/youtubeIcon.svg" alt="follow us on Youtube"></a></li>
-                            <li><a href="#"><img src="./assets/svg/facebookIcon.svg" alt="follow us on Facebook"></a></li>
-                            <li><a href="#"><img src="./assets/svg/twitterIcon.svg" alt="follow us on Twitter"></a></li>
+                            <li><a href="#"><img src="assets/svg/pinterestIcon.svg" alt="follow us on Facebook"></a></li>
+                            <li><a href="#"><img src="assets/svg/youtubeIcon.svg" alt="follow us on Youtube"></a></li>
+                            <li><a href="#"><img src="assets/svg/facebookIcon.svg" alt="follow us on Facebook"></a></li>
+                            <li><a href="#"><img src="assets/svg/twitterIcon.svg" alt="follow us on Twitter"></a></li>
                         </ul>
                     </li>
-                    <li class="logoList mt-3"><a href="#"><img src="./assets/svg/bloggerLogoWhite.svg" alt="Blogger.com"></a></li>
+                    <li class="logoList mt-3"><a href="#"><img src="assets/svg/bloggerLogoWhite.svg" alt="Blogger.com"></a></li>
                 </ul>
             </div>
 
@@ -291,7 +291,7 @@
 
         <!-- Button trigger modal -->
         <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <img src="./assets/svg/feather.svg" alt="Click to post">
+            <img src="assets/svg/feather.svg" alt="Click to post">
         </button>
 
         <!-- Modal -->
