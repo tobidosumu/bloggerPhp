@@ -33,14 +33,14 @@
                         </div>
                     </div>'
                 );
-                header('Refresh:3; url=./login.php');
+                header('Refresh:2; url=./login.php');
             } else {
                 print_r(
                     '<div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
                         <p><i class="bi bi-emoji-frown me-1"></i> Sign up Failed!</p>
                     </div>'
                 );
-                header('Refresh:3; url=./index.php');
+                header('Refresh:2; url=./index.php');
             }
         }
     }
@@ -50,7 +50,7 @@
 <body>
     <section class="d-flex">
         <aside id="leftAside">
-            <div class="d-flex align-items-start"><h2>Welcome to </h2><img class="img-fluid" src="assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>
+            <div class="d-flex align-items-center"><h2>Welcome to </h2><img class="img-fluid ms-1" src="assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>
         </aside>
 
         <aside id="rightAside">

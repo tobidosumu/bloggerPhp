@@ -3,13 +3,10 @@
 
     class UserDbQuery extends DbConnect
     {
-        // protected $dbConn;
-        // private $data;
         private $firstName;
         private $lastName;
         private $email;
         private $password;
-
 
         ###################################################################################################
         // setter and getter methods start here
@@ -59,36 +56,20 @@
             }
         }
 
-        public function checkEmailPasswordExist()
-        {
-            $stmt = $this->connect()->prepare("SELECT * FROM user WHERE email = ?");
-            $stmt->execute([$this->email]);
-            $user = $stmt->fetch();
+        // public function checkEmailPasswordExist($email, $password)
+        // {
+        //     $stmt = $this->connect()->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
+        //     $stmt->execute([$email, $password]);
+        //     $user = $stmt->fetch();
 
-            if ($user && password_verify($this->password, $user['password']))
-            {
-                print_r(
-                    '<div class="loginAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-hand-thumbs-up-fill"></i>
-                            Login successful!
-                        </div>
-                    </div>'
-                );
-                header('Refresh:3; url=./home.php');
-            }
-            else 
-            {
-                print_r(
-                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-emoji-frown-fill"></i>
-                            Login Failed!
-                        </div>
-                    </div>'
-                );
-                header('Refresh:3; url=./login.php');
-            }
-        }
+        //     if ($user) 
+        //     {
+        //         return "success";
+        //     }
+        //     else 
+        //     {
+        //         return "unsuccessful";
+        //     }
+        // }
     }
 ?>
