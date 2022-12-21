@@ -63,7 +63,7 @@
                         </div>
                         <div>
                             <label for="password">Password <b class="text-danger">* </b><span class="text-danger"><?=$errors['password'] ?? '' ?></span></label>
-                            <input type="text" name="password" value="" placeholder="Your password">
+                            <input type="password" name="password" value="" placeholder="Your password">
                         </div>
                         <div class="createAcctBtn mt-4">
                             <input type="submit" name="loginUser" class="btn rounded-1" value="Login to account">

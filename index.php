@@ -76,11 +76,11 @@
                         </div>
                         <div>
                             <label for="password">Password <b class="text-danger">* </b><span class="text-danger"><?=$errors['password'] ?? '' ?></span></label>
-                            <input type="text" name="password" value="<?=$_POST['password'] ?? ''?>" placeholder="Your password">
+                            <input type="password" name="password" value="<?=$_POST['password'] ?? ''?>" placeholder="Your password">
                         </div>
                         <div>
                             <label for="confirmPassword">Comfirm password <b class="text-danger">* </b><span class="text-danger"><?=$errors['confirmPassword'] ?? '' ?></span></label>
-                            <input type="text" name="confirmPassword" value="<?=$_POST['confirmPassword'] ?? ''?>" placeholder="Confirm password">
+                            <input type="password" name="confirmPassword" value="<?=$_POST['confirmPassword'] ?? ''?>" placeholder="Confirm password">
                         </div>
                         <div class="createAcctBtn mt-4"><input type="submit" name="addNewUser" class="btn rounded-1" value="Create your account"></div>
                     </form>
