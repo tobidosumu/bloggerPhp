@@ -75,7 +75,7 @@
                                     <a href="./postDetails.php?id=<?=$postData['id']?>">
                                         <!-- blog post card starts here -->
                                         <div class="postPhoto rounded-top">
-                                            <img class="img-fluid rounded-top" src="http://localhost/mrEnitan/projects/blog/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
+                                            <img class="img-fluid rounded-top" src="http://localhost/blogger/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
                                             <div class="upperInfo d-flex pt-2 pe-2">
                                                 <h5 class="postTime m-auto">2 sec ago</h5>
                                                 <div class="moreInfo ms-3"><i class="bi bi-three-dots-vertical"></i></div> 
