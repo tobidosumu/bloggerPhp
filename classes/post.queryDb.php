@@ -50,17 +50,7 @@
                 $stmt = $this->connect()->prepare("INSERT INTO blog_post(title, category, description, photo)
                 VALUES(?, ?, ?, ?)");
                 $stmt->execute([$this->title, $this->category, $this->description, $imageDestination]);
-                
-                print_r(
-                    '<div class="successAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-emoji-smile"></i>
-                            Post created successfully!
-                        </div>
-                    </div>'
-                );
-
-                header('Refresh:3; url=home.php');
+                return "successful";
             } 
             catch (Exception $e) 
             {

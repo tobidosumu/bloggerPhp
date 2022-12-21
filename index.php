@@ -1,8 +1,9 @@
 <?php 
-    include './headers/signupHeader.php';
     require './classes/user.signupValidator.php';
     require_once './classes/user.dbQuery.php';
-    
+
+    $signupFailed = '';
+
     if(isset($_POST['addNewUser']))
     {
         $signupValidation = new UserSignupValidator();
@@ -25,29 +26,26 @@
 
             if ($returnValue === "Successful")
             {
-                print_r(
-                    '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-hand-thumbs-up-fill"></i>
-                            Account created successfully!
-                        </div>
-                    </div>'
-                );
-                header('Refresh:2; url=./login.php');
+                header('location:./login.php');
             } else {
-                print_r(
-                    '<div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
-                        <p><i class="bi bi-emoji-frown me-1"></i> Sign up Failed!</p>
-                    </div>'
-                );
-                header('Refresh:2; url=./index.php');
+                $signupFailed = true;
             }
+        }
+        else {
+            $signupFailed = true;
         }
     }
 
 ?>
 
+<?php include './headers/signupHeader.php';?>
 <body>
+    <?php if ($signupFailed):?>
+        <div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
+            <p><i class="bi bi-emoji-frown me-1"></i> Sign up Failed!</p>
+        </div>
+    <?php endif?>
+
     <section class="d-flex">
         <aside id="leftAside">
             <div class="d-flex align-items-center"><h2>Welcome to </h2><img class="img-fluid ms-1" src="assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>

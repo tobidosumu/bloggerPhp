@@ -3,6 +3,8 @@
     require './classes/post.queryDb.php'; // PostDbConnector
     require './classes/post.validator.php'; // PostValidator
 
+    $postSubmitted = "";
+
     if (isset($_POST['savePostData'])) 
     {
         $validatePostData = new PostValidator();
@@ -24,24 +26,26 @@
             
             $savedPostData = $dbQuery->savePostData();
 
+            if ($savedPostData === "successful")
+            {
+                $postSubmitted = true;
+            }
         }
         else
         {
-            print_r(
-                '<div class="failAlert position-absolute mt-5 start-50 translate-middle alert text-light d-flex align-items-center" role="alert">
-                    <div>
-                        <p><i class="bi bi-emoji-frown"></i> Uh-no! Please check the form and try again.</p>
-                    </div>
-                </div>'
-            );
-            // header('Refresh:3; url=home.php');
+            
         }
     }
 
 ?>
 
 <body>
-    
+    <?php if($postSubmitted):?>
+        <div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
+            <p><i class="bi bi-emoji-frown me-1"></i> Post submitted successfully!</p>
+        </div>
+    <?php endif?>
+
     <div class="mainContainer"> <!-- contains all the page contents -->
 
     <?php include './headers/homeHeader.php'?> <!-- header goes here -->
