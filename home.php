@@ -78,7 +78,7 @@
 
                                     <div class="postPhoto">
                                         <a href="./postDetails.php?id=<?=$postData['id']?>">
-                                            <img class="img-fluid" src="http://localhost/blogger/<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
+                                            <img class="img-fluid" src="<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
                                         </a>
                                         <div class="postCategory d-flex justify-content-end">
                                             <div class="rightIconsDiv d-flex flex-column justify-content-between align-items-center">

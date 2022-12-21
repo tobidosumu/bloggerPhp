@@ -33,7 +33,7 @@
                             ?>
                                 <div class="innerContainer wrap"> <!-- photo and title container -->
                                     <div class="postImage"> <!-- image div -->
-                                        <img class="img-fluid w-100" src="http://localhost/blogger/<?=$postDetail['photo']?>"> <!-- fetches photo from blog_post table -->   
+                                        <img class="img-fluid w-100" src="<?=$postDetail['photo']?>"> <!-- fetches photo from blog_post table -->   
                                     </div>
                                     <div class="categoryTitleContainer"> <!-- title, category container -->
                                         <div class="categoryReadTimeContainer d-flex justify-content-between p-2"> <!-- category and read time div -->
