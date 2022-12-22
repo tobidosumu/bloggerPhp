@@ -27,6 +27,7 @@ body {
     }
 
     .successAlert{
+        color: $white;
         background-color: $green;
     }
 
@@ -61,10 +62,6 @@ body {
                             padding-bottom: 23px;
                             border-bottom: 2px solid $black;
                         }
-                    }
-
-                    .inbox {
-
                     }
 
                     .profile { // user account profile li 
@@ -634,24 +631,83 @@ body {
         }
     }
 
-    .modal-dialog {
+    form {
+
+        .categoryDropdownBtn {
+            position: absolute;
+            top: 170px;
+            right: 26px;
+            z-index: 100;
+            @include tinyFont;
+            color: $accentColor;
+            transition: all 0.3s ease-in-out; /* add a transition effect */
+            border: 1px solid $accentColor !important;
+            &:hover {
+                color: $white;
+                background-color: $accentColor;
+            }
+
+            .chevronDownIcon {
+                .bi-chevron-up {
+                    transform: rotate(180deg); /* rotate the icon by 180 degrees when the "bi-chevron-up" class is present */
+                }
+            }
+            
+        }
+        label {
+            @include tinyFont;
+            font-weight: 400;
+            color: $grey;
+        }
+
+        .categoryDropdown { // for the addCategory form
+            display: block;
+            position: absolute;
+            bottom: 150px;
+            left: 24px;
+            width: 92%;
+            z-index: 10000000;
+            box-shadow: 0 0 12px #0000004f;
+            
+            .modalContent {
+                width: 100% !important;
+                .modalHeader {
+                    h4 {
+                        color: $black;
+                        @include semiTinyFont;
+                    }
+                }
+    
+                .modalFooter {
+                    button {
+                        background-color: $accentColor;
+                        &:hover {
+                            background-color: $accentHoverColor;
+                        }
+                    }
+                }
+            }
+    
+        }
+    
+        .show {
+            display: none;
+        }
+    }
+
+
+    .modal-dialog { // for the main form
         max-width: none !important;
         display: flex;
         justify-content: center;
         align-items: center;
-        // border: 1px solid red;
 
         .modalContent {
             width: 600px;
-            // border: 1px solid red;
 
             form {
+
                 .modal-body {
-                    label {
-                        @include tinyFont;
-                        font-weight: 400;
-                        color: $grey;
-                    }
 
                     .input-group {
                         span {
@@ -669,12 +725,18 @@ body {
     
                         }
                         .form-select {
-                                option:first-child {
-                                    color: $veryLightGrey;
-                                    @include tinyFont;
-                                    font-weight: 400;
-                                    border: 1px solid red !important;
-                                }
+                            option {
+                                color: $lightBlack;
+                                @include primaryFont;
+                                background-color: $white;
+                                font-weight: 500;
+                                // border: 1px solid red !important;
+
+                                // .editBtn {
+                                //     position: absolute;
+                                //     right: 0;
+                                // }
+                            }
                         }
                     }
                 }

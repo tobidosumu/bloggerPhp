@@ -51,6 +51,7 @@ body .failAlert div p {
   font-size: 0.9rem;
 }
 body .successAlert {
+  color: #ffffff;
   background-color: #00835c;
 }
 body .mainContainer {
@@ -466,6 +467,56 @@ body footer div:last-child ul li ul li a img {
 body footer div:last-child ul .logoList a img {
   width: 100px;
 }
+body form .categoryDropdownBtn {
+  position: absolute;
+  top: 170px;
+  right: 26px;
+  z-index: 100;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #6025EB;
+  transition: all 0.3s ease-in-out; /* add a transition effect */
+  border: 1px solid #6025EB !important;
+}
+body form .categoryDropdownBtn:hover {
+  color: #ffffff;
+  background-color: #6025EB;
+}
+body form .categoryDropdownBtn .chevronDownIcon .bi-chevron-up {
+  transform: rotate(180deg); /* rotate the icon by 180 degrees when the "bi-chevron-up" class is present */
+}
+body form label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 400;
+  color: #7a7a7a;
+}
+body form .categoryDropdown {
+  display: block;
+  position: absolute;
+  bottom: 150px;
+  left: 24px;
+  width: 92%;
+  z-index: 10000000;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3098039216);
+}
+body form .categoryDropdown .modalContent {
+  width: 100% !important;
+}
+body form .categoryDropdown .modalContent .modalHeader h4 {
+  color: #121d2a;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+body form .categoryDropdown .modalContent .modalFooter button {
+  background-color: #6025EB;
+}
+body form .categoryDropdown .modalContent .modalFooter button:hover {
+  background-color: #eb253f;
+}
+body form .show {
+  display: none;
+}
 body .modal-dialog {
   max-width: none !important;
   display: flex;
@@ -474,12 +525,6 @@ body .modal-dialog {
 }
 body .modal-dialog .modalContent {
   width: 600px;
-}
-body .modal-dialog .modalContent form .modal-body label {
-  font-size: 0.8rem;
-  font-weight: 500;
-  font-weight: 400;
-  color: #7a7a7a;
 }
 body .modal-dialog .modalContent form .modal-body .input-group span i {
   color: #6025EB;
@@ -493,12 +538,11 @@ body .modal-dialog .modalContent form .modal-body .input-group input::placeholde
   font-weight: 500;
   font-weight: 400;
 }
-body .modal-dialog .modalContent form .modal-body .input-group .form-select option:first-child {
-  color: #9D9D9D;
-  font-size: 0.8rem;
+body .modal-dialog .modalContent form .modal-body .input-group .form-select option {
+  color: rgba(0, 0, 0, 0.7176470588);
+  font-size: 0.9rem;
+  background-color: #ffffff;
   font-weight: 500;
-  font-weight: 400;
-  border: 1px solid red !important;
 }
 body .modal-dialog .modalContent form .modal-footer .sendPostBtn {
   padding: 7px 20px;

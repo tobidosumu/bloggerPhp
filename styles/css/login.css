@@ -40,7 +40,7 @@ body section #leftAside {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background: #00e87c url(../../assets/svg/loginAnime.svg) no-repeat 50% 50%;
+  background: #00e87c url(assets/svg/loginAnime.svg) no-repeat 50% 50%;
   background-size: 70% 70%;
   padding-bottom: 50px;
 }
