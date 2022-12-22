@@ -27,10 +27,19 @@ input[type=search]::-webkit-search-results-decoration {
   display: none;
 }
 
-body .loginAlert {
+body .myAlert {
   color: #121d2a;
   background-color: rgb(215, 252, 246);
   box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
+}
+body .failAlert {
+  border: none;
+  background-color: rgba(235, 37, 63, 0.5764705882);
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
+}
+body .failAlert p {
+  color: #ffffff;
+  font-size: 0.9rem;
 }
 body section aside {
   width: 50%;

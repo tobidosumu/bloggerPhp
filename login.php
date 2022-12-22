@@ -1,9 +1,9 @@
 <?php 
-    session_start();
-
     include './headers/loginHeader.php';
     require './classes/user.loginValidator.php';
     require_once './classes/user.dbQuery.php';
+
+    $loginFailed = '';
     
     if(isset($_POST['loginUser']))
     {
@@ -12,35 +12,25 @@
         $loginValidator->setPassword($_POST['password']);
         $errors = $loginValidator->validateUserLogin();
 
-        if (empty($errors)) 
+        if (!$errors)
         {
-            print_r(
-                '<div class="loginAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                    <div>
-                        <i class="bi bi-hand-thumbs-up-fill"></i>
-                        Login successful!
-                    </div>
-                </div>'
-            );
-            // header('Refresh:3; url=./home.php');
-        } 
-        else 
+            header('location:./home.php');
+        }
+        else
         {
-            print_r(
-                '<div class="myAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
-                    <div>
-                        <i class="bi bi-emoji-frown-fill"></i>
-                        Login Failed!
-                    </div>
-                </div>'
-            );
-            // header('Refresh:3; url=./login.php');
+            $loginFailed = true;
         }
     }
 
 ?>
 
 <body>
+    <?php if ($loginFailed):?>
+        <div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
+            <p><i class="bi bi-emoji-frown me-1"></i> Login failed</p>
+        </div>
+    <?php endif?>
+
     <section class="d-flex">
         <aside class="leftAside d-flex flex-column justify-content-center align-items-center">
             <img class="img-fluid" src="assets/svg/loginAnime.svg" alt="login image">

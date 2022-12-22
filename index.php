@@ -42,7 +42,7 @@
 <body>
     <?php if ($signupFailed):?>
         <div class="failAlert position-absolute mt-5 top-0 start-50 translate-middle alert alert-danger d-flex align-items-center" role="alert">
-            <p><i class="bi bi-emoji-frown me-1"></i> Sign up Failed!</p>
+            <p><i class="bi bi-emoji-frown me-1"></i> Sign up failed</p>
         </div>
     <?php endif?>
 
