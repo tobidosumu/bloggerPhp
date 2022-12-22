@@ -67,7 +67,6 @@
         public function validatePostData()
         {
             $this->validateTitle();
-            $this->validateCategory();
             $this->validateDescription();
             $this->validatePostPhoto();
             return $this->errors;
@@ -92,32 +91,6 @@
             elseif (strlen($val) > 140)
             {
                 $this->addError('title', 'Title cannot be more than 140 chars long.');
-            }
-            elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
-            {
-                $this->addError('description', 'Description cannot be mostly special chars.');
-            }
-        }
-
-        private function validateCategory()
-        {
-            $val = trim($this->category);
-            $val = strip_tags($val);
-
-            $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
-            $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);
-
-            if (empty($val))
-            {
-                $this->addError('category', 'Please select a category.');
-            }
-            elseif (strlen($val) < 2)
-            {
-                $this->addError('category', 'Category must be at least 2 chars long.');
-            }
-            elseif (is_numeric($val))
-            {
-                $this->addError('category', 'Category cannot be numbers only.');
             }
             elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
             {
@@ -174,14 +147,6 @@
         {
             $this->errors[$key] = $val;
         }
-
-        // public function getValues()
-        // {
-        //     //TODO if no errors
-        //     return [
-
-        //     ];
-        // }
 
     }
 ?>

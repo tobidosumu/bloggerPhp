@@ -2,10 +2,10 @@
 
     class PostQueryDb extends DbConnect
     {
-        // private $data;
         private $id;
         private $title;
         private $category;
+        private $addCategory;
         private $description;
 
         public function setId($id)
@@ -28,9 +28,27 @@
             $this->category = $category;
         }
 
+        public function setAddCategory($addCategory)
+        {
+            $this->addCategory = $addCategory;
+        }
+
         public function setDescription($description)
         {
             $this->description = $description;
+        }
+
+        public function saveNewCategory()
+        {
+            try {
+                $stmt = $this->connect()->prepare("INSERT INTO categories(addCategory) VALUES(?)");
+                $stmt->execute([$this->addCategory]);
+                return "successful";
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
         }
 
         public function savePostData() // Insert blog data
@@ -72,6 +90,20 @@
             }
         }
 
+        public function fetchAllCategories() // fetch all data from blog_post table
+        {
+            try 
+            {
+                $stmt = $this->connect()->prepare("SELECT * FROM categories ORDER BY id DESC");
+                $stmt->execute();
+                return $stmt->fetchAll();
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
+        }
+
         public function fetchAll() // fetch all data from blog_post table
         {
             try 
@@ -79,6 +111,34 @@
                 $stmt = $this->connect()->prepare("SELECT * FROM blog_post ORDER BY id DESC");
                 $stmt->execute();
                 return $stmt->fetchAll();
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
+        }
+
+        public function editCategory()
+        {
+            try 
+            {
+                $stmt = $this->connect()->prepare("UPDATE categories SET addCategory = ? WHERE id = ?");
+                $stmt->execute([$this->addCategory, $this->id]);
+                return "successful";
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
+        }
+
+        public function deleteCategory()
+        {
+            try 
+            {
+                $stmt = $this->connect()->prepare("DELETE FROM categories WHERE id = ?");
+                $stmt->execute([$this->id]);
+                return "successful";
             } 
             catch (Exception $e) 
             {
