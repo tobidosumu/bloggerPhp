@@ -47,8 +47,9 @@
     <?php endif?>
 
     <section class="d-flex">
-        <aside id="leftAside">
-            <div class="d-flex align-items-center"><h2>Welcome to </h2><img class="img-fluid ms-1" src="assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>
+        <aside class="leftAside d-flex flex-column justify-content-center align-items-center">
+            <img class="img-fluid" src="assets/svg/signupBgIcon.svg" alt="signup image">
+            <div class="d-flex justify-content-center align-items-center"><h2>Welcome to </h2><img class="img-fluid ms-1" src="assets/svg/bloggerLogoWhite.svg" alt="blogger logo"></div>
         </aside>
 
         <aside id="rightAside">

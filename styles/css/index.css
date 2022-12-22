@@ -47,21 +47,24 @@ body section aside {
   width: 50%;
   height: 100vh;
 }
-body section #leftAside {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  background: #00e87c url(assets/svg/signupBgIcon.svg) no-repeat 50% 50%;
-  background-size: 70% 70%;
-  padding-bottom: 50px;
+body section .leftAside {
+  background-color: #00e87c;
+  padding-bottom: 25px;
 }
-body section #leftAside div h2 {
+body section .leftAside img {
+  width: 80%;
+  object-fit: cover;
+}
+body section .leftAside div {
+  width: 100%;
+}
+body section .leftAside div h2 {
   font-size: 1.3rem;
   font-weight: 600;
   color: #ffffff;
 }
-body section #leftAside div img {
-  height: 40px;
+body section .leftAside div img {
+  width: 120px;
 }
 body section #rightAside {
   padding: 7%;
