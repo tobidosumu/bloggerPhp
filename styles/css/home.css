@@ -500,18 +500,18 @@ body form .categoryDropdown {
   z-index: 10000000;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.3098039216);
 }
-body form .categoryDropdown .modalContent {
+body form .categoryDropdown .innerModalContent {
   width: 100% !important;
 }
-body form .categoryDropdown .modalContent .modalHeader h4 {
+body form .categoryDropdown .innerModalContent .modalHeader h4 {
   color: #121d2a;
   font-size: 0.9rem;
   font-weight: 500;
 }
-body form .categoryDropdown .modalContent .modalFooter button {
+body form .categoryDropdown .innerModalContent .modalFooter button {
   background-color: #6025EB;
 }
-body form .categoryDropdown .modalContent .modalFooter button:hover {
+body form .categoryDropdown .innerModalContent .modalFooter button:hover {
   background-color: #eb253f;
 }
 body form .show {
@@ -538,11 +538,13 @@ body .modal-dialog .modalContent form .modal-body .input-group input::placeholde
   font-weight: 500;
   font-weight: 400;
 }
-body .modal-dialog .modalContent form .modal-body .input-group .form-select option {
-  color: rgba(0, 0, 0, 0.7176470588);
-  font-size: 0.9rem;
+body .modal-dialog .modalContent form .modal-body .input-group .formSelect .selectPlaceholder {
+  color: #6025EB;
+  font-size: 0.8rem;
+  font-weight: 500;
   background-color: #ffffff;
   font-weight: 500;
+  border: 1px solid red !important;
 }
 body .modal-dialog .modalContent form .modal-footer .sendPostBtn {
   padding: 7px 20px;

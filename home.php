@@ -272,7 +272,7 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                         <button type="button" id="addCategoryToggleBtn" onclick="revealCategoryDropdown()" class="categoryDropdownBtn btn btn-sm border-0">Add Category <i class="chevronDownIcon bi bi-chevron-down"></i></button>
 
                         <div class="categoryDropdown show rounded-3 my-3">
-                            <div class="modalContent modal-content border">
+                            <div class="innerModalContent modal-content border">
                                 <div class="modalHeader d-flex justify-content-between align-itmes-center pt-3 px-3">
                                     <h4 class="modal-title">Add New Category</h4>
                                 </div>
@@ -310,7 +310,7 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                 <span class="input-group-text" id="addon-wrapping">
                                     <i class="bi bi-card-heading"></i>
                                 </span>
-                                <input type="text" class="form-control py-2" name="title" value="<?= $_POST['title'] ?? '' ?>" placeholder="Add blog title" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                                <input type="text" class="form-control py-2" name="title" value="<?= $_POST['title'] ?? '' ?>" placeholder="Add blog title">
                             </div>
 
                             <label for="title">Blog category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['category'] ?? '' ?></span></label> <!-- Blog category starts here -->
@@ -319,9 +319,7 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                     <i class="bi bi-list"></i>
                                 </span>
                                 <select class="formSelect form-select" name="category" id="floatingSelect" aria-label="Floating label select example">
-                                    <option class="selectPlaceholder">Select a category</option>
-                                   
-                                   
+                                    <option default class="selectPlaceholder">Select a category</option>
                                    <?php
                                         $result = new PostQueryDb();
                                         $categories = $result->fetchAllCategories();
@@ -330,12 +328,12 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                         foreach ($categories as $category) {
                                             
                                         ?>
-                                            <option>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <span><?= $category['addCategory'] ?></span> 
-                                                    <span> <a href="#"><i class="editBtn bi bi-pencil-square"></i>Edit</a> </span>
-                                                </div>
-                                            </option>
+                                        <option>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span><?= $category['addCategory'] ?></span> 
+                                                <span> <a href="#"><i class="editBtn bi bi-pencil-square"></i>Edit</a> </span>
+                                            </div>
+                                        </option>
                                         
                                     <?php
                                     }
