@@ -323,9 +323,8 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                    <?php
                                         $result = new PostQueryDb();
                                         $categories = $result->fetchAllCategories();
-                                        // var_dump($categories);
-                                        // die;
-                                        foreach ($categories as $category) {
+                                        foreach ($categories as $category) 
+                                        {
                                             
                                         ?>
                                         <option>

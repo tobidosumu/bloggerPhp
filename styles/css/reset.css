@@ -2,26 +2,25 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-*, img, a, ul, li, p, h2, h3, h4, h5, h6, input {
+*, img, a, ul, li, p, h2, h3, h4, h5, h6, input, textarea {
   margin: 0;
   padding: 0;
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
+  resize: none !important;
 }
 
-.form-control:focus {
+.form-control .form-control:focus {
   box-shadow: none !important;
 }
-
-.form-select:focus {
+.form-control .form-select:focus {
   box-shadow: none !important;
 }
-
-input[type=search]::-webkit-search-decoration,
-input[type=search]::-webkit-search-cancel-button,
-input[type=search]::-webkit-search-results-button,
-input[type=search]::-webkit-search-results-decoration {
+.form-control input[type=search]::-webkit-search-decoration,
+.form-control input[type=search]::-webkit-search-cancel-button,
+.form-control input[type=search]::-webkit-search-results-button,
+.form-control input[type=search]::-webkit-search-results-decoration {
   display: none;
 }
 
