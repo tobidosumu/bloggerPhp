@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 body {
@@ -15,10 +17,10 @@ body {
   resize: none !important;
 }
 
-.form-control .form-control:focus {
+.form-control:focus {
   box-shadow: none !important;
 }
-.form-control .form-select:focus {
+.form-control:focus {
   box-shadow: none !important;
 }
 .form-control input[type=search]::-webkit-search-decoration,
@@ -26,6 +28,11 @@ body {
 .form-control input[type=search]::-webkit-search-results-button,
 .form-control input[type=search]::-webkit-search-results-decoration {
   display: none;
+}
+
+.form-select:focus {
+  box-shadow: none !important;
+  border-width: 1px !important;
 }
 
 body .myAlert {

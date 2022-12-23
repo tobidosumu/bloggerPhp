@@ -1,3 +1,5 @@
+@import "./myBootstrap";
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -13,11 +15,11 @@ body {
 
 .form-control {
   
-  .form-control:focus {
+  &:focus {
     box-shadow: none !important;
   }
   
-  .form-select:focus {
+  &:focus {
     box-shadow: none !important;
   }
   input[type="search"]::-webkit-search-decoration,
@@ -27,4 +29,12 @@ body {
     display: none;
   }
 }
+
+.form-select {
+  &:focus {
+    box-shadow: none !important;
+    border-width: 1px !important;
+  }
+}
+
 
