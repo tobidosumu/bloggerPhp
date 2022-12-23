@@ -318,26 +318,28 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                 <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
                                     <i class="bi bi-list"></i>
                                 </span>
-                                <select class="formSelect form-select" name="category" id="floatingSelect" aria-label="Floating label select example">
-                                    <option default class="selectPlaceholder">Select a category</option>
-                                   <?php
-                                        $result = new PostQueryDb();
-                                        $categories = $result->fetchAllCategories();
-                                        foreach ($categories as $category) 
-                                        {
-                                            
-                                        ?>
-                                        <option>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span><?= $category['addCategory'] ?></span> 
-                                                <span> <a href="#"><i class="editBtn bi bi-pencil-square"></i>Edit</a> </span>
-                                            </div>
-                                        </option>
-                                        
+                                <div class="custom-select form-select rounded-end">
+                                    <select class="otherOptions" name="category" id="floatingSelect" aria-label="Floating label select example">
+                                        <option class="selectPlaceholder" disabled>Select a category</option>
                                     <?php
-                                    }
-                                    ?>
-                                </select>
+                                            $result = new PostQueryDb();
+                                            $categories = $result->fetchAllCategories();
+                                            foreach ($categories as $category) 
+                                            {
+                                                
+                                            ?>
+                                            <option class="otherOptions">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span><?= $category['addCategory'] ?></span> 
+                                                    <!-- <span> <a href="#"><i class="editBtn bi bi-pencil-square"></i>Edit</a> </span> -->
+                                                </div>
+                                            </option>
+                                            
+                                        <?php
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
                             </div>
 
                             <label for="title">Blog description<b class="text-danger"> * </b><span class="text-danger"><?= $errors['description'] ?? '' ?></span></label> <!-- blog description starts here-->

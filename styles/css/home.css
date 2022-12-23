@@ -30,11 +30,6 @@ body {
   display: none;
 }
 
-.form-select:focus {
-  box-shadow: none !important;
-  border-width: 1px !important;
-}
-
 body .failAlert {
   display: flex;
   justify-content: center;
@@ -536,21 +531,93 @@ body .modal-dialog .modalContent form .modal-body .input-group span i {
   color: #6025EB;
 }
 body .modal-dialog .modalContent form .modal-body .input-group input {
-  color: #7a7a7a;
+  color: rgba(0, 0, 0, 0.7176470588) !important;
 }
 body .modal-dialog .modalContent form .modal-body .input-group input::placeholder {
   color: #9D9D9D;
-  font-size: 0.8rem;
-  font-weight: 500;
+  font-size: 0.9rem;
   font-weight: 400;
 }
-body .modal-dialog .modalContent form .modal-body .input-group .formSelect .selectPlaceholder {
-  color: #6025EB;
-  font-size: 0.8rem;
-  font-weight: 500;
+body .modal-dialog .modalContent form .modal-body .input-group textarea {
+  color: rgba(0, 0, 0, 0.7176470588) !important;
+}
+body .modal-dialog .modalContent form .modal-body .input-group textarea::placeholder {
+  color: #9D9D9D;
+  font-size: 0.9rem;
+  font-weight: 400;
+  position: relative;
+  top: 33px;
+}
+body .modal-dialog .modalContent form .modal-body .input-group select {
+  display: none;
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select {
+  width: 92.5% !important;
+  position: relative;
+  padding: 7px 4px;
+  padding-left: 12px;
+  color: #9D9D9D;
+  font-size: 0.9rem;
+  font-weight: 400;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239D9D9D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select-selected {
+  background-color: #6025EB;
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select-selected:after.select-arrow-active:after {
+  top: 7px;
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items {
+  position: absolute;
   background-color: #ffffff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  margin-top: 3px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border: 1px solid #ced4da;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.103), 0px -2px 3px rgba(0, 0, 0, 0.103);
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items div, body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items-selected {
+  color: rgba(0, 0, 0, 0.7176470588);
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 8px 14px;
+  cursor: pointer;
+  user-select: none;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top: 1px solid #ced4da;
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items div:hover, body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items-selected:hover {
+  color: #eb253f;
+  background-color: #f4f4f5;
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items div.same-as-selected, body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items-selected.same-as-selected {
+  color: #6025EB;
+  background-color: #f4f4f5;
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items.select-hide {
+  display: none;
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items .otherOptions {
   font-weight: 500;
-  border: 1px solid red !important;
+  color: rgba(0, 0, 0, 0.7176470588);
+}
+body .modal-dialog .modalContent form .modal-body .input-group .custom-select .form-control {
+  color: #9D9D9D;
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 body .modal-dialog .modalContent form .modal-footer .sendPostBtn {
   padding: 7px 20px;

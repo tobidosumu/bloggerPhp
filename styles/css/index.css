@@ -28,11 +28,6 @@ body {
   display: none;
 }
 
-.form-select:focus {
-  box-shadow: none !important;
-  border-width: 1px !important;
-}
-
 body .myAlert {
   color: #121d2a;
   background-color: rgb(215, 252, 246);

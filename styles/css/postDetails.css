@@ -30,11 +30,6 @@ body {
   display: none;
 }
 
-.form-select:focus {
-  box-shadow: none !important;
-  border-width: 1px !important;
-}
-
 body .myAlert {
   margin-top: 95px !important;
   color: #121d2a;
