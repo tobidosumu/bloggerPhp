@@ -2,7 +2,7 @@
 require './classes/dbConnect.php'; // DbConnect
 require './classes/post.queryDb.php'; // PostDbConnector
 require './classes/post.validator.php'; // PostValidator
-require './classes/post.addCategory.validator.php'; // addCategoryValidator
+require './classes/category.validator.php'; // categoryValidator
 
 $postSubmitted = "";
 $categoryCreated = "";
@@ -35,13 +35,13 @@ if (isset($_POST['savePostData'])) {
 
 if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
 {
-    $validateAddCategoryData = new AddCategoryValidator();
+    $validateAddCategoryData = new categoryValidator();
     $validateAddCategoryData->setAddCategory($_POST['addCategory']);
     $errors = $validateAddCategoryData->validateAddcategoryInputs();
 
     if (!$errors)
     {
-        $insertNewCategory = new PostQueryDb();
+        $insertNewCategory = new CategoryQueryDb();
         $insertNewCategory->setAddCategory($_POST['addCategory']);
     
         $newCategory = $insertNewCategory->saveNewCategory();
@@ -264,42 +264,12 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                 
             <div class="modal-dialog">
                 <div class="modal-content modalContent">
-                    
-                    <!-- addCategory modal container starts here ###################################################################-->
-                    <form action="" method="POST" id="referenceContainer">
-
-                        <!-- addCategory button -->
-                        <button type="button" id="addCategoryToggleBtn" onclick="revealCategoryDropdown()" class="categoryDropdownBtn btn btn-sm border-0">Add Category <i class="chevronDownIcon bi bi-chevron-down"></i></button>
-
-                        <div class="categoryDropdown show rounded-3 my-3">
-                            <div class="innerModalContent modal-content border">
-                                <div class="modalHeader d-flex justify-content-between align-itmes-center pt-3 px-3">
-                                    <h4 class="modal-title">Add New Category</h4>
-                                </div>
-                
-                                <div class="modal-body pb-0">
-                                    <label for="addCategory">Add category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['addCategory'] ?? '' ?></span></label> <!-- new category name starts here -->
-                                    <div class="input-group mt-2 mb-3">
-                                        <span class="input-group-text" id="addon-wrapping">
-                                        <i class="bi bi-plus-circle"></i>
-                                        </span>
-                                        <!-- addCategory input -->
-                                        <input type="text" name="addCategory" class="form-control py-2" placeholder="Add new category">
-                                    </div>
-                                </div>
-                
-                                <div class="modalFooter modal-footer border-0 pb-3">
-                                    <button type="submit" name="saveAddCategory" class="btn btn-primary btn-sm border-0"><i class="bi bi-plus-circle me-1"></i>New Category</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
 
                     <form id="savePostData" action="" method="post" enctype="multipart/form-data">
                         <!-- form starts here -->
 
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Create Blog Post</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
@@ -313,7 +283,12 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                 <input type="text" class="form-control py-2" name="title" value="<?= $_POST['title'] ?? '' ?>" placeholder="Add blog title">
                             </div>
 
-                            <label for="title">Blog category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['category'] ?? '' ?></span></label> <!-- Blog category starts here -->
+                            <div class="d-flex justify-content-between align-items-center">
+                                <label for="title">Blog category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['category'] ?? '' ?></span></label> <!-- Blog category starts here -->
+                                <span>
+                                    <a href="./categories.php" class="btn btn-sm btn-outline-primary">Add category <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                                </span>
+                            </div>
                             <div class="input-group mt-2 mb-3">
                                 <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
                                     <i class="bi bi-list"></i>
@@ -321,8 +296,9 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                 <div class="custom-select form-select rounded-end">
                                     <select class="otherOptions" name="category" id="floatingSelect" aria-label="Floating label select example">
                                         <option class="selectPlaceholder" disabled>Select a category</option>
-                                    <?php
-                                            $result = new PostQueryDb();
+                                        <?php
+                                        
+                                            $result = new CategoryQueryDb();
                                             $categories = $result->fetchAllCategories();
                                             foreach ($categories as $category) 
                                             {
@@ -331,10 +307,9 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                             <option class="otherOptions">
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <span><?= $category['addCategory'] ?></span> 
-                                                    <!-- <span> <a href="#"><i class="editBtn bi bi-pencil-square"></i>Edit</a> </span> -->
                                                 </div>
                                             </option>
-                                            
+                                                
                                         <?php
                                         }
                                         ?>

@@ -1,6 +1,8 @@
 <?php
 
-    class AddCategoryValidator extends PostQueryDb
+    require 'category.queryDb.php';
+
+    class CategoryValidator extends CategoryQueryDb
     {
         private $addCategory;
         private $errors = [];
@@ -41,6 +43,7 @@
             {
                 $this->addError('addCategory', 'Category cannot be solely special chars.');
             }
+
              // Check if the addCategory input matches a category in the database
             $categories = $this->fetchAllCategories();
             foreach ($categories as $category) 
