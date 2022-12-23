@@ -67,6 +67,7 @@
         public function validatePostData()
         {
             $this->validateTitle();
+            $this->validateCategory();
             $this->validateDescription();
             $this->validatePostPhoto();
             return $this->errors;
@@ -95,6 +96,17 @@
             elseif (strlen($onlySpecialChars) > strlen($notSpecialChars))
             {
                 $this->addError('description', 'Description cannot be mostly special chars.');
+            }
+        }
+
+        private function validateCategory()
+        {
+            $selectDefaultVal = "Select a category";
+            $val = $this->category;
+
+            if ($selectDefaultVal === $val)
+            {
+                $this->addError('category', 'Please select a category.');
             }
         }
 
