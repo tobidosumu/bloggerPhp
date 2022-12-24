@@ -25,18 +25,7 @@
             $savedPostData = $dbQuery->savePostData();
 
         }
-        else
-        {
-            print_r(
-                '<div class="myAlert position-absolute mt-5 start-50 translate-middle alert bg-danger text-light d-flex align-items-center" role="alert">
-                    <div>
-                        <i class="bi bi-emoji-frown"></i>
-                        Error occurred! Please check the form and try again.
-                    </div>
-                </div>'
-            );
-            header('Refresh:3; url=main.php');
-        }
+
     }
 
 ?>

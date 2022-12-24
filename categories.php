@@ -208,8 +208,8 @@ if (isset($_POST['saveEditedCategory'])) {
 
     </div>
 
-
     </div>
+    
 </body>
 
 </html>
