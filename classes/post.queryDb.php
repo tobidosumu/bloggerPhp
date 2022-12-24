@@ -2,7 +2,6 @@
 
     class PostQueryDb extends DbConnect
     {
-        // private $data;
         private $id;
         private $title;
         private $category;
@@ -11,11 +10,6 @@
         public function setId($id)
         {
             $this->id = $id;
-        }
-
-        public function getId()
-        {
-            return $this->id;
         }
 
         public function setTitle($title)
@@ -33,7 +27,7 @@
             $this->description = $description;
         }
 
-        public function savePostData() // Insert blog data
+        public function savePostData() // Save blog title, category, description, photo
         {
             $fileName = $_FILES['photo']['name'];
             $fileTmpName = $_FILES['photo']['tmp_name'];
@@ -50,17 +44,7 @@
                 $stmt = $this->connect()->prepare("INSERT INTO blog_post(title, category, description, photo)
                 VALUES(?, ?, ?, ?)");
                 $stmt->execute([$this->title, $this->category, $this->description, $imageDestination]);
-                
-                print_r(
-                    '<div class="successAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-                        <div>
-                            <i class="bi bi-emoji-smile"></i>
-                            Post created successfully!
-                        </div>
-                    </div>'
-                );
-
-                header('Refresh:3; url=home.php');
+                return "successful";
             } 
             catch (Exception $e) 
             {
@@ -68,7 +52,7 @@
             }
         }
 
-        public function fetchOne($id)
+        public function fetchOne($id) // Fetch one set of post data i.e. one blog title, category, description, photo
         {
             try 
             {
@@ -82,7 +66,7 @@
             }
         }
 
-        public function fetchAll() // fetch all data from blog_post table
+        public function fetchAll() // Fetch all post data from DB
         {
             try 
             {

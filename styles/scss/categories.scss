@@ -5,9 +5,35 @@
 
 body {
 
+    .failAlert {
+        display: flex;
+        justify-content: center;
+        top: 70px;
+        z-index: 1;
+        margin-top: 95px !important;
+        background-color: $accentHoverColor;
+        div {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            i {
+                @include semiPrimaryFont;
+                margin-right: 3px;
+            }
+            p {
+                @include primaryFont;
+            }
+        }
+    }
+
+    .successAlert{
+        color: $white;
+        background-color: $green;
+    }
+
     .mainContainer {
         max-width: 100%;
-        background-color: $lightGrey;
+        background-color: $white;
 
         header {
             @include widthPadding; // provides left and right padding for hero
@@ -29,7 +55,7 @@ body {
                             font-weight: 500;
                         }
                     }
-                    .home {
+                    .categories {
                         a {
                             // padding: 23px 0;
                             padding-top: 23px;
@@ -160,264 +186,39 @@ body {
             }
         }
 
-        .blogContents { // (section) blog contents container start here
+        .categoriesWrapper { // (section) blog contents container start here
             width: 100%;
-            padding-top: 6%;
+            height: 100vh;
             @include widthPadding;
+            padding-top: 70px;
+            // border: 1px solid red;
 
-            section {
-                .mainContentContainer {
-                    width: 50%;
-                    padding-top: 30px;
-
-                    .postCard { // blog post card starts here
-                        width: 100%;
-                        word-break: break-all;
-                        hyphens: auto;
-                        margin-bottom: 30px;
-                        transition: translate 0.5s ease;
-                        background-color: $white;
-                        &:hover {
-                            // translate: 0 -1%;
-                            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.123)
-                        }
-
-                        .postHeader {
-                            width: 100%;
-                            height: 55px;
-                            display: flex;
-                            align-items: center;
-                            padding: 0 10px;
-                            justify-content: space-between;
-
-                            .userAvater {
-                                display: flex;
-                                align-items: center;
-                                img {
-                                    width: 38px;
-                                    height: 38px;
-                                    border-radius: 50px;
-                                    border: 1px solid $lightGrey;
-                                }
-
-                                .avaterDetails {
-                                    p {
-                                        @include tinyFont;
-                                        font-weight: 600;
-                                        text-transform: lowercase;
-                                        color: $black;
-                                    }                                
-                                }
-                            }
-
-                            .postInfo {
-                                display: flex;
-                                align-items: center;
-                                p {
-                                    @include veryLittleFont;
-                                    margin-right: 5px;
-                                    color: $veryLightGrey;
-                                }
-
-                                i {
-                                    @include semiPrimaryFont;
-                                    color: $grey;
-                                    padding: 10px;
-                                    &:hover {
-                                        border-radius: 50%;
-                                        background-color: $lightGrey;
-                                    }
-                                }
-                            }
-                        }
-
-                        .postPhoto {
-                            overflow: hidden;
-                            img {
-                                width: 100%;
-                                height: 330px;
-                                object-fit: cover;
-                                transition: transform .5s ease-in-out;
+            table {
+                tbody {
+                    width: 100%;
+                    tr {
+                        td {
+                           a {
+                            padding: 4px 8px;
+                            border-radius: 50px;
+                            background-color: $transparentWhite;
+                            &:first-child {
+                                color: $green;
                                 &:hover {
-                                    transform: scale(1.01);
-                                    // transform: scale(2) rotate(25deg);
+                                    color: $white;
+                                    background-color: $primaryColor;
                                 }
                             }
-                            .timeAgo {
-                                background-color: $transparentWhite;
-                                h4 {
-                                    @include tinyFont;
+                            &:nth-child(2) {
+                                color: $accentHoverColor;
+                                &:hover {
+                                    color: $white;
+                                    background-color: $accentHoverColor;
                                 }
                             }
+                           }
                         }
-
-                        .postCategory {
-                            .rightIconsDiv {
-                                position: relative;
-                                bottom: 30px;
-                                margin: -180px 20px 0 0;
-                                // border: 1px solid red;
-                                div {
-                                    display: flex;
-                                    justify-content: center;
-                                    flex-direction: column;
-                                    align-items: center;
-
-                                    i {
-                                        @include postIcon;
-                                        margin-bottom: 0px;
-                                        transition: all .4s;
-                                    }
-
-                                    p {
-                                        @include veryLittleFont;
-                                        font-weight: 600;
-                                        color: $black;
-                                        background-color: $slightTransparentWhite;
-                                        padding: 0 7px; 
-                                        border-radius: 3px;
-                                    }
-
-                                    &:hover {
-                                        i {
-                                            background-color: $white;
-                                        }
-                                    }
-                                    &:hover {
-                                        p {
-                                            background-color: $white;
-                                        }
-                                    }
-                                }
-
-                                .shares {
-                                    i {
-                                        transform: scaleX(-1);
-                                        transform-origin: 50% 50%;
-                                        -webkit-transform: scaleX(-1); /* Safari and Chrome */
-                                        -moz-transform: scaleX(-1); /* Firefox */
-                                        -ms-transform: scaleX(-1); /* Internet Explorer */
-                                        -o-transform: scaleX(-1); /* Opera */
-                                    }
-                                }
-                            }
-                        }
-                        
-                        .postTextWrapper {
-                            padding: 10px 15px;
-
-                            .postTitle {
-                                p {
-                                    @include tinyFont;
-                                    color: $black;
-                                    font-weight: 500;
-                                    letter-spacing: 1px;
-                                    margin-bottom: 8px;
-                                    text-transform: capitalize;   
-                                }
-                            }
-    
-                            .postParagraph {
-                                display: flex;
-                                // flex-direction: column;
-                                @include tinyFont;
-                                padding-bottom: 10px;
-                                color: $lightBlack;
-
-                                button {
-                                    color: $grey;
-                                    @include tinyFont;
-                                    font-weight: 400;
-                                    border: none;
-                                    background: none;
-                                }
-                            }
-                            
-                            .commentsCount {
-                                @include tinyFont;
-                                color: $veryLightGrey;
-                            }
-                        }
-
-                        .postCommentWrapper {
-                            padding: 12px 15px;
-                            border-top: 1px solid $lightGrey;
-                            .emojiWrapper {
-                                width: 6%;
-                                i {
-                                    font-weight: 700;
-                                    @include semiTertiaryFont;
-                                    color: $black;
-                                }
-                            }
-
-                            .commentWrapper {
-                                width: 84%;
-                                textarea {
-                                    width: 100%;
-                                    height: 20px;
-                                    border: none;
-                                    resize: none;
-                                    padding-right: 4.4px;
-                                    @include tinyFont;
-                                    color: $black;
-                                    line-height: 1rem;
-                                    &::placeholder {
-                                        @include tinyFont;
-                                        color: $veryLightGrey;
-                                    }
-
-                                    &:focus {
-                                        outline: none;
-                                    }
-                                }
-                            }
-
-                            .postBtnWrapper {
-                                width: 10%;
-                                button {
-                                    width: 100%;
-                                    border: none;
-                                    background: none;
-                                    @include semiTinyFont;
-                                    font-weight: 500;
-                                    color: $lightGreen;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                .rightSideContentContainer { // (aside) aside starts here
-                    display: flex;
-                    width: 45.7%;
-                    height: 100vh;
-                    top: 70px;
-                    position: sticky;
-                    padding-left: 4%;
-                    align-items: center;
-                    flex-direction: column;
-                }
-            }
-
-            .dropUsAmessage { // this block styles the div before the footer
-                position: relative;
-                top: 110px;
-                background-color: $lightGreenColor;
-                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-
-                .textBlockContainer {
-                    p {
-                        width: 60%;
-                        @include primaryFont;
-                        color: $grey;
-                    }
-
-                    a {
-                        @include primaryBtn;
-                        &:hover {
-                            background-color: $accentColor;
-                        }
+                        // border: 1px solid red;
                     }
                 }
             }
@@ -425,14 +226,14 @@ body {
     }
 
     footer { // footer starts here
-        height: 350px;
+        height: 300px;
         background-color: $black;
         @include widthPadding;
 
         div {
             width: 25%;
             display: flex;
-            margin-top: 100px;
+            // margin-top: 100px;
 
             ul {
                 p {
@@ -483,7 +284,7 @@ body {
         }
     }
 
-    .modal-dialog { // for Post form
+    .modal-dialog { // for Category form
         max-width: none !important;
         display: flex;
         justify-content: center;
@@ -495,19 +296,7 @@ body {
             form {
 
                 .modal-body {
-                    label {
-                        @include tinyFont;
-                        font-weight: 400;
-                        color: $veryLightGrey;
-                    }
-                    .addCatBtn {
-                        color: $accentColor;
-                        border-color: $accentColor;
-                        &:hover {
-                            color: $white;
-                            background-color: $accentColor;
-                        }
-                    }
+
                     .input-group {
                         span {
                             i {

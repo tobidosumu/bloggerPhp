@@ -23,21 +23,22 @@ body {
             width: 50%;
             height: 100vh;
         }
-        #leftAside {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            background: $primaryColor url(assets/svg/signupBgIcon.svg) no-repeat 50% 50%;
-            background-size: 70% 70%;
-            padding-bottom: 50px;
+        .leftAside {
+            background-color: $primaryColor;
+            padding-bottom: 25px;
+            img {
+                width: 80%;
+                object-fit: cover;
+            }
 
             div { // left section: welcome to blogger icon
+                width: 100%;
                 h2 {
                     @include semiTertiaryFont;
                     color: $white;
                 }
                 img {
-                    height: 40px;
+                    width: 120px;
                 }
             }
         }
