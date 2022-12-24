@@ -57,13 +57,16 @@ if (isset($_POST['saveEditedCategory'])) {
                         $result = new CategoryQueryDb();
                         $categories = $result->fetchAllCategories();
                         foreach ($categories as $key => $category):?>
-
                         <tr>
                             <th scope="row"><?= $key + 1 ?></th>
                             <td><?= $category['addCategory'] ?></td>
                             <td><?= $category['dateCreated'] ?></td>
                             <td>
-                                <a href="categories.php?editId=<?= $category['id'] ?>" class="me-3" data-bs-toggle="modal" data-bs-target="#updateCategoryModal"><i class="bi bi-pencil-square"></i></a>
+                                <a href="javascript:void(0)" class="me-3" data-bs-toggle="modal" data-bs-target="#updateModal<?= $category['id'] ?>"><i class="bi bi-pencil-square"></i></a>
+
+<!--                                <button type="button" class="me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <i class="bi bi-plus-circle"></i>
+                                </button>-->
                                 <a href="categories.php?deleteId=<?= $category['id'] ?>"><i class="bi bi-trash"></a></i>
                             </td>
                         </tr>
@@ -76,8 +79,7 @@ if (isset($_POST['saveEditedCategory'])) {
                 $id = $_GET['id'];
                 $results = new CategoryQueryDb();
                 $result = $results->fetchOneCategory($id);
-                $editCategory = $result['addCategory']; 
-
+                $editCategory = $result['addCategory'];
             ?>
             <!-- Update Category modal container starts here ###################################################################-->
             <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModal" aria-hidden="true">
@@ -88,7 +90,7 @@ if (isset($_POST['saveEditedCategory'])) {
                         <!-- form starts here -->
                         <form id="savePostData" action="" method="post">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="updateCategoryModal">Change Category</h5>
+                                <h5 class="modal-title" id="updateCategoryModal">Update Category</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body px-4 my-2">
@@ -162,13 +164,13 @@ if (isset($_POST['saveEditedCategory'])) {
 
         </footer>
 
-        <!-- Category modal container starts here ###################################################################-->
+        <!-- Add  Category modal container starts here ###################################################################-->
         <!-- Button trigger modal -->
         <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="bi bi-plus-circle"></i>
         </button>
 
-        <!-- Modal -->
+        <!-- Create Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 
             <div class="modal-dialog">
@@ -206,6 +208,60 @@ if (isset($_POST['saveEditedCategory'])) {
             </div>
         </div>
 
+        <!-- Add  Category modal container ends here ###################################################################-->
+
+
+        <!-- Edit Category modal container starts here ###################################################################-->
+        <!-- Button trigger modal -->
+
+        <!-- Edit Modal -->
+
+
+        <?php
+        $result = new CategoryQueryDb();
+        $categories = $result->fetchAllCategories();
+        foreach ($categories as $key => $category):?>
+        <div class="modal fade" id="updateModal<?= $category['id'] ?>" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+
+            <div class="modal-dialog">
+                <div class="modal-content modalContent">
+
+                    <form id="savePostData" action="" method="post">
+                        <!-- form starts here -->
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body px-4 my-2">
+                            <!-- modal body starts here -->
+                            <label for="title">Category name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['addCategory'] ?? '' ?></span></label> <!-- Blog title starts here -->
+                            <div class="input-group mt-2 mb-4">
+                                <span class="input-group-text" id="addon-wrapping">
+                                    <i class="bi bi-card-heading"></i>
+                                </span>
+                                <input type="text" class="form-control py-2" name="addCategory" placeholder="Enter category name" value="<?= $category['addCategory'] ?>">
+                            </div>
+                        </div> <!-- modal body ends here -->
+
+                        <div class="modal-footer">
+                            <!-- modal footer -->
+                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                            <button type="submit" name="saveAddCategory" class="sendPostBtn btn btn-primary me-2">Save <i class="bi bi-plus-circle"></i></button>
+                        </div>
+
+                    </form> <!-- form ends here -->
+
+                </div>
+
+            </div>
+        </div>
+
+        <?php
+        endforeach;
+        ?>
+        <!-- Edit  Category modal container ends here ###################################################################-->
     </div>
 
 
