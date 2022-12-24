@@ -2,8 +2,6 @@
 require './classes/dbConnect.php'; // DbConnect
 require './classes/category.validator.php'; // CategoryValidator
 
-$deleteAlert = "";
-
 if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
 {
     $validateAddCategoryData = new CategoryValidator();
@@ -15,45 +13,26 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
         $insertNewCategory = new CategoryQueryDb();
         $insertNewCategory->setAddCategory($_POST['addCategory']);
         $newCategory = $insertNewCategory->saveNewCategory();
-
-        if (is_array($newCategory)) $categoryCreated = true; // If a result set returned
     }
 }
 
 if (isset($_GET['deleteId']))
 {
+    $deleteAlert = false;
     $id = $_GET['deleteId'];
     $result = new CategoryQueryDb();
-
-    is_object($deleteAlert);
-    if ($result == $deleteAlert)
-    {
-        var_dump('Are you sure');
-    }
-    else
-    {
-        $result->deleteCategory($id);
-    }
-    
+    $result->deleteCategory($id);
 }
 
 if (isset($_POST['saveEditedCategory'])) {
     $id = $_GET['id'];
     $results = new CategoryQueryDb();
     $result = $results->editCategory($id);
-
-    if ($result === "successful") $categoryUpdated = true;
 }
 
 ?>
 
 <body>
-
-    <!-- <?php if ($categoryDeleted) : ?>
-        <div class="successAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-            <p><i class="bi bi-hand-thumbs-up-fill"></i> Category deleted successfully!</p>
-        </div>
-    <?php endif ?> -->
 
     <div class="mainContainer">
         <!-- contains all the page contents -->
