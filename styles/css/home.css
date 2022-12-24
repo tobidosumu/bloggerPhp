@@ -452,6 +452,20 @@ body .modal-dialog {
 body .modal-dialog .modalContent {
   width: 600px;
 }
+body .modal-dialog .modalContent form .modal-body label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 400;
+  color: #9D9D9D;
+}
+body .modal-dialog .modalContent form .modal-body .addCatBtn {
+  color: #6025EB;
+  border-color: #6025EB;
+}
+body .modal-dialog .modalContent form .modal-body .addCatBtn:hover {
+  color: #ffffff;
+  background-color: #6025EB;
+}
 body .modal-dialog .modalContent form .modal-body .input-group span i {
   color: #6025EB;
 }

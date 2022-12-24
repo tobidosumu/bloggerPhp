@@ -495,7 +495,19 @@ body {
             form {
 
                 .modal-body {
-
+                    label {
+                        @include tinyFont;
+                        font-weight: 400;
+                        color: $veryLightGrey;
+                    }
+                    .addCatBtn {
+                        color: $accentColor;
+                        border-color: $accentColor;
+                        &:hover {
+                            color: $white;
+                            background-color: $accentColor;
+                        }
+                    }
                     .input-group {
                         span {
                             i {
