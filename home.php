@@ -251,7 +251,7 @@ if (isset($_POST['savePostData']))
                         <div class="modal-body px-4 my-2">
                             <!-- modal body starts here -->
                             <label for="title">Blog title<b class="text-danger"> * </b><span class="text-danger"><?= $errors['title'] ?? '' ?></span></label> <!-- Blog title starts here -->
-                            <div class="input-group mt-2 mb-4">
+                            <div class="input-group mt-2 mb-3">
                                 <span class="input-group-text" id="addon-wrapping">
                                     <i class="bi bi-card-heading"></i>
                                 </span>
@@ -259,10 +259,8 @@ if (isset($_POST['savePostData']))
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center">
-                                <label for="title">Blog category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['category'] ?? '' ?></span></label> <!-- Blog category starts here -->
-                                <span>
-                                    <a href="./categories.php" class="btn btn-sm btn-outline-primary">Add category <i class="bi bi-box-arrow-up-right ms-1"></i></a>
-                                </span>
+                                <label for="title" class="mt-3">Blog category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['category'] ?? '' ?></span></label> <!-- Blog category starts here -->
+                                <span><a href="./categories.php" class="addCatBtn btn btn-sm btn-outline-primary">Add category <i class="bi bi-box-arrow-up-right ms-1"></i></a></span>
                             </div>
                             <div class="input-group mt-2 mb-3">
                                 <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
@@ -299,7 +297,7 @@ if (isset($_POST['savePostData']))
                                 <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
                                     <i class="bi bi-pencil-square"></i>
                                 </span>
-                                <textarea class="form-control rounded-0 rounded-end decriptionField" name="description" value="<?= $_POST['description'] ?? '' ?>" placeholder="Add blog description" id="floatingTextarea2" style="height: 100px"></textarea>
+                                <textarea class="form-control rounded-0 rounded-end decriptionField" name="description" placeholder="Add blog description" id="floatingTextarea2" style="height: 100px"><?= $_POST['description'] ?? '' ?></textarea>
                             </div>
 
                             <label for="title">Blog photo<b class="text-danger"> * </b><span class="text-danger"><?= $errors['photo'] ?? '' ?></span></label> <!-- upload blog photo starts here-->

@@ -6,6 +6,7 @@
         private $category;
         private $description;
         private $timeAgo;
+        private $specialChars = ['#', '@', '%', '$', '&', '(', ')']; 
         private $errors = [];
 
         // image properties
@@ -18,6 +19,11 @@
         public function setFileName($fileName)
         {
             $this->fileName = $fileName;
+        }
+
+        private function setSpecialChars($specialChars)
+        {
+            $this->specialChars = $specialChars;
         }
 
         public function setFileSize($fileSize)
@@ -76,7 +82,6 @@
         private function validateTitle()
         {
             $val = trim($this->title);
-            $val = strip_tags($val);
 
             $onlySpecialChars = preg_match('([!@#$%^&*(),.?":{}|<>])', $val);
             $notSpecialChars = preg_match('(.*[a-z]|[A-Z]|[0-9])', $val);
@@ -84,6 +89,10 @@
             if (empty($val))
             {
                 $this->addError('title', 'Please enter a title.');
+            }
+            elseif (!strip_tags($val, $this->specialChars))
+            {
+                $this->addError('title', 'Special chars are not allowed. Only these are: #@%$&()');
             }
             elseif (strlen($val) < 10)
             {
@@ -120,6 +129,10 @@
             if (empty($val))
             {
                 $this->addError('description', 'Please enter a description.');
+            }
+            elseif (!strip_tags($val, $this->specialChars))
+            {
+                $this->addError('description', 'Special chars are not allowed. Only these are: #@%$&()');
             }
             elseif (strlen($val) < 50)
             {
