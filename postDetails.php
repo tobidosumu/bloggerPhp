@@ -33,7 +33,7 @@
                             ?>
                                 <div class="innerContainer wrap"> <!-- photo and title container -->
                                     <div class="postImage"> <!-- image div -->
-                                        <img class="img-fluid w-100" src="<?=$postDetail['photo']?>"> <!-- fetches photo from blog_post table -->   
+                                        <img class="img-fluid w-100" src="<?= $postDetail['photo'] ?>"> <!-- fetches photo from blog_post table -->   
                                     </div>
                                     <div class="categoryTitleContainer"> <!-- title, category container -->
                                         <div class="categoryReadTimeContainer d-flex justify-content-between p-2"> <!-- category and read time div -->
@@ -58,17 +58,6 @@
                                 </div>
                                 
                             <?php
-                        }
-                        else
-                        {
-                            print_r(
-                                '<div class="myAlert position-absolute mt-5 start-50 translate-middle alert bg-danger text-light d-flex align-items-center" role="alert">
-                                    <div>
-                                        <i class="bi bi-emoji-frown"></i>
-                                        Stop wasting your time.
-                                    </div>
-                                </div>'
-                            );
                         }
                     ?>
 

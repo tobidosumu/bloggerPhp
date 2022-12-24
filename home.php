@@ -5,9 +5,9 @@ require './classes/post.validator.php'; // PostValidator
 require './classes/category.validator.php'; // categoryValidator
 
 $postSubmitted = "";
-$categoryCreated = "";
 
-if (isset($_POST['savePostData'])) {
+if (isset($_POST['savePostData'])) 
+{
     $validatePostData = new PostValidator();
     $validatePostData->setTitle($_POST['title']);
     $validatePostData->setCategory($_POST['category']);
@@ -18,7 +18,8 @@ if (isset($_POST['savePostData'])) {
 
     $errors = $validatePostData->validatePostData();
 
-    if (!$errors) {
+    if (!$errors) 
+    {
         $insertPostData = new PostQueryDb();
         $insertPostData->setTitle($_POST['title']);
         $insertPostData->setCategory($_POST['category']);
@@ -26,53 +27,27 @@ if (isset($_POST['savePostData'])) {
 
         $storePostData = $insertPostData->savePostData();
 
-        if ($storePostData === "successful") {
+        if ($storePostData === "successful") 
+        {
             $postSubmitted = true;
-        }
+        } 
     } 
 
 } 
 
-if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
-{
-    $validateAddCategoryData = new categoryValidator();
-    $validateAddCategoryData->setAddCategory($_POST['addCategory']);
-    $errors = $validateAddCategoryData->validateAddcategoryInputs();
-
-    if (!$errors)
-    {
-        $insertNewCategory = new CategoryQueryDb();
-        $insertNewCategory->setAddCategory($_POST['addCategory']);
-    
-        $newCategory = $insertNewCategory->saveNewCategory();
-    
-        if ($newCategory === "successful") {
-            $categoryCreated = true;
-        }
-    }
-}
-
-
 ?>
 
 <body>
+
     <?php if ($postSubmitted) : ?>
-        <div class="successAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-            <p><i class="bi bi-emoji-frown me-1"></i> Post submitted successfully!</p>
+        <div class="position-absolute mt-5 top-0 start-50 translate-middle alert text-white success-alert" role="alert">
+            <p><i class="bi bi-hand-thumbs-up-fill"></i> Post submitted successfully!</p>
         </div>
     <?php endif ?>
 
-    <?php if ($categoryCreated) : ?>
-        <div class="successAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-            <p><i class="bi bi-emoji-frown me-1"></i> Category created successful!</p>
-        </div>
-    <?php endif ?>
-
-    <div class="mainContainer">
-        <!-- contains all the page contents -->
-
+    <div class="mainContainer"><!-- contains all the page contents -->
+    
         <?php include './headers/homeHeader.php' ?>
-        <!-- header goes here -->
 
         <section class="blogContents">
 
@@ -296,6 +271,7 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                                 <div class="custom-select form-select rounded-end">
                                     <select class="otherOptions" name="category" id="floatingSelect" aria-label="Floating label select example">
                                         <option class="selectPlaceholder" disabled>Select a category</option>
+                                        
                                         <?php
                                         
                                             $result = new CategoryQueryDb();

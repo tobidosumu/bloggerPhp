@@ -5,7 +5,6 @@
         private $id;
         private $title;
         private $category;
-        // private $addCategory;
         private $description;
 
         public function setId($id)

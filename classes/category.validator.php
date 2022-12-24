@@ -12,7 +12,7 @@
             $this->addCategory = $addCategory;
         }
 
-        public function validateAddcategoryInputs()
+        public function validateCategory()
         {
             $this->validateAddCategory();
             return $this->errors;
