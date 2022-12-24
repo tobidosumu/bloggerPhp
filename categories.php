@@ -264,8 +264,8 @@ if (isset($_POST['saveEditedCategory'])) {
         <!-- Edit  Category modal container ends here ###################################################################-->
     </div>
 
-
     </div>
+    
 </body>
 
 </html>

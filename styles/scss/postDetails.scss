@@ -181,7 +181,6 @@ body {
 
         .blogContents { // (section) blog contents container start here
             width: 100%;
-            // padding-top: 6%;
             @include widthPadding;
 
             nav {
@@ -199,7 +198,6 @@ body {
                             }
                         }
                     }
-                    // margin-top: 40px;
                 }
             }
             
