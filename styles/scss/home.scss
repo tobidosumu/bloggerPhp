@@ -5,32 +5,6 @@
 
 body {
 
-    .failAlert {
-        display: flex;
-        justify-content: center;
-        top: 70px;
-        z-index: 1;
-        margin-top: 95px !important;
-        background-color: $accentHoverColor;
-        div {
-            display: flex;
-            align-items: center;
-            margin-right: 10px;
-            i {
-                @include semiPrimaryFont;
-                margin-right: 3px;
-            }
-            p {
-                @include primaryFont;
-            }
-        }
-    }
-
-    .successAlert{
-        color: $white;
-        background-color: $green;
-    }
-
     .mainContainer {
         max-width: 100%;
         background-color: $lightGrey;

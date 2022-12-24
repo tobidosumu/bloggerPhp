@@ -30,31 +30,6 @@ body {
   display: none;
 }
 
-body .failAlert {
-  display: flex;
-  justify-content: center;
-  top: 70px;
-  z-index: 1;
-  margin-top: 95px !important;
-  background-color: #eb253f;
-}
-body .failAlert div {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-}
-body .failAlert div i {
-  font-size: 1.05rem;
-  font-weight: 400;
-  margin-right: 3px;
-}
-body .failAlert div p {
-  font-size: 0.9rem;
-}
-body .successAlert {
-  color: #ffffff;
-  background-color: #00835c;
-}
 body .mainContainer {
   max-width: 100%;
   background-color: #f4f4f5;
