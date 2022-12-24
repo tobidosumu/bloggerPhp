@@ -1,39 +1,59 @@
 <?php
 require './classes/dbConnect.php'; // DbConnect
-require './classes/post.queryDb.php'; // PostDbConnector
-require './classes/post.validator.php'; // PostValidator
 require './classes/category.validator.php'; // CategoryValidator
 
-$categoryCreated = "";
+$deleteAlert = "";
 
 if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
 {
     $validateAddCategoryData = new CategoryValidator();
     $validateAddCategoryData->setAddCategory($_POST['addCategory']);
-    $errors = $validateAddCategoryData->validateAddcategoryInputs();
+    $errors = $validateAddCategoryData->validateCategory();
 
-    if (!$errors) {
+    if (!$errors)
+    {
         $insertNewCategory = new CategoryQueryDb();
         $insertNewCategory->setAddCategory($_POST['addCategory']);
-
         $newCategory = $insertNewCategory->saveNewCategory();
 
-        if ($newCategory === "successful") {
-            $categoryCreated = true;
-        }
+        if (is_array($newCategory)) $categoryCreated = true; // If a result set returned
     }
 }
 
+if (isset($_GET['deleteId']))
+{
+    $id = $_GET['deleteId'];
+    $result = new CategoryQueryDb();
+
+    is_object($deleteAlert);
+    if ($result == $deleteAlert)
+    {
+        var_dump('Are you sure');
+    }
+    else
+    {
+        $result->deleteCategory($id);
+    }
+    
+}
+
+if (isset($_POST['saveEditedCategory'])) {
+    $id = $_GET['id'];
+    $results = new CategoryQueryDb();
+    $result = $results->editCategory($id);
+
+    if ($result === "successful") $categoryUpdated = true;
+}
 
 ?>
 
 <body>
 
-    <?php if ($categoryCreated) : ?>
+    <!-- <?php if ($categoryDeleted) : ?>
         <div class="successAlert position-absolute mt-5 top-0 start-50 translate-middle alert d-flex align-items-center" role="alert">
-            <p><i class="bi bi-emoji-frown me-1"></i> Category created successful!</p>
+            <p><i class="bi bi-hand-thumbs-up-fill"></i> Category deleted successfully!</p>
         </div>
-    <?php endif ?>
+    <?php endif ?> -->
 
     <div class="mainContainer">
         <!-- contains all the page contents -->
@@ -53,30 +73,68 @@ if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
 
-                    $result = new CategoryQueryDb();
-                    $categories = $result->fetchAllCategories();
-                    foreach ($categories as $category) {
+                    <?php 
+                        $result = new CategoryQueryDb();
+                        $categories = $result->fetchAllCategories();
+                        foreach ($categories as $key => $category):?>
 
-                    ?>
                         <tr>
-
-                            <th scope="row"><?= $category['id'] ?></th>
+                            <th scope="row"><?= $key + 1 ?></th>
                             <td><?= $category['addCategory'] ?></td>
                             <td><?= $category['dateCreated'] ?></td>
-
                             <td>
-                                <a href="editCategory.php?id=<?= $category['id'] ?>" class="me-3"><i class="bi bi-pencil-square"></i></a>
-                                <a href="#"><i class="bi bi-trash"></a></i>
+                                <a href="categories.php?editId=<?= $category['id'] ?>" class="me-3" data-bs-toggle="modal" data-bs-target="#updateCategoryModal"><i class="bi bi-pencil-square"></i></a>
+                                <a href="categories.php?deleteId=<?= $category['id'] ?>"><i class="bi bi-trash"></a></i>
                             </td>
-                        <?php
-                    }
-                        ?>
                         </tr>
+                    <?php endforeach ?>
+
                 </tbody>
             </table>
+            <?php
+                if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $results = new CategoryQueryDb();
+                $result = $results->fetchOneCategory($id);
+                $editCategory = $result['addCategory']; 
 
+            ?>
+            <!-- Update Category modal container starts here ###################################################################-->
+            <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModal" aria-hidden="true">
+
+                <div class="modal-dialog">
+                    <div class="modal-content modalContent"> 
+
+                        <!-- form starts here -->
+                        <form id="savePostData" action="" method="post">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="updateCategoryModal">Change Category</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body px-4 my-2">
+                                <!-- modal body starts here -->
+                                <label for="title">New category name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['addCategory'] ?? '' ?></span></label>
+                                <div class="input-group mt-2 mb-4">
+                                    <span class="input-group-text" id="addon-wrapping">
+                                        <i class="bi bi-card-heading"></i>
+                                    </span>
+                                    <input type="text" class="form-control py-2" name="addCategory" value="<?= $editCategory['addCategory'] ?>" placeholder="Enter new category name">
+                                </div>
+                            </div>
+                            <!-- modal footer -->
+                            <div class="modal-footer">
+                                <button type="submit" name="saveEditedCategory" class="sendPostBtn btn btn-primary me-2">Update <i class="bi bi-pencil-square"></i></button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+            
+            <?php  } ?>
+            
         </section>
 
         <footer class="d-flex justify-content-between align-items-center ">

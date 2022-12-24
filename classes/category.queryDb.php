@@ -55,7 +55,7 @@
         {
             try 
             {
-                $stmt = $this->connect()->prepare("SELECT * FROM categories ORDER BY id ASC");
+                $stmt = $this->connect()->prepare("SELECT * FROM categories ORDER BY id DESC");
                 $stmt->execute();
                 return $stmt->fetchAll();
             } 
@@ -65,30 +65,29 @@
             }
         }
 
-        public function editCategory() // Update category in DB
+        public function editCategory($id)
         {
-            try 
-            {
-                // Make first letter of addCategory capital
+            try {
+                // Convert addCategory to uppercase
                 $addCategory = ucfirst($this->addCategory);
         
-                // Update the addCategory value for the category with the given id
+                // Update category in the categories table
                 $stmt = $this->connect()->prepare("UPDATE categories SET addCategory = ? WHERE id = ?");
-                $stmt->execute([$addCategory, $this->id]);
+                $stmt->execute([$addCategory, $id]);
+        
                 return "successful";
-            } 
-            catch (Exception $e) 
-            {
+            } catch (Exception $e) {
                 return $e->getMessage();
             }
         }        
 
-        public function deleteCategory() // Delete category from DB
+        public function deleteCategory($id) // Delete category from DB
         {
             try 
             {
                 $stmt = $this->connect()->prepare("DELETE FROM categories WHERE id = ?");
-                $stmt->execute([$this->id]);
+                $stmt->execute([$id]);
+
                 return "successful";
             } 
             catch (Exception $e) 
