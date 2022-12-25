@@ -207,10 +207,10 @@ if (isset($_POST['saveEditedCategory'])) {
         <!-- Add  Category modal container ends here ###################################################################-->
 
 
-        <!-- Edit Category modal container starts here ###################################################################-->
+        <!-- Update Category modal container starts here ###################################################################-->
         <!-- Button trigger modal -->
 
-        <!-- Edit Modal -->
+        <!-- Update Modal -->
         <?php
         $result = new CategoryQueryDb();
         $categories = $result->fetchAllCategories();

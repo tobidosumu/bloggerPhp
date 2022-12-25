@@ -18,28 +18,34 @@
             return $this->errors;
         }
 
-
         private function validateAddCategory()
         {
-            $inputVal = filter_var($this->addCategory);
+            $selectDefaultVal = "Select a category";
+            $val = filter_var($this->addCategory);
+            // $val = $this->category;
 
-            if ($inputVal === false || $inputVal === null || empty($inputVal))
+            if ($selectDefaultVal === $val)
+            {
+                $this->addError('category', 'Please select a category.');
+            }
+
+            if ($val === false || $val === null || empty($val))
             {
                 $this->addError('addCategory', 'Please enter a category.');
             }
-            elseif (strlen($inputVal) < 2)
+            elseif (strlen($val) < 2)
             {
                 $this->addError('addCategory', 'Category must be at least 2 chars long.');
             }
-            elseif (str_word_count($inputVal) > 1)
+            elseif (str_word_count($val) > 1)
             {
                 $this->addError('addCategory', 'Category cannot be more than one word.');
             }
-            elseif (is_numeric($inputVal))
+            elseif (is_numeric($val))
             {
                 $this->addError('addCategory', 'Category cannot be numbers only.');
             }
-            elseif (preg_match('([!@#$%^&*(),.?":{}|<>])', $inputVal))
+            elseif (preg_match('([!@#$%^&*(),.?":{}|<>])', $val))
             {
                 $this->addError('addCategory', 'Category cannot be solely special chars.');
             }
@@ -48,7 +54,7 @@
             $categories = $this->fetchAllCategories();
             foreach ($categories as $category) 
             {
-                if (strcasecmp($inputVal, $category['addCategory']) === 0) 
+                if (strcasecmp($val, $category['addCategory']) === 0) 
                 {
                     $this->addError('addCategory', 'Category already exists.');
                     break;

@@ -72,7 +72,7 @@ if (isset($_POST['savePostData']))
                                                 <div class="modal-body d-flex flex-column justify-content-center align-items-center text-center">
                                                     <ul>
                                                         <a href="#"><li class="nthChild rounded-top">Delete post</li></a>
-                                                        <a href="#"><li class="nthChild">Unfollow</li></a>
+                                                        <a href="#"><li class="nthChild">Edit post</li></a>
                                                         <a href="#"><li>Go to post</li></a>
                                                         <a href="#"><li>Add to favorites</li></a>
                                                         <a href="#"><li>Share to</li></a>
@@ -283,29 +283,29 @@ if (isset($_POST['savePostData']))
                                 <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
                                     <i class="bi bi-list"></i>
                                 </span>
-                                <div class="custom-select form-select rounded-end">
-                                    <select class="otherOptions" name="category" id="floatingSelect" aria-label="Floating label select example">
-                                        <option class="selectPlaceholder" disabled>Select a category</option>
+
+                                <select class="form-select py-2" name="category" id="floatingSelect" aria-label="Floating label select example">
+                                    <option>Select a category</option>
+                                    
+                                    <?php
+                                    
+                                        $result = new CategoryQueryDb();
+                                        $categories = $result->fetchAllCategories();
+                                        foreach ($categories as $category) {
                                         
-                                        <?php
-                                        
-                                            $result = new CategoryQueryDb();
-                                            $categories = $result->fetchAllCategories();
-                                            foreach ($categories as $category) 
-                                            {
-                                                
-                                            ?>
-                                            <option class="otherOptions">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <span><?= $category['addCategory'] ?></span> 
-                                                </div>
-                                            </option>
-                                                
-                                        <?php
+                                        $selected = "";
+                                        if (isset($_POST['category']) && $_POST['category'] == $category['addCategory']) {
+                                            $selected = "selected";
                                         }
+                                        
                                         ?>
-                                    </select>
-                                </div>
+                                        <option value="<?= $category['addCategory'] ?>" <?= $selected ?>><?= $category['addCategory'] ?></option> 
+                                        
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
+
                             </div>
 
                             <label for="title">Blog description<b class="text-danger"> * </b><span class="text-danger"><?= $errors['description'] ?? '' ?></span></label> <!-- blog description starts here-->
