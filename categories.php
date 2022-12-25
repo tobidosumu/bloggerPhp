@@ -63,10 +63,6 @@ if (isset($_POST['saveEditedCategory'])) {
                             <td><?= $category['dateCreated'] ?></td>
                             <td>
                                 <a href="javascript:void(0)" class="me-3" data-bs-toggle="modal" data-bs-target="#updateModal<?= $category['id'] ?>"><i class="bi bi-pencil-square"></i></a>
-
-<!--                                <button type="button" class="me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="bi bi-plus-circle"></i>
-                                </button>-->
                                 <a href="categories.php?deleteId=<?= $category['id'] ?>"><i class="bi bi-trash"></a></i>
                             </td>
                         </tr>
@@ -215,8 +211,6 @@ if (isset($_POST['saveEditedCategory'])) {
         <!-- Button trigger modal -->
 
         <!-- Edit Modal -->
-
-
         <?php
         $result = new CategoryQueryDb();
         $categories = $result->fetchAllCategories();
@@ -265,7 +259,7 @@ if (isset($_POST['saveEditedCategory'])) {
     </div>
 
     </div>
-    
+
 </body>
 
 </html>
