@@ -61,42 +61,48 @@
                         {
                             ?>
                                 <div class="postCard border rounded-top rounded-3 pb-1">
-                                    <a href="./postDetails.php?id=<?=$postData['id']?>">
-                                        <!-- blog post card starts here -->
-                                        <div class="postPhoto rounded-top">
+
+                                    <!-- blog post card starts here -->
+                                    <div class="postPhoto rounded-top">
+
+                                        <div class="upperInfo d-flex align-items-center justify-content-center pe-2">
+                                            <h5 class="postTime mt-1">2 sec ago</h5>
+                                            <div class="moreInfo ms-3"><i class="bi bi-three-dots-vertical"></i></div> 
+                                        </div>
+                                        <div class="rightSideInfo d-flex flex-column align-items-end pt-2 pe-2 mb-5">
+                                            <div class="iconDiv mb-2"><i class="bi bi-heart"></i></div>    
+                                            <div class="iconDiv"><i class="bi bi-chat-square"></i></div>    
+                                        </div>
+                                        
+                                        <a href="./postDetails.php?id=<?=$postData['id']?>">
                                             <img class="img-fluid rounded-top" src="<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
-                                            <div class="upperInfo d-flex pt-2 pe-2">
-                                                <h5 class="postTime m-auto">2 sec ago</h5>
-                                                <div class="moreInfo ms-3"><i class="bi bi-three-dots-vertical"></i></div> 
-                                            </div>
+                                        </a>
 
-                                            <div class="lowerInfo d-flex flex-column align-items-end pt-2 pe-2 mb-5">
-                                                <div class="mb-2"><i class="bi bi-heart"></i></div>    
-                                                <div><i class="bi bi-chat-square"></i></div>    
-                                            </div>
-                                        </div>
-                                        <div class="postCategory d-flex justify-content-between py-2 px-2">
-                                            <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
+                                    </div>
 
-                                            <p>
-                                                <?php
-                                                    $totalNumWords = str_word_count($postData['description'], 0);
-                                                    $wpm = 200; // where "wpm" is number of words per minute.  
-                                                    $readPerMinute = floor($totalNumWords / $wpm); 
-                                                    $readTime = $readPerMinute. ' Min read'; 
-                                                    print_r($readTime);
-                                                ?>
-                                            </p>
+                                    <div class="postCategory d-flex justify-content-between py-2 px-2">
+                                        <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
 
-                                        </div>
-                                        <div class="postTitle px-2 mt-4">
-                                            <h6><?=substr_replace($postData['title'],  "...", 55)?></h6> <!-- fetches title from db -->
-                                        </div>
-                                        <div class="postParagraph px-2">
-                                            <p><?=substr_replace($postData['description'], "...", 70)?></p> <!-- fetches description from db -->
-                                        </div>
-                                    </a>
+                                        <p>
+                                            <?php
+                                                $totalNumWords = str_word_count($postData['description'], 0);
+                                                $wpm = 200; // where "wpm" is number of words per minute.  
+                                                $readPerMinute = floor($totalNumWords / $wpm); 
+                                                $readTime = $readPerMinute. ' Min read'; 
+                                                print_r($readTime);
+                                            ?>
+                                        </p>
+
+                                    </div>
+
+                                    <div class="postTitle px-2 mt-4">
+                                        <h6><?=substr_replace($postData['title'],  "...", 55)?></h6> <!-- fetches title from db -->
+                                    </div>
+                                    <div class="postParagraph px-2">
+                                        <p><?=substr_replace($postData['description'], "...", 70)?></p> <!-- fetches description from db -->
+                                    </div>
                                 </div>
+                                
                             <?php    
                         }
                     ?>

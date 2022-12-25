@@ -346,13 +346,13 @@ body .mainContainer .blogContents section .mainContentContainer .postCard .postT
   padding: 10px 15px;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postTextWrapper .postTitle p {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: #121d2a;
   font-weight: 500;
   letter-spacing: 1px;
   margin-bottom: 8px;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postTextWrapper .postParagraph {
   display: flex;
