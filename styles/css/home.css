@@ -227,8 +227,37 @@ body .mainContainer .blogContents section .mainContentContainer .postCard .postH
   padding: 10px;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo i:hover {
+  color: #121d2a;
   border-radius: 50%;
   background-color: #f4f4f5;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog {
+  width: 30%;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body {
+  padding: 0;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul {
+  width: 100%;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a li {
+  width: 100%;
+  color: #121d2a;
+  padding: 14px 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 400;
+  border-bottom: 1px solid #ced4da;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a li:hover {
+  background-color: #f4f4f5;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a .nthChild {
+  color: #eb253f;
+  font-weight: 600;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a .lastChild {
+  border-bottom: none;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postPhoto {
   overflow: hidden;

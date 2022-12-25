@@ -224,8 +224,44 @@ body {
                                     color: $grey;
                                     padding: 10px;
                                     &:hover {
+                                        color: $black;
                                         border-radius: 50%;
                                         background-color: $lightGrey;
+                                    }
+                                }
+
+                                .moreInfoModal {
+                                    .modal-dialog {
+                                        width: 30%;
+
+                                        .modal-body {
+                                            padding: 0;
+                                            ul {
+                                                width: 100%;
+                                                a {
+                                                    li {
+                                                        width: 100%;
+                                                        color: $black;
+                                                        padding: 14px 0;
+                                                        @include tinyFont;
+                                                        font-weight: 400;
+                                                        border-bottom: 1px solid $borderGrey;
+
+                                                        &:hover {
+                                                            background-color: $lightGrey;
+                                                        }
+                                                    }
+                                                    .nthChild {
+                                                        color: $accentHoverColor;
+                                                        font-weight: 600;
+                                                    }
+                                                    .lastChild {
+                                                        border-bottom: none;
+                                                   
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }

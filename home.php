@@ -4,8 +4,6 @@ require './classes/post.queryDb.php'; // PostDbConnector
 require './classes/post.validator.php'; // PostValidator
 require './classes/category.validator.php'; // categoryValidator
 
-$postSubmitted = "";
-
 if (isset($_POST['savePostData'])) 
 {
     $validatePostData = new PostValidator();
@@ -27,10 +25,6 @@ if (isset($_POST['savePostData']))
 
         $storePostData = $insertPostData->savePostData();
 
-        if ($storePostData === "successful") 
-        {
-            $postSubmitted = true;
-        } 
     } 
 
 } 
@@ -38,12 +32,6 @@ if (isset($_POST['savePostData']))
 ?>
 
 <body>
-
-    <?php if ($postSubmitted) : ?>
-        <div class="position-absolute mt-5 top-0 start-50 translate-middle alert text-white success-alert" role="alert">
-            <p><i class="bi bi-hand-thumbs-up-fill"></i> Post submitted successfully!</p>
-        </div>
-    <?php endif ?>
 
     <div class="mainContainer"><!-- contains all the page contents -->
     
@@ -73,7 +61,32 @@ if (isset($_POST['savePostData']))
                                 </div>
                                 <div class="postInfo">
                                     <p>2 sec ago</p>
-                                    <i class="bi bi-three-dots-vertical"></i>
+
+                                    <!-- modal for moreInfo  -->
+                                    <i class="bi bi-three-dots-vertical" data-bs-toggle="modal" data-bs-target="#moreInfoModal"></i>
+                                    
+                                    <div class="moreInfoModal modal fade" id="moreInfoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+
+                                                <div class="modal-body d-flex flex-column justify-content-center align-items-center text-center">
+                                                    <ul>
+                                                        <a href="#"><li class="nthChild rounded-top">Delete post</li></a>
+                                                        <a href="#"><li class="nthChild">Unfollow</li></a>
+                                                        <a href="#"><li>Go to post</li></a>
+                                                        <a href="#"><li>Add to favorites</li></a>
+                                                        <a href="#"><li>Share to</li></a>
+                                                        <a href="#"><li>Copy link</li></a>
+                                                        <a href="#" data-bs-dismiss="modal"><li class="lastChild rounded-bottom">Cancel</li></a>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
                                 </div>
                             </div>
 
@@ -104,30 +117,34 @@ if (isset($_POST['savePostData']))
                                 <div class="postTitle">
                                     <p><?= $postData['category'] ?></p>
                                 </div>
+
                                 <div class="postParagraph">
 
                                     <?php
-                                    // Get the value of the description
-                                    $description = $postData['description'];
+                                        // Get the value of the description
+                                        $description = $postData['description'];
 
-                                    // Truncate the description to the first 60 characters
-                                    $truncatedDescription = substr($description, 0, 60);
+                                        // Truncate the description to the first 60 characters
+                                        $truncatedDescription = substr($description, 0, 60);
 
-                                    // Check if the user has clicked the read more link
-                                    if (isset($_POST['readMore'])) {
-                                        // If the read more link has been clicked, toggle between showing the full description and the truncated version
-                                        if ($_POST['readMore'] == '... more') {
-                                            $descriptionToShow = $description;
-                                            $readMoreText = '... less';
-                                        } else {
+                                        // Check if the user has clicked the read more link
+                                        if (isset($_POST['readMore'])) 
+                                        {
+                                            // If the read more link has been clicked, toggle between showing the full description and the truncated version
+                                            if ($_POST['readMore'] === '... more') {
+                                                $descriptionToShow = $description;
+                                                $readMoreText = '... less';
+                                            } else {
+                                                $descriptionToShow = $truncatedDescription;
+                                                $readMoreText = '... more';
+                                            }
+                                        } 
+                                        else 
+                                        {
+                                            // If the read more link has not been clicked, show the truncated description
                                             $descriptionToShow = $truncatedDescription;
-                                            $readMoreText = '... more';
+                                            $readMoreText = '... more</span>';
                                         }
-                                    } else {
-                                        // If the read more link has not been clicked, show the truncated description
-                                        $descriptionToShow = $truncatedDescription;
-                                        $readMoreText = '... more</span>';
-                                    }
                                     ?>
 
                                     <!-- Display the description -->
@@ -135,7 +152,7 @@ if (isset($_POST['savePostData']))
 
                                     <!-- Add the read more link -->
                                     <form method="post">
-                                        <button type="submit" name="readMore" value="<?php echo $readMoreText; ?>"><?php echo $readMoreText; ?></button>
+                                        <button type="submit" name="readMore" value="<?= $readMoreText; ?>"><?= $readMoreText; ?></button>
                                     </form>
 
                                 </div>
@@ -237,7 +254,7 @@ if (isset($_POST['savePostData']))
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content modalContent">
 
                     <form id="savePostData" action="" method="post" enctype="multipart/form-data">
