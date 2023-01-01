@@ -116,24 +116,18 @@ modal.addEventListener("click", function (event) { // For post form
   }
 });
 
-// Add an event listener for the click event on the close button
-var closeButton = modal.querySelector(".btn-close");
-closeButton.addEventListener("click", function (event) {
-  // Get all the input fields
-  var inputs = form.querySelectorAll("input, select, textarea");
-
-  // Loop through the input fields
-  for (var i = 0; i < inputs.length; i++) {
-    // Get the current input field
-    var input = inputs[i];
-    // Check if the input field has a validation error
-    if (input.classList.contains("error")) {
-      // Prevent the modal from closing
-      event.stopPropagation();
-
-      // Return to exit the loop
-      return;
-    }
+window.onload = function() {
+  function compress() {
+    var tooltip = document.getElementById('createPostTooltip');
+    tooltip.classList.add('hide');
   }
-}); // end of POST FORM
+  
+  setTimeout(compress, 7000);
+  
+  
+  
+}
+
+
+
 

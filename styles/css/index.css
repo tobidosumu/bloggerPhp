@@ -551,9 +551,38 @@ body .postBtn {
   color: #ffffff;
   box-shadow: 0px 0px 30px #eb253f;
   background-color: #eb253f;
+  z-index: 2;
 }
 body .postBtn:hover {
   background-color: #6025EB;
+}
+body .createPostTooltip {
+  position: fixed;
+  bottom: 80px;
+  right: 45px;
+  width: 200px;
+  padding: 12px 0 12px 20px;
+  border-radius: 50px;
+  border: 1px solid #eb253f;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.192);
+  z-index: 1;
+  transition: right 1.4s, width 1.4s;
+  visibility: visible;
+}
+body .createPostTooltip p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #121d2a;
+  visibility: visible;
+}
+body .createPostTooltip.hide {
+  right: -250px;
+  width: 0px;
+  visibility: hidden;
+}
+body .createPostTooltip.hide p {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=index.css.map */

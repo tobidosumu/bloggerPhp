@@ -84,9 +84,6 @@ if (isset($_POST['savePostData']))
                                         </div>
                                     </div>
 
-
-
-
                                 </div>
                             </div>
 
@@ -250,6 +247,10 @@ if (isset($_POST['savePostData']))
         <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img src="assets/svg/feather.svg" alt="Click to post">
         </button>
+        
+        <div id="createPostTooltip" class="createPostTooltip">
+            <p>Click to post</p>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -338,12 +339,11 @@ if (isset($_POST['savePostData']))
                 </div>
 
             </div>
+
         </div>
 
     </div>
-
-
-    </div>
+    
 </body>
 
 </html>
