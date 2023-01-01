@@ -2,6 +2,8 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -44,104 +46,513 @@ body {
   border-width: 1px !important;
 }
 
-body .myAlert {
-  color: #121d2a;
-  background-color: rgb(215, 252, 246);
-  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
+body .mainContainer {
+  max-width: 100%;
+  background-color: #f4f4f5;
 }
-body .failAlert {
-  border: none;
-  background-color: rgba(235, 37, 63, 0.5764705882);
-  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.151);
+body .mainContainer header {
+  padding: 0 12%;
+  height: 70px;
+  background-color: #ffffff;
 }
-body .failAlert p {
-  color: #ffffff;
-  font-size: 0.9rem;
+body .mainContainer header .logoContainer img {
+  width: 60%;
 }
-body section aside {
+body .mainContainer header nav {
   width: 50%;
-  height: 100vh;
 }
-body section .leftAside {
-  background-color: #00e87c;
-  padding-bottom: 25px;
+body .mainContainer header nav ul li a {
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
-body section .leftAside img {
-  width: 80%;
+body .mainContainer header nav ul .home a {
+  padding-top: 23px;
+  padding-bottom: 23px;
+  border-bottom: 2px solid #121d2a;
+}
+body .mainContainer header nav ul .profile a {
+  width: 66px;
+  padding: 4px;
+  margin-left: 10px;
+}
+body .mainContainer header nav ul .profile a i {
+  position: relative;
+  top: 2px;
+  right: 10px;
+  color: #9D9D9D;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+body .mainContainer header nav ul .profile a img {
+  width: 40px;
+  height: 40px;
   object-fit: cover;
+  border-radius: 50px;
+  border: 1px solid #ffffff;
 }
-body section .leftAside div {
+body .mainContainer header nav ul .profile a:hover {
+  border: none;
+}
+body .mainContainer header nav ul .profile:hover {
+  border-radius: 50px;
+  background-color: rgb(215, 252, 246);
+}
+body .mainContainer header nav ul .profile:hover i {
+  color: #121d2a;
+}
+body .mainContainer header nav ul .profile .profileDropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 21%;
+  width: 10%;
+  padding-left: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.089);
+  transition: all 1s ease;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a {
+  width: 100%;
+  display: flex;
+  margin: 7px 0;
+  margin-bottom: 0;
+  padding: 7px 20px 0 20px;
+  color: #121d2a;
+  font-size: 0.9rem;
+  border-left: 2px solid #ffffff;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a i {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #121d2a;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul a:hover {
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-left: 2px solid #121d2a;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul .logout {
+  background-color: rgba(235, 37, 63, 0.2666666667);
+  border: none !important;
+  padding: 8px 20px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul .logout:hover {
+  color: #ffffff;
+  background-color: #eb253f;
+}
+body .mainContainer header nav ul .profile .profileDropdown ul .logout:hover i {
+  color: #ffffff;
+}
+body .mainContainer header nav ul .search i {
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  padding: 14px 25px;
+  background-color: #121d2a;
+  -webkit-text-stroke: 0.5px;
+  border-radius: 4px;
+}
+body .mainContainer header nav ul .search i:hover {
+  color: #121d2a;
+  background-color: #00e87c;
+  transition: all 0.3s ease-in-out;
+}
+body .mainContainer header nav ul a {
+  width: 100px;
+  text-align: center;
+  padding: 23px 8px;
+  font-size: 0.9rem;
+  color: #121d2a;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+body .mainContainer header nav ul a:hover {
+  color: #121d2a;
+  font-weight: 500;
+  border-bottom: 2px solid #121d2a;
+}
+body .mainContainer header nav ul a:hover {
+  color: #121d2a;
+  font-weight: 600;
+  transition: all 0.1s ease;
+}
+body .mainContainer .blogContents {
+  width: 100%;
+  padding-top: 6%;
+  padding: 0 12%;
+}
+body .mainContainer .blogContents section .mainContentContainer {
+  width: 50%;
+  padding-top: 30px;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard {
+  width: 100%;
+  word-break: break-all;
+  hyphens: auto;
+  margin-bottom: 30px;
+  transition: translate 0.5s ease;
+  background-color: #ffffff;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard:hover {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.123);
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader {
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: space-between;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .userAvater {
+  display: flex;
+  align-items: center;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .userAvater img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50px;
+  border: 1px solid #f4f4f5;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .userAvater .avaterDetails p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 600;
+  text-transform: lowercase;
+  color: #121d2a;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo {
+  display: flex;
+  align-items: center;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo p {
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-right: 5px;
+  color: #9D9D9D;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo i {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #7a7a7a;
+  padding: 10px;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo i:hover {
+  color: #121d2a;
+  border-radius: 50%;
+  background-color: #f4f4f5;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog {
+  width: 27%;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body {
+  padding: 0;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul {
   width: 100%;
 }
-body section .leftAside div h2 {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a li {
+  width: 100%;
+  color: #121d2a;
+  padding: 14px 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 400;
+  border-bottom: 1px solid #ced4da;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a li:hover {
+  background-color: #f4f4f5;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a .nthChild {
+  color: #eb253f;
+  font-weight: 600;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a .lastChild {
+  border-bottom: none;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postPhoto {
+  overflow: hidden;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postPhoto img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postPhoto img:hover {
+  transform: scale(1.01);
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postPhoto .timeAgo {
+  background-color: rgba(255, 255, 255, 0.678);
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postPhoto .timeAgo h4 {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv {
+  position: relative;
+  bottom: 30px;
+  margin: -180px 20px 0 0;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div i {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #ffffff;
+  color: black;
+  border-radius: 50%;
+  padding: 8px 6px 4px 6px;
+  background-color: rgba(255, 255, 255, 0.527);
+  transition: all 0.4s;
+  margin-bottom: 0px;
+  transition: all 0.4s;
 }
-body section .leftAside div img {
-  width: 120px;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div i:hover {
+  background-color: rgb(215, 252, 246);
 }
-body section #rightAside {
-  padding: 7%;
-  padding-top: 2%;
-}
-body section #rightAside .header a:first-child {
-  font-size: 0.8rem;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div p {
+  font-size: 0.7rem;
   font-weight: 500;
-  color: #00e87c;
-  padding-right: 20px;
-}
-body section #rightAside .header a:first-child:hover {
-  color: #6025EB;
-}
-body section #rightAside .header a:last-child {
-  color: #ffffff !important;
-  font-size: 0.8rem;
-  font-weight: 500;
-  background-color: #00e87c;
-}
-body section #rightAside .header a:last-child:hover {
-  background-color: #6025EB;
-}
-body section #rightAside .formWrapper .formContents h2 {
-  font-size: 2rem;
   font-weight: 600;
+  color: #121d2a;
+  background-color: rgba(255, 255, 255, 0.527);
+  padding: 0 7px;
+  border-radius: 3px;
 }
-body section #rightAside .formWrapper .formContents form {
-  width: 80%;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div:hover i {
+  background-color: #ffffff;
 }
-body section #rightAside .formWrapper .formContents form div {
-  display: flex;
-  flex-direction: column;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv div:hover p {
+  background-color: #ffffff;
 }
-body section #rightAside .formWrapper .formContents form div label {
-  color: #7a7a7a;
-  padding: 14px 0 4px 12px;
-  font-size: 0.9rem;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCategory .rightIconsDiv .shares i {
+  transform: scaleX(-1);
+  transform-origin: 50% 50%;
+  -webkit-transform: scaleX(-1); /* Safari and Chrome */
+  -moz-transform: scaleX(-1); /* Firefox */
+  -ms-transform: scaleX(-1); /* Internet Explorer */
+  -o-transform: scaleX(-1); /* Opera */
 }
-body section #rightAside .formWrapper .formContents form div input {
-  height: 40px;
-  border: none;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postTextWrapper {
+  padding: 10px 15px;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postTextWrapper .postTitle p {
+  font-size: 0.7rem;
+  font-weight: 500;
   color: #121d2a;
   font-weight: 500;
-  border-radius: 4px;
-  padding-left: 12px;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.151);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
-body section #rightAside .formWrapper .formContents form div input::placeholder {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postTextWrapper .postParagraph {
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding-bottom: 10px;
+  color: rgba(0, 0, 0, 0.7176470588);
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postTextWrapper .postParagraph button {
   color: #7a7a7a;
   font-size: 0.8rem;
   font-weight: 500;
+  font-weight: 400;
+  border: none;
+  background: none;
 }
-body section #rightAside .formWrapper .formContents form div input:focus {
-  outline: 1px solid #00e87c;
+body .mainContainer .blogContents section .mainContentContainer .postCard .postTextWrapper .commentsCount {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #9D9D9D;
 }
-body section #rightAside .formWrapper .formContents form .createAcctBtn input {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper {
+  padding: 12px 15px;
+  border-top: 1px solid #f4f4f5;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .emojiWrapper {
+  width: 6%;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .emojiWrapper i {
+  font-weight: 700;
+  font-size: 1.3rem;
   font-weight: 600;
-  color: #ffffff;
-  background-color: #00e87c;
+  color: #121d2a;
 }
-body section #rightAside .formWrapper .formContents form .createAcctBtn input:hover {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .commentWrapper {
+  width: 84%;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .commentWrapper textarea {
+  width: 100%;
+  height: 20px;
+  border: none;
+  resize: none;
+  padding-right: 4.4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #121d2a;
+  line-height: 1rem;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .commentWrapper textarea::placeholder {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #9D9D9D;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .commentWrapper textarea:focus {
+  outline: none;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .postBtnWrapper {
+  width: 10%;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postCommentWrapper .postBtnWrapper button {
+  width: 100%;
+  border: none;
+  background: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-weight: 500;
+  color: rgba(79, 227, 183, 0.768627451);
+}
+body .mainContainer .blogContents section .rightSideContentContainer {
+  display: flex;
+  width: 45.7%;
+  height: 100vh;
+  top: 70px;
+  position: sticky;
+  padding-left: 4%;
+  align-items: center;
+  flex-direction: column;
+}
+body .mainContainer .blogContents .dropUsAmessage {
+  position: relative;
+  top: 110px;
+  background-color: rgb(242, 254, 255);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+}
+body .mainContainer .blogContents .dropUsAmessage .textBlockContainer p {
+  width: 60%;
+  font-size: 0.9rem;
+  color: #7a7a7a;
+}
+body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
+  font-size: 0.9rem;
+  font-weight: 400;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+}
+body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a:hover {
+  background-color: #6025EB;
+}
+body footer {
+  height: 350px;
+  background-color: #121d2a;
+  padding: 0 12%;
+}
+body footer div {
+  width: 25%;
+  display: flex;
+  margin-top: 100px;
+}
+body footer div ul p {
+  color: #ffffff;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+body footer div ul li a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #7a7a7a;
+}
+body footer div ul li a:hover {
+  color: #00835c;
+}
+body footer div:last-child ul li ul {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+body footer div:last-child ul li ul li a {
+  width: 20px;
+}
+body footer div:last-child ul li ul li a img {
+  width: 18px;
+}
+body footer div:last-child ul .logoList a img {
+  width: 100px;
+}
+body .modal-dialog {
+  max-width: none !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .modal-dialog .modalContent {
+  width: 600px;
+}
+body .modal-dialog .modalContent form .modal-body label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 400;
+  color: #9D9D9D;
+}
+body .modal-dialog .modalContent form .modal-body .addCatBtn {
+  color: #6025EB;
+  border-color: #6025EB;
+}
+body .modal-dialog .modalContent form .modal-body .addCatBtn:hover {
+  color: #ffffff;
+  background-color: #6025EB;
+}
+body .modal-dialog .modalContent form .modal-body .input-group span i {
+  color: #6025EB;
+}
+body .modal-dialog .modalContent form .modal-body .input-group input {
+  color: rgba(0, 0, 0, 0.7176470588) !important;
+}
+body .modal-dialog .modalContent form .modal-body .input-group input::placeholder {
+  color: #9D9D9D;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+body .modal-dialog .modalContent form .modal-body .input-group textarea {
+  color: rgba(0, 0, 0, 0.7176470588) !important;
+}
+body .modal-dialog .modalContent form .modal-body .input-group textarea::placeholder {
+  color: #9D9D9D;
+  font-size: 0.9rem;
+  font-weight: 400;
+  position: relative;
+  top: 33px;
+}
+body .modal-dialog .modalContent form .modal-footer .sendPostBtn {
+  padding: 7px 20px;
+  background-color: #eb253f;
+  border: none;
+}
+body .modal-dialog .modalContent form .modal-footer .sendPostBtn:hover {
+  background-color: #6025EB;
+}
+body .postBtn {
+  position: fixed;
+  bottom: 70px;
+  right: 45px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  font-size: 30px;
+  color: #ffffff;
+  box-shadow: 0px 0px 30px #eb253f;
+  background-color: #eb253f;
+}
+body .postBtn:hover {
   background-color: #6025EB;
 }
 
