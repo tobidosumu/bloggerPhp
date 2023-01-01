@@ -13,10 +13,10 @@
 </head>
 
 <header class="d-flex justify-content-between align-items-center sticky-top border-bottom">
-    <div class="logoContainer"><a href="home.php"><img src="assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
+    <div class="logoContainer"><a href="index.php"><img src="assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
     <nav class="headerMenuContainer">
         <ul class="d-flex justify-content-between align-items-center wrap">
-            <li class="home"><a href="./home.php">Home</a></li>
+            <li class="home"><a href="./index.php">Home</a></li>
             <li class="inbox"><a href="./posts.php">Posts</a></li>
             <li onclick="revealDropdown()" class="profile d-flex justify-content-between align-items-center">
                 <a href="#">
