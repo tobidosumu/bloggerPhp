@@ -34,7 +34,7 @@ body {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239D9D9D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   font-size: 0.9rem;
   font-weight: 500;
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-weight: 400;
 }
 .form-select option {
@@ -105,7 +105,7 @@ body .mainContainer header nav ul .profile a i {
   position: relative;
   top: 2px;
   right: 10px;
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-size: 0.7rem;
   font-weight: 500;
 }
@@ -281,13 +281,13 @@ body .modal-dialog .modalContent {
   width: 600px;
 }
 body .modal-dialog .modalContent form .modal-body .input-group span i {
-  color: #6025EB;
+  color: #6025eb;
 }
 body .modal-dialog .modalContent form .modal-body .input-group input {
   color: rgba(0, 0, 0, 0.7176470588) !important;
 }
 body .modal-dialog .modalContent form .modal-body .input-group input::placeholder {
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-size: 0.9rem;
   font-weight: 400;
 }
@@ -295,7 +295,7 @@ body .modal-dialog .modalContent form .modal-body .input-group textarea {
   color: rgba(0, 0, 0, 0.7176470588) !important;
 }
 body .modal-dialog .modalContent form .modal-body .input-group textarea::placeholder {
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-size: 0.9rem;
   font-weight: 400;
   position: relative;
@@ -309,13 +309,13 @@ body .modal-dialog .modalContent form .modal-body .input-group .custom-select {
   position: relative;
   padding: 7px 4px;
   padding-left: 12px;
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-size: 0.9rem;
   font-weight: 400;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239D9D9D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select-selected {
-  background-color: #6025EB;
+  background-color: #6025eb;
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select-selected:after {
   position: absolute;
@@ -357,7 +357,7 @@ body .modal-dialog .modalContent form .modal-body .input-group .custom-select .s
   background-color: #f4f4f5;
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items div.same-as-selected, body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items-selected.same-as-selected {
-  color: #6025EB;
+  color: #6025eb;
   background-color: #f4f4f5;
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items.select-hide {
@@ -368,7 +368,7 @@ body .modal-dialog .modalContent form .modal-body .input-group .custom-select .s
   color: rgba(0, 0, 0, 0.7176470588);
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select .form-control {
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-size: 0.9rem;
   font-weight: 400;
 }
@@ -378,7 +378,7 @@ body .modal-dialog .modalContent form .modal-footer .sendPostBtn {
   border: none;
 }
 body .modal-dialog .modalContent form .modal-footer .sendPostBtn:hover {
-  background-color: #6025EB;
+  background-color: #6025eb;
 }
 body .postBtn {
   position: fixed;
@@ -393,7 +393,7 @@ body .postBtn {
   background-color: #eb253f;
 }
 body .postBtn:hover {
-  background-color: #6025EB;
+  background-color: #6025eb;
 }
 
 /*# sourceMappingURL=categories.css.map */

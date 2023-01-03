@@ -17,7 +17,9 @@
     <nav class="headerMenuContainer">
         <ul class="d-flex justify-content-between align-items-center wrap">
             <li class="home"><a href="./index.php">Home</a></li>
-            <li class="inbox"><a href="./posts.php">Posts</a></li>
+            <li class="inbox"><a href="./posts.php">Posts</a></li> 
+
+            <!-- To be displayed using JS when a user login -->
             <li onclick="revealDropdown()" class="profile d-flex justify-content-between align-items-center">
                 <a href="#">
                     <i class="bi bi-caret-down-fill"></i>
@@ -28,10 +30,13 @@
                     <ul class="d-flex flex-column">
                         <a href="#"><i class="bi bi-heart"></i>Likes</a>
                         <a href="#"><i class="bi bi-person"></i>Profile</a>
-                        <a href="#" class="logout"><i class="bi bi-power"></i>Log out</a>
+                        <form action="" method="post">
+                            <button type="submit" name="logOutUser" class="logout"><i class="bi bi-power"></i><span>Log out</span></button>
+                        </form>
                     </ul>
                 </div>
             </li>
+
             <li class="search d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
         </ul>
     </nav>

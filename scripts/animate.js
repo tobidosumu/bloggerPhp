@@ -116,6 +116,7 @@ modal.addEventListener("click", function (event) { // For post form
   }
 });
 
+// Retracts Create Post button tooltip
 window.onload = function() {
   function compress() {
     var tooltip = document.getElementById('createPostTooltip');
@@ -123,9 +124,6 @@ window.onload = function() {
   }
   
   setTimeout(compress, 7000);
-  
-  
-  
 }
 
 

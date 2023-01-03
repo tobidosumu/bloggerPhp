@@ -1,4 +1,7 @@
 <?php 
+    // Start the session
+    session_start();
+    
     include './headers/loginHeader.php';
     require './classes/user.loginValidator.php';
     require_once './classes/user.dbQuery.php';
@@ -14,7 +17,11 @@
 
         if (!$errors)
         {
-            header('location:./home.php');
+            // User is logged in
+            $_SESSION['logged_in'] = true;
+
+            header('location:./index.php');
+            exit;
         }
         else
         {

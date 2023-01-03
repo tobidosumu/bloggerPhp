@@ -34,7 +34,7 @@ body {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239D9D9D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   font-size: 0.9rem;
   font-weight: 500;
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-weight: 400;
 }
 .form-select option {
@@ -88,6 +88,81 @@ body .mainContainer header nav ul .posts a {
   padding-bottom: 23px;
   border-bottom: 2px solid #121d2a;
 }
+body .mainContainer header nav ul .notLoggedIn a {
+  width: 66px;
+  padding: 4px 0 4px 5px;
+  margin-left: 10px;
+}
+body .mainContainer header nav ul .notLoggedIn a .userIconPlaceholder {
+  font-size: 36px;
+  margin-left: 17px;
+  margin-top: -2px;
+}
+body .mainContainer header nav ul .notLoggedIn a i {
+  position: relative;
+  top: 2px;
+  right: 10px;
+  color: #9d9d9d;
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+body .mainContainer header nav ul .notLoggedIn a:hover {
+  border: none;
+}
+body .mainContainer header nav ul .notLoggedIn:hover {
+  border-radius: 50px;
+  background-color: rgb(215, 252, 246);
+}
+body .mainContainer header nav ul .notLoggedIn:hover i {
+  color: #121d2a;
+}
+body .mainContainer header nav ul .notLoggedIn .profileDropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 21%;
+  width: 10%;
+  padding-left: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.089);
+  transition: all 1s ease;
+}
+body .mainContainer header nav ul .notLoggedIn .profileDropdown ul a {
+  width: 100%;
+  display: flex;
+  margin: 7px 0;
+  margin-bottom: 0;
+  padding: 7px 20px 0 20px;
+  color: #121d2a;
+  font-size: 0.9rem;
+  border-left: 2px solid #ffffff;
+}
+body .mainContainer header nav ul .notLoggedIn .profileDropdown ul a i {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #121d2a;
+}
+body .mainContainer header nav ul .notLoggedIn .profileDropdown ul a:hover {
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-left: 2px solid #121d2a;
+}
+body .mainContainer header nav ul .notLoggedIn .profileDropdown ul .signup {
+  background-color: #00e87c;
+  border: none !important;
+  padding: 8px 20px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+body .mainContainer header nav ul .notLoggedIn .profileDropdown ul .signup:hover {
+  color: #ffffff;
+  background-color: #00835c;
+}
+body .mainContainer header nav ul .notLoggedIn .profileDropdown ul .signup:hover i {
+  color: #ffffff;
+}
 body .mainContainer header nav ul .profile a {
   width: 66px;
   padding: 4px;
@@ -97,7 +172,7 @@ body .mainContainer header nav ul .profile a i {
   position: relative;
   top: 2px;
   right: 10px;
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-size: 0.7rem;
   font-weight: 500;
 }
@@ -110,6 +185,23 @@ body .mainContainer header nav ul .profile a img {
 }
 body .mainContainer header nav ul .profile a:hover {
   border: none;
+}
+body .mainContainer header nav ul .profile form button {
+  width: 100%;
+  margin-top: 10px;
+}
+body .mainContainer header nav ul .profile form button i {
+  position: relative;
+  top: 2px;
+  left: -20px;
+  color: #121d2a;
+  font-size: 0.9rem;
+}
+body .mainContainer header nav ul .profile form button span {
+  position: relative;
+  left: -10px;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 body .mainContainer header nav ul .profile:hover {
   border-radius: 50px;
@@ -280,19 +372,19 @@ body .mainContainer .blogContents section .rightSideContentContainer .captionCar
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard i:first-child {
   font-size: 30px;
-  color: #9D9D9D;
+  color: #9d9d9d;
   background-color: rgb(242, 254, 255);
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard i:last-child {
   font-size: 0.9rem;
-  color: #9D9D9D;
+  color: #9d9d9d;
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard h4 {
   font-size: 0.9rem;
   letter-spacing: 2px;
   font-weight: 500;
   text-transform: uppercase;
-  color: #9D9D9D;
+  color: #9d9d9d;
 }
 body .mainContainer .blogContents section .rightSideContentContainer .captionCard:hover {
   background-color: rgb(215, 252, 246);
@@ -318,14 +410,14 @@ body .mainContainer .blogContents section .rightSideContentContainer .productCar
   font-size: 0.8rem;
   font-weight: 500;
   font-weight: 600;
-  color: #9D9D9D;
+  color: #9d9d9d;
   text-transform: capitalize;
 }
 body .mainContainer .blogContents section .rightSideContentContainer .productCard a div:nth-child(2) h2:nth-child(2) {
   font-size: 1.05rem;
   font-weight: 400;
   font-weight: 700;
-  color: #9D9D9D;
+  color: #9d9d9d;
 }
 body .mainContainer .blogContents section .rightSideContentContainer .productCard a div:nth-child(2) .addToCart button {
   width: 100%;
@@ -357,7 +449,7 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a:hover {
-  background-color: #6025EB;
+  background-color: #6025eb;
 }
 body footer {
   height: 350px;
@@ -410,7 +502,7 @@ body .postBtn {
   background-color: #eb253f;
 }
 body .postBtn:hover {
-  background-color: #6025EB;
+  background-color: #6025eb;
 }
 
 /*# sourceMappingURL=postDetails.css.map */

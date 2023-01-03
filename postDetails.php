@@ -1,13 +1,37 @@
 <?php
+    // Start the session
+    session_start();
+    $userLoggedIn = '';
+
     require './classes/dbConnect.php'; // DbConnect
     require './classes/post.queryDb.php'; // PostDbConnector
     require './classes/post.validator.php'; // PostValidator
+    require './classes/userSession.validator.php'; // UserSession 
+
+    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) 
+    {
+        // User is logged in
+        $userLoggedIn = true;
+            
+        if (isset($_POST['logOutUser'])) 
+        {
+            // User is logged in
+            $userStatus = new UserSessionValidator();
+            $logOutUser = $userStatus->logOutUser();
+        } 
+    } 
+    else 
+    {
+        // User is not logged in
+        $userLoggedIn = false;
+    }
+
 ?>
 
 <body>
     <div class="mainContainer"> <!-- contains all the page contents -->
 
-        <?php include './headers/postDetailsHeader.php'?> <!-- header goes here -->
+        <?php include $userLoggedIn ? './headers/postDetailsHeader.php' : './headers/notLoggedInPostDetailsHeader.php'; ?>
 
         <section class="blogContents">
             

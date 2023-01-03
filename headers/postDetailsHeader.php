@@ -28,7 +28,9 @@
                     <ul class="d-flex flex-column">
                         <a href="#"><i class="bi bi-heart"></i>Likes</a>
                         <a href="#"><i class="bi bi-person"></i>Profile</a>
-                        <a href="#" class="logout"><i class="bi bi-power"></i>Log out</a>
+                        <form action="" method="post">
+                            <button type="submit" name="logOutUser" class="logout"><i class="bi bi-power"></i><span>Log out</span></button>
+                        </form>
                     </ul>
                 </div>
             </li>

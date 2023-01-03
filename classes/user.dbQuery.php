@@ -55,21 +55,5 @@
                 return $e->getMessage();
             }
         }
-
-        // public function checkEmailPasswordExist($email, $password)
-        // {
-        //     $stmt = $this->connect()->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
-        //     $stmt->execute([$email, $password]);
-        //     $user = $stmt->fetch();
-
-        //     if ($user) 
-        //     {
-        //         return "success";
-        //     }
-        //     else 
-        //     {
-        //         return "unsuccessful";
-        //     }
-        // }
     }
 ?>

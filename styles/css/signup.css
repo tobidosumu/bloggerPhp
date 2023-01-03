@@ -32,7 +32,7 @@ body {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239D9D9D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
   font-size: 0.9rem;
   font-weight: 500;
-  color: #9D9D9D;
+  color: #9d9d9d;
   font-weight: 400;
 }
 .form-select option {
@@ -92,7 +92,7 @@ body section #rightAside .header a:first-child {
   padding-right: 20px;
 }
 body section #rightAside .header a:first-child:hover {
-  color: #6025EB;
+  color: #6025eb;
 }
 body section #rightAside .header a:last-child {
   color: #ffffff !important;
@@ -101,7 +101,7 @@ body section #rightAside .header a:last-child {
   background-color: #00e87c;
 }
 body section #rightAside .header a:last-child:hover {
-  background-color: #6025EB;
+  background-color: #6025eb;
 }
 body section #rightAside .formWrapper .formContents h2 {
   font-size: 2rem;
@@ -142,7 +142,7 @@ body section #rightAside .formWrapper .formContents form .createAcctBtn input {
   background-color: #00e87c;
 }
 body section #rightAside .formWrapper .formContents form .createAcctBtn input:hover {
-  background-color: #6025EB;
+  background-color: #6025eb;
 }
 
 /*# sourceMappingURL=signup.css.map */

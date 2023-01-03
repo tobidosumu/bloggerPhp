@@ -57,6 +57,10 @@ body {
                         }
                     }
 
+                    .notLoggedIn { // For not notLoggedInAvatar
+                        @include notLoggedInAvatar;
+                    }
+
                     .profile { // user account profile li 
                         a {
                             width: 66px;
@@ -81,6 +85,24 @@ body {
 
                             &:hover {
                                 border: none;
+                            }
+                        }
+                        form { // Log out form button
+                            button {
+                                width: 100%;
+                                margin-top: 10px;
+                                i { // caret dropdown icon
+                                    position: relative;
+                                    top: 2px;
+                                    left: -20px;
+                                    color: $black;
+                                    @include primaryFont;
+                                }
+                                span {
+                                    position: relative;
+                                    left: -10px;
+                                    @include tinyFont;
+                                }
                             }
                         }
                         &:hover { // user account li hover

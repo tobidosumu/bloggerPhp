@@ -1,8 +1,14 @@
 <?php
+// Start the session
+session_start();
+
+$userLoggedIn = '';
+
 require './classes/dbConnect.php'; // DbConnect
 require './classes/post.queryDb.php'; // PostDbConnector
 require './classes/post.validator.php'; // PostValidator
-require './classes/category.validator.php'; // categoryValidator
+require './classes/category.validator.php'; // CategoryValidator
+require './classes/userSession.validator.php'; // UserSession 
 
 if (isset($_POST['savePostData'])) 
 {
@@ -24,18 +30,35 @@ if (isset($_POST['savePostData']))
         $insertPostData->setDescription($_POST['description']);
 
         $storePostData = $insertPostData->savePostData();
-
+        
     } 
-
 } 
+
+if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) 
+{
+    // User is logged in
+    $userLoggedIn = true;
+    
+    if (isset($_POST['logOutUser'])) 
+    {
+        // User is logged in
+        $userStatus = new UserSessionValidator();
+        $logOutUser = $userStatus->logOutUser();
+    } 
+} 
+else 
+{
+    // User is not logged in
+    $userLoggedIn = false;
+}
 
 ?>
 
 <body>
 
     <div class="mainContainer"><!-- contains all the page contents -->
-    
-        <?php include './headers/indexHeader.php' ?>
+
+        <?php include $userLoggedIn ? './headers/indexHeader.php' : './headers/notLoggedInIndexHeader.php'; ?>
 
         <section class="blogContents">
 
