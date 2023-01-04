@@ -219,20 +219,37 @@ body {
                 flex-direction: column;
                 justify-content: center;
 
-                div {
-                    width: 45%;
-                    text-align: center;
-                    text-transform: capitalize;
+                .dashboardView { // For logged in user
+                    @include semiTertiaryFont; 
+                    p {
+                        @include primaryFont;
+                        text-align: center;
+                        color: $grey;
+                        line-height: 1.5rem;
+                        // text-transform: capitalize;
+                    }
+                }
 
-                    tertiaryFont {
-                        @include semiTertiaryFont;
+                .notLoggedIndashboardView { // For unlogged in user
+                    width: 35%;
+                    text-align: center;
+                    // border: 1px solid red;
+
+                    div {
+                        .actionBtn { 
+                            @include actionBtn;
+                        }
                     }
 
                     p {
-                        @include primaryFont;
+                        width: 90%;
+                        @include tinyFont;
+                        font-weight: 400;
                         color: $grey;
-                        line-height: 1.5rem;
+                        line-height: 1.3rem;
+                        // border: 1px solid red;
                     }
+
                 }
             }
         }

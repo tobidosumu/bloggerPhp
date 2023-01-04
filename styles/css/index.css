@@ -273,6 +273,39 @@ body .mainContainer header nav ul a:hover {
   font-weight: 600;
   transition: all 0.1s ease;
 }
+body .mainContainer header .searchDropDown {
+  position: absolute;
+  top: 70px;
+  right: 12%;
+  width: 34.7%;
+  height: 50px;
+  padding: 6px;
+  background-color: #ffffff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+body .mainContainer header .searchDropDown input {
+  width: 100%;
+  height: 100%;
+  padding: 3px 10px;
+  color: #121d2a;
+  border: 1px solid #f4f4f5;
+  border-radius: 4px;
+}
+body .mainContainer header .searchDropDown input::placeholder {
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-weight: 400;
+  color: #9d9d9d;
+}
+body .mainContainer header .searchDropDown input:focus-within {
+  border: 1px solid #ced4da;
+  outline: none;
+  border-radius: 3px;
+}
+body .mainContainer header .searchDropDown span {
+  width: 40px;
+}
 body .mainContainer .blogContents {
   width: 100%;
   padding-top: 6%;

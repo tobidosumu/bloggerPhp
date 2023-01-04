@@ -3,6 +3,7 @@
 
     class UserDbQuery extends DbConnect
     {
+        private $userId;
         private $firstName;
         private $lastName;
         private $email;
@@ -10,6 +11,10 @@
 
         ###################################################################################################
         // setter and getter methods start here
+        public function setId($userId)
+        {
+            $this->userId = $userId;
+        }
 
         public function setFirstName($firstName)
         {
@@ -38,7 +43,7 @@
 
 
         #####################################################################################################
-        // validation methods start here
+        // Database query methods start here
 
         public function insertUserData() // Insert blog data
         {
@@ -55,5 +60,38 @@
                 return $e->getMessage();
             }
         }
+
+        public function fetchOne() // Fetch one set of user data i.e. id, firstName, lastName, email, password
+        {
+            try 
+            {
+                // Prepare and execute the SQL statement to fetch the user data
+                $stmt = $this->connect()->prepare("SELECT * FROM user WHERE userId = ?");
+                $stmt->execute([$this->userId]);
+                return $stmt->fetch();
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
+        }
+
+        public function getUserFirstName($id) // Fetch a user's firstName
+        {
+            try 
+            {
+                $stmt = $this->connect()->prepare("SELECT firstName FROM user WHERE id=?");
+                $stmt->execute([$id]);
+                $user = $stmt->fetch();
+                return $user['firstName'];
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
+        }
+        
+        
+        
     }
 ?>

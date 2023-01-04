@@ -1,12 +1,13 @@
 <?php 
     // Start the session
     session_start();
+
+    $loginFailed = false;
+    $errors = [];
     
     include './headers/loginHeader.php';
     require './classes/user.loginValidator.php';
     require_once './classes/user.dbQuery.php';
-
-    $loginFailed = '';
     
     if(isset($_POST['loginUser']))
     {
@@ -19,9 +20,11 @@
         {
             // User is logged in
             $_SESSION['logged_in'] = true;
-
-            header('location:./index.php');
+            // $_SESSION['role'] = true;
+    
+            header('Location: ./index.php');
             exit;
+
         }
         else
         {

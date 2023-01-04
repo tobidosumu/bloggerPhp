@@ -307,19 +307,40 @@ body .mainContainer .hero .caption {
   flex-direction: column;
   justify-content: center;
 }
-body .mainContainer .hero .caption div {
-  width: 45%;
-  text-align: center;
-  text-transform: capitalize;
-}
-body .mainContainer .hero .caption div tertiaryFont {
+body .mainContainer .hero .caption .dashboardView {
   font-size: 1.3rem;
   font-weight: 600;
 }
-body .mainContainer .hero .caption div p {
+body .mainContainer .hero .caption .dashboardView p {
   font-size: 0.9rem;
+  text-align: center;
   color: #7a7a7a;
   line-height: 1.5rem;
+}
+body .mainContainer .hero .caption .notLoggedIndashboardView {
+  width: 35%;
+  text-align: center;
+}
+body .mainContainer .hero .caption .notLoggedIndashboardView div .actionBtn {
+  width: 40%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 25px;
+  color: #121d2a;
+  background-color: #00e87c;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+body .mainContainer .hero .caption .notLoggedIndashboardView div .actionBtn:hover {
+  color: #ffffff;
+  background-color: #00835c;
+}
+body .mainContainer .hero .caption .notLoggedIndashboardView p {
+  width: 90%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 400;
+  color: #7a7a7a;
+  line-height: 1.3rem;
 }
 body .mainContainer .blogContents {
   padding: 0 12%;
@@ -486,7 +507,12 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
   border-radius: 4px;
   padding: 9px 12px;
   font-size: 0.9rem;
+  color: #121d2a;
   background-color: #00e87c;
+}
+body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a:hover {
+  color: #ffffff;
+  background-color: #00835c;
 }
 body .mainContainer .modalContainer label {
   font-size: 0.8rem;

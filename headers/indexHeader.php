@@ -36,8 +36,11 @@
                     </ul>
                 </div>
             </li>
-
             <li class="search d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
         </ul>
     </nav>
+    <!-- <div class="searchDropDown border rounded-bottom-2 d-flex">
+        <input type="search" name="search" placeholder="...search for posts and bloggers" id="">
+        <span><i class="bi bi-x"></i></span>
+    </div> -->
 </header>

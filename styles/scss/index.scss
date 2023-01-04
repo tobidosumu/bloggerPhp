@@ -179,6 +179,43 @@ body {
                             transition: all 0.1s ease;
                         }
                     }
+
+                }
+            }
+            .searchDropDown {
+                position: absolute;
+                top: 70px;
+                right: 12%;
+                width: 34.7%;
+                height: 50px;
+                padding: 6px;
+                background-color: $white;
+                border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;
+                // border: 1px solid red;
+
+                input {
+                    width: 100%;
+                    height: 100%;
+                    padding: 3px 10px;
+                    color: $black;
+                    border: 1px solid $lightGrey;
+                    border-radius: 4px;
+                    &::placeholder {
+                        @include semiTinyFont;
+                        font-weight: 400;
+                        color: $veryLightGrey;
+                    }
+
+                    &:focus-within {
+                        border: 1px solid $borderGrey;
+                        outline: none;
+                        border-radius: 3px;
+                    }
+                }
+
+                span {
+                    width: 40px;
                 }
             }
         }

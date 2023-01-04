@@ -2,12 +2,15 @@
 
     // Start the session
     session_start();
+
     $userLoggedIn = '';
+    $userLoggedInViewContents = '';
 
     require './classes/dbConnect.php'; // DbConnect
     require './classes/post.queryDb.php'; // PostDbConnector
     require './classes/post.validator.php'; // PostValidator
     require './classes/userSession.validator.php'; // UserSession 
+    require './classes/user.dbQuery.php'; // UserDbQuer 
 
     if (isset($_POST['savePostData'])) 
     {
@@ -30,6 +33,7 @@
             
             $savedPostData = $dbQuery->savePostData();
 
+            
         }
 
     }
@@ -39,17 +43,27 @@
         // User is logged in
         $userLoggedIn = true;
 
+        $user = new UserDbQuery();
+        $userData = $user->fetchOne();
+        var_dump($userData);
+
+        // if ($userData) 
+        // {
+        // }
+
+
         if (isset($_POST['logOutUser'])) 
         {
             // User is logged in
             $userStatus = new UserSessionValidator();
             $logOutUser = $userStatus->logOutUser();
-        } 
+        }
     } 
     else 
     {
         // User is not logged in
         $userLoggedIn = false;
+        $userLoggedInViewContents = true; // Do not display post contents to a user who is not logged in
     }
 
 ?>
@@ -60,13 +74,31 @@
         <?php include $userLoggedIn ? './headers/postsHeader.php' : './headers/notLoggedInPostsHeader.php'; ?>
 
         <section class="hero border-bottom">
+
             <section class="caption">
-                <div>
-                    <tertiaryFont class="mb-3">View All Your Posts <i class="bi bi-send"></i></tertiaryFont>
-                    <p>Hello Mojisola Badmus
-                    </p>
-                </div>
+
+                <?php if ($userLoggedInViewContents):?> <!--  Do not display post contents to a user who is not logged in -->
+                        
+                    <div class="notLoggedIndashboardView mb-3 d-flex justify-content-around flex-column">
+                        <div class="d-flex justify-content-around">
+                            <a href="./signup.php" class="actionBtn rounded-1">Sign up</a> 
+                            <a href="./login.php" class="actionBtn rounded-1">Login</a> 
+                            <!-- <i class="bi bi-send"></i> -->
+                        </div>
+                        <p class="m-auto mt-3">Sign up or Login to see all your posts and posts you've liked.</p>
+                    </div>
+
+                    <?php else: ?>
+
+                    <div class="dashboardView">
+                        <tertiaryFont class="mb-3">View All Your Posts <i class="bi bi-send"></i></tertiaryFont>
+                        <p>Hello <?php echo $userData ?> </p>
+                    </div>
+
+                <?php endif; ?> 
+
             </section>
+
         </section>
 
         <section class="blogContents pt-5">
@@ -74,67 +106,71 @@
             <section class="blogContentContainer"> <!-- blog contents container starts here -->
 
                 <section class="blogPostContainer">
-
-                    <?php
+                    <?php 
+                        if ($userLoggedInViewContents):?> <!--  Do not display post contents to a user who is not logged in -->
+                            <div class="m-auto pt-5"> 
+                                <p class="m-auto mt-3">Sign up or Login to see all your posts and posts you've liked.</p>
+                            </div>
+                        <?php else:
+                    
                         $dbQuery = new PostQueryDb();
                         $allPostData = $dbQuery->fetchAll();
 
                         $validatePostData = new PostQueryDb();
 
-                        foreach ($allPostData as $postData)
-                        {
-                            ?>
-                                <div class="postCard border rounded-top rounded-3 pb-1">
+                        foreach ($allPostData as $postData): ?>
+                            <div class="postCard border rounded-top rounded-3 pb-1">
 
-                                    <!-- blog post card starts here -->
-                                    <div class="postPhoto rounded-top">
+                                <!-- blog post card starts here -->
+                                <div class="postPhoto rounded-top">
 
-                                        <div class="upperInfo d-flex align-items-center justify-content-center pe-2">
-                                            <h5 class="postTime mt-1">2 sec ago</h5>
-                                            <div class="moreInfo ms-3"><i class="bi bi-three-dots-vertical"></i></div> 
-                                        </div>
-                                        <div class="rightSideInfo d-flex flex-column align-items-end pt-2 pe-2 mb-5">
-                                            <div class="iconDiv mb-2"><i class="bi bi-heart"></i></div>    
-                                            <div class="iconDiv"><i class="bi bi-chat-square"></i></div>    
-                                        </div>
-                                        
-                                        <a href="./postDetails.php?id=<?=$postData['id']?>">
-                                            <img class="img-fluid rounded-top" src="<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
-                                        </a>
-
+                                    <div class="upperInfo d-flex align-items-center justify-content-center pe-2">
+                                        <h5 class="postTime mt-1">2 sec ago</h5>
+                                        <div class="moreInfo ms-3"><i class="bi bi-three-dots-vertical"></i></div> 
                                     </div>
-
-                                    <div class="postCategory d-flex justify-content-between py-2 px-2">
-                                        <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
-
-                                        <p>
-                                            <?php
-                                                $totalNumWords = str_word_count($postData['description'], 0);
-                                                $wpm = 200; // where "wpm" is number of words per minute.  
-                                                $readPerMinute = floor($totalNumWords / $wpm); 
-                                                $readTime = $readPerMinute. ' Min read'; 
-                                                print_r($readTime);
-                                            ?>
-                                        </p>
-
+                                    <div class="rightSideInfo d-flex flex-column align-items-end pt-2 pe-2 mb-5">
+                                        <div class="iconDiv mb-2"><i class="bi bi-heart"></i></div>    
+                                        <div class="iconDiv"><i class="bi bi-chat-square"></i></div>    
                                     </div>
+                                    
+                                    <a href="./postDetails.php?id=<?=$postData['id']?>">
+                                        <img class="img-fluid rounded-top" src="<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
+                                    </a>
 
-                                    <div class="postTitle px-2 mt-4">
-                                        <h6><?=substr_replace($postData['title'],  "...", 55)?></h6> <!-- fetches title from db -->
-                                    </div>
-                                    <div class="postParagraph px-2">
-                                        <p><?=substr_replace($postData['description'], "...", 70)?></p> <!-- fetches description from db -->
-                                    </div>
                                 </div>
-                                
-                            <?php    
-                        }
-                    ?>
+
+                                <div class="postCategory d-flex justify-content-between py-2 px-2">
+                                    <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
+
+                                    <p>
+                                        <?php
+                                            $totalNumWords = str_word_count($postData['description'], 0);
+                                            $wpm = 200; // where "wpm" is number of words per minute.  
+                                            $readPerMinute = floor($totalNumWords / $wpm); 
+                                            $readTime = $readPerMinute. ' Min read'; 
+                                            print_r($readTime);
+                                        ?>
+                                    </p>
+
+                                </div>
+
+                                <div class="postTitle px-2 mt-4">
+                                    <h6><?=substr_replace($postData['title'],  "...", 55)?></h6> <!-- fetches title from db -->
+                                </div>
+                                <div class="postParagraph px-2">
+                                    <p><?=substr_replace($postData['description'], "...", 70)?></p> <!-- fetches description from db -->
+                                </div>
+                            </div>
+                    <?php 
+                        endforeach; 
+                        endif; 
+                    ?>            
                 </section>
 
-                <nav aria-label="..." class="d-flex justify-content-center mt-5 pt-5 border-top">
+
+                <!-- <nav aria-label="..." class="d-flex justify-content-center mt-5 pt-5 border-top"> -->
                     <!-- pagination -->
-                    <ul class="pagination">
+                    <!-- <ul class="pagination">
                         <li class="page-item">
                             <a class="page-link" href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
@@ -148,8 +184,8 @@
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
-                    </ul>
-                </nav>
+                    </ul> -->
+                <!-- </nav> -->
             </section>
 
             <section class="dropUsAmessage mb-5 p-5 rounded-2">
