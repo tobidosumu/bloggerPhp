@@ -79,5 +79,20 @@
                 return $e->getMessage();
             }
         }
+
+        public function deletePost($id)
+        {
+            try 
+            {
+                $stmt = $this->connect()->prepare("DELETE FROM blog_post WHERE id = ?");
+                $stmt->execute([$id]);
+
+                return "successful";
+            }
+            catch (Exception $e)
+            {
+                return $e->getMessage();
+            }
+        }
     }
 ?>
