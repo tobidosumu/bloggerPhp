@@ -378,10 +378,26 @@ body .mainContainer .blogContents section .mainContentContainer .postCard .postH
 body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body {
   padding: 0;
 }
-body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body form {
   width: 100%;
 }
-body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a li {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body form button {
+  width: 100%;
+  border: none;
+  background: none;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body form button li {
+  color: #eb253f;
+  padding: 14px 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-weight: 600;
+  border-bottom: 1px solid #ced4da;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body form button li:hover {
+  background-color: #f4f4f5;
+}
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body form a li {
   width: 100%;
   color: #121d2a;
   padding: 14px 0;
@@ -390,14 +406,14 @@ body .mainContainer .blogContents section .mainContentContainer .postCard .postH
   font-weight: 400;
   border-bottom: 1px solid #ced4da;
 }
-body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a li:hover {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body form a li:hover {
   background-color: #f4f4f5;
 }
-body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a .nthChild {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body form a .nthChild {
   color: #eb253f;
   font-weight: 600;
 }
-body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body ul a .lastChild {
+body .mainContainer .blogContents section .mainContentContainer .postCard .postHeader .postInfo .moreInfoModal .modal-dialog .modal-body form a .lastChild {
   border-bottom: none;
 }
 body .mainContainer .blogContents section .mainContentContainer .postCard .postPhoto {
@@ -568,12 +584,15 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer p {
   color: #7a7a7a;
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
+  border-radius: 4px;
+  padding: 9px 12px;
   font-size: 0.9rem;
-  font-weight: 400;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+  color: #121d2a;
+  background-color: #00e87c;
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a:hover {
-  background-color: #6025eb;
+  color: #ffffff;
+  background-color: #00835c;
 }
 body footer {
   height: 350px;

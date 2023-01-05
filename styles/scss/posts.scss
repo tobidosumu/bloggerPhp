@@ -223,6 +223,7 @@ body {
                     @include semiTertiaryFont; 
                     p {
                         @include primaryFont;
+                        font-weight: 400;
                         text-align: center;
                         color: $grey;
                         line-height: 1.5rem;

@@ -346,10 +346,7 @@ body {
                     }
 
                     a {
-                        @include primaryBtn;
-                        &:hover {
-                            background-color: $accentColor;
-                        }
+                        @include greenBtn;
                     }
                 }
             }

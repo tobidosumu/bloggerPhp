@@ -38,6 +38,11 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true)
 {
     // User is logged in
     $userLoggedIn = true;
+
+    // if (isset($_POST['deletePost'])) {
+    //     $postAction = new PostQueryDb();
+    //     $deletePost = $postAction->deletePost();
+    // }    
     
     if (isset($_POST['logOutUser'])) 
     {
@@ -93,15 +98,26 @@ else
                                             <div class="modal-content">
 
                                                 <div class="modal-body d-flex flex-column justify-content-center align-items-center text-center">
-                                                    <ul>
-                                                        <a href="#"><li class="nthChild rounded-top">Delete post</li></a>
+                                                   
+                                                    <?php
+
+                                                        if (isset($_POST['deletePost'])) {
+                                                            $postAction = new PostQueryDb();
+                                                            var_dump($postData['id']);
+                                                            $deletePost = $postAction->deletePost($postData['id']);
+                                                        }
+
+                                                    ?>
+
+                                                    <form action="" method="post">
+                                                        <button type="submit" name="deletePost"><li class="nthChild rounded-top">Delete post</li></button>
                                                         <a href="#"><li class="nthChild">Edit post</li></a>
                                                         <a href="#"><li>Go to post</li></a>
                                                         <a href="#"><li>Add to favorites</li></a>
                                                         <a href="#"><li>Share to</li></a>
                                                         <a href="#"><li>Copy link</li></a>
                                                         <a href="#" data-bs-dismiss="modal"><li class="lastChild rounded-bottom">Cancel</li></a>
-                                                    </ul>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -213,7 +229,7 @@ else
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
                         atque minus qui assumenda atque minus qui assumenda atque minus qui assumenda atque minus qui assumenda
                     </p>
-                    <a href="#" class="btn">Contact us</a>
+                    <a href="mailto:imtobidosunmu@gmail.com" class="btn">Contact us</a>
                 </div>
             </section>
 

@@ -296,8 +296,24 @@ body {
 
                                         .modal-body {
                                             padding: 0;
-                                            ul {
+                                            form {
                                                 width: 100%;
+                                                button {
+                                                    width: 100%;
+                                                    border: none;
+                                                    background: none;
+                                                    li {
+                                                        color: $accentHoverColor;
+                                                        padding: 14px 0;
+                                                        @include tinyFont;
+                                                        font-weight: 600;
+                                                        border-bottom: 1px solid $borderGrey;
+
+                                                        &:hover {
+                                                            background-color: $lightGrey;
+                                                        }
+                                                    }
+                                                }
                                                 a {
                                                     li {
                                                         width: 100%;
@@ -509,10 +525,7 @@ body {
                     }
 
                     a {
-                        @include primaryBtn;
-                        &:hover {
-                            background-color: $accentColor;
-                        }
+                        @include greenBtn;
                     }
                 }
             }

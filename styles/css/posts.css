@@ -313,6 +313,7 @@ body .mainContainer .hero .caption .dashboardView {
 }
 body .mainContainer .hero .caption .dashboardView p {
   font-size: 0.9rem;
+  font-weight: 400;
   text-align: center;
   color: #7a7a7a;
   line-height: 1.5rem;

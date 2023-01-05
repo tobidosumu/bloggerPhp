@@ -444,12 +444,15 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer p {
   color: #7a7a7a;
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a {
+  border-radius: 4px;
+  padding: 9px 12px;
   font-size: 0.9rem;
-  font-weight: 400;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+  color: #121d2a;
+  background-color: #00e87c;
 }
 body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a:hover {
-  background-color: #6025eb;
+  color: #ffffff;
+  background-color: #00835c;
 }
 body footer {
   height: 350px;

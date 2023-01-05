@@ -45,7 +45,7 @@
 
         $user = new UserDbQuery();
         $userData = $user->fetchOne();
-        var_dump($userData);
+        // var_dump($userData);
 
         // if ($userData) 
         // {
@@ -196,7 +196,7 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
                         atque minus qui assumenda atque minus qui assumenda atque minus qui assumenda atque minus qui assumenda
                     </p>
-                    <a href="#" class="btn">Contact us</a>
+                    <a href="mailto:imtobidosunmu@gmail.com" class="btn">Contact us</a>
                 </div>
             </section>
 
