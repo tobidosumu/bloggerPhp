@@ -9,8 +9,13 @@
   
     public function validateUserLogin() {
       $this->validateEmail();
-      $this->validatePassword();
-      return $this->errors;
+      $user_details = $this->validatePassword();
+      $errors = $this->errors;
+      if (!is_null($user_details))
+      {
+          unset($user_details['password']);
+      }
+      return array($errors, $user_details);
     }
   
     // Setters
@@ -50,7 +55,7 @@
       if (empty($password)) {
         $this->addError('password', 'Password cannot be empty.');
       } else {
-        $stmt = $this->connect()->prepare("SELECT password FROM `user` WHERE email=?");
+        $stmt = $this->connect()->prepare("SELECT * FROM `user` WHERE email=?");
         $stmt->execute(array($this->email));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (is_array($row)) {
@@ -60,10 +65,17 @@
           } elseif (!password_verify($password, $hashedPassword)) {
             $this->addError('password', 'Invalid Password.');
           }
+          return $row;
         } else {
           $this->addError('password', 'Invalid Password.');
         }
       }
+      return null;
+    }
+
+    private function validateUserDetails()
+    {
+
     }
               
     private function addError($key, $val) {
