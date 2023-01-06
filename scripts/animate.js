@@ -126,6 +126,17 @@ window.onload = function() {
   setTimeout(compress, 7000);
 }
 
-
+function replaceIcon() { // Toggle post like icon color 
+  let icon = document.getElementById('heart-icon');
+  if (icon.classList.contains('bi-heart')) {
+    icon.classList.remove('bi-heart');
+    icon.classList.add('bi-heart-fill');
+    icon.style.color = 'red';
+  } else {
+    icon.classList.remove('bi-heart-fill');
+    icon.classList.add('bi-heart');
+    icon.style.color = 'initial';
+  }
+}
 
 

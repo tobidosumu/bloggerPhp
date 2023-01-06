@@ -112,7 +112,7 @@ else
                                                     <form action="" method="post">
                                                         <button type="submit" name="deletePost"><li class="nthChild rounded-top">Delete post</li></button>
                                                         <a href="#"><li class="nthChild">Edit post</li></a>
-                                                        <a href="#"><li>Go to post</li></a>
+                                                        <a href="./postDetails.php?id=<?= $postData['id'] ?>"><li>Go to post</li></a>
                                                         <a href="#"><li>Add to favorites</li></a>
                                                         <a href="#"><li>Share to</li></a>
                                                         <a href="#"><li>Copy link</li></a>
@@ -133,7 +133,9 @@ else
                                 <div class="postCategory d-flex justify-content-end">
                                     <div class="rightIconsDiv d-flex flex-column justify-content-between align-items-center">
                                         <div class="likes">
-                                            <i class="bi bi-heart"></i>
+                                           
+                                            <i id="heart-icon" class="bi bi-heart" onclick="replaceIcon()"></i>
+
                                             <p>221.9k</p>
                                         </div>
                                         <div class="comments">

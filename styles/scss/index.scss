@@ -376,8 +376,9 @@ body {
 
                                     i {
                                         @include postIcon;
+                                        // outline: 1px solid red;
                                         margin-bottom: 0px;
-                                        transition: all .4s;
+                                        transition: all .4s; 
                                     }
 
                                     p {
