@@ -14,12 +14,13 @@
         $loginValidator = new UserLoginValidator();
         $loginValidator->setEmail($_POST['email']);
         $loginValidator->setPassword($_POST['password']);
-        $errors = $loginValidator->validateUserLogin();
+       list($errors, $user_details) = $loginValidator->validateUserLogin();
 
         if (!$errors)
         {
             // User is logged in
             $_SESSION['logged_in'] = true;
+            $_SESSION['user_details'] = $user_details;
             // $_SESSION['role'] = true;
     
             header('Location: ./index.php');
