@@ -179,7 +179,6 @@ body {
                             transition: all 0.1s ease;
                         }
                     }
-
                 }
             }
             .searchDropDown {
@@ -193,7 +192,7 @@ body {
                 background-color: $white;
                 border-bottom-left-radius: 3px;
                 border-bottom-right-radius: 3px;
-                border: 1px solid red;
+                // border: 1px solid red;
 
                 form {
                     width: 100%;

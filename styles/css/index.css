@@ -284,7 +284,6 @@ body .mainContainer header .searchDropDown {
   background-color: #ffffff;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  border: 1px solid red;
 }
 body .mainContainer header .searchDropDown form {
   width: 100%;

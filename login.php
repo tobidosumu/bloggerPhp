@@ -50,7 +50,7 @@
 
         <aside id="rightAside">
             <div class="header d-flex justify-content-end align-items-center">
-                <a href="index.php">Don't have an account?</a>
+                <p>Don't have an account?</p>
                 <a href="signup.php" class="btn rounded-1" href="#">Signup</a>
             </div>
             <div class="formWrapper d-flex flex-column">

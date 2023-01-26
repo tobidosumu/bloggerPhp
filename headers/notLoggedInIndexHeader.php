@@ -38,4 +38,10 @@
             <li class="search d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
         </ul>
     </nav>
+    <div class="searchDropDown border rounded-bottom-2">
+        <form action="" method="get" class="d-flex">
+            <input autofocus type="search" name="search" placeholder="...search for posts and bloggers" id="searchInput">
+            <button><i class="bi bi-search"></i></span></button>
+        </form>
+    </div>
 </header>

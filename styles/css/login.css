@@ -85,22 +85,19 @@ body section #rightAside {
   padding: 7%;
   padding-top: 2%;
 }
-body section #rightAside .header a:first-child {
+body section #rightAside .header p {
   font-size: 0.8rem;
   font-weight: 500;
   color: #00e87c;
   padding-right: 20px;
 }
-body section #rightAside .header a:first-child:hover {
-  color: #6025eb;
-}
-body section #rightAside .header a:last-child {
+body section #rightAside .header a {
   color: #ffffff !important;
   font-size: 0.8rem;
   font-weight: 500;
   background-color: #00e87c;
 }
-body section #rightAside .header a:last-child:hover {
+body section #rightAside .header a:hover {
   background-color: #6025eb;
 }
 body section #rightAside .formWrapper .formContents h2 {

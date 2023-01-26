@@ -139,9 +139,11 @@ function replaceIcon() { // Toggle post like icon color
   }
 }
 
+// Search dropdown Logged In
 const searchButton = document.querySelector('.search button');
 const searchIcon = document.querySelector('.searchIcon');
 const searchDropDown = document.querySelector('.searchDropDown');
+// const searchInput = document.querySelector('#searchInput');
 
 let isSearchDropDownVisible = false;
 let isInitialIcon = true;
@@ -172,5 +174,3 @@ searchButton.addEventListener('click', () => {
     isSearchDropDownVisible = false;
   }
 });
-
-

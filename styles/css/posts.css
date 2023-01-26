@@ -290,6 +290,51 @@ body .mainContainer header nav ul a:hover {
   font-weight: 600;
   transition: all 0.1s ease;
 }
+body .mainContainer header .searchDropDown {
+  position: absolute;
+  top: 75px;
+  right: 12%;
+  width: 34.7%;
+  height: 50px;
+  padding: 6px;
+  background-color: #ffffff;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+body .mainContainer header .searchDropDown form {
+  width: 100%;
+}
+body .mainContainer header .searchDropDown form input {
+  width: 100%;
+  height: 100%;
+  padding: 3px 10px;
+  color: #121d2a;
+  border: 1px solid #f4f4f5;
+  border-radius: 4px;
+}
+body .mainContainer header .searchDropDown form input::placeholder {
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-weight: 400;
+  color: #9d9d9d;
+}
+body .mainContainer header .searchDropDown form input:focus-within {
+  border: 1px solid #ced4da;
+  outline: none;
+  border-radius: 3px;
+}
+body .mainContainer header .searchDropDown form button {
+  width: 10%;
+  border: none;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+body .mainContainer header .searchDropDown form button:hover {
+  background-color: #ced4da;
+}
+body .mainContainer header .searchDropDown span {
+  width: 40px;
+}
 body .mainContainer .hero {
   height: 270px;
   display: flex;
