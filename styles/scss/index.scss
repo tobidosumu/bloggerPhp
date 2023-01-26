@@ -183,8 +183,9 @@ body {
                 }
             }
             .searchDropDown {
+                display: none;
                 position: absolute;
-                top: 70px;
+                top: 75px;
                 right: 12%;
                 width: 34.7%;
                 height: 50px;
@@ -192,25 +193,38 @@ body {
                 background-color: $white;
                 border-bottom-left-radius: 3px;
                 border-bottom-right-radius: 3px;
-                // border: 1px solid red;
+                border: 1px solid red;
 
-                input {
+                form {
                     width: 100%;
-                    height: 100%;
-                    padding: 3px 10px;
-                    color: $black;
-                    border: 1px solid $lightGrey;
-                    border-radius: 4px;
-                    &::placeholder {
-                        @include semiTinyFont;
-                        font-weight: 400;
-                        color: $veryLightGrey;
+                    // border: 1px solid red;
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        padding: 3px 10px;
+                        color: $black;
+                        border: 1px solid $lightGrey;
+                        border-radius: 4px;
+                        &::placeholder {
+                            @include semiTinyFont;
+                            font-weight: 400;
+                            color: $veryLightGrey;
+                        }
+    
+                        &:focus-within {
+                            border: 1px solid $borderGrey;
+                            outline: none;
+                            border-radius: 3px;
+                        }
                     }
-
-                    &:focus-within {
-                        border: 1px solid $borderGrey;
-                        outline: none;
+                    button {
+                        width: 10%;
+                        border: none;
                         border-radius: 3px;
+                        margin-left: 5px;
+                        &:hover {
+                            background-color: $borderGrey;
+                        }
                     }
                 }
 

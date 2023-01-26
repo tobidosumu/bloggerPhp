@@ -7,7 +7,7 @@ window.addEventListener("scroll", () => {
   header.style.boxShadow = `0 0px 4px rgb(${r}, ${g}, ${b})`;
 });
 
-const textareas = document.querySelectorAll("#expandable-textarea");
+const textareas = document.querySelectorAll("#expandable-textarea"); // Post comments
 const postBtnWrappers = document.querySelectorAll("#postBtnWrapper");
 
 textareas.forEach((textarea, index) => {
@@ -138,5 +138,39 @@ function replaceIcon() { // Toggle post like icon color
     icon.style.color = 'initial';
   }
 }
+
+const searchButton = document.querySelector('.search button');
+const searchIcon = document.querySelector('.searchIcon');
+const searchDropDown = document.querySelector('.searchDropDown');
+
+let isSearchDropDownVisible = false;
+let isInitialIcon = true;
+let isBlack = true;
+
+searchButton.addEventListener('click', () => {
+  if (isInitialIcon && isBlack && !isSearchDropDownVisible) {
+    searchIcon.style.background = '#00e87c';
+    searchIcon.style.color = 'black';
+    isBlack = false;
+    searchIcon.classList.remove('bi-search');
+    searchIcon.classList.add('bi-x-lg');
+    isInitialIcon = false;
+
+    searchDropDown.style.display = 'block';
+    isSearchDropDownVisible = true;
+    searchInput.focus();
+
+  } else {
+    searchIcon.style.background = '#121d2a';
+    searchIcon.style.color = 'white';
+    isBlack = true;
+    searchIcon.classList.remove('bi-x-lg');
+    searchIcon.classList.add('bi-search');
+    isInitialIcon = true;
+
+    searchDropDown.style.display = 'none';
+    isSearchDropDownVisible = false;
+  }
+});
 
 
