@@ -54,7 +54,7 @@
 
         <aside id="rightAside">
             <div class="header d-flex justify-content-end align-items-center">
-                <a href="login.php">Already have an account?</a>
+                <p>Already have an account?</p>
                 <a href="login.php" class="btn rounded-1">Log in</a>
             </div>
             <div class="formWrapper d-flex flex-column">

@@ -46,15 +46,12 @@ body {
             padding: 7%;
             padding-top: 2%;
             .header {
-                a:first-child {
+                p {
                     @include tinyFont;
                     color: $primaryColor;
                     padding-right: 20px;
-                    &:hover {
-                        color: $accentColor;
-                    }
                 }
-                a:last-child {
+                a {
                     color: $white !important;
                     @include tinyFont;
                     background-color: $primaryColor;
