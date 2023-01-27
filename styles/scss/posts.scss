@@ -373,13 +373,14 @@ body {
                                     }
                                 }
                             }
-                            &:hover {
-                                .upperInfo {
-                                    width: 70%;
+                            .upperInfo {
+                                width: 100%;
+                                &:hover {
                                     color: $lightBlack;
                                     position: absolute;
                                     top: 10px;
                                     right: 0;
+                                    // border: 1px solid red;
                                     .postTime {
                                         @include tinyFont;
                                         border-radius: 50px;
