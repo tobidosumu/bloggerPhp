@@ -287,6 +287,18 @@ body {
                                 height: 60vh;
                                 object-fit: cover;
                             }
+
+                            p {
+                                position: absolute;
+                                top: 70px;
+                                left: 15px;
+                                @include tinyFont;
+                                color: $lightBlack;
+                                text-transform: none;
+                                border-radius: 50px;
+                                background-color: $slightTransparentWhite;
+                                // border: 1px solid red;
+                            }
                         }
 
                         .rightIconsDiv {
@@ -360,7 +372,7 @@ body {
                             // border: 1px solid red;
 
                             .categoryReadTimeContainer { // category and read time div
-                                width: 60%;
+                                width: 50%;
                                 position: relative;
                                 bottom: 32px;
                                 background: $transparentWhite;
@@ -449,12 +461,6 @@ body {
                                             color: $black;
                                             @include semiTinyFont;
                                             text-transform: capitalize;
-
-                                            span {
-                                                color: $lightBlack;
-                                                @include tinyFont;
-                                                text-transform: none;
-                                            }
                                         }
                                     }
 

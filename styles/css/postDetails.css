@@ -363,6 +363,17 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
   height: 60vh;
   object-fit: cover;
 }
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .postImage p {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7176470588);
+  text-transform: none;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.527);
+}
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .rightIconsDiv {
   position: absolute;
   right: 65px;
@@ -439,7 +450,7 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
   background: #ffffff;
 }
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer {
-  width: 60%;
+  width: 50%;
   position: relative;
   bottom: 32px;
   background: rgba(255, 255, 255, 0.678);
@@ -508,12 +519,6 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
   font-size: 0.9rem;
   font-weight: 500;
   text-transform: capitalize;
-}
-body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .userComment .commentContainer .userStats h6 span {
-  color: rgba(0, 0, 0, 0.7176470588);
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: none;
 }
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .userComment .commentContainer p {
   font-size: 0.9rem;
