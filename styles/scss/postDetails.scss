@@ -421,13 +421,53 @@ body {
                                 }
                             }
 
+                            
+                            .userComment {
+                                border: 1px solid $borderGrey;
+
+                                .userAvatar {
+                                    // border: 1px solid red;
+                                    a {
+                                        img {
+                                            width: 50px;
+                                            width: 50px;
+                                            border-radius: 50px;
+                                            object-fit: cover;
+                                            // border: 1px solid red;
+                                        }
+                                    }
+                                }
+                                .commentContainer {
+                                    margin-left: 20px;
+
+                                    .userStats {
+                                        h6 {
+                                            color: $black;
+                                            @include semiTinyFont;
+                                            text-transform: capitalize;
+
+                                            span {
+                                                color: $lightBlack;
+                                                @include tinyFont;
+                                                text-transform: none;
+                                            }
+                                        }
+                                    }
+
+                                    p {
+                                        @include primaryFont;
+                                        color: $lightBlack;
+                                    }
+                                }
+                            }
+
                             .commentWrapper {
                                 textarea {
                                     width: 100%;
                                     height: 150px;
                                     resize: none;
                                     padding: 7px;
-                                    border-radius: 5px;
+                                    // border-radius: 5px;
                                     border: 1px solid $borderGrey;
                                     @include tinyFont;
                                     color: $black;
@@ -439,11 +479,10 @@ body {
 
                                     &:focus {
                                         outline: none;
-                                        border: 1px solid $primaryColor;
+                                        border: 1px solid $lightGreen;
                                     }
                                 }
                             }
-
                         }
                     }
 

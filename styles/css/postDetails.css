@@ -488,12 +488,39 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
   -ms-transform: scaleX(-1); /* Internet Explorer */
   -o-transform: scaleX(-1); /* Opera */
 }
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .userComment {
+  border: 1px solid #ced4da;
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .userComment .userAvatar a img {
+  width: 50px;
+  width: 50px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .userComment .commentContainer {
+  margin-left: 20px;
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .userComment .commentContainer .userStats h6 {
+  color: #121d2a;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .userComment .commentContainer .userStats h6 span {
+  color: rgba(0, 0, 0, 0.7176470588);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: none;
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .userComment .commentContainer p {
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.7176470588);
+}
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .commentWrapper textarea {
   width: 100%;
   height: 150px;
   resize: none;
   padding: 7px;
-  border-radius: 5px;
   border: 1px solid #ced4da;
   font-size: 0.8rem;
   font-weight: 500;
@@ -507,7 +534,7 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
 }
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .commentSection .commentWrapper textarea:focus {
   outline: none;
-  border: 1px solid #00e87c;
+  border: 1px solid rgba(79, 227, 183, 0.768627451);
 }
 body .mainContainer .blogContents section .mainContentContainer .postDescription {
   width: 100%;
