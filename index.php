@@ -134,7 +134,7 @@ else
                                     <div class="rightIconsDiv d-flex flex-column justify-content-between align-items-center">
                                         <div class="likes">
                                            
-                                            <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon()"></i>
+                                            <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i>
 
                                             <p>221.9k</p>
                                         </div>

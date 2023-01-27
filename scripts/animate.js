@@ -73,8 +73,7 @@ const revealProfileDropdown = () => {
   });
 }
 
-const replaceLikeIcon = () => { // Toggle post like icon color 
-  let icon = document.getElementById('heart-icon');
+const replaceLikeIcon = (icon) => { 
   if (icon.classList.contains('bi-heart')) {
     icon.classList.remove('bi-heart');
     icon.classList.add('bi-heart-fill');

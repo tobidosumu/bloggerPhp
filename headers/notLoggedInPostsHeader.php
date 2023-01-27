@@ -20,7 +20,7 @@
             <li class="posts"><a href="./posts.php">Posts</a></li>
             
             <!-- Displayed when a user is not logged in -->
-            <li onclick="revealDropdown()" class="notLoggedIn profile d-flex justify-content-between align-items-center">
+            <li onclick="revealProfileDropdown()" class="notLoggedIn profile d-flex justify-content-between align-items-center">
                 <a href="#" class="d-flex justify-content-between align-items-center">
                     <i class="bi bi-caret-down-fill"></i>
                     <i class="userIconPlaceholder bi bi-person-circle"></i>

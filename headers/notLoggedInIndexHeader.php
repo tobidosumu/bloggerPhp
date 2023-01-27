@@ -20,7 +20,7 @@
             <li class="inbox"><a href="./posts.php">Posts</a></li>
             
             <!-- Displayed when a user is not logged in -->
-            <li onclick="revealDropdown()" class="notLoggedIn profile d-flex justify-content-between align-items-center">
+            <li onclick="revealProfileDropdown()" class="notLoggedIn profile d-flex justify-content-between align-items-center">
                 <a href="#" class="d-flex justify-content-between align-items-center">
                     <i class="bi bi-caret-down-fill"></i>
                     <i class="userIconPlaceholder bi bi-person-circle"></i>
@@ -35,13 +35,18 @@
                 </div>
             </li>   
 
-            <li class="search d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
+            <li class="search d-flex justify-content-center">
+                <button type="submit" class="border-0">
+                    <i class="bi bi-search searchIcon" onclick="toggleSearchDropdown()"></i>
+                </button>
+            </li>
         </ul>
     </nav>
+
     <div class="searchDropDown border rounded-bottom-2">
         <form action="" method="get" class="d-flex">
-            <input autofocus type="search" name="search" placeholder="...search for posts and bloggers" id="searchInput">
-            <button><i class="bi bi-search"></i></span></button>
+            <input type="search" name="search" placeholder="...search for posts and bloggers">
+            <button><i class="bi bi-search"></i></button>
         </form>
     </div>
 </header>
