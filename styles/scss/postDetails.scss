@@ -360,7 +360,7 @@ body {
                             // border: 1px solid red;
 
                             .categoryReadTimeContainer { // category and read time div
-                                width: 40%;
+                                width: 60%;
                                 position: relative;
                                 bottom: 32px;
                                 background: $transparentWhite;
@@ -376,7 +376,11 @@ body {
 
                                 h6 {
                                     @include veryLittleFont;
-                                    color: $lightBlack;
+                                    color: $grey;
+
+                                    span {
+                                        color: $grey;
+                                    }
                                 }
                             }
                            
@@ -467,7 +471,6 @@ body {
                                     height: 150px;
                                     resize: none;
                                     padding: 7px;
-                                    // border-radius: 5px;
                                     border: 1px solid $borderGrey;
                                     @include tinyFont;
                                     color: $black;

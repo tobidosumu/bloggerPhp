@@ -439,7 +439,7 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
   background: #ffffff;
 }
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer {
-  width: 40%;
+  width: 60%;
   position: relative;
   bottom: 32px;
   background: rgba(255, 255, 255, 0.678);
@@ -455,7 +455,10 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer h6 {
   font-size: 0.7rem;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.7176470588);
+  color: #7a7a7a;
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .categoryTitleContainer .categoryReadTimeContainer h6 span {
+  color: #7a7a7a;
 }
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .titleContainer h4 {
   font-size: 1.3rem;
