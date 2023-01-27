@@ -375,12 +375,32 @@ body .mainContainer .blogContents section .mainContentContainer .innerContainer 
   flex-direction: column;
   align-items: center;
 }
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .rightIconsDiv div a {
+  margin-bottom: 0.6px;
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .rightIconsDiv div a i {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: black;
+  border-radius: 50%;
+  padding: 8px 6px 3px 6px;
+  background-color: rgba(255, 255, 255, 0.527);
+  transition: all 0.4s;
+  font-size: 1.3rem;
+  padding: 6px 8px 2px 8px;
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .rightIconsDiv div a i:hover {
+  background-color: rgb(215, 252, 246);
+}
+body .mainContainer .blogContents section .mainContentContainer .innerContainer .rightIconsDiv div a i:hover {
+  background-color: #ffffff !important;
+}
 body .mainContainer .blogContents section .mainContentContainer .innerContainer .rightIconsDiv div i {
   font-size: 1.3rem;
   font-weight: 600;
   color: black;
   border-radius: 50%;
-  padding: 8px 6px 4px 6px;
+  padding: 8px 6px 3px 6px;
   background-color: rgba(255, 255, 255, 0.527);
   transition: all 0.4s;
   margin-bottom: 0px;
