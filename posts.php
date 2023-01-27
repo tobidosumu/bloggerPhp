@@ -129,7 +129,7 @@
                                         <div class="moreInfo ms-3"><i class="bi bi-three-dots-vertical"></i></div> 
                                     </div>
                                     <div class="rightSideInfo d-flex flex-column align-items-end pt-2 pe-2 mb-5">
-                                        <div class="iconDiv mb-2"><i class="bi bi-heart"></i></div>    
+                                        <div class="iconDiv mb-2"><i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i></div>    
                                         <div class="iconDiv"><i class="bi bi-chat-square"></i></div>    
                                     </div>
                                     

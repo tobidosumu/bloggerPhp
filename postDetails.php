@@ -59,6 +59,26 @@
                                     <div class="postImage"> <!-- image div -->
                                         <img class="img-fluid w-100" src="<?= $postDetail['photo'] ?>"> <!-- fetches photo from blog_post table -->   
                                     </div>
+
+                                    <!--  -->
+                                    <div class="rightIconsDiv d-flex flex-column justify-content-between">
+                                        <div class="likes">
+                                           
+                                            <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i>
+
+                                            <p>221.9k</p>
+                                        </div>
+                                        <div class="comments">
+                                            <i class="bi bi-chat-square"></i>
+                                            <p>1907</p>
+                                        </div>
+                                        <div class="shares">
+                                            <i class="bi bi-reply"></i>
+                                            <p>1805</p>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+
                                     <div class="categoryTitleContainer"> <!-- title, category container -->
                                         <div class="categoryReadTimeContainer d-flex justify-content-between p-2"> <!-- category and read time div -->
                                             <h5><?=$postDetail['category']?></h5> 
