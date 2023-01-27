@@ -374,20 +374,76 @@ body {
                                 @include semiTertiaryFont;
                                 color: $lightBlack;
                                 margin-top: -10px;
+                                &::first-letter {
+                                    @include tertiaryFont;
+                                }
                             }
                         }
+
+                        .commentSection {
+                            width: 100%;
+                            // border: 1px solid red;
+
+                            .iconsWrapper {
+                                div {
+                                    i {
+                                        @include semiPrimaryFont;
+                                        color: $black;
+                                    }
+
+                                    p {
+                                        @include tinyFont;
+                                        color: $black;
+                                    }
+                                }
+
+                                .shares {
+                                    i {
+                                        transform: scaleX(-1);
+                                        transform-origin: 50% 50%;
+                                        -webkit-transform: scaleX(-1); /* Safari and Chrome */
+                                        -moz-transform: scaleX(-1); /* Firefox */
+                                        -ms-transform: scaleX(-1); /* Internet Explorer */
+                                        -o-transform: scaleX(-1); /* Opera */
+                                    }
+                                }
+                            }
+
+                            .commentWrapper {
+                                textarea {
+                                    width: 100%;
+                                    height: 150px;
+                                    resize: none;
+                                    padding: 7px;
+                                    border-radius: 5px;
+                                    border: 1px solid $borderGrey;
+                                    @include tinyFont;
+                                    color: $black;
+                                    line-height: 1rem;
+                                    &::placeholder {
+                                        @include tinyFont;
+                                        color: $veryLightGrey;
+                                    }
+
+                                    &:focus {
+                                        outline: none;
+                                        border: 1px solid $primaryColor;
+                                    }
+                                }
+                            }
+
+                        }
                     }
+
                     .postDescription { // description div 
                         width: 100%;
                         margin-top: -12px;
-                        // border: 1px solid red;
+                        padding-bottom: 70px;
+                        border-bottom: 1px solid $borderGrey;
 
-                        h4 {
-                            @include semiTertiaryFont;
-                            &::first-letter {
-                                font-weight: 700;
-                            }
-                            // background: aqua;
+                        p {
+                            @include primaryFont;
+                            color: $lightBlack;
                         }
                     }
                 }
