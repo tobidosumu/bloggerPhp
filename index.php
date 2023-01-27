@@ -134,7 +134,7 @@ else
                                     <div class="rightIconsDiv d-flex flex-column justify-content-between align-items-center">
                                         <div class="likes">
                                            
-                                            <i id="heart-icon" class="bi bi-heart" onclick="replaceIcon()"></i>
+                                            <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon()"></i>
 
                                             <p>221.9k</p>
                                         </div>
@@ -204,7 +204,7 @@ else
                                 </div>
 
                                 <div class="commentWrapper">
-                                    <textarea name="comment" id="expandable-textarea" placeholder="Add a comment..."></textarea>
+                                    <textarea name="comment" onclick="autoResizeTextarea()" id="expandable-textarea" placeholder="Add a comment..."></textarea>
                                 </div>
 
                                 <div class="postBtnWrapper d-flex justify-content-end">

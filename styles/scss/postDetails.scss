@@ -175,8 +175,7 @@ body {
                             -webkit-text-stroke: .5px;
                             border-radius: 4px;
                             &:hover {
-                                color: $black;
-                                background-color: $primaryColor;
+                                background-color: $lightBlack;
                                 transition: all 0.3s ease-in-out;
                             }
                         }
@@ -197,6 +196,57 @@ body {
                             transition: all 0.1s ease;
                         }
                     }
+                }
+            }
+
+            .searchDropDown {
+                display: none;
+                position: absolute;
+                top: 75px;
+                right: 12%;
+                width: 34.7%;
+                height: 50px;
+                padding: 6px;
+                background-color: $white;
+                border-bottom-left-radius: 3px;
+                border-bottom-right-radius: 3px;
+                // border: 1px solid red;
+
+                form {
+                    width: 100%;
+                    // border: 1px solid red;
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        padding: 3px 10px;
+                        color: $black;
+                        border: 1px solid $lightGrey;
+                        border-radius: 4px;
+                        &::placeholder {
+                            @include semiTinyFont;
+                            font-weight: 400;
+                            color: $veryLightGrey;
+                        }
+    
+                        &:focus-within {
+                            border: 1px solid $borderGrey;
+                            outline: none;
+                            border-radius: 3px;
+                        }
+                    }
+                    button {
+                        width: 10%;
+                        border: none;
+                        border-radius: 3px;
+                        margin-left: 5px;
+                        &:hover {
+                            background-color: $borderGrey;
+                        }
+                    }
+                }
+
+                span {
+                    width: 40px;
                 }
             }
         }

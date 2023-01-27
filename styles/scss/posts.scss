@@ -176,8 +176,7 @@ body {
                             -webkit-text-stroke: .5px;
                             border-radius: 4px;
                             &:hover {
-                                color: $black;
-                                background-color: $primaryColor;
+                                background-color: $lightBlack;
                                 transition: all 0.3s ease-in-out;
                             }
                         }
@@ -201,7 +200,7 @@ body {
                 }
             }
             .searchDropDown {
-                // display: none;
+                display: none;
                 position: absolute;
                 top: 75px;
                 right: 12%;

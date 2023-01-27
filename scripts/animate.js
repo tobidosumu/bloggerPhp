@@ -1,38 +1,57 @@
-const [red, green, blue] = [242, 254, 255];
-const header = document.querySelector("header");
+//  IIFE (Immediately Invoked Function Expression) so that the variables and functions inside them do not interfere with the global scope.
 
-window.addEventListener("scroll", () => {
-  const y = 1 + (window.scrollY || window.pageYOffset) / 200;
-  const [r, g, b] = [red / y, green / y, blue / y].map(Math.ceil);
-  header.style.boxShadow = `0 0px 4px rgb(${r}, ${g}, ${b})`;
-});
-
-const textareas = document.querySelectorAll("#expandable-textarea"); // Post comments
-const postBtnWrappers = document.querySelectorAll("#postBtnWrapper");
-
-textareas.forEach((textarea, index) => {
-  textarea.addEventListener("input", () => {
-    if (textarea.scrollHeight <= 70) {
-      textarea.style.height = "20px";
-      textarea.style.height = textarea.scrollHeight + "px";
-    } else {
-      textarea.style.height = "70px";
-    }
-
-    const postBtnWrapper = postBtnWrappers[index];
-    if (textarea.value) {
-      postBtnWrapper.style.color = "#eb253f";
-      postBtnWrapper.style.background = "#f4f4f5";
-    } else {
-      postBtnWrapper.style.color = "#4fe3b7c4";
-      postBtnWrapper.style.background = "none";
-    }
+// Header shadow function
+(function() {
+  window.addEventListener("scroll", function() {
+    const [red, green, blue] = [242, 254, 255];
+    const header = document.querySelector("header");
+  
+    const y = 1 + (window.scrollY || window.pageYOffset) / 200;
+    const [r, g, b] = [red / y, green / y, blue / y].map(Math.ceil);
+    header.style.boxShadow = `0 0px 4px rgb(${r}, ${g}, ${b})`;
   });
-});
+})();
 
-function revealDropdown() {
+// Retracts Create Post button tooltip
+(function() {
+  window.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+      let tooltip = document.getElementById('createPostTooltip');
+      tooltip.classList.add('hide');
+    }, 4000);
+  });
+})();
+
+
+const autoResizeTextarea = () => {
+  const textareas = document.querySelectorAll("#expandable-textarea"); // Post comments
+  const postBtnWrappers = document.querySelectorAll("#postBtnWrapper");
+
+  textareas.forEach((textarea, index) => {
+    textarea.addEventListener("input", () => {
+      if (textarea.scrollHeight <= 70) {
+        textarea.style.height = "20px";
+        textarea.style.height = textarea.scrollHeight + "px";
+      } else {
+        textarea.style.height = "70px";
+      }
+
+      const postBtnWrapper = postBtnWrappers[index];
+      if (textarea.value) {
+        postBtnWrapper.style.color = "#eb253f";
+        postBtnWrapper.style.background = "#f4f4f5";
+      } else {
+        postBtnWrapper.style.color = "#4fe3b7c4";
+        postBtnWrapper.style.background = "none";
+      }
+    });
+  });
+}
+
+// Header nav profile dropdown
+const revealProfileDropdown = () => {
   // Get the dropdown element
-  var dropdown = document.querySelector(".profileDropdown");
+  let dropdown = document.querySelector(".profileDropdown");
 
   // Toggle the "display" style of the dropdown element
   if (dropdown.style.display === "block") {
@@ -40,93 +59,21 @@ function revealDropdown() {
   } else {
     dropdown.style.display = "block";
   }
-}
 
-// Add a click event listener to the document
-document.addEventListener("click", function (event) {
-  // Get the dropdown element
-  var dropdown = document.querySelector(".profileDropdown");
-
-  // Check if the target of the click event is not the dropdown or a descendant of the dropdown
-  if (!event.target.closest(".profile")) {
-    // If the target is not the dropdown or a descendant of the dropdown, hide the dropdown
-    dropdown.style.display = "none";
-  }
-});
-
-function revealCategoryDropdown() {
-  // Get the dropdown element
-  var dropdown = document.querySelector(".categoryDropdown");
-
-  // Get the icon element
-  var icon = document.querySelector(".chevronDownIcon");
-
-  // Toggle the "show" class on the dropdown element
-  dropdown.classList.toggle("show");
-
-  // Toggle the "bi-chevron-down" and "bi-chevron-up" classes on the icon element
-  icon.classList.toggle("bi-chevron-down");
-  icon.classList.toggle("bi-chevron-up");
-}
-
-// Get the modal element
-var modal = document.querySelector(".modal");
-
-// Get the form element
-var form = document.querySelector("#savePostData");
-
-// Add an event listener for the submit event
-form.addEventListener("submit", function (event) {
-  console.log("Submit event triggered");
-  // Get all the input fields
-  var inputs = form.querySelectorAll("input, select, textarea");
-
-  // Loop through the input fields
-  for (var i = 0; i < inputs.length; i++) {
-    // Get the current input field
-    var input = inputs[i];
-    // Check if the input field has a validation error
-    if (input.classList.contains("error")) {
-      // Prevent the form from submitting
-      event.preventDefault();
-
-      // Return to exit the loop
-      return;
-    }
-  }
-});
-
-// Add an event listener for the click event on the modal
-modal.addEventListener("click", function (event) { // For post form
-  // Get all the input fields
-  var inputs = form.querySelectorAll("input, select, textarea");
-
-  // Loop through the input fields
-  for (var i = 0; i < inputs.length; i++) {
-    // Get the current input field
-    var input = inputs[i];
-    // Check if the input field has a validation error
-    if (input.classList.contains("error")) {
-      // Prevent the modal from closing
-      event.stopPropagation();
-
-      // Return to exit the loop
-      return;
-    }
-  }
-});
-
-// Retracts Create Post button tooltip
-window.onload = function() {
-  function compress() {
-    var tooltip = document.getElementById('createPostTooltip');
-    tooltip.classList.add('hide');
-  }
+  // Add a click event listener to the document to hide dropdown when any element on the page is clicked
+  document.addEventListener("click", function (event) {
+    // Get the dropdown element
+    let dropdown = document.querySelector(".profileDropdown");
   
-  setTimeout(compress, 7000);
+    // Check if the target of the click event is not the dropdown or a descendant of the dropdown
+    if (!event.target.closest(".profile")) {
+      // If the target is not the dropdown or a descendant of the dropdown, hide the dropdown
+      dropdown.style.display = "none";
+    }
+  });
 }
 
-function replaceIcon() { // Toggle post like icon color 
+const replaceLikeIcon = () => { // Toggle post like icon color 
   let icon = document.getElementById('heart-icon');
   if (icon.classList.contains('bi-heart')) {
     icon.classList.remove('bi-heart');
@@ -139,38 +86,22 @@ function replaceIcon() { // Toggle post like icon color
   }
 }
 
-// Search dropdown Logged In
-const searchButton = document.querySelector('.search button');
-const searchIcon = document.querySelector('.searchIcon');
-const searchDropDown = document.querySelector('.searchDropDown');
-// const searchInput = document.querySelector('#searchInput');
+const toggleSearchDropdown = () => {
+  const searchDropDown = document.querySelector('.searchDropDown');
+  const searchIcon = document.querySelector('.searchIcon');
+  const searchField = document.querySelector('input[name="search"]');
 
-let isSearchDropDownVisible = false;
-let isInitialIcon = true;
-let isBlack = true;
-
-searchButton.addEventListener('click', () => {
-  if (isInitialIcon && isBlack && !isSearchDropDownVisible) {
-    searchIcon.style.background = '#00e87c';
-    searchIcon.style.color = 'black';
-    isBlack = false;
+  if (searchIcon.classList.contains('bi-search')) {
+    searchDropDown.style.display = "block";
     searchIcon.classList.remove('bi-search');
     searchIcon.classList.add('bi-x-lg');
-    isInitialIcon = false;
-
-    searchDropDown.style.display = 'block';
-    isSearchDropDownVisible = true;
-    searchInput.focus();
-
+    searchField.focus();
   } else {
-    searchIcon.style.background = '#121d2a';
-    searchIcon.style.color = 'white';
-    isBlack = true;
+    searchDropDown.style.display = "none";
     searchIcon.classList.remove('bi-x-lg');
     searchIcon.classList.add('bi-search');
-    isInitialIcon = true;
-
-    searchDropDown.style.display = 'none';
-    isSearchDropDownVisible = false;
   }
-});
+}
+
+
+

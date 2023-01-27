@@ -157,8 +157,7 @@ body {
                             -webkit-text-stroke: .5px;
                             border-radius: 4px;
                             &:hover {
-                                color: $black;
-                                background-color: $primaryColor;
+                                background-color: $lightBlack;
                                 transition: all 0.3s ease-in-out;
                             }
                         }

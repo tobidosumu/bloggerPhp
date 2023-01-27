@@ -35,13 +35,17 @@
                 </div>
             </li>   
 
-            <li class="search d-flex justify-content-center"><button type="button" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
+            <li class="search d-flex justify-content-center">
+                <button onclick="toggleSearchDropdown()" type="button" class="border-0">
+                    <i class="bi bi-search searchIcon"></i>
+                </button>
+            </li>
         </ul>
     </nav>
     <div class="searchDropDown border rounded-bottom-2">
         <form action="" method="get" class="d-flex">
-            <input type="search" name="search" placeholder="...search for posts and bloggers" id="searchInput">
-            <button><i class="bi bi-search"></i></span></button>
+            <input type="search" name="search" placeholder="...search for posts and bloggers">
+            <button><i class="bi bi-search"></i></button>
         </form>
     </div>
 </header>

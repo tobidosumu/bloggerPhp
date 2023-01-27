@@ -20,8 +20,8 @@
             <li class="inbox"><a href="./posts.php">Posts</a></li> 
 
             <!-- To be displayed using JS when a user login -->
-            <li onclick="revealDropdown()" class="profile d-flex justify-content-between align-items-center">
-                <a href="">
+            <li class="profile d-flex justify-content-between align-items-center">
+                <a href="#" onclick="revealProfileDropdown()">
                     <i class="bi bi-caret-down-fill"></i>
                     <img src="assets/images/moji.png" alt="user account">
                 </a>
@@ -36,12 +36,17 @@
                     </ul>
                 </div>
             </li>
-            <li class="search d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
+            <li class="search d-flex justify-content-center">
+                <button type="submit" class="border-0">
+                    <i class="bi bi-search searchIcon" onclick="toggleSearchDropdown()"></i>
+                </button>
+            </li>
         </ul>
     </nav>
+
     <div class="searchDropDown border rounded-bottom-2">
         <form action="" method="get" class="d-flex">
-            <input type="search" name="search" placeholder="...search for posts and bloggers" id="searchInput">
+            <input type="search" name="search" placeholder="...search for posts and bloggers">
             <button><i class="bi bi-search"></i></button>
         </form>
     </div>

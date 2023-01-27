@@ -267,8 +267,7 @@ body .mainContainer header nav ul .search i {
   border-radius: 4px;
 }
 body .mainContainer header nav ul .search i:hover {
-  color: #121d2a;
-  background-color: #00e87c;
+  background-color: rgba(0, 0, 0, 0.7176470588);
   transition: all 0.3s ease-in-out;
 }
 body .mainContainer header nav ul a {
@@ -291,6 +290,7 @@ body .mainContainer header nav ul a:hover {
   transition: all 0.1s ease;
 }
 body .mainContainer header .searchDropDown {
+  display: none;
   position: absolute;
   top: 75px;
   right: 12%;
