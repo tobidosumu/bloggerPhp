@@ -88,7 +88,20 @@ else
                                     </div>
                                 </div>
                                 <div class="postInfo">
-                                    <p>2 sec ago</p>
+                                    <p>
+                                        <?php 
+                                            $post = new PostValidator();
+                                            $created_at = '2023-01-27 18:26:08';
+                                            $time = strtotime($created_at);
+
+                                            $post = new PostValidator();
+                                            $created_at = $postData['created_at'];
+                                            $time = strtotime($created_at);
+                                            $timeAgo = $post->setTimeAgo($time);
+                                            $timeAgo = $post->getTimeAgo();
+                                            echo $timeAgo;
+                                        ?>
+                                    </p>
 
                                     <!-- modal for moreInfo  -->
                                     <i class="bi bi-three-dots-vertical" data-bs-toggle="modal" data-bs-target="#moreInfoModal"></i>

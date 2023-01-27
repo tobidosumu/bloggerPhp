@@ -124,13 +124,22 @@
                                 <!-- blog post card starts here -->
                                 <div class="postPhoto rounded-top">
 
-                                    <div class="upperInfo d-flex align-items-center justify-content-center pe-2">
-                                        <h5 class="postTime mt-1">2 sec ago</h5>
+                                    <div class="upperInfo d-flex justify-content-between px-2">
+                                        <h5 class="postTime">
+                                            <?php 
+                                                $post = new PostValidator();
+                                                $created_at = $postData['created_at'];
+                                                $time = strtotime($created_at);
+                                                $post->setTimeAgo($time);
+                                                $timeAgo = $post->getTimeAgo();
+                                                echo $timeAgo;
+                                            ?>
+                                        </h5>
                                         <div class="moreInfo ms-3"><i class="bi bi-three-dots-vertical"></i></div> 
                                     </div>
                                     <div class="rightSideInfo d-flex flex-column align-items-end pt-2 pe-2 mb-5">
                                         <div class="iconDiv mb-2"><i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i></div>    
-                                        <div class="iconDiv"><i class="bi bi-chat-square"></i></div>    
+                                        <!-- <div class="iconDiv"><i class="bi bi-chat-square"></i></div>     -->
                                     </div>
                                     
                                     <a href="./postDetails.php?id=<?=$postData['id']?>">

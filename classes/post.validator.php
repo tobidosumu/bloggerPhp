@@ -9,6 +9,10 @@
         private $specialChars = ['#', '@', '%', '$', '&', '(', ')']; 
         private $errors = [];
 
+        private $diff;
+        private $time;
+        private $now;
+
         // image properties
         private $fileName;
         private $fileSize;
@@ -40,12 +44,42 @@
         ###################################################################################################
         // setter and getter methods start here
 
-        public function setTimeAgo($timeAgo)
+        public function setTimeAgo($time)
         {
-            $str = '2013-08-21 20:26:12';
-            echo date('d M ', strtotime($str));
-            $this->timeAgo = $timeAgo;
+            $now = time();
+            $diff = $now - $time;
+
+            if($diff < 0) 
+            {
+                $this->timeAgo = "1 sec ago";
+            } 
+            else if ($diff < 60) 
+            {
+                $this->timeAgo = abs($diff) . ' secs ago';
+            } 
+            else if ($diff === 3600) 
+            {
+                $this->timeAgo = abs(floor($diff / 60)) . ' min ago';
+            } 
+            else if ($diff < 3600) 
+            {
+                $this->timeAgo = abs(floor($diff / 60)) . ' mins ago';
+            } 
+            else if ($diff === 86400) 
+            {
+                $this->timeAgo = abs(floor($diff / 3600)) . ' hour ago';
+            } 
+            else if ($diff < 86400) 
+            {
+                $this->timeAgo = abs(floor($diff / 3600)) . ' hours ago';
+            } 
+            else 
+            {
+                $this->timeAgo = date("F j, Y", $time);
+            }
         }
+                  
+     
 
         public function getTimeAgo()
         {
@@ -171,7 +205,7 @@
         private function addError($key, $val)
         {
             $this->errors[$key] = $val;
-        }
-
+        }       
+        
     }
 ?>
