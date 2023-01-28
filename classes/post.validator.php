@@ -57,7 +57,7 @@
             {
                 $this->timeAgo = abs($diff) . ' secs ago';
             } 
-            else if ($diff === 3600) 
+            else if ($diff == 3600) 
             {
                 $this->timeAgo = abs(floor($diff / 60)) . ' min ago';
             } 
@@ -65,7 +65,7 @@
             {
                 $this->timeAgo = abs(floor($diff / 60)) . ' mins ago';
             } 
-            else if ($diff === 86400) 
+            else if ($diff == 86400) 
             {
                 $this->timeAgo = abs(floor($diff / 3600)) . ' hour ago';
             } 

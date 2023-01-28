@@ -45,12 +45,6 @@
 
         $user = new UserDbQuery();
         $userData = $user->fetchOne();
-        // var_dump($userData);
-
-        // if ($userData) 
-        // {
-        // }
-
 
         if (isset($_POST['logOutUser'])) 
         {
@@ -90,9 +84,19 @@
 
                     <?php else: ?>
 
-                    <div class="dashboardView">
-                        <tertiaryFont class="mb-3">View All Your Posts <i class="bi bi-send"></i></tertiaryFont>
-                        <p>Hello <?php echo $userData ?> </p>
+                    <div class="dashboardView d-flex justify-content-center align-items-center"> <!--- Signed in Dashboard -->
+                        <div class="userProfile d-flex flex-column align-items-center">
+                            <div class="userProfileAvatar d-flex justify-content-between align-items-center">
+                                <img src="./assets/images/moji.png" alt="user avatar">
+                                <p class="likeCount p-1 px-2"><i class="bi bi-heart-fill"></i> 1.4M</p>
+                            </div>
+                            <p class="mt-2">Mojisola Badmus</p>
+                            <div class="userProfileInfo d-flex justify-content-between">
+                                <p>Followers 214</p>
+                                <i class="bi bi-dot"></i>
+                                <p>Email: moji@gmail.com</p>
+                            </div>
+                        </div>
                     </div>
 
                 <?php endif; ?> 
