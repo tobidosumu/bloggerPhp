@@ -79,136 +79,91 @@ body .mainContainer header nav ul li a {
   font-size: 0.9rem;
   font-weight: 500;
 }
-body .mainContainer header nav ul .home a {
-  padding-top: 23px;
-  padding-bottom: 23px;
-}
-body .mainContainer header nav ul .posts a {
-  padding-top: 23px;
-  padding-bottom: 23px;
-  border-bottom: 2px solid #121d2a;
-}
-body .mainContainer header nav ul .notLoggedIn a {
-  width: 66px;
-  padding: 4px 0 4px 5px;
-  margin-left: 10px;
-}
-body .mainContainer header nav ul .notLoggedIn a .userIconPlaceholder {
-  font-size: 36px;
-  margin-left: 17px;
-  margin-top: -2px;
-}
-body .mainContainer header nav ul .notLoggedIn a i {
-  position: relative;
-  top: 2px;
-  right: 10px;
-  color: #9d9d9d;
-  font-size: 0.7rem;
+body .mainContainer header nav ul .home a span {
+  position: absolute;
+  margin-left: -10px;
+  font-size: 0.8rem;
   font-weight: 500;
+  border-radius: 50%;
+  padding: 2px 8px;
+  border: 2px solid #ffffff;
+  background-color: #f4f4f5;
 }
-body .mainContainer header nav ul .notLoggedIn a:hover {
-  border: none;
+body .mainContainer header nav ul .home a i {
+  font-size: 1.5rem;
 }
-body .mainContainer header nav ul .notLoggedIn:hover {
+body .mainContainer header nav ul .cart a {
+  padding-top: 23px;
+  padding-bottom: 21px;
+}
+body .mainContainer header nav ul .cart a span {
+  position: absolute;
+  margin-left: -10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 50%;
+  padding: 2px 8px;
+  border: 2px solid #ffffff;
+  background-color: #f4f4f5;
+}
+body .mainContainer header nav ul .cart a i {
+  font-size: 1.5rem;
+}
+body .mainContainer header nav ul .profile .profileLinkWrapper {
+  padding: 4px;
+  padding-right: 0;
   border-radius: 50px;
   background-color: rgb(215, 252, 246);
 }
-body .mainContainer header nav ul .notLoggedIn:hover i {
-  color: #121d2a;
-}
-body .mainContainer header nav ul .notLoggedIn .profileDropdown {
-  display: none;
-  position: absolute;
-  top: 70px;
-  right: 21%;
-  width: 10%;
-  padding-left: 0;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  background-color: #ffffff;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.089);
-  transition: all 1s ease;
-}
-body .mainContainer header nav ul .notLoggedIn .profileDropdown ul a {
-  width: 100%;
-  display: flex;
-  margin: 7px 0;
-  margin-bottom: 0;
-  padding: 7px 20px 0 20px;
-  color: #121d2a;
-  font-size: 0.9rem;
-  border-left: 2px solid #ffffff;
-}
-body .mainContainer header nav ul .notLoggedIn .profileDropdown ul a i {
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: #121d2a;
-}
-body .mainContainer header nav ul .notLoggedIn .profileDropdown ul a:hover {
-  font-size: 0.9rem;
-  font-weight: 500;
-  border-left: 2px solid #121d2a;
-}
-body .mainContainer header nav ul .notLoggedIn .profileDropdown ul .signup {
-  background-color: #00e87c;
-  border: none !important;
-  padding: 8px 20px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-body .mainContainer header nav ul .notLoggedIn .profileDropdown ul .signup:hover {
-  color: #ffffff;
-  background-color: #00835c;
-}
-body .mainContainer header nav ul .notLoggedIn .profileDropdown ul .signup:hover i {
-  color: #ffffff;
-}
-body .mainContainer header nav ul .profile a {
-  width: 66px;
-  padding: 4px;
-  margin-left: 10px;
-}
-body .mainContainer header nav ul .profile a i {
-  position: relative;
-  top: 2px;
-  right: 10px;
+body .mainContainer header nav ul .profile .profileLinkWrapper i {
   color: #9d9d9d;
+  margin-left: -12px;
+  border: 2px solid #ffffff;
   font-size: 0.7rem;
   font-weight: 500;
+  padding: 4px 6.5px;
+  border-radius: 50%;
+  background-color: #ffffff;
 }
-body .mainContainer header nav ul .profile a img {
+body .mainContainer header nav ul .profile .profileLinkWrapper i:hover {
+  color: #121d2a;
+  background-color: rgba(235, 37, 63, 0.2666666667);
+}
+body .mainContainer header nav ul .profile .profileLinkWrapper a img {
   width: 40px;
   height: 40px;
   object-fit: cover;
   border-radius: 50px;
   border: 1px solid #ffffff;
 }
-body .mainContainer header nav ul .profile a:hover {
+body .mainContainer header nav ul .profile .profileLinkWrapper a:hover {
   border: none;
+}
+body .mainContainer header nav ul .profile .profileLinkWrapper:hover {
+  border-radius: 50px;
+  background-color: rgb(215, 252, 246);
+}
+body .mainContainer header nav ul .profile .profileLinkWrapper:hover .caretIcon {
+  background-color: #ffffff;
 }
 body .mainContainer header nav ul .profile form button {
   width: 100%;
   margin-top: 10px;
 }
 body .mainContainer header nav ul .profile form button i {
-  position: relative;
-  top: 2px;
-  left: -20px;
   color: #121d2a;
   font-size: 0.9rem;
 }
 body .mainContainer header nav ul .profile form button span {
-  position: relative;
-  left: -10px;
   font-size: 0.8rem;
   font-weight: 500;
 }
-body .mainContainer header nav ul .profile:hover {
-  border-radius: 50px;
-  background-color: rgb(215, 252, 246);
-}
-body .mainContainer header nav ul .profile:hover i {
+body .mainContainer header nav ul .profile:hover .caretIcon {
   color: #121d2a;
+  background-color: rgba(235, 37, 63, 0.2666666667);
+}
+body .mainContainer header nav ul .profile:hover .caretIcon:hover {
+  background-color: rgba(235, 37, 63, 0.2666666667);
 }
 body .mainContainer header nav ul .profile .profileDropdown {
   display: none;
@@ -225,30 +180,27 @@ body .mainContainer header nav ul .profile .profileDropdown {
 }
 body .mainContainer header nav ul .profile .profileDropdown ul a {
   width: 100%;
+  color: #121d2a;
   display: flex;
   margin: 7px 0;
   margin-bottom: 0;
-  padding: 7px 20px 0 20px;
-  color: #121d2a;
   font-size: 0.9rem;
+  padding: 7px 20px 0 20px;
   border-left: 2px solid #ffffff;
 }
 body .mainContainer header nav ul .profile .profileDropdown ul a i {
+  color: #121d2a;
   font-size: 1.05rem;
   font-weight: 400;
-  color: #121d2a;
-}
-body .mainContainer header nav ul .profile .profileDropdown ul a:hover {
-  font-size: 0.9rem;
-  font-weight: 500;
-  border-left: 2px solid #121d2a;
 }
 body .mainContainer header nav ul .profile .profileDropdown ul .logout {
-  background-color: rgba(235, 37, 63, 0.2666666667);
-  border: none !important;
+  font-size: 0.8rem;
+  font-weight: 500;
   padding: 8px 20px;
+  border: none !important;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  background-color: rgba(235, 37, 63, 0.2666666667);
 }
 body .mainContainer header nav ul .profile .profileDropdown ul .logout:hover {
   color: #ffffff;
@@ -256,6 +208,92 @@ body .mainContainer header nav ul .profile .profileDropdown ul .logout:hover {
 }
 body .mainContainer header nav ul .profile .profileDropdown ul .logout:hover i {
   color: #ffffff;
+}
+body .mainContainer header nav ul .profile:hover .caretIcon {
+  color: #121d2a !important;
+  background-color: rgb(215, 252, 246) !important;
+}
+body .mainContainer header nav ul .profile .notLoggedIn {
+  border-radius: 50px;
+  padding: 3px !important;
+  background-color: rgb(215, 252, 246);
+}
+body .mainContainer header nav ul .profile .notLoggedIn .caretIcon {
+  position: relative;
+  top: -8px;
+  left: -14px;
+  margin-left: 2px;
+  border-radius: 50px;
+  color: #9d9d9d;
+  padding: 4px 6.5px !important;
+  font-size: 0.7rem;
+  font-weight: 500;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+}
+body .mainContainer header nav ul .profile .notLoggedIn .caretIcon:hover {
+  color: #121d2a;
+}
+body .mainContainer header nav ul .profile .notLoggedIn a {
+  padding: 4px 3px !important;
+  color: #9d9d9d;
+}
+body .mainContainer header nav ul .profile .notLoggedIn a .userIcon {
+  position: relative;
+  top: 2px;
+  font-size: 2.3rem;
+}
+body .mainContainer header nav ul .profile .notLoggedIn a:hover {
+  border: 0 !important;
+}
+body .mainContainer header nav ul .profile .notLoggedIn:hover {
+  background-color: rgb(215, 252, 246);
+}
+body .mainContainer header nav ul .profile .notLoggedIn:hover .userIcon {
+  color: #121d2a;
+}
+body .mainContainer header nav ul .profile .notLoggedIn .userIcon {
+  color: #121d2a;
+}
+body .mainContainer header nav ul .profile .notLoggedInProfileDropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 21%;
+  width: 10%;
+  padding-left: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.089);
+  transition: all 1s ease;
+}
+body .mainContainer header nav ul .profile .notLoggedInProfileDropdown ul li {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom: 1px solid #ced4da;
+}
+body .mainContainer header nav ul .profile .notLoggedInProfileDropdown ul li a {
+  width: 100%;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 10px;
+}
+body .mainContainer header nav ul .profile .notLoggedInProfileDropdown ul li a i {
+  font-size: 1.05rem;
+  font-weight: 400;
+}
+body .mainContainer header nav ul .profile .notLoggedInProfileDropdown ul li:hover {
+  color: #121d2a;
+  background-color: rgb(242, 254, 255);
+  border-bottom: 1px solid #121d2a;
+}
+body .mainContainer header nav ul .profile .notLoggedInProfileDropdown ul li:first-child {
+  border-radius: 0 !important;
+}
+body .mainContainer header nav ul .profile .notLoggedInProfileDropdown ul li:first-child span {
+  margin-right: 14px;
 }
 body .mainContainer header nav ul .search i {
   color: #ffffff;

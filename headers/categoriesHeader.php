@@ -16,22 +16,38 @@
     <div class="logoContainer"><a href="index.php"><img src="assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
     <nav class="headerMenuContainer">
         <ul class="d-flex justify-content-between align-items-center wrap">
-            <li class="home"><a href="./index.php">Home</a></li>
-            <li class="categories"><a href="./categories.php">Categories</a></li>
-            <li onclick="revealDropdown()" class="profile d-flex justify-content-between align-items-center">
-                <a href="#">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <img src="assets/images/moji.png" alt="user account">
-                </a>
+        <li class="home"><a href="./index.php"><i class="bi bi-house"></i></a></li>
+            <li class="cart"><a href="./cart.php"><i class="bi bi-bag"></i><span>3</span></a></li>
+            <li class="profile d-flex justify-content-between align-items-center">
+                <div class="profileLinkWrapper" class="d-flex justify-content-between align-items-center">
+                    <i class="bi bi-caret-down-fill caretIcon" onclick="revealProfileDropdown()"></i>
+                    <a href="./posts.php">
+                        <img src="assets/images/moji.png" alt="user account">
+                    </a>
+                </div>
 
-                <div class="profileDropdown">
+                <div id="profileDropdown" class="profileDropdown">
                     <ul class="d-flex flex-column">
-                        <a href="#"><i class="bi bi-person"></i>Profile</a>
-                        <a href="#" class="logout"><i class="bi bi-power"></i>Log out</a>
+                        <form action="" method="post">
+                            <button type="submit" name="logOutUser" class="logout d-flex justify-content-even align-items-center">
+                                <i class="bi bi-power"></i><span class="ps-2">Log out</span>
+                            </button>
+                        </form>
                     </ul>
                 </div>
             </li>
-            <li class="search d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
+            <li class="search d-flex justify-content-center">
+                <button type="submit" class="border-0">
+                    <i class="bi bi-search searchIcon" onclick="toggleSearchDropdown()"></i>
+                </button>
+            </li>
         </ul>
+    </nav>
+    <div class="searchDropDown border rounded-bottom-2">
+        <form action="" method="get" class="d-flex">
+            <input type="search" name="search" placeholder="...search for posts and bloggers">
+            <button><i class="bi bi-search"></i></button>
+        </form>
+    </div>
     </nav>
 </header>

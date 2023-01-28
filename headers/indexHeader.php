@@ -16,22 +16,24 @@
     <div class="logoContainer"><a href="index.php"><img src="assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
     <nav class="headerMenuContainer">
         <ul class="d-flex justify-content-between align-items-center wrap">
-            <li class="home"><a href="./index.php">Home</a></li>
-            <li class="inbox"><a href="./posts.php">Posts</a></li> 
+            <li class="home"><a href="./index.php"><i class="bi bi-house"></i></a></li>
+            <li class="cart"><a href="./cart.php"><i class="bi bi-bag"></i><span>3</span></a></li> 
 
             <!-- To be displayed using JS when a user login -->
             <li class="profile d-flex justify-content-between align-items-center">
-                <a href="#" onclick="revealProfileDropdown()">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <img src="assets/images/moji.png" alt="user account">
-                </a>
+                <div class="profileLinkWrapper" class="d-flex justify-content-between align-items-center">
+                    <i class="bi bi-caret-down-fill caretIcon" onclick="revealProfileDropdown()"></i>
+                    <a href="./posts.php">
+                        <img src="assets/images/moji.png" alt="user account">
+                    </a>
+                </div>
 
-                <div class="profileDropdown">
+                <div id="profileDropdown" class="profileDropdown">
                     <ul class="d-flex flex-column">
-                        <a href="#"><i class="bi bi-heart"></i>Likes</a>
-                        <a href="#"><i class="bi bi-person"></i>Profile</a>
                         <form action="" method="post">
-                            <button type="submit" name="logOutUser" class="logout"><i class="bi bi-power"></i><span>Log out</span></button>
+                            <button type="submit" name="logOutUser" class="logout d-flex justify-content-even align-items-center">
+                                <i class="bi bi-power"></i><span class="ps-2">Log out</span>
+                            </button>
                         </form>
                     </ul>
                 </div>

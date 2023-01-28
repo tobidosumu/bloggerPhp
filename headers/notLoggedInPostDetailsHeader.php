@@ -16,24 +16,25 @@
     <div class="logoContainer"><a href="index.php"><img src="assets/svg/bloggerLogoBlack.svg" alt="blogger logo"></a></div>
     <nav class="headerMenuContainer">
         <ul class="d-flex justify-content-between align-items-center wrap">
-            <li class="home"><a href="./index.php">Home</a></li>
-            <li class="posts"><a href="./posts.php">Posts</a></li>
+        <li class="home"><a href="./index.php"><i class="bi bi-house"></i></a></li>
+            <li class="cart"><a href="./posts.php"><i class="bi bi-bag"></i><span>0</span></a></li>
             
             <!-- Displayed when a user is not logged in -->
-            <li onclick="revealDropdown()" class="notLoggedIn profile d-flex justify-content-between align-items-center">
-                <a href="#" class="d-flex justify-content-between align-items-center">
-                    <i class="bi bi-caret-down-fill"></i>
-                    <i class="userIconPlaceholder bi bi-person-circle"></i>
-                </a>
+            <li class="profile d-flex justify-content-between align-items-center">
+                <div class="notLoggedIn">
+                    <i class="bi bi-caret-down-fill caretIcon" onclick="revealProfileDropdown()"></i>
+                    <a href="./posts.php">
+                        <i class="userIcon bi bi-person-circle"></i>
+                    </a>
+                </div>
 
-                <div class="profileDropdown">
+                <div id="profileDropdown" class="notLoggedInProfileDropdown">
                     <ul class="d-flex flex-column">
-                        <!-- <a href="#"><i class="bi bi-heart"></i>Likes</a>
-                        <a href="#"><i class="bi bi-person"></i>Profile</a> -->
-                        <a href="./signup.php" class="signup"><i class="bi bi-box-arrow-right"></i>Sign up</a>
+                        <li><a href="./login.php" class="text-start d-flex justify-content-between align-items-center"><i class="bi bi-box-arrow-right"></i><span>Login</span></a></li>
+                        <li><a href="./signup.php" class="d-flex justify-content-between align-items-center"><i class="bi bi-door-open"></i>Sign up</a></li>
                     </ul>
                 </div>
-            </li>   
+            </li>
 
             <li class="search d-flex justify-content-center"><button type="submit" class="border-0"><i class="bi bi-search searchIcon"></i></button></li>
         </ul>

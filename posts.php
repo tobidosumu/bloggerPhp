@@ -88,7 +88,7 @@
                         <div class="userProfile d-flex flex-column align-items-center">
                             <div class="userProfileAvatar d-flex justify-content-between align-items-center">
                                 <img src="./assets/images/moji.png" alt="user avatar">
-                                <p class="likeCount p-1 px-2"><i class="bi bi-heart-fill"></i> 1.4M</p>
+                                <p class="likeCount p-1 pt-2 px-2"><i class="bi bi-heart-fill"></i> 1.4M</p>
                             </div>
                             <p class="mt-2">Mojisola Badmus</p>
                             <div class="userProfileInfo d-flex justify-content-between">

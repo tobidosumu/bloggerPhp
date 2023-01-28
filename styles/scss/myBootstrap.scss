@@ -67,6 +67,10 @@ $lightBlack: #000000b7;
   font-weight: 600;
 }
 
+@mixin mainNavIcon {
+  font-size: 1.5rem;
+}
+
 @mixin accentColorBtn {
   background-color: $accentHoverColor;
   &:hover {
@@ -205,87 +209,46 @@ $lightBlack: #000000b7;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.281);
 }
 
+// user account profile li for not loggedIn users
 @mixin notLoggedInAvatar {
-  a {
-    // user account profile li for not loggedIn users
-    .userIconPlaceholder {
-      font-size: 36px;
-      margin-left: 17px;
-      margin-top: -2px;
-    }
-    width: 66px;
-    padding: 4px 0 4px 5px;
-    margin-left: 10px;
+  border-radius: 50px;
+  padding: 3px !important;
+  // border: 1px solid red;
 
-    i {
-      // caret dropdown icon
-      position: relative;
-      top: 2px;
-      right: 10px;
-      color: $veryLightGrey;
-      @include veryLittleFont;
-    }
+  .caretIcon {
+    position: relative;
+    top: -8px;
+    left: -14px;
+    margin-left: 2px;
+    border-radius: 50px;
+    color: $veryLightGrey;
+    padding: 4px 6.5px !important;
+    @include veryLittleFont;
+    background-color: $white;
+    border: 2px solid $white;
 
     &:hover {
-      border: none;
-    }
-  }
-  &:hover {
-    // user account li hover
-    border-radius: 50px;
-    background-color: $veryLightGreenColor;
-    i {
       color: $black;
     }
   }
+  a {
+    padding: 4px 3px !important;
+    color: $veryLightGrey;
 
-  .profileDropdown {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 21%;
-    width: 10%;
-    padding-left: 0;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    background-color: $white;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.089);
-    transition: all 1s ease;
-    ul {
-      a {
-        width: 100%;
-        display: flex;
-        margin: 7px 0;
-        margin-bottom: 0;
-        padding: 7px 20px 0 20px;
-        color: $black;
-        @include primaryFont;
-        border-left: 2px solid $white;
-        // background-color: red;
-        i {
-          @include semiPrimaryFont;
-          color: $black;
-        }
-        &:hover {
-          @include primaryFont;
-          font-weight: 500;
-          border-left: 2px solid $black;
-        }
-      }
-      .signup {
-        background-color: $primaryColor;
-        border: none !important;
-        padding: 8px 20px;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        &:hover {
-          color: $white;
-          background-color: $green;
-          i {
-            color: $white;
-          }
-        }
-      }
+    .userIcon {
+      position: relative;
+      top: 2px;
+      font-size: 2.3rem;
+      
+    }
+    &:hover {
+      border: 0 !important;
+    }
+  }
+  &:hover {
+    background-color: $veryLightGreenColor;
+    .userIcon {
+      color: $black;
     }
   }
 }
