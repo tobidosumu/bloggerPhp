@@ -51,7 +51,7 @@ const autoResizeTextarea = () => {
 // Header nav profile dropdown
 const revealProfileDropdown = () => {
   // Get the dropdown element
-  let dropdown = document.querySelector(".profileDropdown");
+  let dropdown = document.querySelector("#profileDropdown");
 
   // Toggle the "display" style of the dropdown element
   if (dropdown.style.display === "block") {
@@ -63,7 +63,7 @@ const revealProfileDropdown = () => {
   // Add a click event listener to the document to hide dropdown when any element on the page is clicked
   document.addEventListener("click", function (event) {
     // Get the dropdown element
-    let dropdown = document.querySelector(".profileDropdown");
+    let dropdown = document.querySelector("#profileDropdown");
   
     // Check if the target of the click event is not the dropdown or a descendant of the dropdown
     if (!event.target.closest(".profile")) {
