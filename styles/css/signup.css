@@ -98,7 +98,7 @@ body section #rightAside .header a {
   background-color: #00e87c;
 }
 body section #rightAside .header a:hover {
-  background-color: #6025eb;
+  background-color: #c70021;
 }
 body section #rightAside .formWrapper .formContents h2 {
   font-size: 2rem;
@@ -139,7 +139,7 @@ body section #rightAside .formWrapper .formContents form .createAcctBtn input {
   background-color: #00e87c;
 }
 body section #rightAside .formWrapper .formContents form .createAcctBtn input:hover {
-  background-color: #6025eb;
+  background-color: #c70021;
 }
 
 /*# sourceMappingURL=signup.css.map */

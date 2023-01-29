@@ -701,15 +701,15 @@ body .modal-dialog .modalContent form .modal-body label {
   color: #9d9d9d;
 }
 body .modal-dialog .modalContent form .modal-body .addCatBtn {
-  color: #6025eb;
-  border-color: #6025eb;
+  color: #c70021;
+  border-color: #c70021;
 }
 body .modal-dialog .modalContent form .modal-body .addCatBtn:hover {
   color: #ffffff;
-  background-color: #6025eb;
+  background-color: #c70021;
 }
 body .modal-dialog .modalContent form .modal-body .input-group span i {
-  color: #6025eb;
+  color: #c70021;
 }
 body .modal-dialog .modalContent form .modal-body .input-group input {
   color: rgba(0, 0, 0, 0.7176470588) !important;
@@ -735,7 +735,7 @@ body .modal-dialog .modalContent form .modal-footer .sendPostBtn {
   border: none;
 }
 body .modal-dialog .modalContent form .modal-footer .sendPostBtn:hover {
-  background-color: #6025eb;
+  background-color: #c70021;
 }
 body .postBtn {
   position: fixed;
@@ -751,7 +751,7 @@ body .postBtn {
   z-index: 2;
 }
 body .postBtn:hover {
-  background-color: #6025eb;
+  background-color: #c70021;
 }
 body .createPostTooltip {
   position: fixed;
