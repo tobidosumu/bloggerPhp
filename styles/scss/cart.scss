@@ -329,11 +329,28 @@ body {
         .cartContents { // Cart contents container start here
             @include widthPadding;
             width: 100%;
-            // padding-top: 6%;
             padding-top: 30px;
 
 
             .cartContentsContainer {
+
+                .notLoggedIndashboardView {
+                    min-height: 80vh;
+                    text-align: center;
+                    background-color: $white;
+                    // border: 1px solid red;
+
+                    div {
+                        .actionBtn { 
+                            @include actionBtn;
+                        }
+                    }
+
+                    p {
+                        @include semiTinyFont;
+                        color: $lightBlack;
+                    }
+                }
 
                 .loggedInCartContents {
                     min-height: 80vh;

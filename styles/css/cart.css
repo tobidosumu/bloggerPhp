@@ -367,6 +367,29 @@ body .mainContainer .cartContents {
   width: 100%;
   padding-top: 30px;
 }
+body .mainContainer .cartContents .cartContentsContainer .notLoggedIndashboardView {
+  min-height: 80vh;
+  text-align: center;
+  background-color: #ffffff;
+}
+body .mainContainer .cartContents .cartContentsContainer .notLoggedIndashboardView div .actionBtn {
+  width: 14%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 25px;
+  color: #ffffff;
+  background-color: #121d2a;
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+body .mainContainer .cartContents .cartContentsContainer .notLoggedIndashboardView div .actionBtn:hover {
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.7176470588);
+}
+body .mainContainer .cartContents .cartContentsContainer .notLoggedIndashboardView p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7176470588);
+}
 body .mainContainer .cartContents .cartContentsContainer .loggedInCartContents {
   min-height: 80vh;
 }

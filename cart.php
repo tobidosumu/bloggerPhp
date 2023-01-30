@@ -45,12 +45,12 @@
 
                 <?php if ($userLoggedInViewContents):?> <!--  Do not display post contents to a user who is not logged in -->
                     
-                    <div class="notLoggedIndashboardView mb-3 d-flex justify-content-around flex-column">
-                        <div class="d-flex justify-content-around">
-                            <a href="./login.php" class="actionBtn rounded-1">Cart</a> 
-                            <!-- <i class="bi bi-send"></i> -->
+                    <div class="notLoggedIndashboardView border d-flex flex-column justify-content-center">
+                        <div class="d-flex justify-content-evenly">
+                            <a href="./signup.php" class="actionBtn rounded-1">Sign up</a> 
+                            <a href="./login.php" class="actionBtn rounded-1">Login</a> 
                         </div>
-                        <p class="m-auto mt-3">Sign up or Login to see all your posts and posts you've liked.</p>
+                        <p class="mt-5">Sign up or Login to see all your cart items.</p>
                     </div>
     
                     <?php else: ?>
