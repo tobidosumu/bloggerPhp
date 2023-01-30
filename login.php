@@ -21,7 +21,6 @@
             // User is logged in
             $_SESSION['logged_in'] = true;
             $_SESSION['user_details'] = $user_details;
-            // $_SESSION['role'] = true;
     
             header('Location: ./index.php');
             exit;

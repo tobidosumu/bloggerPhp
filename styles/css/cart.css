@@ -527,7 +527,7 @@ body .mainContainer .cartContents .cartContentsContainer .loggedInCartContents a
   transition: 0.4s ease;
 }
 body .mainContainer .cartContents .cartContentsContainer .loggedInCartContents aside .promoCode button:hover {
-  background-color: #c70021;
+  background-color: #6025eb;
 }
 body .mainContainer .cartContents .cartContentsContainer .loggedInCartContents aside .orderFooter .totalCost {
   color: rgba(0, 0, 0, 0.7176470588);

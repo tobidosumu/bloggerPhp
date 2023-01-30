@@ -458,7 +458,7 @@ body .modal-dialog .modalContent {
   width: 600px;
 }
 body .modal-dialog .modalContent form .modal-body .input-group span i {
-  color: #c70021;
+  color: #6025eb;
 }
 body .modal-dialog .modalContent form .modal-body .input-group input {
   color: rgba(0, 0, 0, 0.7176470588) !important;
@@ -492,7 +492,7 @@ body .modal-dialog .modalContent form .modal-body .input-group .custom-select {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%239D9D9D' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select-selected {
-  background-color: #c70021;
+  background-color: #6025eb;
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select-selected:after {
   position: absolute;
@@ -534,7 +534,7 @@ body .modal-dialog .modalContent form .modal-body .input-group .custom-select .s
   background-color: #f4f4f5;
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items div.same-as-selected, body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items-selected.same-as-selected {
-  color: #c70021;
+  color: #6025eb;
   background-color: #f4f4f5;
 }
 body .modal-dialog .modalContent form .modal-body .input-group .custom-select .select-items.select-hide {
@@ -555,7 +555,7 @@ body .modal-dialog .modalContent form .modal-footer .sendPostBtn {
   border: none;
 }
 body .modal-dialog .modalContent form .modal-footer .sendPostBtn:hover {
-  background-color: #c70021;
+  background-color: #6025eb;
 }
 body .postBtn {
   position: fixed;
@@ -570,7 +570,7 @@ body .postBtn {
   background-color: #eb253f;
 }
 body .postBtn:hover {
-  background-color: #c70021;
+  background-color: #6025eb;
 }
 
 /*# sourceMappingURL=categories.css.map */

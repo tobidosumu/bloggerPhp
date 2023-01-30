@@ -2,14 +2,14 @@
 
     class PostQueryDb extends DbConnect
     {
-        private $id;
+        private $post_id;
         private $title;
         private $category;
         private $description;
 
-        public function setId($id)
+        public function setId($post_id)
         {
-            $this->id = $id;
+            $this->post_id = $post_id;
         }
 
         public function setTitle($title)
@@ -41,7 +41,7 @@
             move_uploaded_file($fileTmpName, $imageDestination);
 
             try {
-                $stmt = $this->connect()->prepare("INSERT INTO blog_post(title, category, description, photo)
+                $stmt = $this->connect()->prepare("INSERT INTO posts(title, category, description, photo)
                 VALUES(?, ?, ?, ?)");
                 $stmt->execute([$this->title, $this->category, $this->description, $imageDestination]);
                 return "successful";
@@ -52,12 +52,12 @@
             }
         }
 
-        public function fetchOne($id) // Fetch one set of post data i.e. one blog title, category, description, photo
+        public function fetchOne($post_id) // Fetch one set of post data i.e. one blog title, category, description, photo
         {
             try 
             {
-                $stmt = $this->connect()->prepare("SELECT * FROM blog_post WHERE id=? LIMIT 1");
-                $stmt->execute([$id]);
+                $stmt = $this->connect()->prepare("SELECT * FROM posts WHERE post_id=? LIMIT 1");
+                $stmt->execute([$post_id]);
                 return $stmt->fetch();
             } 
             catch (Exception $e) 
@@ -70,7 +70,7 @@
         {
             try 
             {
-                $stmt = $this->connect()->prepare("SELECT * FROM blog_post ORDER BY id DESC");
+                $stmt = $this->connect()->prepare("SELECT * FROM posts ORDER BY post_id DESC");
                 $stmt->execute();
                 return $stmt->fetchAll();
             } 
@@ -80,12 +80,12 @@
             }
         }
 
-        public function deletePost($id)
+        public function deletePost($post_id)
         {
             try 
             {
-                $stmt = $this->connect()->prepare("DELETE FROM blog_post WHERE id = ?");
-                $stmt->execute([$id]);
+                $stmt = $this->connect()->prepare("DELETE FROM posts WHERE post_id = ?");
+                $stmt->execute([$post_id]);
 
                 return "successful";
             }

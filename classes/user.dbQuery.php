@@ -3,7 +3,7 @@
 
     class UserDbQuery extends DbConnect
     {
-        private $userId;
+        private $user_id;
         private $firstName;
         private $lastName;
         private $email;
@@ -11,9 +11,9 @@
 
         ###################################################################################################
         // setter and getter methods start here
-        public function setId($userId)
+        public function setId($user_id)
         {
-            $this->userId = $userId;
+            $this->user_id = $user_id;
         }
 
         public function setFirstName($firstName)
@@ -49,7 +49,7 @@
         {
             try 
             {
-                $stmt = $this->connect()->prepare("INSERT INTO user(firstName, lastName, email, password)
+                $stmt = $this->connect()->prepare("INSERT INTO users(firstName, lastName, email, password)
                 VALUES(?, ?, ?, ?)");
                 $hashedPassword = password_hash($this->password, PASSWORD_DEFAULT);
                 $stmt->execute([$this->firstName, $this->lastName, $this->email, $hashedPassword]);
@@ -61,13 +61,13 @@
             }
         }
 
-        public function fetchOne() // Fetch one set of user data i.e. id, firstName, lastName, email, password
+        public function fetchOne() // Fetch one set of user data i.e. user_id, firstName, lastName, email, password
         {
             try 
             {
                 // Prepare and execute the SQL statement to fetch the user data
-                $stmt = $this->connect()->prepare("SELECT * FROM user WHERE userId = ?");
-                $stmt->execute([$this->userId]);
+                $stmt = $this->connect()->prepare("SELECT * FROM users WHERE user_id = ?");
+                $stmt->execute([$this->user_id]);
                 return $stmt->fetch();
             } 
             catch (Exception $e) 
@@ -76,12 +76,12 @@
             }
         }
 
-        public function getUserFirstName($id) // Fetch a user's firstName
+        public function getUserFirstName($user_id) // Fetch a user's firstName
         {
             try 
             {
-                $stmt = $this->connect()->prepare("SELECT firstName FROM user WHERE id=?");
-                $stmt->execute([$id]);
+                $stmt = $this->connect()->prepare("SELECT firstName FROM users WHERE user_id=?");
+                $stmt->execute([$user_id]);
                 $user = $stmt->fetch();
                 return $user['firstName'];
             } 

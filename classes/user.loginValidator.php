@@ -41,7 +41,7 @@
   
     private function emailExists() {
       $emailExists = false;
-      $stmt = $this->connect()->prepare("SELECT COUNT(*) AS count FROM `user` WHERE email=?");
+      $stmt = $this->connect()->prepare("SELECT COUNT(*) AS count FROM `users` WHERE email=?");
       $stmt->execute(array($this->email));
       $row = $stmt->fetch(PDO::FETCH_ASSOC);
       if ($row["count"] > 0) {
@@ -55,7 +55,7 @@
       if (empty($password)) {
         $this->addError('password', 'Password cannot be empty.');
       } else {
-        $stmt = $this->connect()->prepare("SELECT * FROM `user` WHERE email=?");
+        $stmt = $this->connect()->prepare("SELECT * FROM `users` WHERE email=?");
         $stmt->execute(array($this->email));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if (is_array($row)) {

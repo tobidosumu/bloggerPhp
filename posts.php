@@ -144,8 +144,8 @@
                                         <!-- <div class="iconDiv"><i class="bi bi-chat-square"></i></div>     -->
                                     </div>
                                     
-                                    <a href="./postDetails.php?id=<?=$postData['id']?>">
-                                        <img class="img-fluid rounded-top" src="<?=$postData['photo']?>"> <!-- fetches photo from blog_post table -->
+                                    <a href="./postDetails.php?id=<?=$postData['post_id']?>">
+                                        <img class="img-fluid rounded-top" src="<?=$postData['photo']?>"> <!-- fetches photo from posts table -->
                                     </a>
 
                                 </div>

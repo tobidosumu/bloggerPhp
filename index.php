@@ -116,8 +116,8 @@ else
 
                                                         if (isset($_POST['deletePost'])) {
                                                             $postAction = new PostQueryDb();
-                                                            var_dump($postData['id']);
-                                                            $deletePost = $postAction->deletePost($postData['id']);
+                                                            var_dump($postData['post_id']);
+                                                            $deletePost = $postAction->deletePost($postData['post_id']);
                                                         }
 
                                                     ?>
@@ -125,7 +125,7 @@ else
                                                     <form action="" method="post">
                                                         <button type="submit" name="deletePost"><li class="nthChild rounded-top">Delete post</li></button>
                                                         <a href="#"><li class="nthChild">Edit post</li></a>
-                                                        <a href="./postDetails.php?id=<?= $postData['id'] ?>"><li>Go to post</li></a>
+                                                        <a href="./postDetails.php?id=<?= $postData['post_id'] ?>"><li>Go to post</li></a>
                                                         <a href="#"><li>Add to favorites</li></a>
                                                         <a href="#"><li>Share to</li></a>
                                                         <a href="#"><li>Copy link</li></a>
@@ -140,7 +140,7 @@ else
                             </div>
 
                             <div class="postPhoto">
-                                <a href="./postDetails.php?id=<?= $postData['id'] ?>">
+                                <a href="./postDetails.php?id=<?= $postData['post_id'] ?>">
                                     <img class="img-fluid" src="<?= $postData['photo'] ?>"> <!-- fetches photo from blog_post table -->
                                 </a>
                                 <div class="postCategory d-flex justify-content-end">

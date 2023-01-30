@@ -168,7 +168,7 @@
 
         public function checkEmailExist() // checks if user exists via user's email
         {
-            $stmt = $this->connect()->prepare("SELECT COUNT(*) AS count FROM `user` WHERE email=?");
+            $stmt = $this->connect()->prepare("SELECT COUNT(*) AS count FROM `users` WHERE email=?");
             $stmt->execute(array($this->email));
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $emailCount = $row["count"];
