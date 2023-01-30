@@ -8,6 +8,7 @@
 
     require './classes/dbConnect.php'; // DbConnect
     require './classes/user.dbQuery.php'; // UserDbQuer 
+    require './classes/userSession.validator.php'; // UserSession validator
 
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) 
     {
@@ -85,9 +86,9 @@
 
                                       <td class="productQuantity text-center">
                                         <div class="d-flex justify-content-around align-items-center">            
-                                            <button onclick="decrement()">-</button>         
+                                            <button>-</button>         
                                             <h2 id="counting">1</h2>
-                                            <button onclick="increment()">+</button>  
+                                            <button>+</button>  
                                         </div>
                                       </td>
                                       <td class="productPrice text-center">₦ 29,978</td>
