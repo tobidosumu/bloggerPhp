@@ -73,13 +73,11 @@
 
                 <?php if ($userLoggedInViewContents):?> <!--  Do not display post contents to a user who is not logged in -->
                         
-                    <div class="notLoggedIndashboardView mb-3 d-flex justify-content-around flex-column">
-                        <div class="d-flex justify-content-around">
+                    <div class="notLoggedIndashboardView">
+                        <div class="d-flex justify-content-evenly">
                             <a href="./signup.php" class="actionBtn rounded-1">Sign up</a> 
                             <a href="./login.php" class="actionBtn rounded-1">Login</a> 
-                            <!-- <i class="bi bi-send"></i> -->
                         </div>
-                        <p class="m-auto mt-3">Sign up or Login to see all your posts and posts you've liked.</p>
                     </div>
 
                     <?php else: ?>
