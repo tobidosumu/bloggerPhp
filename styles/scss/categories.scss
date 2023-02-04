@@ -383,10 +383,10 @@ body {
                     tr {
                         td {
                            a {
-                            padding: 4px 8px;
                             border-radius: 50px;
                             background-color: $transparentWhite;
                             &:first-child {
+                                padding: 4px 5.8px;
                                 color: $green;
                                 &:hover {
                                     color: $white;
@@ -394,6 +394,7 @@ body {
                                 }
                             }
                             &:nth-child(2) {
+                                padding: 4px 8px;
                                 color: $accentHoverColor;
                                 &:hover {
                                     color: $white;

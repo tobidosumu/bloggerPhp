@@ -410,11 +410,11 @@ body .mainContainer .categoriesWrapper table tbody {
   width: 100%;
 }
 body .mainContainer .categoriesWrapper table tbody tr td a {
-  padding: 4px 8px;
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.678);
 }
 body .mainContainer .categoriesWrapper table tbody tr td a:first-child {
+  padding: 4px 5.8px;
   color: #00835c;
 }
 body .mainContainer .categoriesWrapper table tbody tr td a:first-child:hover {
@@ -422,6 +422,7 @@ body .mainContainer .categoriesWrapper table tbody tr td a:first-child:hover {
   background-color: #00e87c;
 }
 body .mainContainer .categoriesWrapper table tbody tr td a:nth-child(2) {
+  padding: 4px 8px;
   color: #eb253f;
 }
 body .mainContainer .categoriesWrapper table tbody tr td a:nth-child(2):hover {

@@ -3,6 +3,7 @@ require './classes/dbConnect.php'; // DbConnect
 require './classes/category.validator.php'; // CategoryValidator
 
 $categoryNameAdded = false;
+$categoryNameUpdated = false;
 
 if (isset($_POST['createCategoryBtn'])) // Checks if category form is submitted
 {
@@ -40,6 +41,8 @@ if (isset($_POST['updateCategoryBtn']))
     if (!$errors) 
     {
         $categoryRow->updateCategory();
+
+        $categoryNameUpdated = true;
     }
 }
 
@@ -70,7 +73,16 @@ if (isset($_POST['updateCategoryBtn']))
                 <form action="" method="post" class="m-auto mb-5 p-3 border rounded-3">
 
                     <div class="modal-body px-4 my-2">
-                        <label for="title">Update Category Name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['categoryName'] ?? '' ?></span></label> <!-- Blog title starts here -->
+                        <label for="title">Update Category Name<b class="text-danger"> * </b>
+                            <span class="text-danger"><?= $errors['categoryName'] ?? '' ?></span>
+
+                            <?php if ($categoryNameUpdated):?>
+
+                                <span class="text-success">Category name updated successfully!</span>
+
+                            <?php endif ?>
+                        </label>
+
                         <div class="input-group mt-2 mb-4">
                             <span class="input-group-text" id="addon-wrapping">
                                 <i class="bi bi-card-heading"></i>
