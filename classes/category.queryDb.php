@@ -80,12 +80,12 @@
             }
         }        
 
-        public function deleteCategory($id) // Delete category from DB
+        public function deleteCategory() // Delete category from DB
         {
             try 
             {
                 $stmt = $this->connect()->prepare("DELETE FROM categories WHERE id = ?");
-                $stmt->execute([$id]);
+                $stmt->execute([$this->id]);
 
                 return "successful";
             } 

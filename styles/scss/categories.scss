@@ -352,13 +352,29 @@ body {
 
         .categoriesWrapper { // (section) blog contents container start here
             width: 100%;
-            // height: 100vh;
             @include widthPadding;
             margin: 70px 0;
             // border: 1px solid red;
 
+            .displaySuccessMessage {
+                position: fixed;
+                top: 100px;
+                right: 0%;
+                left: 0;
+                width: 30%;
+                z-index: 10;
+                color: $black;
+                display: flex;
+                justify-content: space-between;
+                background-color: $lightGreenColor;
+
+                button {
+                    @include primaryFont;
+                }
+            }
+
             form {
-                width: 70%;
+                width: 60%;
             }
 
             table {

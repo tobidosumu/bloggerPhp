@@ -2,6 +2,8 @@
 require './classes/dbConnect.php'; // DbConnect
 require './classes/category.validator.php'; // CategoryValidator
 
+$categoryNameAdded = false;
+
 if (isset($_POST['createCategoryBtn'])) // Checks if category form is submitted
 {
     $checkCategoryName = new CategoryValidator();
@@ -13,15 +15,16 @@ if (isset($_POST['createCategoryBtn'])) // Checks if category form is submitted
         $validCategoryName = new CategoryQueryDb();
         $validCategoryName->setCategoryName($_POST['categoryName']);
         $validCategoryName->createCategory();
+
+        $categoryNameAdded = true;
     }
 }
 
 // if (isset($_GET['deleteId']))
 // {
-//     $deleteAlert = false;
-//     $id = $_GET['deleteId'];
-//     $result = new CategoryQueryDb();
-//     $result->deleteCategory($id);
+//     $categoryRow = new CategoryQueryDb();
+//     $categoryRow->setCategoryId($_GET['deleteId']);
+//     $categoryRow->deleteCategory();
 // }
 
 if (isset($_POST['updateCategoryBtn'])) 
@@ -50,12 +53,24 @@ if (isset($_POST['updateCategoryBtn']))
 
         <section class="categoriesWrapper">
 
+            <?php if ($categoryNameAdded): ?>
+
+                <div id="hideSuccessMessage" class="displaySuccessMessage p-4 text-center m-auto border rounded-3">
+                    
+                    <p>Category name saved successfully!</p>
+
+                    <button type="button" class="btn-close" onclick="hideSuccessMessage()"></button>
+
+                </div>
+
+            <?php endif ?>    
+
             <?php if (!empty($_GET['id'])): ?>
                 
                 <form action="" method="post" class="m-auto mb-5 p-3 border rounded-3">
 
                     <div class="modal-body px-4 my-2">
-                        <label for="title">Update Category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['categoryName'] ?? '' ?></span></label> <!-- Blog title starts here -->
+                        <label for="title">Update Category Name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['categoryName'] ?? '' ?></span></label> <!-- Blog title starts here -->
                         <div class="input-group mt-2 mb-4">
                             <span class="input-group-text" id="addon-wrapping">
                                 <i class="bi bi-card-heading"></i>
@@ -73,7 +88,7 @@ if (isset($_POST['updateCategoryBtn']))
                     </div> <!-- modal body ends here -->
 
                     <div class="modal-footer">
-                        <button type="submit" name="updateCategoryBtn" class="sendPostBtn btn btn-primary me-2">Update Category <i class="bi bi-pencil-square"></i></button>
+                        <button type="submit" name="updateCategoryBtn" class="sendPostBtn btn btn-primary me-4">Update <i class="bi bi-pencil-square"></i></button>
                     </div>
 
                 </form> <!-- form ends here -->
@@ -102,7 +117,7 @@ if (isset($_POST['updateCategoryBtn']))
                             <td><?= $category['categoryName'] ?></td>
                             <td><?= $category['dateCreated'] ?></td>
                             <td>
-                                <!-- This button triggers the UPDATE/EDIT modal -->
+                                <!-- This button opens the UPDATE/EDIT form when clicked -->
                                 <a href="categories.php?id=<?= $category['id']; ?>" class="me-3">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
@@ -197,8 +212,6 @@ if (isset($_POST['updateCategoryBtn']))
                         </div> <!-- modal body ends here -->
 
                         <div class="modal-footer">
-                            <!-- modal footer -->
-                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                             <button type="submit" name="createCategoryBtn" class="sendPostBtn btn btn-primary me-2">Save <i class="bi bi-plus-circle"></i></button>
                         </div>
 
@@ -208,44 +221,6 @@ if (isset($_POST['updateCategoryBtn']))
 
             </div>
         </div>
-
-        <!-- UPDATE/EDIT Modal -->
-        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-
-            <div class="modal-dialog">
-
-                <div class="modal-content modalContent">
-
-                    <form action="" method="post">
-
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="updateModalLabel">Update Category</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-
-                        <div class="modal-body px-4 my-2">
-                            <label for="title">Category name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['categoryName'] ?? '' ?></span></label> <!-- Blog title starts here -->
-                            <div class="input-group mt-2 mb-4">
-                                <span class="input-group-text" id="addon-wrapping">
-                                    <i class="bi bi-card-heading"></i>
-                                </span>
-                                <input type="text" class="form-control py-2" name="categoryName" placeholder="Update category name" value="<?= $category['categoryName'] ?>">
-                            </div>
-                        </div> <!-- modal body ends here -->
-
-                        <div class="modal-footer">
-                            <button type="submit" name="updateCategoryBtn" class="sendPostBtn btn btn-primary me-2">Update Category <i class="bi bi-pencil-square"></i></button>
-                        </div>
-
-                    </form> <!-- form ends here -->
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
 
     </div>
 

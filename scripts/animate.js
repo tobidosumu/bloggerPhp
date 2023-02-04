@@ -102,5 +102,7 @@ const toggleSearchDropdown = () => {
   }
 }
 
-
+hideSuccessMessage = () => {
+  document.getElementById("hideSuccessMessage").style.display = "none";
+}
 

@@ -22,7 +22,6 @@
         {
             $selectDefaultVal = "Select a category";
             $val = filter_var($this->categoryName);
-            // $val = $this->category;
 
             if ($selectDefaultVal === $val)
             {
@@ -30,33 +29,33 @@
             }
             if ($val === false || $val === null || empty($val))
             {
-                $this->addError('categoryName', 'Please enter a category.');
+                $this->addError('categoryName', 'Please enter a category name.');
             }
             elseif (strlen($val) < 2)
             {
-                $this->addError('categoryName', 'Category must be at least 2 chars long.');
+                $this->addError('categoryName', 'Category name must be at least 2 chars long.');
             }
             elseif (str_word_count($val) > 1)
             {
-                $this->addError('categoryName', 'Category cannot be more than one word.');
+                $this->addError('categoryName', 'Category name cannot be more than one word.');
             }
             elseif (is_numeric($val))
             {
-                $this->addError('categoryName', 'Category cannot be numbers only.');
+                $this->addError('categoryName', 'Category name cannot be numbers only.');
             }
             elseif (preg_match('([!@#$%^&*(),.?":{}|<>])', $val))
             {
-                $this->addError('categoryName', 'Category cannot be solely special chars.');
+                $this->addError('categoryName', 'Category name cannot be solely special chars.');
             }
 
             // Check if the categoryName input matches a category in the database
             $categories = $this->fetchAllCategoryNames();
+            
             foreach ($categories as $category) 
             {
                 if (strcasecmp($val, $category['categoryName']) === 0) 
                 {
-                    $this->addError('categoryName', 'Category already exists.');
-                    break;
+                    $this->addError('categoryName', 'Category name already exists.');
                 }
             }
         }

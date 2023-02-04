@@ -388,8 +388,23 @@ body .mainContainer .categoriesWrapper {
   padding: 0 12%;
   margin: 70px 0;
 }
+body .mainContainer .categoriesWrapper .displaySuccessMessage {
+  position: fixed;
+  top: 100px;
+  right: 0%;
+  left: 0;
+  width: 30%;
+  z-index: 10;
+  color: #121d2a;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(242, 254, 255);
+}
+body .mainContainer .categoriesWrapper .displaySuccessMessage button {
+  font-size: 0.9rem;
+}
 body .mainContainer .categoriesWrapper form {
-  width: 70%;
+  width: 60%;
 }
 body .mainContainer .categoriesWrapper table tbody {
   width: 100%;
