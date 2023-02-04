@@ -352,10 +352,14 @@ body {
 
         .categoriesWrapper { // (section) blog contents container start here
             width: 100%;
-            height: 100vh;
+            // height: 100vh;
             @include widthPadding;
-            padding-top: 70px;
+            margin: 70px 0;
             // border: 1px solid red;
+
+            form {
+                width: 70%;
+            }
 
             table {
                 tbody {

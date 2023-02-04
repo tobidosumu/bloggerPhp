@@ -2,32 +2,42 @@
 require './classes/dbConnect.php'; // DbConnect
 require './classes/category.validator.php'; // CategoryValidator
 
-if (isset($_POST['saveAddCategory'])) // Checks if addCategory form is submitted
+if (isset($_POST['createCategoryBtn'])) // Checks if category form is submitted
 {
-    $validateAddCategoryData = new CategoryValidator();
-    $validateAddCategoryData->setAddCategory($_POST['addCategory']);
-    $errors = $validateAddCategoryData->validateCategory();
+    $checkCategoryName = new CategoryValidator();
+    $checkCategoryName->setCategoryName($_POST['categoryName']);
+    $errors = $checkCategoryName->validatedCategory();
 
     if (!$errors)
     {
-        $insertNewCategory = new CategoryQueryDb();
-        $insertNewCategory->setAddCategory($_POST['addCategory']);
-        $newCategory = $insertNewCategory->saveNewCategory();
+        $validCategoryName = new CategoryQueryDb();
+        $validCategoryName->setCategoryName($_POST['categoryName']);
+        $validCategoryName->createCategory();
     }
 }
 
-if (isset($_GET['deleteId']))
-{
-    $deleteAlert = false;
-    $id = $_GET['deleteId'];
-    $result = new CategoryQueryDb();
-    $result->deleteCategory($id);
-}
+// if (isset($_GET['deleteId']))
+// {
+//     $deleteAlert = false;
+//     $id = $_GET['deleteId'];
+//     $result = new CategoryQueryDb();
+//     $result->deleteCategory($id);
+// }
 
-if (isset($_POST['saveEditedCategory'])) {
-    $id = $_GET['id'];
-    $results = new CategoryQueryDb();
-    $result = $results->editCategory($id);
+if (isset($_POST['updateCategoryBtn'])) 
+{
+    $categoryRow = new CategoryQueryDb();
+    $categoryRow->setCategoryId($_GET['id']);
+    $categoryRow->setCategoryName($_POST['categoryName']);
+
+    $validateNewCategoryName = new CategoryValidator();
+    $validateNewCategoryName->setCategoryName($_POST['categoryName']);
+    $errors = $validateNewCategoryName->validatedCategory();
+
+    if (!$errors) 
+    {
+        $categoryRow->updateCategory();
+    }
 }
 
 ?>
@@ -35,14 +45,43 @@ if (isset($_POST['saveEditedCategory'])) {
 <body>
 
     <div class="mainContainer">
-        <!-- contains all the page contents -->
 
         <?php include './headers/categoriesHeader.php' ?>
-        <!-- header goes here -->
 
-        <section class="categoriesWrapper ">
+        <section class="categoriesWrapper">
+
+            <?php if (!empty($_GET['id'])): ?>
+                
+                <form action="" method="post" class="m-auto mb-5 p-3 border rounded-3">
+
+                    <div class="modal-body px-4 my-2">
+                        <label for="title">Update Category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['categoryName'] ?? '' ?></span></label> <!-- Blog title starts here -->
+                        <div class="input-group mt-2 mb-4">
+                            <span class="input-group-text" id="addon-wrapping">
+                                <i class="bi bi-card-heading"></i>
+                            </span>
+
+                            <?php 
+                                $categoryRow = new CategoryQueryDb();
+                                $categoryRow->setCategoryId($_GET['id']);
+                                $category = $categoryRow->fetchOneCategory();
+                            ?>
+
+                            <input type="text" class="form-control py-2" name="categoryName" placeholder="New category name" value="<?= $category['categoryName'] ?>">
+                        
+                        </div>
+                    </div> <!-- modal body ends here -->
+
+                    <div class="modal-footer">
+                        <button type="submit" name="updateCategoryBtn" class="sendPostBtn btn btn-primary me-2">Update Category <i class="bi bi-pencil-square"></i></button>
+                    </div>
+
+                </form> <!-- form ends here -->
+
+            <?php endif ?>
 
             <table class="table table-striped table-hover">
+
                 <thead>
                     <tr>
                         <th scope="col">SN</th>
@@ -51,71 +90,38 @@ if (isset($_POST['saveEditedCategory'])) {
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
+
                 <tbody>
 
                     <?php 
                         $result = new CategoryQueryDb();
-                        $categories = $result->fetchAllCategories();
+                        $categories = $result->fetchAllCategoryNames();
                         foreach ($categories as $key => $category):?>
                         <tr>
                             <th scope="row"><?= $key + 1 ?></th>
-                            <td><?= $category['addCategory'] ?></td>
+                            <td><?= $category['categoryName'] ?></td>
                             <td><?= $category['dateCreated'] ?></td>
                             <td>
-                                <a href="javascript:void(0)" class="me-3" data-bs-toggle="modal" data-bs-target="#updateModal<?= $category['id'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                <a href="categories.php?deleteId=<?= $category['id'] ?>"><i class="bi bi-trash"></a></i>
+                                <!-- This button triggers the UPDATE/EDIT modal -->
+                                <a href="categories.php?id=<?= $category['id']; ?>" class="me-3">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
+
+                                <!-- This button deletes a category row -->
+                                <a href="categories.php?deleteId=<?= $category['id'] ?>">
+                                    <i class="bi bi-trash"></i>
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach ?>
 
                 </tbody>
+
             </table>
-            <?php
-                if (isset($_GET['id'])) {
-                $id = $_GET['id'];
-                $results = new CategoryQueryDb();
-                $result = $results->fetchOneCategory($id);
-                $editCategory = $result['addCategory'];
-            ?>
-            <!-- Update Category modal container starts here ###################################################################-->
-            <div class="modal fade" id="updateCategoryModal" tabindex="-1" aria-labelledby="updateCategoryModal" aria-hidden="true">
-
-                <div class="modal-dialog">
-                    <div class="modal-content modalContent"> 
-
-                        <!-- form starts here -->
-                        <form id="savePostData" action="" method="post">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="updateCategoryModal">Update Category</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body px-4 my-2">
-                                <!-- modal body starts here -->
-                                <label for="title">New category name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['addCategory'] ?? '' ?></span></label>
-                                <div class="input-group mt-2 mb-4">
-                                    <span class="input-group-text" id="addon-wrapping">
-                                        <i class="bi bi-card-heading"></i>
-                                    </span>
-                                    <input type="text" class="form-control py-2" name="addCategory" value="<?= $editCategory['addCategory'] ?>" placeholder="Enter new category name">
-                                </div>
-                            </div>
-                            <!-- modal footer -->
-                            <div class="modal-footer">
-                                <button type="submit" name="saveEditedCategory" class="sendPostBtn btn btn-primary me-2">Update <i class="bi bi-pencil-square"></i></button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-
-            </div>
-            
-            <?php  } ?>
-            
+                
         </section>
 
         <footer class="d-flex justify-content-between align-items-center ">
-            <!-- footer -->
 
             <div class="contactUs">
                 <ul class="d-flex flex-column">
@@ -160,14 +166,13 @@ if (isset($_POST['saveEditedCategory'])) {
 
         </footer>
 
-        <!-- Add  Category modal container starts here ###################################################################-->
-        <!-- Button trigger modal -->
-        <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <!-- This button triggers the CREATE modal -->
+        <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#createModal">
             <i class="bi bi-plus-circle"></i>
         </button>
 
-        <!-- Create Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- CREATE Modal -->
+        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
 
             <div class="modal-dialog">
                 <div class="modal-content modalContent">
@@ -176,25 +181,25 @@ if (isset($_POST['saveEditedCategory'])) {
                         <!-- form starts here -->
 
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Create Category</h5>
+                            <h5 class="modal-title" id="createModalLabel">Create Category</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
                         <div class="modal-body px-4 my-2">
                             <!-- modal body starts here -->
-                            <label for="title">Category name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['addCategory'] ?? '' ?></span></label> <!-- Blog title starts here -->
+                            <label for="title">Category name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['categoryName'] ?? '' ?></span></label> <!-- Blog title starts here -->
                             <div class="input-group mt-2 mb-4">
                                 <span class="input-group-text" id="addon-wrapping">
                                     <i class="bi bi-card-heading"></i>
                                 </span>
-                                <input type="text" class="form-control py-2" name="addCategory" placeholder="Enter category name">
+                                <input type="text" class="form-control py-2" name="categoryName" placeholder="Enter category name">
                             </div>
                         </div> <!-- modal body ends here -->
 
                         <div class="modal-footer">
                             <!-- modal footer -->
                             <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                            <button type="submit" name="saveAddCategory" class="sendPostBtn btn btn-primary me-2">Save <i class="bi bi-plus-circle"></i></button>
+                            <button type="submit" name="createCategoryBtn" class="sendPostBtn btn btn-primary me-2">Save <i class="bi bi-plus-circle"></i></button>
                         </div>
 
                     </form> <!-- form ends here -->
@@ -204,45 +209,32 @@ if (isset($_POST['saveEditedCategory'])) {
             </div>
         </div>
 
-        <!-- Add  Category modal container ends here ###################################################################-->
-
-
-        <!-- Update Category modal container starts here ###################################################################-->
-        <!-- Button trigger modal -->
-
-        <!-- Update Modal -->
-        <?php
-        $result = new CategoryQueryDb();
-        $categories = $result->fetchAllCategories();
-        foreach ($categories as $key => $category):?>
-        <div class="modal fade" id="updateModal<?= $category['id'] ?>" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <!-- UPDATE/EDIT Modal -->
+        <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
 
             <div class="modal-dialog">
+
                 <div class="modal-content modalContent">
 
-                    <form id="savePostData" action="" method="post">
-                        <!-- form starts here -->
+                    <form action="" method="post">
 
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Update Category</h5>
+                            <h5 class="modal-title" id="updateModalLabel">Update Category</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
 
                         <div class="modal-body px-4 my-2">
-                            <!-- modal body starts here -->
-                            <label for="title">Category name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['addCategory'] ?? '' ?></span></label> <!-- Blog title starts here -->
+                            <label for="title">Category name<b class="text-danger"> * </b><span class="text-danger"><?= $errors['categoryName'] ?? '' ?></span></label> <!-- Blog title starts here -->
                             <div class="input-group mt-2 mb-4">
                                 <span class="input-group-text" id="addon-wrapping">
                                     <i class="bi bi-card-heading"></i>
                                 </span>
-                                <input type="text" class="form-control py-2" name="addCategory" placeholder="Enter category name" value="<?= $category['addCategory'] ?>">
+                                <input type="text" class="form-control py-2" name="categoryName" placeholder="Update category name" value="<?= $category['categoryName'] ?>">
                             </div>
                         </div> <!-- modal body ends here -->
 
                         <div class="modal-footer">
-                            <!-- modal footer -->
-                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                            <button type="submit" name="saveAddCategory" class="sendPostBtn btn btn-primary me-2">Save <i class="bi bi-plus-circle"></i></button>
+                            <button type="submit" name="updateCategoryBtn" class="sendPostBtn btn btn-primary me-2">Update Category <i class="bi bi-pencil-square"></i></button>
                         </div>
 
                     </form> <!-- form ends here -->
@@ -250,12 +242,9 @@ if (isset($_POST['saveEditedCategory'])) {
                 </div>
 
             </div>
+
         </div>
 
-        <?php
-        endforeach;
-        ?>
-        <!-- Edit  Category modal container ends here ###################################################################-->
     </div>
 
     </div>

@@ -4,59 +4,58 @@
 
     class CategoryValidator extends CategoryQueryDb
     {
-        private $addCategory;
+        private $categoryName;
         private $errors = [];
 
-        public function setAddCategory($addCategory)
+        public function setCategoryName($categoryName)
         {
-            $this->addCategory = $addCategory;
+            $this->categoryName = $categoryName;
         }
 
-        public function validateCategory()
+        public function validatedCategory()
         {
-            $this->validateAddCategory();
+            $this->validateCategoryName();
             return $this->errors;
         }
 
-        private function validateAddCategory()
+        private function validateCategoryName()
         {
             $selectDefaultVal = "Select a category";
-            $val = filter_var($this->addCategory);
+            $val = filter_var($this->categoryName);
             // $val = $this->category;
 
             if ($selectDefaultVal === $val)
             {
                 $this->addError('category', 'Please select a category.');
             }
-
             if ($val === false || $val === null || empty($val))
             {
-                $this->addError('addCategory', 'Please enter a category.');
+                $this->addError('categoryName', 'Please enter a category.');
             }
             elseif (strlen($val) < 2)
             {
-                $this->addError('addCategory', 'Category must be at least 2 chars long.');
+                $this->addError('categoryName', 'Category must be at least 2 chars long.');
             }
             elseif (str_word_count($val) > 1)
             {
-                $this->addError('addCategory', 'Category cannot be more than one word.');
+                $this->addError('categoryName', 'Category cannot be more than one word.');
             }
             elseif (is_numeric($val))
             {
-                $this->addError('addCategory', 'Category cannot be numbers only.');
+                $this->addError('categoryName', 'Category cannot be numbers only.');
             }
             elseif (preg_match('([!@#$%^&*(),.?":{}|<>])', $val))
             {
-                $this->addError('addCategory', 'Category cannot be solely special chars.');
+                $this->addError('categoryName', 'Category cannot be solely special chars.');
             }
 
-             // Check if the addCategory input matches a category in the database
-            $categories = $this->fetchAllCategories();
+            // Check if the categoryName input matches a category in the database
+            $categories = $this->fetchAllCategoryNames();
             foreach ($categories as $category) 
             {
-                if (strcasecmp($val, $category['addCategory']) === 0) 
+                if (strcasecmp($val, $category['categoryName']) === 0) 
                 {
-                    $this->addError('addCategory', 'Category already exists.');
+                    $this->addError('categoryName', 'Category already exists.');
                     break;
                 }
             }

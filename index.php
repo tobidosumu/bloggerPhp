@@ -9,6 +9,7 @@ require './classes/post.queryDb.php'; // PostDbConnector
 require './classes/post.validator.php'; // PostValidator
 require './classes/category.validator.php'; // CategoryValidator
 require './classes/userSession.validator.php'; // UserSession 
+require './classes/user.dbQuery.php'; // UserDbQuery
 
 if (isset($_POST['savePostData'])) 
 {
@@ -37,12 +38,7 @@ if (isset($_POST['savePostData']))
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) 
 {
     // User is logged in
-    $userLoggedIn = true;
-
-    // if (isset($_POST['deletePost'])) {
-    //     $postAction = new PostQueryDb();
-    //     $deletePost = $postAction->deletePost();
-    // }    
+    $userLoggedIn = true;   
     
     if (isset($_POST['logOutUser'])) 
     {
@@ -84,7 +80,17 @@ else
                                 <div class="userAvater">
                                     <img src="assets/images/moji.png" alt="">
                                     <div class="avaterDetails ms-3">
-                                        <p>Mojisola Badmus</p>
+                                        <?php
+                                            $savedUserFirstName = new UserDbQuery();
+                                            // $allUserFirstNames = $savedUserFirstName->getAllFirstNames();
+                                            $allUserFirstNames = $savedUserFirstName->getFullNames();
+
+                                            foreach ($allUserFirstNames as $userFirstName) {
+                                        ?>
+
+                                        <p><?= $userFirstName ?></p>
+
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="postInfo">
@@ -201,7 +207,6 @@ else
                                     <!-- Display the description -->
                                     <div id="text-container"><?php echo $descriptionToShow; ?></div>
 
-                                    <!-- Add the read more link -->
                                     <form method="post">
                                         <button type="submit" name="readMore" value="<?= $readMoreText; ?>"><?= $readMoreText; ?></button>
                                     </form>
@@ -224,6 +229,7 @@ else
                                     <button id="postBtnWrapper" type="submit">Post</button>
                                 </div>
                             </div>
+
                         </div>
                     <?php
                     }
@@ -251,7 +257,6 @@ else
         </section>
 
         <footer class="d-flex justify-content-between py-5">
-            <!-- footer -->
 
             <div class="contactUs">
                 <ul class="d-flex flex-column">
@@ -296,9 +301,8 @@ else
 
         </footer>
         
-        <!-- blog post modal container starts here ###################################################################-->
-        <!-- Button trigger modal -->
-        <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <!-- This button triggers create POST modal -->
+        <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#postModal">
             <img src="assets/svg/feather.svg" alt="Click to post">
         </button>
         
@@ -306,14 +310,14 @@ else
             <p>Click to post</p>
         </div>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Create POST Modal -->
+        <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 
             <div class="modal-dialog modal-dialog-centered">
+
                 <div class="modal-content modalContent">
 
                     <form id="savePostData" action="" method="post" enctype="multipart/form-data">
-                        <!-- form starts here -->
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
@@ -321,7 +325,7 @@ else
                         </div>
 
                         <div class="modal-body px-4 my-2">
-                            <!-- modal body starts here -->
+
                             <label for="title">Blog title<b class="text-danger"> * </b><span class="text-danger"><?= $errors['title'] ?? '' ?></span></label> <!-- Blog title starts here -->
                             <div class="input-group mt-2 mb-3">
                                 <span class="input-group-text" id="addon-wrapping">
@@ -334,38 +338,42 @@ else
                                 <label for="title" class="mt-3">Blog category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['category'] ?? '' ?></span></label> <!-- Blog category starts here -->
                                 <span><a href="./categories.php" class="addCatBtn btn btn-sm btn-outline-primary">Add category <i class="bi bi-box-arrow-up-right ms-1"></i></a></span>
                             </div>
+
                             <div class="input-group mt-2 mb-3">
+
                                 <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
                                     <i class="bi bi-list"></i>
                                 </span>
 
                                 <select class="form-select py-2" name="category" id="floatingSelect" aria-label="Floating label select example">
+                                    
                                     <option>Select a category</option>
                                     
                                     <?php
                                     
                                         $result = new CategoryQueryDb();
-                                        $categories = $result->fetchAllCategories();
+                                        $categories = $result->fetchAllCategoryNames();
                                         foreach ($categories as $category) {
                                         
                                         $selected = "";
-                                        if (isset($_POST['category']) && $_POST['category'] == $category['addCategory']) {
+                                        if (isset($_POST['category']) && $_POST['category'] == $category['categoryName']) {
                                             $selected = "selected";
                                         }
                                         
                                         ?>
-                                        <option value="<?= $category['addCategory'] ?>" <?= $selected ?>><?= $category['addCategory'] ?></option> 
+                                        <option value="<?= $category['categoryName'] ?>" <?= $selected ?>><?= $category['categoryName'] ?></option> 
                                         
                                     <?php
                                     }
                                     ?>
+                                    
                                 </select>
 
                             </div>
 
                             <label for="title">Blog description<b class="text-danger"> * </b><span class="text-danger"><?= $errors['description'] ?? '' ?></span></label> <!-- blog description starts here-->
                             <div class="input-group mt-2 mb-3">
-                                <!-- description field input -->
+
                                 <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
                                     <i class="bi bi-pencil-square"></i>
                                 </span>
@@ -383,8 +391,6 @@ else
                         </div> <!-- modal body ends here -->
 
                         <div class="modal-footer">
-                            <!-- modal footer -->
-                            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
                             <button type="submit" name="savePostData" class="sendPostBtn btn btn-primary">Post <i class="bi bi-send"></i></button>
                         </div>
 

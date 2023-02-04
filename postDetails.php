@@ -42,7 +42,7 @@
                         <ul class="d-flex">
                             <li><a href="./posts.php">Posts</a></li>
                             <li class="mx-2"><i class="bi bi-chevron-right"></i></li>
-                            <li><a href="">Post Details</a></li>
+                            <li><a href="/">Post Details</a></li>
                         </ul>
                     </nav>
                     

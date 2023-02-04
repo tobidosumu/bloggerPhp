@@ -76,20 +76,53 @@
             }
         }
 
-        public function getUserFirstName($user_id) // Fetch a user's firstName
+        public function getFullNames()
         {
             try 
             {
-                $stmt = $this->connect()->prepare("SELECT firstName FROM users WHERE user_id=?");
-                $stmt->execute([$user_id]);
-                $user = $stmt->fetch();
-                return $user['firstName'];
+                $stmt = $this->connect()->prepare("SELECT firstName, lastName FROM users");
+                $stmt->execute();
+                $users = $stmt->fetchAll();
+                $firstNames = array_column($users, 'firstName', 'lastName');
+                return $firstNames;
             } 
             catch (Exception $e) 
             {
                 return $e->getMessage();
             }
         }
+
+        public function getAllFirstNames()
+        {
+            try 
+            {
+                $stmt = $this->connect()->prepare("SELECT firstName FROM users");
+                $stmt->execute();
+                $users = $stmt->fetchAll();
+                $firstNames = array_column($users, 'firstName');
+                return $firstNames;
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
+        }        
+
+        public function getAllLastNames()
+        {
+            try 
+            {
+                $stmt = $this->connect()->prepare("SELECT lastName FROM users");
+                $stmt->execute();
+                $users = $stmt->fetchAll();
+                $lastNames = array_column($users, 'lastName');
+                return $lastNames;
+            } 
+            catch (Exception $e) 
+            {
+                return $e->getMessage();
+            }
+        }  
         
         
         
