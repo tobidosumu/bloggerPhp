@@ -20,12 +20,12 @@ if (isset($_POST['createCategoryBtn'])) // Checks if category form is submitted
     }
 }
 
-// if (isset($_GET['deleteId']))
-// {
-//     $categoryRow = new CategoryQueryDb();
-//     $categoryRow->setCategoryId($_GET['deleteId']);
-//     $categoryRow->deleteCategory();
-// }
+if (isset($_GET['deleteId']))
+{
+    $categoryRow = new CategoryQueryDb();
+    $categoryRow->setCategoryId($_GET['deleteId']);
+    $categoryRow->deleteCategory();
+}
 
 if (isset($_POST['updateCategoryBtn'])) 
 {
