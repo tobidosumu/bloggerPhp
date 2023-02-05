@@ -51,7 +51,9 @@
                         if (isset($_GET['id'])):
 
                         $postData = new PostQueryDb();
+                        $postData->setPostId($_GET['id']);
                         $postDetail = $postData->fetchOnePost();
+                        // var_dump($postDetail);
                     ?>
                     
                         <div class="innerContainer"> <!-- photo and title container -->

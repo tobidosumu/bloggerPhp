@@ -57,7 +57,7 @@
             try 
             {
                 $query = "SELECT 
-                            posts.post_id=?, 
+                            posts.post_id, 
                             posts.title, 
                             posts.description, 
                             posts.photo,
@@ -65,8 +65,7 @@
                             categories.categoryName 
                         FROM posts
                         INNER JOIN categories ON posts.category_id=categories.id
-                        ORDER BY posts.created_at DESC
-                        LIMIT 1";
+                        WHERE post_id=?";
 
                 $stmt = $this->connect()->prepare($query);
                 $stmt->execute([$this->post_id]);
