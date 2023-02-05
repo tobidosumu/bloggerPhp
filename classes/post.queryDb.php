@@ -7,7 +7,7 @@
         private $category;
         private $description;
 
-        public function setId($post_id)
+        public function setPostId($post_id)
         {
             $this->post_id = $post_id;
         }
@@ -27,7 +27,7 @@
             $this->description = $description;
         }
 
-        public function savePostData() // Save blog title, category, description, photo
+        public function insertPost() // Save blog title, category, description, photo
         {
             $fileName = $_FILES['photo']['name'];
             $fileTmpName = $_FILES['photo']['tmp_name'];
@@ -66,7 +66,7 @@
             }
         }
 
-        public function fetchAll() // Fetch all post data from DB
+        public function fetchAllPosts() // Fetch all post data from DB
         {
             try 
             {

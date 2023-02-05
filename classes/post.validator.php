@@ -79,8 +79,6 @@
             }
         }
                   
-     
-
         public function getTimeAgo()
         {
             return $this->timeAgo;

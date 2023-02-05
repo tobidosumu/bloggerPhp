@@ -365,12 +365,10 @@ body {
                                 }
 
                                 .avaterDetails {
-                                    p {
-                                        @include tinyFont;
-                                        font-weight: 600;
-                                        text-transform: lowercase;
-                                        color: $black;
-                                    }                                
+                                    @include tinyFont;
+                                    font-weight: 600;
+                                    text-transform: capitalize;
+                                    color: $black;
                                 }
                             }
 
@@ -466,10 +464,10 @@ body {
                             }
                         }
 
-                        .postCategory {
+                        .postIconsContainer {
                             .rightIconsDiv {
                                 position: relative;
-                                bottom: 30px;
+                                bottom: 60px;
                                 margin: -180px 20px 0 0;
                                 // border: 1px solid red;
                                 div {
@@ -522,23 +520,20 @@ body {
                         .postTextWrapper {
                             padding: 10px 15px;
 
-                            .postTitle {
-                                p {
-                                    @include veryLittleFont;
-                                    color: $black;
-                                    font-weight: 500;
-                                    letter-spacing: 1px;
-                                    margin-bottom: 8px;
-                                    text-transform: uppercase;   
-                                }
+                            .postCategory {
+                                @include veryLittleFont;
+                                color: $black;
+                                font-weight: 500;
+                                letter-spacing: 1.5px;
+                                margin-bottom: 8px;
+                                text-transform: uppercase;   
                             }
     
                             .postParagraph {
                                 display: flex;
-                                // flex-direction: column;
                                 @include tinyFont;
                                 padding-bottom: 10px;
-                                color: $lightBlack;
+                                color: $grey;
 
                                 button {
                                     color: $grey;

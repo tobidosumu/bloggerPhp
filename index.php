@@ -11,7 +11,7 @@ require './classes/category.validator.php'; // CategoryValidator
 require './classes/userSession.validator.php'; // UserSession 
 require './classes/user.dbQuery.php'; // UserDbQuery
 
-if (isset($_POST['savePostData'])) 
+if (isset($_POST['insertPostData'])) 
 {
     $validatePostData = new PostValidator();
     $validatePostData->setTitle($_POST['title']);
@@ -20,7 +20,6 @@ if (isset($_POST['savePostData']))
     $validatePostData->setFileName($_FILES['photo']['name']);
     $validatePostData->setFileSize($_FILES['photo']['size']);
     $validatePostData->setFileError($_FILES['photo']['error']);
-
     $errors = $validatePostData->validatePostData();
 
     if (!$errors) 
@@ -30,8 +29,7 @@ if (isset($_POST['savePostData']))
         $insertPostData->setCategory($_POST['category']);
         $insertPostData->setDescription($_POST['description']);
 
-        $storePostData = $insertPostData->savePostData();
-        
+        $insertPostData->insertPost();
     } 
 } 
 
@@ -66,50 +64,45 @@ else
             <section class="d-flex justify-content-between">
 
                 <section class="mainContentContainer">
-                    <!-- blog contents container starts here -->
 
-                    <?php
-                        $retrievePostData = new PostQueryDb();
-                        $allPostData = $retrievePostData->fetchAll();
+                    <?php 
+                    
+                        $postResults = new PostQueryDb();
+                        $posts = $postResults->fetchAllPosts();
 
-                        foreach ($allPostData as $postData) {
-                    ?>
+                        foreach ($posts as $post): ?>
+                    
                         <div class="postCard border rounded-top rounded-2">
-                            <!-- blog post card starts here -->
+
                             <div class="postHeader">
                                 <div class="userAvater">
                                     <img src="assets/images/moji.png" alt="">
-                                    <div class="avaterDetails ms-3">
-                                        <?php
-                                            $savedUserFirstName = new UserDbQuery();
-                                            // $allUserFirstNames = $savedUserFirstName->getAllFirstNames();
-                                            $allUserFirstNames = $savedUserFirstName->getFullNames();
 
-                                            foreach ($allUserFirstNames as $userFirstName) {
-                                        ?>
+                                    <?php 
+                                        $userNamesResult = new UserDbQuery();
+                                        $userNames = $userNamesResult->getFullNames();
 
-                                        <p><?= $userFirstName ?></p>
+                                        foreach ($userNames as $userName): ?>
+                                    
+                                        <p class="avaterDetails ms-3"> <?= $userName['firstName'] . ' '.  $userName['lastName'] ?> </p>
+                                    
+                                    <?php endforeach ?>
 
-                                        <?php } ?>
-                                    </div>
                                 </div>
+                                
                                 <div class="postInfo">
-                                    <p>
-                                        <?php 
-                                            $post = new PostValidator();
-                                            $created_at = '2023-01-27 18:26:08';
-                                            $time = strtotime($created_at);
 
-                                            $post = new PostValidator();
-                                            $created_at = $postData['created_at'];
-                                            $time = strtotime($created_at);
-                                            $timeAgo = $post->setTimeAgo($time);
-                                            $timeAgo = $post->getTimeAgo();
-                                            echo $timeAgo;
-                                        ?>
-                                    </p>
+                                    <?php 
+                                        $rawPostTime = $post['created_at'];
+                                        $postTime = strtotime($rawPostTime);
+                                        $formatPostTime = new PostValidator();
+                                        $formattedPostTime = $formatPostTime->setTimeAgo($postTime);
+                                        $formattedPostTime = $formatPostTime->getTimeAgo();
+                                        // var_dump($formattedPostTime);
+                                    ?>
 
-                                    <!-- modal for moreInfo  -->
+                                    <p><?= $formattedPostTime ?></p>
+
                                     <i class="bi bi-three-dots-vertical" data-bs-toggle="modal" data-bs-target="#moreInfoModal"></i>
                                     
                                     <div class="moreInfoModal modal fade" id="moreInfoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,26 +110,17 @@ else
                                             <div class="modal-content">
 
                                                 <div class="modal-body d-flex flex-column justify-content-center align-items-center text-center">
-                                                   
-                                                    <?php
 
-                                                        if (isset($_POST['deletePost'])) {
-                                                            $postAction = new PostQueryDb();
-                                                            var_dump($postData['post_id']);
-                                                            $deletePost = $postAction->deletePost($postData['post_id']);
-                                                        }
-
-                                                    ?>
-
-                                                    <form action="" method="post">
+                                                    <form action="" method="post"> <!-- post header three dots popup modal -->
                                                         <button type="submit" name="deletePost"><li class="nthChild rounded-top">Delete post</li></button>
                                                         <a href="#"><li class="nthChild">Edit post</li></a>
-                                                        <a href="./postDetails.php?id=<?= $postData['post_id'] ?>"><li>Go to post</li></a>
+                                                        <!-- <a href="./postDetails.php?id="><li>Go to post</li></a> -->
                                                         <a href="#"><li>Add to favorites</li></a>
                                                         <a href="#"><li>Share to</li></a>
                                                         <a href="#"><li>Copy link</li></a>
                                                         <a href="#" data-bs-dismiss="modal"><li class="lastChild rounded-bottom">Cancel</li></a>
                                                     </form>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -146,16 +130,16 @@ else
                             </div>
 
                             <div class="postPhoto">
-                                <a href="./postDetails.php?id=<?= $postData['post_id'] ?>">
-                                    <img class="img-fluid" src="<?= $postData['photo'] ?>"> <!-- fetches photo from blog_post table -->
+                                <a href="./postDetails.php?id=<?= $post['post_id'] ?>">
+                                    <img class="img-fluid" src="<?= $post['photo'] ?>"> <!-- fetches post photo -->
                                 </a>
-                                <div class="postCategory d-flex justify-content-end">
+                                <div class="postIconsContainer d-flex justify-content-end">
                                     <div class="rightIconsDiv d-flex flex-column justify-content-between align-items-center">
                                         <div class="likes">
-                                           
+                                            
                                             <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i>
-
                                             <p>221.9k</p>
+
                                         </div>
                                         <div class="comments">
                                             <i class="bi bi-chat-square"></i>
@@ -170,50 +154,12 @@ else
                             </div>
 
                             <div class="postTextWrapper">
-                                <!-- <p class="likesCount">16,474 likes</p> -->
-                                <div class="postTitle">
-                                    <p><?= $postData['category'] ?></p>
-                                </div>
 
-                                <div class="postParagraph">
+                                <p class="postCategory"> <?= $post['category'] ?> </p>
 
-                                    <?php
-                                        // Get the value of the description
-                                        $description = $postData['description'];
+                                <p class="postParagraph"> <?= $post['title'] ?> </p>
 
-                                        // Truncate the description to the first 60 characters
-                                        $truncatedDescription = substr($description, 0, 60);
-
-                                        // Check if the user has clicked the read more link
-                                        if (isset($_POST['readMore'])) 
-                                        {
-                                            // If the read more link has been clicked, toggle between showing the full description and the truncated version
-                                            if ($_POST['readMore'] === '... more') {
-                                                $descriptionToShow = $description;
-                                                $readMoreText = '... less';
-                                            } else {
-                                                $descriptionToShow = $truncatedDescription;
-                                                $readMoreText = '... more';
-                                            }
-                                        } 
-                                        else 
-                                        {
-                                            // If the read more link has not been clicked, show the truncated description
-                                            $descriptionToShow = $truncatedDescription;
-                                            $readMoreText = '... more</span>';
-                                        }
-                                    ?>
-
-                                    <!-- Display the description -->
-                                    <div id="text-container"><?php echo $descriptionToShow; ?></div>
-
-                                    <form method="post">
-                                        <button type="submit" name="readMore" value="<?= $readMoreText; ?>"><?= $readMoreText; ?></button>
-                                    </form>
-
-                                </div>
-
-                                <p class="commentsCount">View all 142 comments</p>
+                                <!-- <p class="commentsCount">View all 142 comments</p> -->
                             </div>
 
                             <div class="postCommentWrapper d-flex align-items-center align-items-center">
@@ -231,9 +177,9 @@ else
                             </div>
 
                         </div>
-                    <?php
-                    }
-                    ?>
+
+                    <?php endforeach ?>    
+                 
                 </section>
 
                 <aside class="rightSideContentContainer border-start">
@@ -317,7 +263,7 @@ else
 
                 <div class="modal-content modalContent">
 
-                    <form id="savePostData" action="" method="post" enctype="multipart/form-data">
+                    <form action="" method="post" enctype="multipart/form-data">
 
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
@@ -336,7 +282,7 @@ else
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <label for="title" class="mt-3">Blog category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['category'] ?? '' ?></span></label> <!-- Blog category starts here -->
-                                <span><a href="./categories.php" class="addCatBtn btn btn-sm btn-outline-primary">Add category <i class="bi bi-box-arrow-up-right ms-1"></i></a></span>
+                                <span><a href="./categories.php" target="_blank" class="addCatBtn btn btn-sm btn-outline-primary">Add category <i class="bi bi-box-arrow-up-right ms-1"></i></a></span>
                             </div>
 
                             <div class="input-group mt-2 mb-3">
@@ -350,7 +296,6 @@ else
                                     <option>Select a category</option>
                                     
                                     <?php
-                                    
                                         $result = new CategoryQueryDb();
                                         $categories = $result->fetchAllCategoryNames();
                                         foreach ($categories as $category) {
@@ -372,6 +317,7 @@ else
                             </div>
 
                             <label for="title">Blog description<b class="text-danger"> * </b><span class="text-danger"><?= $errors['description'] ?? '' ?></span></label> <!-- blog description starts here-->
+                            
                             <div class="input-group mt-2 mb-3">
 
                                 <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
@@ -391,7 +337,7 @@ else
                         </div> <!-- modal body ends here -->
 
                         <div class="modal-footer">
-                            <button type="submit" name="savePostData" class="sendPostBtn btn btn-primary">Post <i class="bi bi-send"></i></button>
+                            <button type="submit" name="insertPostData" class="sendPostBtn btn btn-primary">Post <i class="bi bi-send"></i></button>
                         </div>
 
                     </form> <!-- form ends here -->

@@ -31,7 +31,7 @@
             $dbQuery->setCategory($_POST['category']);
             $dbQuery->setDescription($_POST['description']);
             
-            $savedPostData = $dbQuery->savePostData();
+            $savedPostData = $dbQuery->insertPost();
 
             
         }
@@ -116,7 +116,7 @@
                         <?php else:
                     
                         $dbQuery = new PostQueryDb();
-                        $allPostData = $dbQuery->fetchAll();
+                        $allPostData = $dbQuery->fetchAllPosts();
 
                         $validatePostData = new PostQueryDb();
 

@@ -82,9 +82,7 @@
             {
                 $stmt = $this->connect()->prepare("SELECT firstName, lastName FROM users");
                 $stmt->execute();
-                $users = $stmt->fetchAll();
-                $firstNames = array_column($users, 'firstName', 'lastName');
-                return $firstNames;
+                return $stmt->fetchAll();
             } 
             catch (Exception $e) 
             {
