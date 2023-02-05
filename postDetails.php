@@ -48,117 +48,114 @@
                     
                     <?php
 
-                        if (isset($_GET['id'])) 
-                        {
-                            $id = $_GET['id'];
+                        if (isset($_GET['id'])):
 
-                            $dbQuery = new PostQueryDb();
-                            $postDetail = $dbQuery->fetchOne($id);
-                            ?>
-                                <div class="innerContainer"> <!-- photo and title container -->
-                                    <div class="postImage"> <!-- image div -->
-                                        <img class="img-fluid w-100" src="<?= $postDetail['photo'] ?>"> <!-- fetches photo from blog_post table -->   
-                                        <p class="px-1"><i class="bi bi-clock"></i> <?php 
-                                            $post = new PostValidator();
-                                            $created_at = $postDetail['created_at'];
-                                            $time = strtotime($created_at);
-                                            $post->setTimeAgo($time);
-                                            $timeAgo = $post->getTimeAgo();
-                                            echo $timeAgo;
-                                            ?>
-                                        </p>
+                        $postData = new PostQueryDb();
+                        $postDetail = $postData->fetchOnePost();
+                    ?>
+                    
+                        <div class="innerContainer"> <!-- photo and title container -->
+                            <div class="postImage"> <!-- image div -->
+                                <img class="img-fluid w-100" src="<?= $postDetail['photo'] ?>"> <!-- displays post photo -->   
+                                <p class="px-1"><i class="bi bi-clock"></i> <?php 
+                                    $post = new PostValidator();
+                                    $created_at = $postDetail['created_at'];
+                                    $time = strtotime($created_at);
+                                    $post->setTimeAgo($time);
+                                    $timeAgo = $post->getTimeAgo();
+                                    echo $timeAgo;
+                                    ?>
+                                </p>
+                            </div>
+
+                            <!-- icons -->
+                            <div class="rightIconsDiv d-flex flex-column justify-content-between">
+                                <div class="likes">
+                                    
+                                    <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i>
+
+                                    <p>221.9k</p>
+                                </div>
+                                <div class="comments">
+                                    <a href="#scrollspyAboutMe"><i class="bi bi-chat-square"></i></a>
+                                    <!-- <i class="bi bi-chat-square"></i> -->
+                                    <p>1907</p>
+                                </div>
+                                <div class="shares">
+                                    <i class="bi bi-reply"></i>
+                                    <p>1805</p>
+                                </div>
+                            </div>
+
+                            <div class="categoryTitleContainer"> <!-- title, category container -->
+                                <div class="categoryReadTimeContainer d-flex justify-content-between p-2"> <!-- category and read time div -->
+                                    <h5><?=$postDetail['categoryName']?></h5> 
+                                    <h6> 
+
+                                        <?php
+                                            $totalNumWords = str_word_count($postDetail['description'], 0);
+                                            $wpm = 200; // where "wpm" is number of words per minute.  
+                                            $readPerMinute = floor($totalNumWords / $wpm); 
+                                            print_r("$readPerMinute Min Read");
+                                        ?> 
+
+                                    </h6>
+                                </div>
+                                <div class="titleContainer"> <!-- title div -->
+                                    <h4 class="pt-0 pe-3"><?=$postDetail['title']?></h4>
+                                </div> 
+                            </div>
+
+                            <div class="postDescription">
+                                <p><?=$postDetail['description']?></p>
+                            </div>
+
+                            <div id="scrollspyAboutMe" class="commentSection pt-3">
+                                
+                                <!-- Post details icons -->
+                                <div class="iconsWrapper d-flex justify-content-between my-4">
+                                    <div class="likes d-flex flex-column align-items-center">
+                                    
+                                        <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i>
+
+                                        <p>221.9k</p>
                                     </div>
-
-                                    <!-- icons -->
-                                    <div class="rightIconsDiv d-flex flex-column justify-content-between">
-                                        <div class="likes">
-                                           
-                                            <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i>
-
-                                            <p>221.9k</p>
-                                        </div>
-                                        <div class="comments">
-                                            <a href="#scrollspyAboutMe"><i class="bi bi-chat-square"></i></a>
-                                            <!-- <i class="bi bi-chat-square"></i> -->
-                                            <p>1907</p>
-                                        </div>
-                                        <div class="shares">
-                                            <i class="bi bi-reply"></i>
-                                            <p>1805</p>
-                                        </div>
+                                    <div class="comments d-flex flex-column align-items-center">
+                                        <i class="bi bi-chat-square"></i>
+                                        <p>1907</p>
                                     </div>
-
-                                    <div class="categoryTitleContainer"> <!-- title, category container -->
-                                        <div class="categoryReadTimeContainer d-flex justify-content-between p-2"> <!-- category and read time div -->
-                                            <h5><?=$postDetail['category']?></h5> 
-                                            <h6> 
-
-                                                <?php
-                                                    $totalNumWords = str_word_count($postDetail['description'], 0);
-                                                    $wpm = 200; // where "wpm" is number of words per minute.  
-                                                    $readPerMinute = floor($totalNumWords / $wpm); 
-                                                    print_r("$readPerMinute Min Read");
-                                                ?> 
-
-                                            </h6>
-                                        </div>
-                                        <div class="titleContainer"> <!-- title div -->
-                                            <h4 class="pt-0 pe-3"><?=$postDetail['title']?></h4>
-                                        </div> 
-                                    </div>
-
-                                    <div class="postDescription">
-                                        <p><?=$postDetail['description']?></p>
-                                    </div>
-
-                                    <div id="scrollspyAboutMe" class="commentSection pt-3">
-                                        
-                                        <!-- Post details icons -->
-                                        <div class="iconsWrapper d-flex justify-content-between my-4">
-                                            <div class="likes d-flex flex-column align-items-center">
-                                            
-                                                <i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i>
-
-                                                <p>221.9k</p>
-                                            </div>
-                                            <div class="comments d-flex flex-column align-items-center">
-                                                <i class="bi bi-chat-square"></i>
-                                                <p>1907</p>
-                                            </div>
-                                            <div class="shares d-flex flex-column align-items-center">
-                                                <i class="bi bi-reply"></i>
-                                                <p>1805</p>
-                                            </div>
-                                        </div>
-
-                                        <!-- User comment -->
-                                        <div class="userComment d-flex mb-4 p-3">
-                                            <div class="userAvatar">
-                                                <a href="#">
-                                                    <img src="./assets/images/moji.png" alt="user avatar">
-                                                </a>
-                                            </div>
-                                            <div class="commentContainer">
-                                                <div class="userStats d-flex align-items-center">
-                                                    <h6>mojisola badmus <span>· 2 hours ago</span></h6>
-                                                </div>
-                                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                                                    Reprehenderit eum veritatis illo magni iure, aliquam, quam 
-                                                    doloribus nobis ipsam culpa. 
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="commentWrapper mt-5">
-                                            <textarea name="comment" id="expandable-textarea" placeholder="Add a comment..."></textarea>
-                                        </div>
-                                        
+                                    <div class="shares d-flex flex-column align-items-center">
+                                        <i class="bi bi-reply"></i>
+                                        <p>1805</p>
                                     </div>
                                 </div>
+
+                                <!-- User comment -->
+                                <div class="userComment d-flex mb-4 p-3">
+                                    <div class="userAvatar">
+                                        <a href="#">
+                                            <img src="./assets/images/moji.png" alt="user avatar">
+                                        </a>
+                                    </div>
+                                    <div class="commentContainer">
+                                        <div class="userStats d-flex align-items-center">
+                                            <h6>mojisola badmus <span>· 2 hours ago</span></h6>
+                                        </div>
+                                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                                            Reprehenderit eum veritatis illo magni iure, aliquam, quam 
+                                            doloribus nobis ipsam culpa. 
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="commentWrapper mt-5">
+                                    <textarea name="comment" id="expandable-textarea" placeholder="Add a comment..."></textarea>
+                                </div>
                                 
-                            <?php
-                        }
-                    ?>
+                            </div>
+                        </div>
+                                
+                    <?php endif ?>
 
                 </section>
 
