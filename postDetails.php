@@ -92,6 +92,7 @@
                                         <div class="categoryReadTimeContainer d-flex justify-content-between p-2"> <!-- category and read time div -->
                                             <h5><?=$postDetail['category']?></h5> 
                                             <h6> 
+
                                                 <?php
                                                     $totalNumWords = str_word_count($postDetail['description'], 0);
                                                     $wpm = 200; // where "wpm" is number of words per minute.  
@@ -99,11 +100,10 @@
                                                     print_r("$readPerMinute Min Read");
                                                 ?> 
 
-
                                             </h6>
                                         </div>
                                         <div class="titleContainer"> <!-- title div -->
-                                            <h4 class="pt-0"><?=$postDetail['title']?></h4>
+                                            <h4 class="pt-0 pe-3"><?=$postDetail['title']?></h4>
                                         </div> 
                                     </div>
 
