@@ -141,17 +141,16 @@
                                     </div>
                                     <div class="rightSideInfo d-flex flex-column align-items-end pt-2 pe-2 mb-5">
                                         <div class="iconDiv mb-2"><i id="heart-icon" class="bi bi-heart" onclick="replaceLikeIcon(this)"></i></div>    
-                                        <!-- <div class="iconDiv"><i class="bi bi-chat-square"></i></div>     -->
                                     </div>
                                     
                                     <a href="./postDetails.php?id=<?=$postData['post_id']?>">
-                                        <img class="img-fluid rounded-top" src="<?=$postData['photo']?>"> <!-- fetches photo from posts table -->
+                                        <img class="img-fluid rounded-top" src="<?=$postData['photo']?>"> <!-- fetches photo -->
                                     </a>
 
                                 </div>
 
                                 <div class="postCategory d-flex justify-content-between py-2 px-2">
-                                    <p><?=$postData['category'] ?></p> <!-- fetches category from db -->
+                                    <p><?=$postData['categoryName'] ?></p> <!-- fetches categoryName -->
 
                                     <p>
                                         <?php
@@ -169,7 +168,7 @@
                                     <h6><?=substr_replace($postData['title'],  "...", 55)?></h6> <!-- fetches title from db -->
                                 </div>
                                 <div class="postParagraph px-2">
-                                    <p><?=substr_replace($postData['description'], "...", 70)?></p> <!-- fetches description from db -->
+                                    <p><?=substr_replace($postData['description'], "...", 70)?></p> <!-- fetches description -->
                                 </div>
                             </div>
                     <?php 
