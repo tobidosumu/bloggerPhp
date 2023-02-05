@@ -27,7 +27,7 @@
             $this->description = $description;
         }
 
-        public function insertPost() // Save blog title, category, description, photo
+        public function insertPost() // Saves blog title, category, description, photo
         {
             $fileName = $_FILES['photo']['name'];
             $fileTmpName = $_FILES['photo']['tmp_name'];
@@ -41,7 +41,7 @@
             move_uploaded_file($fileTmpName, $imageDestination);
 
             try {
-                $stmt = $this->connect()->prepare("INSERT INTO posts(title, category, description, photo)
+                $stmt = $this->connect()->prepare("INSERT INTO posts(title, category_id, description, photo)
                 VALUES(?, ?, ?, ?)");
                 $stmt->execute([$this->title, $this->category, $this->description, $imageDestination]);
                 return "successful";
@@ -52,12 +52,24 @@
             }
         }
 
-        public function fetchOne($post_id) // Fetch one set of post data i.e. one blog title, category, description, photo
+        public function fetchOnePost() // Fetch one set of post data i.e. one blog title, category, description, photo
         {
             try 
             {
-                $stmt = $this->connect()->prepare("SELECT * FROM posts WHERE post_id=? LIMIT 1");
-                $stmt->execute([$post_id]);
+                $query = "SELECT 
+                            posts.post_id=?, 
+                            posts.title, 
+                            posts.description, 
+                            posts.photo,
+                            posts.created_at,
+                            categories.categoryName 
+                        FROM posts
+                        INNER JOIN categories ON posts.category_id=categories.id
+                        ORDER BY posts.created_at DESC
+                        LIMIT 1";
+
+                $stmt = $this->connect()->prepare($query);
+                $stmt->execute([$this->post_id]);
                 return $stmt->fetch();
             } 
             catch (Exception $e) 
@@ -66,11 +78,22 @@
             }
         }
 
-        public function fetchAllPosts() // Fetch all post data from DB
+        public function fetchAllPosts() // Fetch all data from post and fetch id from category
         {
             try 
             {
-                $stmt = $this->connect()->prepare("SELECT * FROM posts ORDER BY post_id DESC");
+                $query = "SELECT 
+                            posts.post_id, 
+                            posts.title, 
+                            posts.description, 
+                            posts.photo,
+                            posts.created_at,
+                            categories.categoryName 
+                        FROM posts
+                        INNER JOIN categories ON posts.category_id=categories.id
+                        ORDER BY posts.created_at DESC";
+
+                $stmt = $this->connect()->prepare($query);
                 $stmt->execute();
                 return $stmt->fetchAll();
             } 
