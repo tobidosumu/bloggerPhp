@@ -30,6 +30,8 @@ if (isset($_POST['insertPostData']))
         $insertPostData->setDescription($_POST['description']);
 
         $insertPostData->insertPost();
+
+        header("Location: ".$_SERVER['PHP_SELF']);
     } 
 } 
 
@@ -155,7 +157,7 @@ else
 
                             <div class="postTextWrapper">
 
-                                <p class="postCategory"> <?= $post['category'] ?> </p>
+                                <p class="postCategory"> <?= $post['categoryName'] ?> </p>
 
                                 <p class="postParagraph"> <?= $post['title'] ?> </p>
 
@@ -306,7 +308,7 @@ else
                                         }
                                         
                                         ?>
-                                        <option value="<?= $category['categoryName'] ?>" <?= $selected ?>><?= $category['categoryName'] ?></option> 
+                                        <option value="<?= $category['id'] ?>" <?= $selected ?>><?= $category['categoryName'] ?></option> 
                                         
                                     <?php
                                     }
