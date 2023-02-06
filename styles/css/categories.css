@@ -387,6 +387,7 @@ body .mainContainer .categoriesWrapper {
   width: 100%;
   padding: 0 12%;
   margin: 70px 0;
+  padding-bottom: 100px;
 }
 body .mainContainer .categoriesWrapper .displaySuccessMessage {
   position: fixed;

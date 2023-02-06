@@ -177,85 +177,13 @@
                     ?>            
                 </section>
 
-
-                <!-- <nav aria-label="..." class="d-flex justify-content-center mt-5 pt-5 border-top"> -->
-                    <!-- pagination -->
-                    <!-- <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul> -->
-                <!-- </nav> -->
             </section>
 
-            <section class="dropUsAmessage mb-5 p-5 rounded-2">
-                <div>
-                    <h2 class="h5 mb-3">Drop us a line!</h2>
-                </div>
-                <div class="textBlockContainer d-flex justify-content-between align-items-start">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-                        atque minus qui assumenda atque minus qui assumenda atque minus qui assumenda atque minus qui assumenda
-                    </p>
-                    <a href="mailto:imtobidosunmu@gmail.com" class="btn">Contact us</a>
-                </div>
-            </section>
+            <?php include './footers/dropUsAMessage.php' ?>
 
         </section>
 
-        <footer class="d-flex justify-content-between py-5"> <!-- footer -->
-
-            <div class="contactUs">
-                <ul class="d-flex flex-column">
-                    <p>Contact us</p>
-                    <li><a href="#">Blogger.com</a></li>
-                    <li><a href="tel:+2348081659995">+2348 081 659 995</a></li>
-                </ul>
-            </div>
-
-            <div class="links justify-content-center">
-                <ul class="d-flex flex-column">
-                    <p>Links</p>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Resources</a></li>
-                </ul>
-            </div>
-
-            <div class="products justify-content-center">
-                <ul class="d-flex flex-column">
-                    <p>Products</p>
-                    <li><a href="#">Blogger Social</a></li>
-                    <li><a href="#">Blogger Media</a></li>
-                    <li><a href="#">Blogger Times</a></li>
-                </ul>
-            </div>
-
-            <div class="followUs justify-content-end">
-                <ul class="d-flex flex-column align-items-start">
-                    <p>Follow us</p>
-                    <li>
-                        <ul>
-                            <li><a href="#"><img src="./assets/svg/pinterestIcon.svg" alt="follow us on Facebook"></a></li>
-                            <li><a href="#"><img src="./assets/svg/youtubeIcon.svg" alt="follow us on Youtube"></a></li>
-                            <li><a href="#"><img src="./assets/svg/facebookIcon.svg" alt="follow us on Facebook"></a></li>
-                            <li><a href="#"><img src="./assets/svg/twitterIcon.svg" alt="follow us on Twitter"></a></li>
-                        </ul>
-                    </li>
-                    <li class="logoList mt-3"><a href="#"><img src="./assets/svg/bloggerLogoWhite.svg" alt="Blogger.com"></a></li>
-                </ul>
-            </div>
-
-        </footer>
+        <?php include './footers/globalFooter.php' ?>
 
     </div>
 </body>

@@ -40,7 +40,7 @@
                         <ul class="d-flex">
                             <li><a href="./posts.php">Posts</a></li>
                             <li class="mx-2"><i class="bi bi-chevron-right"></i></li>
-                            <li><a href="/">Post Details</a></li>
+                            <li>Post Details</li>
                         </ul>
                     </nav>
                     
@@ -88,7 +88,7 @@
                             </div>
 
                             <div class="categoryTitleContainer"> <!-- title, category container -->
-                                <div class="categoryReadTimeContainer d-flex justify-content-between p-2"> <!-- category and read time div -->
+                                <div class="categoryReadTimeContainer d-flex justify-content-between p-2 px-3"> <!-- category and read time div -->
                                     <h5><?=$postDetail['categoryName']?></h5> 
                                     <h6> 
 
@@ -185,64 +185,11 @@
 
             </section>
 
-            <section class="dropUsAmessage mb-5 p-5 rounded-2">
-                <div>
-                    <h2 class="h5 mb-3">Drop us a line!</h2>
-                </div>
-                <div class="textBlockContainer d-flex justify-content-between align-items-start">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-                        atque minus qui assumenda atque minus qui assumenda atque minus qui assumenda atque minus qui assumenda
-                    </p>
-                    <a href="mailto:imtobidosunmu@gmail.com" class="btn">Contact us</a>
-                </div>
-            </section>
+            <?php include './footers/dropUsAMessage.php' ?>
 
         </section>
 
-        <footer class="d-flex justify-content-between py-5"> <!-- footer -->
-
-            <div class="contactUs">
-                <ul class="d-flex flex-column">
-                    <p>Contact us</p>
-                    <li><a href="#">Blogger.com</a></li>
-                    <li><a href="tel:+2348081659995">+2348 081 659 995</a></li>
-                </ul>
-            </div>
-
-            <div class="links justify-content-center">
-                <ul class="d-flex flex-column">
-                    <p>Links</p>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Resources</a></li>
-                </ul>
-            </div>
-
-            <div class="products justify-content-center">
-                <ul class="d-flex flex-column">
-                    <p>Products</p>
-                    <li><a href="#">Blogger Social</a></li>
-                    <li><a href="#">Blogger Media</a></li>
-                    <li><a href="#">Blogger Times</a></li>
-                </ul>
-            </div>
-
-            <div class="followUs justify-content-end">
-                <ul class="d-flex flex-column align-items-start">
-                    <p>Follow us</p>
-                    <li>
-                        <ul>
-                            <li><a href="#"><img src="./assets/svg/pinterestIcon.svg" alt="follow us on Facebook"></a></li>
-                            <li><a href="#"><img src="./assets/svg/youtubeIcon.svg" alt="follow us on Youtube"></a></li>
-                            <li><a href="#"><img src="./assets/svg/facebookIcon.svg" alt="follow us on Facebook"></a></li>
-                            <li><a href="#"><img src="./assets/svg/twitterIcon.svg" alt="follow us on Twitter"></a></li>
-                        </ul>
-                    </li>
-                    <li class="logoList mt-3"><a href="#"><img src="./assets/svg/bloggerLogoWhite.svg" alt="Blogger.com"></a></li>
-                </ul>
-            </div>
-
-        </footer>
+        <?php include './footers/globalFooter.php' ?>
 
     </div>
 </body>

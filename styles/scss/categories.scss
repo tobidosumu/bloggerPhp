@@ -354,7 +354,7 @@ body {
             width: 100%;
             @include widthPadding;
             margin: 70px 0;
-            // border: 1px solid red;
+            padding-bottom: 100px;
 
             .displaySuccessMessage {
                 position: fixed;

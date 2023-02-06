@@ -362,11 +362,20 @@ body {
             }
             
             section {
+                
                 .mainContentContainer {
-                    width: 67%;
+                    width: 67.5%;
                     position: sticky;
-                    padding-bottom: 100px;
-                    // border: 1px solid red;
+                    padding-bottom: 150px;
+
+                    nav {
+                        ul {
+                            li {
+                                @include primaryFont;
+                                color: $grey;
+                            }
+                        }
+                    }
 
                     .innerContainer { // photo, title, category div
                         margin-right: 43px;
@@ -462,7 +471,7 @@ body {
                             .categoryReadTimeContainer { // category and read time div
                                 width: 50%;
                                 position: relative;
-                                bottom: 32px;
+                                bottom: 30px;
                                 background: $transparentWhite;
                                 // border: 1px solid red;
 
@@ -637,23 +646,9 @@ body {
             }
 
             .dropUsAmessage { // this block styles the div before the footer
-                position: relative;
-                top: 110px;
-                margin-top: -120px;
-                background-color: $lightGreenColor;
-                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+              
+                @include dropUsAmessage;
 
-                .textBlockContainer {
-                    p {
-                        width: 60%;
-                        @include primaryFont;
-                        color: $grey;
-                    }
-
-                    a {
-                        @include greenBtn;
-                    }
-                }
             }
         }
     }
