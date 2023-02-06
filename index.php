@@ -1,6 +1,6 @@
 <?php
-// Start the session
-session_start();
+
+session_start(); // Start the session
 
 $userLoggedIn = '';
 
@@ -31,26 +31,23 @@ if (isset($_POST['insertPostData']))
 
         $insertPostData->insertPost();
 
-        header("Location: ".$_SERVER['PHP_SELF']);
+        $_POST = []; 
     } 
 } 
 
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) 
 {
-    // User is logged in
     $userLoggedIn = true;   
     
     if (isset($_POST['logOutUser'])) 
     {
-        // User is logged in
         $userStatus = new UserSessionValidator();
         $logOutUser = $userStatus->logOutUser();
     } 
 } 
 else 
 {
-    // User is not logged in
-    $userLoggedIn = false;
+    $userLoggedIn = false; // User is not logged in
 }
 
 ?>
@@ -250,7 +247,7 @@ else
         </footer>
         
         <!-- This button triggers create POST modal -->
-        <button type="button" class="postBtn border-0" data-bs-toggle="modal" data-bs-target="#postModal">
+        <button type="button" onclick="openPostModal()" class="postBtn border-0">
             <img src="assets/svg/feather.svg" alt="Click to post">
         </button>
         
@@ -258,100 +255,20 @@ else
             <p>Click to post</p>
         </div>
 
-        <!-- Create POST Modal -->
-        <div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                
-            <div class="modal-dialog modal-dialog-centered">
-
-                <div class="modal-content modalContent">
-
-                    <form action="" method="post" enctype="multipart/form-data">
-
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Create Post</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-
-                        <div class="modal-body px-4 my-2">
-
-                            <label for="title">Blog title<b class="text-danger"> * </b><span class="text-danger"><?= $errors['title'] ?? '' ?></span></label> <!-- Blog title starts here -->
-                            <div class="input-group mt-2 mb-3">
-                                <span class="input-group-text" id="addon-wrapping">
-                                    <i class="bi bi-card-heading"></i>
-                                </span>
-                                <input type="text" class="form-control py-2" name="title" value="<?= $_POST['title'] ?? '' ?>" placeholder="Add blog title">
-                            </div>
-
-                            <div class="d-flex justify-content-between align-items-center">
-                                <label for="title" class="mt-3">Blog category<b class="text-danger"> * </b><span class="text-danger"><?= $errors['category'] ?? '' ?></span></label> <!-- Blog category starts here -->
-                                <span><a href="./categories.php" target="_blank" class="addCatBtn btn btn-sm btn-outline-primary">Add category <i class="bi bi-box-arrow-up-right ms-1"></i></a></span>
-                            </div>
-
-                            <div class="input-group mt-2 mb-3">
-
-                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                    <i class="bi bi-list"></i>
-                                </span>
-
-                                <select class="form-select py-2" name="category" id="floatingSelect" aria-label="Floating label select example">
-                                    
-                                    <option>Select a category</option>
-                                    
-                                    <?php
-                                        $result = new CategoryQueryDb();
-                                        $categories = $result->fetchAllCategoryNames();
-                                        foreach ($categories as $category) {
-                                        
-                                        $selected = "";
-                                        if (isset($_POST['category']) && $_POST['category'] == $category['categoryName']) {
-                                            $selected = "selected";
-                                        }
-                                        
-                                        ?>
-                                        <option value="<?= $category['id'] ?>" <?= $selected ?>><?= $category['categoryName'] ?></option> 
-                                        
-                                    <?php
-                                    }
-                                    ?>
-                                    
-                                </select>
-
-                            </div>
-
-                            <label for="title">Blog description<b class="text-danger"> * </b><span class="text-danger"><?= $errors['description'] ?? '' ?></span></label> <!-- blog description starts here-->
-                            
-                            <div class="input-group mt-2 mb-3">
-
-                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                    <i class="bi bi-pencil-square"></i>
-                                </span>
-                                <textarea class="form-control rounded-0 rounded-end decriptionField" name="description" placeholder="Add blog description" id="floatingTextarea2" style="height: 100px"><?= $_POST['description'] ?? '' ?></textarea>
-                            </div>
-
-                            <label for="title">Blog photo<b class="text-danger"> * </b><span class="text-danger"><?= $errors['photo'] ?? '' ?></span></label> <!-- upload blog photo starts here-->
-                            <div class="input-group mt-2 mb-3">
-                                <span class="input-group-text rounded-0 rounded-start border-end-0" id="addon-wrapping">
-                                    <i class="bi bi-card-image"></i>
-                                </span>
-                                <input type="file" name="photo" value="<?= $_POST['photo'] ?? '' ?>" class="form-control" id="inputGroupSelect01" aria-describedby="inputGroupFileAddon01" aria-label="Upload">
-                            </div>
-
-                        </div> <!-- modal body ends here -->
-
-                        <div class="modal-footer">
-                            <button type="submit" name="insertPostData" class="sendPostBtn btn btn-primary">Post <i class="bi bi-send"></i></button>
-                        </div>
-
-                    </form> <!-- form ends here -->
-
-                </div>
-
-            </div>
-
-        </div>
+        <?php include './modals/createModal.php'?>
 
     </div>
-    
+
+    <div id="postModalBackground" onclick="closePostModal()" class="postModalBackground"> </div>
+
 </body>
 
 </html>
+
+<?php if (!empty($errors)): ?>
+    <script defer>
+        $(document).ready(function(){
+            openPostModal();
+        });
+    </script>
+<?php endif ?>

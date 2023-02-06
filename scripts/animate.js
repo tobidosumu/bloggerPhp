@@ -1,7 +1,6 @@
 //  IIFE (Immediately Invoked Function Expression) so that the variables and functions inside them do not interfere with the global scope.
 
-// Header shadow function
-(function() {
+(function() { // Header shadow function
   window.addEventListener("scroll", function() {
     const [red, green, blue] = [242, 254, 255];
     const header = document.querySelector("header");
@@ -18,10 +17,9 @@
     setTimeout(function() {
       let tooltip = document.getElementById('createPostTooltip');
       tooltip.classList.add('hide');
-    }, 4000);
+    }, 3000);
   });
 })();
-
 
 const autoResizeTextarea = () => {
   const textareas = document.querySelectorAll("#expandable-textarea"); // Post comments
@@ -102,7 +100,18 @@ const toggleSearchDropdown = () => {
   }
 }
 
-hideSuccessMessage = () => {
+const hideSuccessMessage = () => {
   document.getElementById("hideSuccessMessage").style.display = "none";
 }
 
+let postModalBackground = document.getElementById('postModalBackground');
+
+const openPostModal = () => {
+  document.getElementById('postModal').style.display = 'block';
+  postModalBackground.style.display = 'block';
+}
+
+const closePostModal = () => {
+  document.getElementById('postModal').style.display = 'none';
+  postModalBackground.style.display = 'none';
+}

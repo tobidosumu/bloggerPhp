@@ -647,6 +647,14 @@ body .mainContainer .blogContents .dropUsAmessage .textBlockContainer a:hover {
   color: #ffffff;
   background-color: #00835c;
 }
+body .postModalBackground {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  display: none;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.7176470588);
+}
 body footer {
   height: 350px;
   background-color: #121d2a;
@@ -685,56 +693,63 @@ body footer div:last-child ul li ul li a img {
 body footer div:last-child ul .logoList a img {
   width: 100px;
 }
-body .modal-dialog {
+body .postModal {
+  width: 37%;
+  z-index: 100;
+  display: none;
+  margin-top: 250px;
+  background-color: #ffffff;
+}
+body .postModal .modal-dialog {
   max-width: none !important;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-body .modal-dialog .modalContent {
+body .postModal .modal-dialog .modalContent {
   width: 600px;
 }
-body .modal-dialog .modalContent form .modal-body label {
+body .postModal .modal-dialog .modalContent form .modal-body label {
   font-size: 0.8rem;
   font-weight: 500;
   font-weight: 400;
   color: #9d9d9d;
 }
-body .modal-dialog .modalContent form .modal-body .addCatBtn {
+body .postModal .modal-dialog .modalContent form .modal-body .addCatBtn {
   color: #6025eb;
   border-color: #6025eb;
 }
-body .modal-dialog .modalContent form .modal-body .addCatBtn:hover {
+body .postModal .modal-dialog .modalContent form .modal-body .addCatBtn:hover {
   color: #ffffff;
   background-color: #6025eb;
 }
-body .modal-dialog .modalContent form .modal-body .input-group span i {
+body .postModal .modal-dialog .modalContent form .modal-body .input-group span i {
   color: #6025eb;
 }
-body .modal-dialog .modalContent form .modal-body .input-group input {
+body .postModal .modal-dialog .modalContent form .modal-body .input-group input {
   color: rgba(0, 0, 0, 0.7176470588) !important;
 }
-body .modal-dialog .modalContent form .modal-body .input-group input::placeholder {
+body .postModal .modal-dialog .modalContent form .modal-body .input-group input::placeholder {
   color: #9d9d9d;
   font-size: 0.9rem;
   font-weight: 400;
 }
-body .modal-dialog .modalContent form .modal-body .input-group textarea {
+body .postModal .modal-dialog .modalContent form .modal-body .input-group textarea {
   color: rgba(0, 0, 0, 0.7176470588) !important;
 }
-body .modal-dialog .modalContent form .modal-body .input-group textarea::placeholder {
+body .postModal .modal-dialog .modalContent form .modal-body .input-group textarea::placeholder {
   color: #9d9d9d;
   font-size: 0.9rem;
   font-weight: 400;
   position: relative;
   top: 33px;
 }
-body .modal-dialog .modalContent form .modal-footer .sendPostBtn {
+body .postModal .modal-dialog .modalContent form .modal-footer .sendPostBtn {
   padding: 7px 20px;
   background-color: #eb253f;
   border: none;
 }
-body .modal-dialog .modalContent form .modal-footer .sendPostBtn:hover {
+body .postModal .modal-dialog .modalContent form .modal-footer .sendPostBtn:hover {
   background-color: #6025eb;
 }
 body .postBtn {
