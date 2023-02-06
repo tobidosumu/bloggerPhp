@@ -1,6 +1,7 @@
 <?php
-    // Start the session
+
     session_start();
+
     $userLoggedIn = '';
 
     require './classes/dbConnect.php'; // DbConnect
@@ -10,19 +11,16 @@
 
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) 
     {
-        // User is logged in
         $userLoggedIn = true;
             
         if (isset($_POST['logOutUser'])) 
         {
-            // User is logged in
             $userStatus = new UserSessionValidator();
             $logOutUser = $userStatus->logOutUser();
         } 
     } 
     else 
     {
-        // User is not logged in
         $userLoggedIn = false;
     }
 
@@ -53,7 +51,7 @@
                         $postData = new PostQueryDb();
                         $postData->setPostId($_GET['id']);
                         $postDetail = $postData->fetchOnePost();
-                        // var_dump($postDetail);
+
                     ?>
                     
                         <div class="innerContainer"> <!-- photo and title container -->
