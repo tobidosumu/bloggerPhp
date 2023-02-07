@@ -77,7 +77,9 @@ else
                  
                 </section>
 
-                <aside class="rightSideContentContainer border-start"> </aside>
+                <section class="rightSideContentContainer border-start"> <!-- Right side section -->
+                    
+                </section>
 
             </section>
 
@@ -96,7 +98,7 @@ else
             <p>Click to post</p>
         </div>
 
-        <?php include './modals/createPostModal.php'?>
+        <?php include './modals/forms/createPostForm.php'?>
 
     </div>
 

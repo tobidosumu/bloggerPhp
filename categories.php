@@ -70,7 +70,7 @@ if (isset($_POST['updateCategoryBtn']))
 
             <?php if (!empty($_GET['id'])): ?>
                 
-                <?php include './modals/categoryUpdateModal.php' ?>
+                <?php include './modals/forms/updateCategoryForm.php' ?>
 
             <?php endif ?>
 
@@ -123,7 +123,7 @@ if (isset($_POST['updateCategoryBtn']))
         </button>
 
         <!-- Create category Modal -->
-        <?php include './modals/createCategoryModal.php' ?>
+        <?php include './modals/forms/createCategoryForm.php' ?>
 
     </div>
 
