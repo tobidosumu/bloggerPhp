@@ -36,23 +36,31 @@
                         <select class="form-select py-2" name="category" id="floatingSelect" aria-label="Floating label select example">
                             
                             <option>Select a category</option>
-                            
+
                             <?php
-                                $result = new CategoryQueryDb();
-                                $categories = $result->fetchAllCategoryNames();
-                                foreach ($categories as $category) {
-                                
-                                $selected = "";
 
-                                if (isset($_POST['category']) && $_POST['category'] == $category['categoryName']) {
-                                    $selected = "selected";
-                                }
-                            ?>
+                                $categoryNames = new CategoryQueryDb();
+                                $categories = $categoryNames->fetchAllCategoryNames();
 
-                                <option class="postModalValue" value="<?= $category['id'] ?>" <?= $selected ?>><?= $category['categoryName'] ?></option> 
+                                foreach ($categories as $category): ?>
+
+                                    <?php 
+
+                                        if ((isset($_POST['category']) && $_POST['category'] == $category['id'])): 
+                                    ?>
+
+                                        <option class="postModalValue" value="<?= $category['id'] ?>" selected> 
+                                            <?= $category['categoryName'] ?> 
+                                        </option> ;
+                        
+                                    <?php endif ?>
                                 
-                            <?php } ?>
-                            
+                                    <option class="postModalValue" value="<?= $category['id'] ?>"> 
+                                        <?= $category['categoryName'] ?> 
+                                    </option> 
+
+                            <?php endforeach ?>
+
                         </select>
 
                     </div>
