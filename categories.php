@@ -17,7 +17,7 @@ if (isset($_POST['createCategoryBtn'])) // Checks if category form is submitted
         $validCategoryName->setCategoryName($_POST['categoryName']);
         $validCategoryName->createCategory();
 
-        $categoryNameAdded = true;
+        $categoryNameAdded = true; // Alerts: Category name saved successfully
     }
 }
 
@@ -42,7 +42,7 @@ if (isset($_POST['updateCategoryBtn']))
     {
         $categoryRow->updateCategory();
 
-        $categoryNameUpdated = true;
+        $categoryNameUpdated = true; // Alerts: Category name updated successfully
     }
 }
 
@@ -70,7 +70,7 @@ if (isset($_POST['updateCategoryBtn']))
 
             <?php if (!empty($_GET['id'])): ?>
                 
-            <?php include './modals/categoryUpdateModal.php' ?>
+                <?php include './modals/categoryUpdateModal.php' ?>
 
             <?php endif ?>
 
