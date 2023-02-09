@@ -6,13 +6,9 @@
 
             <?php 
                 $userNamesResult = new UserDbQuery();
-                $userNames = $userNamesResult->getFullNames();
-
-                foreach ($userNames as $userName): ?>
-            
-                <p class="avaterDetails ms-3"> <?= $userName['firstName'] . ' '.  $userName['lastName'] ?> </p>
-            
-            <?php endforeach ?>
+                $userNames = $userNamesResult->getFullNames()
+            ?>
+                <p class="avaterDetails ms-3"> <?= $_SESSION['user_details']['firstName'] . ' '.  $_SESSION['user_details']['lastName'] ?> </p>
 
         </div>
         
